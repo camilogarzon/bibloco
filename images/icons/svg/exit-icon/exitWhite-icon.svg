@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>exitWhite-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Img-exp" sketch:type="MSArtboardGroup" transform="translate(-1163.000000, -103.000000)" fill="#FFFFFF">
+            <g id="Img-exp-with-bg" sketch:type="MSLayerGroup" transform="translate(60.000000, 0.000000)">
+                <g id="Image-exp-with-X" transform="translate(277.000000, 103.000000)" sketch:type="MSShapeGroup">
+                    <g id="exitWhite-icon" transform="translate(826.000000, 0.000000)">
+                        <path d="M28.6409204,24.3982797 C29.8103609,25.5677202 29.8062483,27.4678704 28.6370594,28.6370594 L28.6370594,28.6370594 C27.4654865,29.8086322 25.5610309,29.8036716 24.3982797,28.6409204 L1.35907962,5.60172031 C0.189639132,4.43227982 0.193751689,2.53212961 1.36294065,1.36294065 L1.36294065,1.36294065 C2.53451352,0.191367773 4.4389691,0.196328413 5.60172031,1.35907962 L28.6409204,24.3982797 L28.6409204,24.3982797 Z" id="Rectangle-604"></path>
+                        <path d="M1.35907962,24.3982797 C0.189639132,25.5677202 0.193751689,27.4678704 1.36294065,28.6370594 L1.36294065,28.6370594 C2.53451352,29.8086322 4.4389691,29.8036716 5.60172031,28.6409204 L28.6409204,5.60172031 C29.8103609,4.43227982 29.8062483,2.53212961 28.6370594,1.36294065 L28.6370594,1.36294065 C27.4654865,0.191367773 25.5610309,0.196328413 24.3982797,1.35907962 L1.35907962,24.3982797 L1.35907962,24.3982797 Z" id="Rectangle-603"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

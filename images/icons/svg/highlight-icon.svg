@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="19px" viewBox="0 0 18 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>highlight-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="BaseInfo" sketch:type="MSArtboardGroup" transform="translate(-655.000000, -513.000000)" fill="#04C4BB">
+            <g id="Hold-on-options" sketch:type="MSLayerGroup" transform="translate(647.000000, 506.000000)">
+                <ellipse id="highlight-icon" sketch:type="MSShapeGroup" cx="17.0024964" cy="16.1053988" rx="8.99750361" ry="9.08319412"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>
