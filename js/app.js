@@ -8,12 +8,17 @@ function showHideLabel(id, show) {
 
 function printLecture() {
 var prtContent = document.getElementById('lecture');
+var printDivCSS = new String ('<link href="css/print.css" rel="stylesheet" type="text/css"><div align="center" style="cursor: pointer; width:100%;"><div onclick="window.print();" style="background-color: #D6D6D6;width: 200px;margin: 40px;padding-bottom: 10px;padding-top: 10px;border-radius: 10px;cursor: pointer;"><span style="color: blue; ">CLIC PARA IMPRIMIR</span></div></div>');
 var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-WinPrint.document.write(prtContent.innerHTML);
+WinPrint.document.write(printDivCSS + prtContent.innerHTML);
 WinPrint.document.close();
 WinPrint.focus();
-WinPrint.print();
-WinPrint.close();    
+//WinPrint.print();
+//WinPrint.close();    
+}
+
+function printThis(){
+    window.print();
 }
 
 function fontSizeChange(e,c) {
