@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lorapp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="css/app.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+        <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="js/fancybox/source/jquery.fancybox.css" media="screen" />
+    </head>
+    <body>
+        <div id="highlight-button">
+            <img title="Resaltar" id="highlighter" src="images/icons/png/highlight-icon.png"/>
+            <span title="Limpiar" id="unhighlight" style="vertical-align: super;">X</span>
+            <img title="Crear nota" id="add_note" src="images/icons/png/addNote-icon.png"/>
+        </div>
+        <div class="float_note" id="float_note" style="display: none;">
+            <input type="hidden" id="sel_text" name="sel_text"/>
+            <div id="selected_text">
+                Los efectos de la división del trabajo en los negocios generales de la sociedad se entenderán mis
+                fácilmente considerando la manera como opera en algunas de las manufacturas. Generalmente
+                se cree que tal divisi6n es mucho mayor en ciertas actividades económicas de poca importancia,
+                no porque efectivamente esa división se extreme mas que en otras actividades de importancia
+                mayor, sino porque en aquellas manufacturas que se destinan a ofrecer satisfacciones para las
+                pequeñas necesidades de un reducido numero de personas, el numero de operarios ha de ser
+                pequeño, y los empleados en los diversos pasos o etapas de la producción se pueden reunir
+                generalmente en el mismo taller y a la vista del espectador. Por el contrario, en aquellas
+                manufacturas destinadas a satisfacer los pedidos de un gran numero de personas, cada uno de
+                los diferentes ramos de la obra emplea un numero tan considerable de obreros, que es imposible
+                juntarlos en el mismo taller. Difícilmente podemos abarcar de una vez, con la mirada, sino los
+                obreros empleados en un ramo de la producción. Aun cuando en las grandes manufacturas la
+                tarea se puede dividir realmente en un numero de operaciones mucho mayor que en otras
+                manufactures más pequeñas, la divisi6n del trabajo no es tan obvia y, por consiguiente, ha sido
+                menos observada
+            </div>
+            <br>
+            <div>
+                <div align="center">
+                    <textarea id="my_notes" style="width: 99%;" rows="6" placeholder="Notas"></textarea><br><br>
+                    <div align="center" style="display: inline-table; vertical-align: top;">
+                        <span id="btn_guardar" class="float_label" style="width: 150px; cursor: pointer" onclick="saveNote()" >Guardar</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span id="btn_cancelar" class="float_label" style="width: 150px; cursor: pointer" onclick="closeNote()">Cancelar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="display: table-row; width: 100%;">
+            <div class="left_menu" style="display: table-cell">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="position: fixed; top: 20px; width: 60px;">
+                    <div id="label_my_lecture" class="float_label" style="position: fixed; left: 70px; top: 45px; display: none;" >Mis Lecturas</div>
+                    <div id="label_font_down" class="float_label" style="position: fixed; left: 70px; top: 115px; display: none;">Disminuir Fuente</div>
+                    <div id="label_font_up" class="float_label" style="position: fixed; left: 70px; top: 180px; display: none;">Aumentar Fuente</div>
+                    <div id="label_note" class="float_label" style="position: fixed; left: 70px; top: 250px; display: none;" >Mis Apuntes</div>
+                    <a href="index.html"><img src="images/icons/svg/back-icon.svg" onmouseover="showHideLabel('label_my_lecture', true)" onmouseout="showHideLabel('label_my_lecture', false)"/></a>
+                    <img src="images/icons/svg/Aminus-icon.svg" onmouseover="showHideLabel('label_font_down', true)" onmouseout="showHideLabel('label_font_down', false)" onclick="fontSizeChange('.lecture','-')"/> 
+                    <img src="images/icons/svg/Aplus-icon.svg" onmouseover="showHideLabel('label_font_up', true)" onmouseout="showHideLabel('label_font_up', false)" onclick="fontSizeChange('.lecture','+')"/> 
+                    <a href="misapuntes.html"><img src="images/icons/svg/notes-icon.svg" onmouseover="showHideLabel('label_note', true)" onmouseout="showHideLabel('label_note', false)"/></a>
+                </div>
+                <div style="position: fixed; bottom: 10px; width: 60px;">
+                    <div id="label_print" class="float_label" style="position: fixed; left: 70px; bottom: 120px; display: none;" >Imprimir</div>
+                    <div id="label_info" class="float_label" style="position: fixed; left: 70px; bottom: 40px; display: none;" >Más Información</div>
+                    <img src="images/icons/svg/print-icon.svg" onmouseover="showHideLabel('label_print', true)" onmouseout="showHideLabel('label_print', false)" onclick="printLecture()"/> 
+                    <!--<img src="images/icons/png/help-icon.png" onmouseover="showHideLabel('label_info', true)" onmouseout="showHideLabel('label_info', false)"/>--> 
+                </div>
+            </div>
+            <div align="center" style="display: table-cell; width: 100%;">
+                <div style="display: table-row">
+                    <div style="display: table-cell">
+                        <div  class="lecture" id="lecture">
+                            <p class="lecture_title">La riqueza de las naciones</p>
+                            <p class="lecture_author">Adam Smith</p>
+                            <hr>
+                            <p class="lecture_chapter">Capítulo 1: De la división del trabajo</p>
+                            <p class="lecture_phrase">"El progreso es más importante en las facultades productivas".</p>
+                            <div class="lecture_container">
+                                <p>
+                                    El progreso más importante en las facultades productivas del trabajo, y gran parte de la aptitud,
+                                    destreza y sensatez con que diste se aplica o dirige, por doquier, parecen ser consecuencia de la
+                                    división del trabajo. 
+                                </p>
+                                <div align="center" style="width: 100%">
+                                    <div>
+                                        <a onclick="imageFancyBox('images/adam_smith_portrait.jpg')">
+                                            <img class="lecture_expand" src="images/icons/png/expand-icon.png"/>
+                                        </a>
+                                        <img class="lecture_images" src="images/adam_smith_portrait.jpg" style="max-height: 200px; "/>
+                                    </div>
+                                    <div class="lecture_image_label">FIG. Adam Smith en la riqueza de las naciones, publicado en 1776.</div>
+                                </div>
+                                <p>Los efectos de la división del trabajo en los negocios generales de la sociedad se entenderán mis fácilmente considerando la manera como opera en algunas de las manufacturas. Generalmente se cree que tal divisi6n es mucho mayor en ciertas actividades económicas de poca importancia, no porque efectivamente esa división se extreme mas que en otras actividades de importancia mayor, sino porque en aquellas manufacturas que se destinan a ofrecer satisfacciones para las pequeñas necesidades de un reducido numero de personas, el numero de operarios ha de ser pequeño, y los empleados en los diversos pasos o etapas de la producción se pueden reunir generalmente en el mismo taller y a la vista del espectador. Por el contrario, en aquellas manufacturas destinadas a satisfacer los pedidos de un gran numero de personas, cada uno de los diferentes ramos de la obra emplea un numero tan considerable de obreros, que es imposible juntarlos en el mismo taller. Difícilmente podemos abarcar de una vez, con la mirada, sino los obreros empleados en un ramo de la producción. Aun cuando en las grandes manufacturas la tarea se puede dividir realmente en un numero de operaciones mucho mayor que en otras manufactures más pequeñas, la divisi6n del trabajo no es tan obvia y, por consiguiente, ha sido menos observada</p>
+                                <p>Tomemos como ejemplo una manufactura de poca importancia, pero a cuya división del trabajo se ha hecho muchas veces refrenda: la de fabricar alfileres. Un obrero que no haya sido adiestrado en esa clase de tarea (converja por virtud de la división del trabajo en un oficio nuevo) y que no este" acostumbrado a manejar la maquinaria que en 61 se utiliza (cuya invención ha derivado, probablemente, de la división del trabajo), por mis que trabaje, apenas podría hacer un alfiler al día, y desde luego no podría confeccionar mas de veinte. Pero dada la manera como se practica hoy día la fabricaci6n de alfileres, no solo la fabricaci6n misma constituye un oficio aparte, sino que esta dividida en varios ramos, la mayor parte de los cuales también constituyen otros tantos oficios distintos. Un obrero estira el alambre, otro lo endereza, un tercero lo va cortando en trozos iguales, un cuarto hace la punta, un quinto obrero esta ocupado en limar el extreme donde se va a colocar la cabeza: a su vez la confecci6n de la cabeza requiere dos o tres operaciones distintas: fijarla es un trabajo especial, esmaltar los alfileres, otro, y todavía es un oficio distinto colocarlos en el papel. En fin, el importante trabajo de hacer un alfiler queda dividido de esta manera en unas dieciocho operaciones distintas, las cuales son desempeñadas en algunas fabricas por otros tantos obreros diferentes, aunque en otras un solo hombre desempeñe a veces dos o tres operaciones. He visto una pequeña fabrica de esta especie que no empleaba mas que diez obreros, donde, por consiguiente, algunos de ellos tenían a su cargo dos o tres operaciones. Pero a pesar de que eran pobres y, por lo tanto, no estaban bien provistos de la maquinaria debida, podían, cuando se esforzaban, hacer entre todos, diariamente, unas doce libras de alfileres. En cada libra había mas de cuatro mil alfileres de tamaño mediano. Por consiguiente, estas diez personas podían hacer cada día, en conjunto, mas de cuarenta y ocho mil alfileres, cuya cantidad, dividida entre diez, correspondería a cuatro mil ochocientos por persona. En cambio si cada uno hubiera trabajado separada e independientemente, y ninguno hubiera sido adiestrado en esa clase de tarea, es seguro que no hubiera podido hacer veinte, o, tal vez, ni un solo alfiler al d/a; es decir, seguramente no hubiera podido hacer la doscientascuarentava parte, tal vez ni la cuatromilochocientosava parte de lo que son capaces de confeccionar en la actualidad gracias a la división y combinación de las diferentes operaciones en forma conveniente. </p>
+                                <p>En todas las demás manufacturas y artes los efectos de la división del trabajo son muy semejantes a los de este oficio poco complicado, aun cuando en muchas de ellas el trabajo no puede ser objeto de semejante subdivisión ni reducirse a una tal simplicidad de operación. Sin embargo, ja división del trabajo, en cuanto puede ser aplicada, ocasiona en todo arte un aumento  proporcional en las facultades productivas del trabajo. Es de suponer que la diversificación de numerosos empleos y actividades económicas es consecuencia de esa ventaja. Esa separación se produce generalmente con mas amplitud en aquellos piases que han alcanzado un nivel mas alto de laboriosidad y progreso, pues generalmente es obra de muchos, en una sociedad culta, lo que hace uno solo, en estado de atraso. En todo país adelantado, el labrador no es mas que labriego y el artesano no es sino menestral. Asimismo, el trabajo necesario para producir un producto acabado se reparte, por regla general, entre muchas manos. ¿Cuantos y cuan diferentes oficios no se advierten en cada ramo de las manufacturas de lino y lana, desde los que cultivan aquella planta o cuidan el vellón hasta los bataneros y blanqueadores, aprestadores y tintoreros? La agricultura, por su propia naturaleza, no admite tantas subdivisiones del trabajo, ni hay división tan completa de sus operaciones como en las manufacturas. Es imposible separar tan completamente la ocupación del ganadero y del labrador, como se separan los oficios del carpintero y del herrero. El hilandero generalmente es una persona distinta del tejedor; pero la persona que ara, siembra, cava y recolecta el grano suele ser la misma. Como la oportunidad de practicar esas distintas clases de trabajo va produciéndose con el transcurso de las estaciones del ano es imposible que un hombre este dedicado constantemente a una sola tarea. Esta imposibilidad de hacer una separación tan completa de los diferentes ramos de labor en la agricultura es quizá la razón de por que el progreso de las aptitudes productivas del trabajo en dicha ocupación no siempre corren parejas con los adelantos registrados en las manufacturas. Es verdad que las naciones más opulentas superan por lo común a sus vecinas en la agricultura y en las manufacturas, pero generalmente las _aventajan mis en estas que en aquella. Sus tierras están casi siempre mejor cultivadas, y como se invierte en ellas mas capital y trabajo, producen mas, en proporción a la extensión y fertilidad natural del suelo. Ahora bien, esta superioridad del producto raras veces excede considerablemente en proporción al mayor trabajo empleado y a los gastos más cuantiosos en que ha incurrido. En la agricultura, el trabajo del país rico no siempre es mucho más productivo que el del pobre o, por lo menos, no es tan fecundo como suele serlo en las manufacturas. El grano del país rico, aunque la calidad sea la misma, no siempre es tan barato en el mercado como el de un país pobre. El trigo de Polonia, en las mismas condiciones de calidad, es tan barato como el de Francia, a pesar de la opulencia y adelantos de esta ultima nación. [...] Aunque un país pobre, no obstante la inferioridad de sus cultivos, puede competir en cierto modo con el rico en la calidad y precio de sus granos, nunca podrá aspirar a semejante competencia en las manufacturas, si estas corresponden a las circunstancias del suelo, del clima y de la situación de un país prospero. [...] </p>
+                                <p>Este aumento considerable en la cantidad de productos que un mismo numero de personas puede confeccionar, como consecuencia de la división del trabajo, precede de tres circunstancias distintas: primera, de la mayor destreza de cada obrero en particular; segunda, del ahorro de tiempo que comúnmente se pierde al pasar de una ocupaci6n a otra, y por ultimo, de la invenci6n de un gran numero de maquinas, que facilitan y abrevian el trabajo, capacitando a un hombre para hacer la labor de muchos.  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: table-cell">
+                <!--                <div style="position: fixed; top: 0px; width: 60px; margin-right: 80px;">
+                                    <img src="images/icons/png/bookmark-icon/bookmark-inactive-icon.png" style="height: 40px;"/> 
+                                </div>-->
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div align="left" class="right_nav" style="position: fixed; top: 120px; width: 60px;">
+<!--                    <div style="position: fixed; top: 0px; width: 60px; margin-right: 180px;">
+                        <img src="images/icons/png/bookmark-icon/bookmark-inactive-icon.png" style="height: 40px;width: 26px !important;"/> 
+                    </div>
+                    <img src="images/icons/png/highlight-icon.png"/> 
+                    <img src="images/icons/png/highlight-icon.png"/> 
+                    <img src="images/icons/png/highlight-icon.png"/> 
+                    <img src="images/icons/png/highlight-icon.png"/> 
+                    <img src="images/icons/png/highlight-icon.png"/> 
+                    <img src="images/icons/png/highlight-icon.png"/> -->
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript" src="js/jquery.highlight.js"></script>
+        <script type="text/javascript" src="js/util.js"></script>
+        <script type="text/javascript" src="js/app.js"> </script>    
+    </body>
+</html>

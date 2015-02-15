@@ -145,12 +145,6 @@ hr{
     margin: 30px;
 }
 
-.notes_container{
-    font-family: 'Merriweather';
-    font-size: 1.125em;
-    text-align: justify;
-}
-
 .notes_title{
     font-family: 'Nunito'; 
     font-size: 1.5em;
@@ -171,6 +165,7 @@ hr{
     color: rgb(52, 195, 195);
     font-size: 1em;
     font-family: verdana;    
+    margin-bottom: 20px;
 }
 
 .note_option span {
@@ -179,17 +174,28 @@ hr{
 }
 
 .notes_fromtext{
-    height: 100px;
-    overflow-y: auto;
-    border: 1px;
-    border-color: #CACACA;
-    border-style: groove;
+    font-style: italic;
 }
 
 .notes_fromtext:hover{
-    height: 100%;
-    border: 1px;
-    border-color: #CACACA;
-    border-style: groove;
+    background-color: #ACE6E3;
 }
 
+.notes_container {
+    font-family: 'Merriweather';
+    font-size: 1.125em;
+    text-align: justify;
+    /*height: 100px;*/
+    overflow: hidden;
+}
+
+.notes_expandable {
+/*    padding-top: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+    -moz-transition: all 2s ease-in-out;
+    -ms-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out;
+    transition: all 2s;*/
+}

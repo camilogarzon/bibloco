@@ -92,10 +92,11 @@ class Note {
         $db = new DbConection();
         $pdo = $db->openConect();
         $q = "DELETE FROM " . $db->getTable('misnotas') . " WHERE id = " . $id;
+        //echo $q;die();
         $result = $pdo->query($q);
         $arr = array();
         if ($result) {
-            $arrjson = array('output' => array('valid' => true, 'response' => $arr, 'error' => $pdo->errorInfo()));
+            $arrjson = array('output' => array('valid' => true, 'response' => $arr));
         } else {
             $arrjson = Util::error_general($pdo->errorInfo());
         }
