@@ -253,6 +253,63 @@ function changeHeight(e, changeHeight) {
 //    }
 }
 
+function preregistro(){
+    var d = {};
+    var e =$("#email").val();
+    var u =$("#universidad").val();
+    var c =$("#carrera").val();
+    var s =$("#semestre").val();
+    if ( e=='' || u=='' || c=='' || s==''){
+        alert('Todos los campos son obligatorios'); return;
+    }
+    if(!UTIL.isEmail(e)){
+        alert('El email ingresado no es correcto'); return;
+    }
+    d = $("#form_register").serialize();
+    UTIL.callAjaxRqst(d, registerHandler);
+}
+
+function register(){
+    var d = {};
+    var e =$("#email").val();
+    var p =$("#pass").val();
+    var p2 =$("#pass2").val();
+    if ( p=='' || p2=='' || e==''){
+        alert('Todos los campos son obligatorios'); return;
+    }
+    if ( p != p2){
+        alert('Las contraseñas no coinciden.'); 
+        $("#pass2").val('');
+        return;
+    }
+    if(!UTIL.isEmail(e)){
+        alert('El email ingresado no es correcto'); return;
+    }
+    d = $("#form_register").serialize();
+    UTIL.callAjaxRqst(d, registerHandler);
+}
+
+function registerHandler(data) {
+    UTIL.cursorNormal();
+    if (data.output.valid) {
+        $("#form_register").hide();
+        $("#message_register").show();
+    } else {
+        alert('Error: ' + data.output.response.content);
+    }
+}
+
+function login(){
+    if ($("#usu").val() == 'demo' && $("#cot").val() == 'demo' ){
+        window.location = 'main.html';
+    } else {
+        $("#errormsg").show();
+        setTimeout(function(){
+            $("#errormsg").hide();
+        }, 3000);
+    }
+}
+
 $(document).ready(function() {
     $(".fancybox").fancybox();
     getNote();

@@ -35,7 +35,7 @@ class Note {
         $db->closeConect();
         return $arrjson;
     }
-    
+
     /**
      * Metodo para guardar o actualizar un registro
      * @param REQUEST $rqst
@@ -45,6 +45,8 @@ class Note {
         $id = isset($rqst['id']) ? intval($rqst['id']) : 0;
         $sel_text = isset($rqst['sel_text']) ? ($rqst['sel_text']) : '';
         $notes = isset($rqst['notes']) ? ($rqst['notes']) : '';
+        $agent = $_SERVER["HTTP_USER_AGENT"];
+        $ip = Util::get_real_ipaddress();
         $db = new DbConection();
         $pdo = $db->openConect();
         if ($id > 0) {
@@ -67,9 +69,9 @@ class Note {
             }
         } else {
             if ($sel_text != "") {
-                $q = "INSERT INTO " . $db->getTable('misnotas') . " (dtcreate, sel_text, notes) VALUES ( " . Util::date_now_server() . ", '$sel_text', '$notes')";
+                $q = "INSERT INTO " . $db->getTable('misnotas') . " (dtcreate, sel_text, notes, agent, ip) VALUES ( " . Util::date_now_server() . ", '$sel_text', '$notes', '$agent', '$ip')";
                 $result = $pdo->query($q);
-                if ($result) { 
+                if ($result) {
                     $arrjson = array('output' => array('valid' => true, 'response' => $pdo->lastInsertId()));
                 } else {
                     $arrjson = Util::error_general(implode('-', $pdo->errorInfo()));
@@ -77,6 +79,52 @@ class Note {
             } else {
                 $arrjson = Util::error_missing_data();
             }
+        }
+        $db->closeConect();
+        return $arrjson;
+    }
+
+    public static function register($rqst) {
+        $email = isset($rqst['email']) ? ($rqst['email']) : '';
+        $pass = isset($rqst['pass']) ? ($rqst['pass']) : '';
+        $agent = $_SERVER["HTTP_USER_AGENT"];
+        $ip = Util::get_real_ipaddress();
+        $db = new DbConection();
+        $pdo = $db->openConect();
+        if ($email != "") {
+            $q = "INSERT INTO " . $db->getTable('registro') . " (dtcreate, email, pass, agent, ip) VALUES ( " . Util::date_now_server() . ", '$email', '$pass', '$agent', '$ip')";
+            $result = $pdo->query($q);
+            if ($result) {
+                $arrjson = array('output' => array('valid' => true, 'response' => $pdo->lastInsertId()));
+            } else {
+                $arrjson = Util::error_general(implode('-', $pdo->errorInfo()));
+            }
+        } else {
+            $arrjson = Util::error_missing_data();
+        }
+        $db->closeConect();
+        return $arrjson;
+    }
+
+    public static function preregistro($rqst) {
+        $email = isset($rqst['email']) ? ($rqst['email']) : '';
+        $universidad = isset($rqst['universidad']) ? ($rqst['universidad']) : '';
+        $carrera = isset($rqst['carrera']) ? ($rqst['carrera']) : '';
+        $semestre = isset($rqst['semestre']) ? ($rqst['semestre']) : '';
+        $agent = $_SERVER["HTTP_USER_AGENT"];
+        $ip = Util::get_real_ipaddress();
+        $db = new DbConection();
+        $pdo = $db->openConect();
+        if ($email != "") {
+            $q = "INSERT INTO " . $db->getTable('preregistro') . " (dtcreate, email, universidad, carrera, semestre, agent, ip) VALUES ( " . Util::date_now_server() . ", '$email', '$universidad', '$carrera', '$semestre', '$agent', '$ip')";
+            $result = $pdo->query($q);
+            if ($result) {
+                $arrjson = array('output' => array('valid' => true, 'response' => $pdo->lastInsertId()));
+            } else {
+                $arrjson = Util::error_general(implode('-', $pdo->errorInfo()));
+            }
+        } else {
+            $arrjson = Util::error_missing_data();
         }
         $db->closeConect();
         return $arrjson;
@@ -103,18 +151,7 @@ class Note {
         $db->closeConect();
         return $arrjson;
     }
-}
 
-/**
- * 
-CREATE TABLE IF NOT EXISTS `misnotas` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `sel_text` text,
-  `notes` text,
-  `dtcreate` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
- * 
- */
+}
 
 ?>

@@ -23,7 +23,28 @@
             a{
                 color: white;
             }
+            input:focus { 
+                outline: none !important;
+                border:0px solid #C0C0C0;
+            }            
         </style>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-34468300-8', 'auto');
+            ga('send', 'pageview');
+
+        </script>        
     </head>
     <body>
         <!-- landing page -->        
@@ -46,18 +67,19 @@
                     <img src="images/landingpage/LogoVerticalDarkBG.png" style="max-height: 100px;margin-top: 30px;margin-bottom: -6px;"/>
                     <div style="background-color: white; border-bottom-style: solid; border-bottom-color: #BFBFBF; border-bottom-width: 2px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                         <div align="center" style="vertical-align: middle;display: inline-block; width: 60px"><img src="images/user-icon.svg"/></div>
-                        <input class="form_field_login" type="text" placeholder="Usuario" />
+                        <input class="form_field_login" type="text" placeholder="Usuario" id="usu" />
                     </div>
                     <div style="background-color: white; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
                         <div align="center" style="vertical-align: middle;display: inline-block; width: 60px"><img src="images/password-icon.svg"/></div>
-                        <input class="form_field_login" type="password" placeholder="Contraseña" />
+                        <input class="form_field_login" type="password" placeholder="Contraseña" id="cot"/>
                     </div>
-                    <a href="milectura.html">
-                        
-                        <div align="center" style="background-color: rgb(253, 187, 56); color: #7F5D10; width: 470px; margin-top: 30px; padding: 15px; border-radius: 4px; font-family: verdana; font-size: 1.25em;"><div style="background-color: #FFBC21; width: 105px; border-radius: 4px; vertical-align: top; display: inline-block;">Entrar</div></div></a>
+                    <div id="errormsg" style="display: none; color: rgb(255, 124, 124); padding-top: 20px; font-size: 2em;">
+                        Datos incorrectos!
+                    </div>
+                    <div onclick="login();" align="center" style="background-color: rgb(253, 187, 56); color: #7F5D10; width: 470px; margin-top: 30px; padding: 15px; border-radius: 4px; font-family: verdana; font-size: 1.25em; cursor: pointer"><div style="background-color: #FFBC21; width: 105px; border-radius: 4px; vertical-align: top; display: inline-block;">Entrar</div></div>
                 </div>
             </form>
-            <div style="color:white; font-size: 1em; text-align: center; position: absolute; top: 10px; right: 90px;">
+            <div style="color:white; font-size: 1em; text-align: center; position: absolute; top: 10px; right: 20px;">
                 <a href="#form_register"><div style="background-color: #FFBC21; width: 105px; padding: 10px; border-radius: 4px; vertical-align: top; display: inline-block;">Regístrate</div></a>
                 <a id="top-login-button" href="#login_form_ajax" rel="gallery"><div style="background-color: #996818; width: 105px; padding: 10px; border-radius: 4px; vertical-align: top; display: inline-block;">Ingresa</div></a>
             </div>
@@ -183,12 +205,13 @@
                             <div style="font-size: 1.5em">Regístrate y descubre una nueva forma de estudiar.</div>
                         </div>
                         <div align="center" style="display: table-cell;height: 380px;vertical-align: middle;">
-                            <!--<div id="message_register" style="font-size: 2em; color: green"><p>Cuenta creada correctamente!</p></div>-->
+                            <div id="message_register" style="font-size: 2em; color: green; display: none"><p>Cuenta creada correctamente!</p></div>
                             <form id="form_register">
-                                <input class="form_field" type="email" placeholder="Email" />
-                                <input class="form_field" type="password" placeholder="Contraseña" />
-                                <input class="form_field" type="password" placeholder="Repetir contraseña" />
-                                <div style="background-color: rgb(253, 187, 56); color: white; width: 150px; margin: 10px; padding: 10px; border-radius: 4px; font-family: verdana; font-size: 1.25em;">Crear cuenta</div>
+                                <input class="form_field" type="email" placeholder="Email" id="email" name="email"/>
+                                <input class="form_field" type="password" placeholder="Contraseña" id="pass" name="pass"/>
+                                <input class="form_field" type="password" placeholder="Repetir contraseña" id="pass2" name="pass2"/>
+                                <input type="hidden" id="op" name="op" value="register"/>
+                                <div onclick="register();" style="cursor: pointer; background-color: rgb(253, 187, 56); color: white; width: 150px; margin: 10px; padding: 10px; border-radius: 4px; font-family: verdana; font-size: 1.25em;">Crear cuenta</div>
                             </form>
                         </div>
                     </div>
@@ -206,37 +229,37 @@
         <script type="text/javascript" src="js/util.js"></script>
         <script type="text/javascript" src="js/app.js"></script>    
         <script>
-            /* <![CDATA[ */
-            $(document).ready(function() {
-                $("#top-login-button").click(function() {
-                    $.fancybox({
-                        href: "#login_form_ajax",
-                        afterClose: function() { // it was onClosed for v1.3.4
-                            $("#login_error").hide();
-                        }
-                    }); // fancybox
-                }); //click
+                                    /* <![CDATA[ */
+                                    $(document).ready(function() {
+                                        $("#top-login-button").click(function() {
+                                            $.fancybox({
+                                                href: "#login_form_ajax",
+                                                afterClose: function() { // it was onClosed for v1.3.4
+                                                    $("#login_error").hide();
+                                                }
+                                            }); // fancybox
+                                        }); //click
 
-                $("#login_form_ajax").bind("submit", function() {
-                    if ($("#login_name").val().length < 1 || $("#login_pass").val().length < 1) {
-                        $("#login_error").show();
-                        $.fancybox.update(); // it was $.fancybox.resize(); for v1.3.4
-                        return false;
-                    }
-                    $.fancybox.showLoading(); // it was $.fancybox.showActivity(); for v1.3.4
-                    $.ajax({
-                        type: "POST",
-                        cache: false,
-                        url: "loginTest2.php",
-                        data: $(this).serializeArray(),
-                        success: function(data) {
-                            $.fancybox(data);
-                        }
-                    });
-                    return false;
-                }); // bind
-            }); // ready
-            /* ]]> */
+                                        $("#login_form_ajax").bind("submit", function() {
+                                            if ($("#login_name").val().length < 1 || $("#login_pass").val().length < 1) {
+                                                $("#login_error").show();
+                                                $.fancybox.update(); // it was $.fancybox.resize(); for v1.3.4
+                                                return false;
+                                            }
+                                            $.fancybox.showLoading(); // it was $.fancybox.showActivity(); for v1.3.4
+                                            $.ajax({
+                                                type: "POST",
+                                                cache: false,
+                                                url: "loginTest2.php",
+                                                data: $(this).serializeArray(),
+                                                success: function(data) {
+                                                    $.fancybox(data);
+                                                }
+                                            });
+                                            return false;
+                                        }); // bind
+                                    }); // ready
+                                    /* ]]> */
         </script>
     </body>
 </html>

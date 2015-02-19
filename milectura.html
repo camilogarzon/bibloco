@@ -10,6 +10,16 @@
         <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="js/fancybox/source/jquery.fancybox.css" media="screen" />
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-34468300-8', 'auto');
+          ga('send', 'pageview');
+
+        </script>        
     </head>
     <body>
         <div id="highlight-button">
@@ -56,13 +66,14 @@
                     <div id="label_font_down" class="float_label" style="position: fixed; left: 70px; top: 115px; display: none;">Disminuir Fuente</div>
                     <div id="label_font_up" class="float_label" style="position: fixed; left: 70px; top: 180px; display: none;">Aumentar Fuente</div>
                     <div id="label_note" class="float_label" style="position: fixed; left: 70px; top: 250px; display: none;" >Mis Apuntes</div>
-                    <a href="index.html"><img src="images/icons/svg/back-icon.svg" onmouseover="showHideLabel('label_my_lecture', true)" onmouseout="showHideLabel('label_my_lecture', false)"/></a>
+                    <a href="main.html"><img src="images/icons/svg/back-icon.svg" onmouseover="showHideLabel('label_my_lecture', true)" onmouseout="showHideLabel('label_my_lecture', false)"/></a>
                     <img src="images/icons/svg/Aminus-icon.svg" onmouseover="showHideLabel('label_font_down', true)" onmouseout="showHideLabel('label_font_down', false)" onclick="fontSizeChange('.lecture','-')"/> 
                     <img src="images/icons/svg/Aplus-icon.svg" onmouseover="showHideLabel('label_font_up', true)" onmouseout="showHideLabel('label_font_up', false)" onclick="fontSizeChange('.lecture','+')"/> 
                     <a href="misapuntes.html"><img src="images/icons/svg/notes-icon.svg" onmouseover="showHideLabel('label_note', true)" onmouseout="showHideLabel('label_note', false)"/></a>
                 </div>
                 <div style="position: fixed; bottom: 10px; width: 60px;">
-                    <div id="label_print" class="float_label" style="position: fixed; left: 70px; bottom: 120px; display: none;" >Imprimir</div>
+                    <!--<div id="label_print" class="float_label" style="position: fixed; left: 70px; bottom: 120px; display: none;" >Imprimir</div>-->
+                    <div id="label_print" class="float_label" style="position: fixed; left: 70px; bottom: 40px; display: none;" >Imprimir</div>
                     <div id="label_info" class="float_label" style="position: fixed; left: 70px; bottom: 40px; display: none;" >Más Información</div>
                     <img src="images/icons/svg/print-icon.svg" onmouseover="showHideLabel('label_print', true)" onmouseout="showHideLabel('label_print', false)" onclick="printLecture()"/> 
                     <!--<img src="images/icons/png/help-icon.png" onmouseover="showHideLabel('label_info', true)" onmouseout="showHideLabel('label_info', false)"/>--> 

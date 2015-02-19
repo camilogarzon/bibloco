@@ -24,6 +24,16 @@ switch ($op) {
         echo json_encode(Note::save($rqst));
         break;
 
+    case 'register':
+        include 'classes/Note.php';
+        echo json_encode(Note::register($rqst));
+        break;
+
+    case 'preregistro':
+        include 'classes/Note.php';
+        echo json_encode(Note::preregistro($rqst));
+        break;
+
     case 'deletenote':
         include 'classes/Note.php';
         echo json_encode(Note::delete($rqst));
