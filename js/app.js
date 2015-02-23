@@ -321,3 +321,11 @@ $('#add_note').mousedown(addNote);
 $('#highlighter').click(highlighter);
 $('#unhighlight').click(unhighlight);
 
+// START: SMOOTH SCROLLING ON CLICK
+$('#down-scroll').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+return false;
+});
+// END: SMOOTH SCROLLING ON CLICK
