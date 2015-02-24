@@ -8,6 +8,10 @@
 html, body {
     height: 100%;
 }
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
 body {
     color: #605E6B;
     font-family: 'Lato';
@@ -76,6 +80,12 @@ section {
 }
 #message_register {
     display: none;
+    background-color: rgb(50, 173, 240);
+    border: 0px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.25em !important;
+    margin-bottom: 20px;    
 }
 .main-section {
     background-image: url("../images/landing/flat-background.png");
@@ -344,7 +354,7 @@ footer span {
     font-weight: 400;
     display: inline-block;
     max-width: 350px;
-    min-width: 200px; 
+    min-width: 300px; 
     padding: 10px 20px;
     background: #f4f7f8;
     margin: 10px auto;

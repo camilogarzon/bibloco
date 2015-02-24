@@ -292,8 +292,17 @@ function register(){
 function registerHandler(data) {
     UTIL.cursorNormal();
     if (data.output.valid) {
-        $("#form_register").hide();
+        //$("#form_register").hide();
         $("#message_register").show();
+        $("#email").val('');
+        $("#pass").val('');
+        $("#pass2").val('');
+        $("#universidad").val('');
+        $("#carrera").val('');
+        $("#semestre").val('1');
+        setTimeout(function(){
+            $("#message_register").hide();
+        },5000);
     } else {
         alert('Error: ' + data.output.response.content);
     }
