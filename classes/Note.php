@@ -107,6 +107,8 @@ class Note {
     }
 
     public static function preregistro($rqst) {
+        include 'phpmailer/class.phpmailer.php';
+        include 'Email.php';
         $email = isset($rqst['email']) ? ($rqst['email']) : '';
         $universidad = isset($rqst['universidad']) ? ($rqst['universidad']) : '';
         $carrera = isset($rqst['carrera']) ? ($rqst['carrera']) : '';
@@ -119,7 +121,21 @@ class Note {
             $q = "INSERT INTO " . $db->getTable('preregistro') . " (dtcreate, email, universidad, carrera, semestre, agent, ip) VALUES ( " . Util::date_now_server() . ", '$email', '$universidad', '$carrera', '$semestre', '$agent', '$ip')";
             $result = $pdo->query($q);
             if ($result) {
-                $arrjson = array('output' => array('valid' => true, 'response' => $pdo->lastInsertId()));
+                $lastId = $pdo->lastInsertId();
+                $arrjson = array('output' => array('valid' => true, 'response' => $lastId));
+                $message_content = '<table>'
+                        . '<tr><td>email:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$email.'</td></tr>'
+                        . '<tr><td>universidad:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$universidad.'</td></tr>'
+                        . '<tr><td>carrera:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$carrera.'</td></tr>'
+                        . '<tr><td>semestre:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$semestre.'</td></tr>'
+                        . '<tr><td>ip:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$ip.'</td></tr>'
+                        . '<table>';
+                $email_address = 'edgarcastaneda@grupo613.com';
+                $datos = array('subject' => '[lorapp] - Usuario inscrito #'.$lastId,
+                    'message_content' => $message_content,
+                    'email_address' => $email_address,
+                    'email_name' => $email_address);
+                $arrjson = Email::emailPlantilla($datos);
             } else {
                 $arrjson = Util::error_general(implode('-', $pdo->errorInfo()));
             }
