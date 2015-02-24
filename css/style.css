@@ -455,6 +455,9 @@ footer span {
         font-size: 1.8rem;
         margin: 0 0% 0 220px;
     }
+    .lora-front-img {
+        left: 5%;
+    }
     .section-3 {
         padding: 20px 5%;
     }
