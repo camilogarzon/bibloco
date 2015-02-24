@@ -465,6 +465,9 @@ footer span {
         font-size: 1.8rem;
         margin: 0 0% 0 220px;
     }
+    .lora-front-img {
+        left: 5%;
+    }
     .section-3 {
         padding: 20px 5%;
     }
@@ -574,7 +577,7 @@ footer span {
         text-align: center;
         width: 100%;
     }
-    .section-7 {
+    .section-7 p span::before {
         white-space: normal;
     }
     .section-8 {
