@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Lorapp</title>
-        <meta property="og:title" content="Lorapp" />
+        <title>No más fotocopias - Lorapp</title>
+        <meta property="og:title" content="No más fotocopias - Lorapp" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://www.lorapp.com/" />
         <meta property="og:image" content="http://beta.lorapp.com/images/landing/mainlogo.png" />
@@ -20,357 +15,159 @@ and open the template in the editor.
         <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="js/fancybox/source/jquery.fancybox.css" media="screen" />
-        <style>
-            body{
-                margin: 0;
-                padding: 0;
-                border: 0;
-                font: inherit;
-                font-family: 'Lato';
-                font-size: 12px;
-                font-weight: 300;
-                color: #555459;
-                vertical-align: baseline;
-                min-width: 1050px;
-            }
-            input:focus { 
-                outline: none !important;
-                border:0px solid #C0C0C0;
-            }   
-            li{
-                margin-bottom: 10px;
-            }
-            select:focus { 
-                outline: none !important;
-                border:0px solid #C0C0C0;
-            }
-
-            .header{
-                background-color: rgb(227, 246, 235); 
-                color: rgba(0,0,0,0.5);
-            }
-            .formulario{
-                display: table-cell;width: 380px; 
-                vertical-align: middle; 
-                background-color: rgb(243, 247, 248); 
-                border-bottom-style: solid;
-                border-bottom-width: 2px;
-                border-radius: 8px;
-                border-bottom-color: rgb(179, 195, 187);
-            }
-            .boton_enviar{
-                cursor: pointer; 
-                background-color: rgb(63, 187, 153); 
-                color: white; 
-                width: 330px; 
-                height: 55px; 
-                margin: 10px; 
-                font-size: 1.5em;
-                font-weight: 700; 
-                border: 1px solid rgb(52,159,133);
-                border-bottom-width: 3px;
-            }
-            .footer{
-                background-color: rgb(58, 79, 113); 
-                height: 54px;
-            }
-            .line1 {
-                width: 171px;
-                height: 47px;
-                border-bottom: 2px solid grey;
-                position: absolute;
-                -webkit-transform: translateY(130px) translateX(320px) rotate(10deg);
-            }
-            .line2 {
-                width: 171px;
-                height: 47px;
-                border-bottom: 2px solid grey;
-                position: absolute;
-                -webkit-transform: translateY(130px) translateX(30px) rotate(-10deg);
-            }
-            .line3 {
-                width: 171px;
-                height: 47px;
-                border-bottom: 2px solid grey;
-                position: absolute;
-                -webkit-transform: translateY(30px) translateX(30px) rotate(10deg);
-            }
-            .line4 {
-                width: 171px;
-                height: 47px;
-                border-bottom: 2px solid grey;
-                position: absolute;
-                -webkit-transform: translateY(30px) translateX(310px) rotate(-10deg);
-            }
-
-            .det_title{
-                font-size: 2.25em;
-                padding-bottom: 10px;
-            }
-            .det_cont{
-                font-size: 1.25em;
-            }
-            .det_lado{
-                vertical-align: bottom;
-                display: table-cell;
-                text-align: left;
-            }
-
-            .form_field{
-                border: 0px solid #C0C0C0;
-                background-color: rgb(232, 237, 240);
-                width: 330px;
-                height: 30px;
-                color: rgba(169, 169, 169, 1);
-                font-size: 1.5em;
-                font-weight: 400;
-                margin-top: 8px;
-                margin-bottom: 8px;
-                border-radius: 4px;
-            }
-
-            .styled-select select {
-                background: transparent;
-                background-color: rgb(232, 237, 240);
-                width: 330px;
-                height: 30px;
-                color: rgba(169, 169, 169, 1);
-                padding: 5px;
-                font-size: 16px;
-                line-height: 1;
-                border: 0;
-                border-radius: 0;
-                height: 34px;
-                -webkit-appearance: none;
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
-
-
-        </style>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <div>
-            <div class="header" id="header" align="center">
-                <div style="height: 680px;">
-                    <img src="images/landing/mainlogo.png" style="max-height: 140px; margin-top: 40px;"/>
-                    <div style="font-size: 3em; margin: 20px 0px 40px 0px;">Tus lecturas universitarias donde quieras, cuando quieras.</div>
-                    <div style="display: table-row;">
-                        <div style="display: table-cell; vertical-align: middle;">
-                            <img src="images/landing/flat_demo.png" style="height: 340px;margin-right: 130px"/>
-                        </div>
-                        <div class="formulario" align="center">
-                            <div id="message_register" style="font-size: 2em; color: green; display: none"><p>¡Datos enviados correctamente!</p></div>
-                            <form id="form_register" style="">
-                                <div style="font-size: 1.5em; color: #7B7B7B; font-weight: 700; margin-bottom: 10px">¿Quieres ser el primero en probar Lorapp?</div>
-                                <input class="form_field" type="email" placeholder="Email*" id="email" name="email"/>
-                                <input class="form_field" type="text" placeholder="Universidad" id="universidad" name="universidad"/>
-                                <input class="form_field" type="text" placeholder="Carrera" id="carrera" name="carrera"/>
-                                <div style="color: #7B7B7B; font-size: 1.5em; font-weight: 400; text-align: left; margin-left: 25px;">Semestre:</div>
-                                <div class="styled-select">
-                                    <select id="semestre" name="semestre">
-                                        <option value="">Selecciona tu semestre</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="Egresado">Egresado</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" id="op" name="op" value="preregistro"/>
-                                <div onclick="preregistro();" class="boton_enviar"><div style="padding-top: 15px;">Enviar</div></div>
-                            </form>
-                        </div>
+        <section class="main-section">
+            <div class="main-wrapper">
+                <img class="main-logo-img" src="images/landing/mainlogo.png"/>
+                <h1>Tus lecturas universitarias donde quieras, cuando quieras.</h1>
+                <div class="image-form-wrapper flex">
+                    <img class="main-computer-img" src="images/landing/flat_demo.png"/>
+                    <div class="form-style">
+                        <div id="message_register"><p>¡Datos enviados correctamente!</p></div>
+                        <form id="form_register">
+                            <fieldset>
+                                <legend>¿Quieres ser el primero en probar Lorapp?</legend>
+                                <input class="form_field" type="email" placeholder="Email" id="email" name="email">
+                                <input class="form_field" type="text" placeholder="Universidad" id="universidad" name="universidad">
+                                <input class="form_field" type="text" placeholder="Carrera" id="carrera" name="carrera">
+                                <label for="semestre">Semestre:</label>
+                                <select id="semestre" name="semestre">
+                                    <optgroup label="–Selecciona tu semestre–">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                      <option value="8">8</option>
+                                      <option value="9">9</option>
+                                      <option value="10">10</option>
+                                      <option value="11">11</option>
+                                      <option value="12">12</option>
+                                      <option value="Egresado">Egresado</option>
+                                    </optgroup>
+                                </select>
+                            </fieldset>
+                            <input type="hidden" id="op" name="op" value="preregistro"/>
+                            <input onclick="preregistro();" class="boton_enviar" type="submit" value="Enviar" />
+                        </form>
                     </div>
                 </div>
+                <a href="#section-2" id="down-scroll">
+                    <img class="main-down-icon" src="images/landing/back-icon.svg" />
+                </a>
             </div>
-            <div align="center" style="height: 310px;">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <!--<div>-->
-                        <img src="images/landing/lorafront.png" style="max-height: 240px;  bottom: -70px;
-                             position: relative;left: 40px;
-                             "/>
-                        <!--</div>-->
-                    </div>
-                    <div style="display: table-cell; vertical-align: bottom;
-                         padding-left: 120px;">
-                        <div style="font-size: 1.5em;
-                             text-decoration: underline;
-                             text-transform: uppercase; padding-bottom: 20px;">¿TODAVÍA SIGUES FOTOCOPIANDO?</div>
-                        <div style="font-size: 3.375em;">Con Lorapp tienes acceso a tus <br>lecturas de la universidad de manera <br>económica, ecológica y legal.</div>
-                    </div>
-                </div>
+        </section>
+        <section class="section-2 flex" id="section-2">
+            <div class="section-2-text">
+                <p>¿Todavía sigues fotocopiando?</p>
+                <p>Con Lorapp tienes acceso a tus lecturas de la universidad de manera económica, ecológica y legal.</p>
             </div>
-            <div align="center" style="height: 310px;background-color: #F6F6F6">
-                <div style="">
-                    <div style="  display: inline-block;
-                         text-align: left;
-                         vertical-align: bottom;
-                         position: relative;
-                         left: -100px;">
-                        <div style="  color: #00BB28; font-size: 2.5em;">Lo sabemos</div>
-                        <div style="  font-size: 1.75em;">
-                            <p>Los libros son caros, pesados y solo necesitas una parte.</p>
-                            <p>¡Por eso desarrollamos Lorapp!</p>
-                        </div>
-                    </div>
-                    <div style="display: inline-block;">
-                        <img src="images/landing/weight.png" style="max-height: 240px;  position: relative;
-                             top: 40px;  right: -100px;"/>
-                    </div>
-                </div>
-            </div>
-
-            <div align="center" style="height: 310px; width: 100%; ">
-                <div style="  color: #00BB28;font-size: 2.5em;  padding-top: 20px;">¿Cómo funciona?</div>
-                <div style="width: 780px; ">
-                    <div style="display: table-row; width: 780px; ">
-                        <div style="display: table-cell; " class="how_work">
-                            <div style="width: 150px;"><img style="max-height: 100px;" src="images/landing/magnifying_glass.png"/></div>
-                            <div style="font-size: 2em; font-weight: 400; padding-top: 20px;">Busca</div>
-                        </div>
-                        <div style="display: table-cell; padding-left: 180px;
-                             padding-right: 180px;
-                             padding-top: 50px;" class="how_work">
-                            <div style="width: 150px;"><img style="max-height: 100px; " src="images/landing/coin_2.png"/></div>
-                            <div style="font-size: 2em; font-weight: 400; padding-top: 20px;">Compra</div>
-                        </div>
-                        <div style="display: table-cell; " class="how_work">
-                            <div style="width: 150px;"><img style="max-height: 100px;" src="images/landing/flat_demo.png"/></div>
-                            <div style="font-size: 2em; font-weight: 400; padding-top: 20px;">Lee</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div align="center" style="background-color: rgb(34, 174, 233); color: white; height: 300px; width: 100%">
-                <div style="display: table-row;">
-                    <div class="det_lado">
-                        <div class="det_title">Subraya y toma notas</div>
-                        <div class="det_cont">¡Más fácil aun que en el papel! Tus <br>apuntes se guardan para que puedas <br>volver a revisarlos en cualquier momento.</div>
-                        <br><br><br>
-                        <div class="det_title">Busca palabras</div>
-                        <div class="det_cont">¿Necesitas investigar un término en tu <br>lectura? Utiliza el buscador y encuéntralo <br>en segundos.</div>
-                    </div>
-                    <div style="display: table-cell">
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                        <div class="line3"></div>
-                        <div class="line4"></div>
-                        <img src="images/landing/computerfeatures.png" style="max-height: 220px;
-                             padding-top: 40px;
-                             padding-left: 120px;
-                             padding-right: 120px;"/>
-                    </div>
-                    <div class="det_lado">
-                        <div class="det_title">Cambia el tamaño</div>
-                        <div class="det_cont">Las fotocopias suelen tener un tamaño de <br>letra que cansa tu vista. Con Lorapp lees <br>en el tamaño que prefieras.</div>
-                        <br><br><br>
-                        <div class="det_title">Marca páginas</div>
-                        <div class="det_cont">No olvides dónde te quedaste. Lorapp te <br>permite marcar páginas importantes o el <br>punto donde dejaste tu lectura.</div>
-                    </div>
-                </div>
-
-            </div>
-            <div align="center" style="height: 300px;">
-                <div style="display: table-row;">
-                    <div style="  display: table-cell;
-                         ">
-                        <img src="images/landing/book.png" style="max-height: 200px; padding-top: 40px"/>
-                    </div>
-                    <div style="display: table-cell; text-align: left;
-                         vertical-align: bottom;
-                         position: relative;
-                         left: 120px; top: 10px">
-                        <div style="color: #00BB28; font-size: 2.5em;">Reconocemos el trabajo</div>
-                        <div style="  font-size: 1.75em;">
-                            <p>Pagamos a las editoriales y autores por cada lectura leída en </p>
-                            <p>Lorapp. Queremos desmotivar la piratería en textos académicos y </p>
-                            <p>necesitamos tu apoyo para lograrlo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div align="center" style="height: 300px;background-color: rgb(34, 174, 233);">
+            <img class="lora-front-img" src="images/landing/lorafront.png" />
+        </section>
+        <section class="section-3 flex">
+            <div class="section-text flex">
                 <div>
-                    <img style="  max-height: 260px;
-                         position: absolute;
-                         right: 0px;
-                         padding-top: 20px" src="images/landing/treebranch.png"/>
+                    <h3>Lo sabemos</h3>
+                    <p>Los libros son caros, pesados y solo necesitas una parte.</p>
+                    <p>¡Por eso desarrollamos Lorapp!</p>
                 </div>
-                <div style="padding-top: 60px;">
-                    <img src="images/landing/leaf.png" style="  max-height: 85px;"/><span style="  font-size: 4.5em;
-                                                                                          color: white;
-                                                                                          vertical-align: top; font-weight: bold"> x 100</span>
+            </div>
+            <div class="weight-img-wrapper flex">
+                <img class="weight-img" src="images/landing/weight.png">
+            </div>
+        </section>
+        <section class="section-4">
+            <h3>Cómo funciona</h3>
+            <div class="process-items flex">
+                <div>
+                    <img src="images/landing/magnifying_glass.png" />
+                    <p>Busca</p>
                 </div>
-                <div style="  color: white;
-                     font-size: 3em;padding-top: 20px">Compra hojitas y cámbialas por tus lecturas.<br>¡Muchas veces es más barato que las fotocopias!</div>
+                <div>
+                    <img src="images/landing/coin_2.png" />
+                    <p>Compra</p>
+                </div>
+                <div>
+                    <img src="images/landing/flat_demo.png" />
+                    <p>Lee</p>
+                </div>
+            </div>
+        </section>
+        <section class="section-5 flex">
+            <div class="features-text">
+                <div>
+                    <h4>Subraya y toma notas</h4>
+                    <p>¡Más fácil aun que en el papel! Tus apuntes se guardan para que puedas revisarlos en cualquier momento.</p>
+                </div>
+                <div>
+                    <h4>Busca palabras</h4>
+                    <p>¿Necesitas investigar un término en tu lectura? Utiliza el buscador y encuéntralo en segundos.</p>
+                </div>
+            </div>
+            <img class="features-img" src="images/landing/computerfeatures.png" />
+            <div class="features-text">
+                <div>
+                    <h4>Cambia el tamaño</h4>
+                    <p>Las fotocopias suelen tener un tamaño de letra que cansa tu vista. Con Lorapp lees en el tamaño que prefieras.
+                    </p>
+                </div>
+                <div>
+                    <h4>Marca páginas</h4>
+                    <p>No olvides dónde te quedaste. Lorapp te permite marcar páginas importantes o el punto donde dejaste tu lectura.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section-6 flex">
+            <img class="book-img" src="images/landing/book.png" />
+            <div class="section-text flex">
+                <div>
+                    <h3>Reconocemos el trabajo</h3>
+                    <p>Pagamos a las editoriales y autores por cada lectura leída en Lorapp. Queremos desmotivar la piratería en textos académicos y necesitamos tu apoyo para lograrlo.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section-7 flex">
+            <div class="branch-wrapper">
+                <img class="branch-img" src="images/landing/treebranch.png" />
+            </div>
+            <div class="section-7-text flex">
+                <div class="leaf-x100 flex">
+                    <img class="leaf-img" src="images/landing/leaf.png" />
+                    <span>x 100</span>
+                </div>
+                <p>Compra hojitas y cámbialas por tus lecturas. <span>¡Muchas veces es más barato que las fotocopias!</span></p>
+            </div>
+        </section>
+        <section class="section-8">
+            <img class="phone-img" src="images/landing/iphonedemo.png" />
+            <div class="section-8-text flex">
+                <h3>También en tu teléfono</h3>
+                    <ul>
+                        <li>Accede a tus lecturas en cualquier momento y lugar.</li>
+                        <li>Tus notas y subrayados se sincronizan en todos tus dispositivos.</li>
+                        <li>Agrega recordatorios y recibe notificaciones con lo que tienes que leer.</li>
+                    </ul>
+            </div>
+        </section>
+        <section class="section-9 flex">
+            <h2>Olvídate de las fotocopias</h2>
+            <p>Déjanos tus datos y te notificaremos tan pronto esté disponible Lorapp.</p>
+            <input class="signin-bottom-button" type="submit" value="Regístrate" onclick="window.location = '#'" />
+        </section>
+        <footer class="flex">
+            <span>Lorapp &COPY; 2014. Todos los derechos reservados.</span>
+            <img class="logo-footer" src="images/landing/logofooter.png" />
+        </footer>
 
-            </div>
-            <div align="center" style="height: 300px; border-bottom: 1px solid #C0C0C0;">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <img style="max-height: 280px;  bottom: -20px;
-                             position: relative;left: 40px;
-                             " src="images/landing/iphonedemo.png"/>
-                    </div>
-                    <div style="  display: table-cell;
-                         text-align: left;
-                         vertical-align: bottom;
-                         position: relative;
-                         left: 120px;
-                         top: -40px;">
-                        <div style="color: #00BB28; font-size: 2.5em;">También en tu teléfono</div>
-                        <div style="  font-size: 1.75em;">
-                            <ul>
-                                <li>Accede a tus lecturas en cualquier momento y lugar.</li>
-                                <li>Tus notas y subrayados se sincronizan en todos tus dispositivos.</li>
-                                <li>Agrega recordatorios y recibe notificaciones con lo que tienes que leer.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div align="center" style="height: 300px">
-                <div style="
-                     font-size: 4em;
-                     padding-top: 60px;
-                     ">Olvídate de las fotocopias</div>
-                <div style="
-                     font-size: 1.5em;
-                     font-weight: 400;
-                     padding-top: 20px;
-                     padding-bottom: 20px;
-                     ">Déjanos tus datos y te notificaremos tan pronto esté disponible Lorapp</div>
-                <div class="boton_enviar" style="width: 350px !important; " onclick="window.location = '#form_register'"><div style="padding-top: 15px;">Regístrate</div></div>
-            </div>
-            <div class="footer" align="center">
-                <div style="display: table-row">
-                    <div style="display: table-cell;color: rgba(0,0,0,0.6); font-weight: 400; font-size: 1.25em;width: 100%;">
-                        <div>
-                            <p>Lorapp &COPY; 2015. Todos los derechos reservados.</p>
-                        </div>
-                    </div>
-                    <div style=" display: table-cell;">
-                        <img style="  max-height: 40px; vertical-align: middle; padding-top: 14px; padding-right: 10px;" src="images/landing/logofooter.png"/>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.js"></script>
         <script type="text/javascript" src="js/util.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>    
+        <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54e581140ab1512b" async="async"></script>
     </body>
 </html>
