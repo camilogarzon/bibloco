@@ -110,6 +110,8 @@ class Note {
         include 'phpmailer/class.phpmailer.php';
         include 'Email.php';
         $email = isset($rqst['email']) ? ($rqst['email']) : '';
+        $colegio = isset($rqst['colegio']) ? ($rqst['colegio']) : '';
+        $edad = isset($rqst['edad']) ? ($rqst['edad']) : '';
         $universidad = isset($rqst['universidad']) ? ($rqst['universidad']) : '';
         $carrera = isset($rqst['carrera']) ? ($rqst['carrera']) : '';
         $semestre = isset($rqst['semestre']) ? ($rqst['semestre']) : '';
@@ -118,13 +120,19 @@ class Note {
         $db = new DbConection();
         $pdo = $db->openConect();
         if ($email != "") {
-            $q = "INSERT INTO " . $db->getTable('preregistro') . " (dtcreate, email, universidad, carrera, semestre, agent, ip) VALUES ( " . Util::date_now_server() . ", '$email', '$universidad', '$carrera', '$semestre', '$agent', '$ip')";
+            $q = "INSERT INTO " . $db->getTable('preregistro') . " (dtcreate, email, colegio, edad, universidad, carrera, semestre, agent, ip) VALUES ( " . Util::date_now_server() . ", '$email', '$colegio', '$edad', '$universidad', '$carrera', '$semestre', '$agent', '$ip')";
+            $q = str_replace('DELETE', '', $q);
+            $q = str_replace('delete', '', $q);
+            $q = str_replace('UPDATE', '', $q);
+            $q = str_replace('update', '', $q);
             $result = $pdo->query($q);
             if ($result) {
                 $lastId = $pdo->lastInsertId();
                 $arrjson = array('output' => array('valid' => true, 'response' => $lastId));
                 $message_content = '<table>'
                         . '<tr><td>email:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$email.'</td></tr>'
+                        . '<tr><td>colegio:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$colegio.'</td></tr>'
+                        . '<tr><td>edad:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$edad.'</td></tr>'
                         . '<tr><td>universidad:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$universidad.'</td></tr>'
                         . '<tr><td>carrera:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$carrera.'</td></tr>'
                         . '<tr><td>semestre:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>'.$semestre.'</td></tr>'

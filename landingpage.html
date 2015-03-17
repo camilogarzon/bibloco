@@ -2,11 +2,11 @@
 <html>
     <head>
         <title>No más fotocopias - Lorapp</title>
-        <meta property="og:title" content="No más fotocopias - Lorapp" />
+        <meta property="og:title" content="¡No más fotocopias!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://www.lorapp.com/" />
-        <meta property="og:image" content="http://beta.lorapp.com/images/landing/mainlogo.png" />
-        <meta property="og:description" content="Tus lecturas universitarias donde quieras, cuando quieras." />
+        <meta property="og:url" content="http://lorapp.com/" />
+        <meta property="og:image" content="http://lorapp.com/images/fbimage.png" />
+        <meta property="og:description" content="¿Aún sacas fotocopias? ¡Tienes huevo! Este es el trato: No tumbes mi casa y te ahorraré dinero. Entra a Lorapp y encuentra todas las lecturas de tu universidad." />
         <meta property="og:site_name" content="Lorapp" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -26,53 +26,81 @@
         </script>        
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1562161117399883&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>	
+
         <section class="main-section">
             <div class="main-wrapper">
                 <img class="main-logo-img" src="images/landing/mainlogo.png"/>
-                <h1>Tus lecturas universitarias donde quieras, cuando quieras.</h1>
+                <h1>No más fotocopias para estudiar.<br><span>Lee ahorrando dinero y tiempo, sin tala de árboles.</span></h1>
                 <div class="image-form-wrapper flex">
                     <img class="main-computer-img" src="images/landing/flat_demo.png"/>
                     <div class="form-style" id="login_form_ajax" >
-                        <div align="center" id="message_register" style=""><p style="padding-top: 10px; font-size: 1.2em !important">¡Datos enviados correctamente!</p></div>
+                        <div align="center" id="message_register" style=""><p style="padding-top: 10px; font-size: 1.2em !important">¡Serás el primero en saber!</p></div>
                         <form id="form_register" onsubmit="return false;">
                             <fieldset>
                                 <legend>¿Quieres ser el primero en probar Lorapp?</legend>
                                 <input class="form_field" type="email" placeholder="Email" id="email" name="email">
-                                <input class="form_field" type="text" placeholder="Universidad" id="universidad" name="universidad">
-                                <input class="form_field" type="text" placeholder="Carrera" id="carrera" name="carrera">
-                                <label for="semestre">Semestre:</label>
-                                <select id="semestre" name="semestre">
-                                    <optgroup label="–Selecciona tu semestre–">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
-                                      <option value="8">8</option>
-                                      <option value="9">9</option>
-                                      <option value="10">10</option>
-                                      <option value="11">11</option>
-                                      <option value="12">12</option>
-                                      <option value="Egresado">Egresado</option>
-                                    </optgroup>
-                                </select>
+                                <div class="study-place">
+                                    <p>¿Dónde estudias?</p>
+                                    <div class="form-radio-div flex">
+                                        <div>
+                                            <input id="colegio-radio-btn" type="radio" name="education" value="school" onchange="educationselected()"><label for="colegio-radio-btn">Colegio</label>
+                                        </div>
+                                        <div>
+                                            <input id="universidad-radio-btn" type="radio" name="education" value="university" onchange="educationselected()"><label for="universidad-radio-btn">Universidad</label>
+                                        </div>
+                                    </div><!-- formRadioDiv -->
+                                </div>
+                                <div class="school-fields hidden">
+                                    <input class="form_field" type="text" placeholder="Colegio" id="colegio" name="colegio">
+                                    <input class="form_field" type="text" placeholder="Edad" id="edad" name="edad">
+                                </div>
+                                <div class="university-fields hidden">
+                                    <input class="form_field" type="text" placeholder="Universidad" id="universidad" name="universidad">
+                                    <input class="form_field" type="text" placeholder="Carrera" id="carrera" name="carrera">
+                                    <label for="semestre" class="">Semestre:</label>
+                                    <select id="semestre" name="semestre">
+                                        <optgroup label="–Selecciona tu semestre–">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="Egresado">Egresado</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
                             </fieldset>
                             <input type="hidden" id="op" name="op" value="preregistro"/>
-                            <input onclick="preregistro();" class="boton_enviar" type="submit" value="Enviar" />
+                            <input onclick="preregistro();" class="boton_enviar" id="boton_enviar" type="submit" value="Enviar" />
                         </form>
                     </div>
                 </div>
-                <a href="#section-2" id="down-scroll">
-                    <img class="main-down-icon" src="images/landing/back-icon.svg" />
-                </a>
             </div>
+            <a href="#section-2" id="down-scroll">
+                <img class="main-down-icon" src="images/landing/back-icon.svg" />
+            </a>
         </section>
         <section class="section-2 flex" id="section-2">
             <div class="section-2-text">
                 <p>¿Todavía sigues fotocopiando?</p>
-                <p>Con Lorapp tienes acceso a tus lecturas de la universidad de manera económica, ecológica y legal.</p>
+                <p>Con Lorapp tienes acceso a tus lecturas para estudiar de manera económica, ecológica y legal.</p>
             </div>
             <img class="lora-front-img" src="images/landing/lorafront.png" />
         </section>
@@ -154,18 +182,21 @@
             <img class="phone-img" src="images/landing/iphonedemo.png" />
             <div class="section-8-text flex">
                 <h3>También en tu teléfono</h3>
-                    <ul>
-                        <li>Accede a tus lecturas en cualquier momento y lugar.</li>
-                        <li>Tus notas y subrayados se sincronizan en todos tus dispositivos.</li>
-                        <li>Agrega recordatorios y recibe notificaciones con lo que tienes que leer.</li>
-                    </ul>
+                <ul>
+                    <li>Accede a tus lecturas en cualquier momento y lugar.</li>
+                    <li>Tus notas y subrayados se sincronizan en todos tus dispositivos.</li>
+                    <li>Agrega recordatorios y recibe notificaciones con lo que tienes que leer.</li>
+                </ul>
             </div>
         </section>
         <section class="section-9 flex">
             <h2>Olvídate de las fotocopias</h2>
             <p>Déjanos tus datos y te notificaremos tan pronto esté disponible Lorapp.</p>
-<!--            <a id="top-login-button" href="#login_form_ajax" class="signin-bottom-button"><div>Regístrate</div></a>-->
-            <a id="top-login-button" href="#login_form_ajax" ><input class="signin-bottom-button" type="submit" value="Regístrate" /></a>
+            <!--            <a id="top-login-button" href="#login_form_ajax" class="signin-bottom-button"><div>Regístrate</div></a>-->
+            <a id="top-login-button" href="#login_form_ajax" ><input class="signin-bottom-button" type="submit" value="Notifícame" /></a>
+            <div align="center" style="height: 30px; margin-top: 40px">
+                <div class="fb-like" data-href="http://lorapp.com" data-layout="standard" data-action="like" data-show-faces="false" data-share="true" data-width="310" ></div>
+            </div>
         </section>
         <footer class="flex">
             <span>Lorapp &COPY; 2014. Todos los derechos reservados.</span>
@@ -179,16 +210,16 @@
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54e581140ab1512b" async="async"></script>
         <script type="text/javascript">
-            $("#top-login-button").click(function() {
-                $.fancybox({
-                    href: "#login_form_ajax",
-                    afterClose: function() { // it was onClosed for v1.3.4
-                        $("#login_error").hide();
-                        $("#login_form_ajax").show();
-                    }
-                }); // fancybox
-            }); //click
-            
+                                $("#top-login-button").click(function() {
+                                    $.fancybox({
+                                        href: "#login_form_ajax",
+                                        afterClose: function() { // it was onClosed for v1.3.4
+                                            $("#login_error").hide();
+                                            $("#login_form_ajax").show();
+                                        }
+                                    }); // fancybox
+                                }); //click
+
         </script>
     </body>
 </html>

@@ -134,19 +134,19 @@ function getNoteHandler(data) {
     if (data.output.valid) {
         var res = data.output.response;
         var notes = '';
-        for (var i in res){
-            notes += '<div id=rn'+i+'>';
+        for (var i in res) {
+            notes += '<div id=rn' + i + '>';
             notes += '<hr>';
             notes += '<div class="notes_container notes_expandable" onmousemove="changeHeight(this, 400)" onmouseout="changeHeight(this, 100)">';
-            notes += '<p><q class="notes_fromtext">'+res[i].sel_text+'</q></p>';
+            notes += '<p><q class="notes_fromtext">' + res[i].sel_text + '</q></p>';
             notes += '<p class="notes_title_nota">NOTA:</p>';
-            notes += '<p class="notes_title_nota_txt" id="note_text'+i+'">'+res[i].notes+'</p>';
-            notes += '<p><textarea id="note_text_edit'+i+'" rows="5" style="width: 96%; display: none">'+res[i].notes+'</textarea></p>';
+            notes += '<p class="notes_title_nota_txt" id="note_text' + i + '">' + res[i].notes + '</p>';
+            notes += '<p><textarea id="note_text_edit' + i + '" rows="5" style="width: 96%; display: none">' + res[i].notes + '</textarea></p>';
             notes += '<div align="right" class="note_option">';
-            notes += '<span id="btn_note_edit'+i+'" onclick="editNoteShow('+i+', 1)">Editar</span>';
-            notes += '<span id="btn_note_save'+i+'" onclick="saveNote2('+res[i].id+', '+i+')" style="display: none">Guardar</span>';
-            notes += '<span id="btn_note_cancel'+i+'" onclick="editNoteShow('+i+', 0)" style="display: none">Cancelar</span>';
-            notes += '<span id="btn_note_delete'+i+'" onclick="deleteNote('+res[i].id+','+i+')">Eliminar</span>';
+            notes += '<span id="btn_note_edit' + i + '" onclick="editNoteShow(' + i + ', 1)">Editar</span>';
+            notes += '<span id="btn_note_save' + i + '" onclick="saveNote2(' + res[i].id + ', ' + i + ')" style="display: none">Guardar</span>';
+            notes += '<span id="btn_note_cancel' + i + '" onclick="editNoteShow(' + i + ', 0)" style="display: none">Cancelar</span>';
+            notes += '<span id="btn_note_delete' + i + '" onclick="deleteNote(' + res[i].id + ',' + i + ')">Eliminar</span>';
             notes += '</div>';
             notes += '</div>';
             notes += '</div>';
@@ -154,7 +154,7 @@ function getNoteHandler(data) {
         $("#note_loader").empty();
         $("#note_loader").append(notes);
     } else {
-        alert('Error: ' + data.output.response.content);
+        //alert('Error: ' + data.output.response.content);
     }
 }
 
@@ -182,45 +182,45 @@ function saveNote2(id, idnote) {
     actualNoteId = idnote;
     d.op = 'savenote';
     d.id = id;
-    d.notes = $('#note_text_edit'+idnote).val();
+    d.notes = $('#note_text_edit' + idnote).val();
     UTIL.callAjaxRqst(d, saveNote2Handler);
 }
 
 function saveNote2Handler(data) {
     UTIL.cursorNormal();
     if (data.output.valid) {
-        $("#note_text"+actualNoteId).empty();
-        $("#note_text"+actualNoteId).append($('#note_text_edit'+actualNoteId).val());
+        $("#note_text" + actualNoteId).empty();
+        $("#note_text" + actualNoteId).append($('#note_text_edit' + actualNoteId).val());
         editNoteShow(actualNoteId, 0);
     } else {
         alert('Error: ' + data.output.response.content);
     }
 }
 
-function editNoteShow(id, s){
-    if(s == 1){
-        $("#note_text"+id).hide();
-        $("#btn_note_edit"+id).hide();
-        $("#btn_note_cancel"+id).show();
-        $("#note_text_edit"+id).show();
-        $("#btn_note_save"+id).show();
+function editNoteShow(id, s) {
+    if (s == 1) {
+        $("#note_text" + id).hide();
+        $("#btn_note_edit" + id).hide();
+        $("#btn_note_cancel" + id).show();
+        $("#note_text_edit" + id).show();
+        $("#btn_note_save" + id).show();
         //window.location='#note_text_edit'+id;
     } else {
-        $("#note_text"+id).show();
-        $("#btn_note_edit"+id).show();
-        $("#btn_note_cancel"+id).hide();
-        $("#note_text_edit"+id).hide();
-        $("#btn_note_save"+id).hide();
-        $("#note_text_edit"+id).val($("#note_text"+id).html());
+        $("#note_text" + id).show();
+        $("#btn_note_edit" + id).show();
+        $("#btn_note_cancel" + id).hide();
+        $("#note_text_edit" + id).hide();
+        $("#btn_note_save" + id).hide();
+        $("#note_text_edit" + id).val($("#note_text" + id).html());
     }
-    
+
 }
 
-function deleteNote(id, idnote){
+function deleteNote(id, idnote) {
     var d = {};
     d.op = 'deletenote';
     d.id = id;
-    $("#rn"+idnote).remove();
+    $("#rn" + idnote).remove();
     UTIL.callAjaxRqst(d, deleteNoteHandler);
 }
 
@@ -253,37 +253,63 @@ function changeHeight(e, changeHeight) {
 //    }
 }
 
-function preregistro(){
+function preregistro() {
+    var edu = $('input[name=education]:checked', '#form_register').val();
     var d = {};
-    var e =$("#email").val();
-    var u =$("#universidad").val();
-    var c =$("#carrera").val();
-    var s =$("#semestre").val();
-    if ( e=='' || u=='' || c=='' || s==''){
-        alert('Todos los campos son obligatorios'); return;
+    var e = $("#email").val();
+    var co = $("#colegio").val();
+    var ed = $("#edad").val();
+    var u = $("#universidad").val();
+    var c = $("#carrera").val();
+    var s = $("#semestre").val();
+    console.log(edu);
+    if (edu === 'school') {
+        $("#universidad").val('');
+        $("#carrera").val('');
+        $("#semestre").val('');
+        if (e == '' || co == '' || ed == '') {
+            alert('Todos los campos son obligatorios');
+            return;
+        }
+    } else if (edu === 'university') {
+        $("#colegio").val('');
+        $("#edad").val('');
+        if (e == '' || u == '' || c == '' || s == '') {
+            alert('Todos los campos son obligatorios');
+            return;
+        }
+    } else {
+        alert('Primero selecciona donde estudias.');
+        return;
     }
-    if(!UTIL.isEmail(e)){
-        alert('El email ingresado no es correcto'); return;
+    if (!UTIL.isEmail(e)) {
+        alert('El email ingresado no es correcto');
+        return;
     }
     d = $("#form_register").serialize();
+    $("#boton_enviar").hide();
+    $('.university-fields').hide(500);
+    $('.school-fields').hide(500);
     UTIL.callAjaxRqst(d, registerHandler);
 }
 
-function register(){
+function register() {
     var d = {};
-    var e =$("#email").val();
-    var p =$("#pass").val();
-    var p2 =$("#pass2").val();
-    if ( p=='' || p2=='' || e==''){
-        alert('Todos los campos son obligatorios'); return;
+    var e = $("#email").val();
+    var p = $("#pass").val();
+    var p2 = $("#pass2").val();
+    if (p == '' || p2 == '' || e == '') {
+        alert('Todos los campos son obligatorios');
+        return;
     }
-    if ( p != p2){
-        alert('Las contraseñas no coinciden.'); 
+    if (p != p2) {
+        alert('Las contraseñas no coinciden.');
         $("#pass2").val('');
         return;
     }
-    if(!UTIL.isEmail(e)){
-        alert('El email ingresado no es correcto'); return;
+    if (!UTIL.isEmail(e)) {
+        alert('El email ingresado no es correcto');
+        return;
     }
     d = $("#form_register").serialize();
     UTIL.callAjaxRqst(d, registerHandler);
@@ -291,34 +317,48 @@ function register(){
 
 function registerHandler(data) {
     UTIL.cursorNormal();
+    $("#boton_enviar").show();
     if (data.output.valid) {
         //$("#form_register").hide();
         $("#message_register").show();
         $("#email").val('');
         $("#pass").val('');
         $("#pass2").val('');
+        $("#colegio").val('');
+        $("#edad").val('');
         $("#universidad").val('');
         $("#carrera").val('');
         $("#semestre").val('1');
-        setTimeout(function(){
-            $("#message_register").hide();
-        },5000);
+        setTimeout(function() {
+            $("#message_register").hide(1000);
+        }, 15000);
     } else {
         alert('Error: ' + data.output.response.content);
     }
 }
 
-function login(){
-    if ($("#usu").val() == 'demo' && $("#cot").val() == 'demo' ){
+function login() {
+    if ($("#usu").val() == 'demo' && $("#cot").val() == 'demo') {
         window.location = 'main.html';
     } else {
         $("#errormsg").show();
-        setTimeout(function(){
+        setTimeout(function() {
             $("#errormsg").hide();
         }, 3000);
     }
 }
 
+function educationselected() {
+    var education = $('input[name=education]:checked', '#form_register').val();
+    var time = 500;
+    $('.university-fields').hide(time);
+    $('.school-fields').hide(time);
+    if (education === 'school') {
+        $('.school-fields').show(time);
+    } else if (education === 'university') {
+        $('.university-fields').show(time);
+    }
+}
 $(document).ready(function() {
     $(".fancybox").fancybox();
     getNote();
@@ -331,10 +371,10 @@ $('#highlighter').click(highlighter);
 $('#unhighlight').click(unhighlight);
 
 // START: SMOOTH SCROLLING ON CLICK
-$('#down-scroll').click(function(){
+$('#down-scroll').click(function() {
     $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
+        scrollTop: $($.attr(this, 'href')).offset().top
     }, 500);
-return false;
+    return false;
 });
 // END: SMOOTH SCROLLING ON CLICK
