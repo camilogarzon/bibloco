@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>exitGray-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="ApuntesInfo" sketch:type="MSArtboardGroup" transform="translate(-1436.000000, -210.000000)" fill="#CACACA">
+            <g id="Tamaño-+-Line-2-+-X-icon" sketch:type="MSLayerGroup" transform="translate(156.000000, 202.000000)">
+                <g id="exitGray-icon" transform="translate(1280.000000, 8.000000)" sketch:type="MSShapeGroup">
+                    <path d="M19.0913729,19.0913729 C18.3103243,19.8724215 17.0406873,19.8691144 16.2655198,19.0939469 L0.90605308,3.73448021 C0.126426088,2.95485321 0.129167792,1.68808641 0.908627099,0.908627099 C1.68967568,0.127578516 2.95931273,0.130885608 3.73448021,0.90605308 L19.0939469,16.2655198 C19.8735739,17.0451468 19.8708322,18.3119136 19.0913729,19.0913729 Z" id="Rectangle-604"></path>
+                    <path d="M0.90605308,16.2655198 C0.126426088,17.0451468 0.129167792,18.3119136 0.908627099,19.0913729 L0.908627099,19.0913729 C1.68967568,19.8724215 2.95931273,19.8691144 3.73448021,19.0939469 L19.0939469,3.73448021 C19.8735739,2.95485321 19.8708322,1.68808641 19.0913729,0.908627099 L19.0913729,0.908627099 C18.3103243,0.127578516 17.0406873,0.130885608 16.2655198,0.90605308 L0.90605308,16.2655198 L0.90605308,16.2655198 Z" id="Rectangle-603"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

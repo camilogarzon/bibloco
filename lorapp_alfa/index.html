@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Lorapp - No más fotocopias</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="public/favicon.png" />
+  <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="public/css/bootstrap/main.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="public/js/fancybox/source/jquery.fancybox.css" media="screen" />
+</head>
+<body>
+
+  <div style="color:white; font-size: 1em; text-align: center; position: absolute; top: 10px; right: 20px;">
+    <a href="#form_register"><div style="background-color: #FFBC21; width: 105px; padding: 10px; border-radius: 4px; vertical-align: top; display: inline-block;">Regístrate</div></a>
+    <a id="top-login-button" href="#login_form_ajax" rel="gallery"><div style="background-color: #996818; width: 105px; padding: 10px; border-radius: 4px; vertical-align: top; display: inline-block;">Ingresa</div></a>
+  </div>
+  <!-- login -->
+  <form method="POST" action="public/login" accept-charset="UTF-8" id="login_form" style="display:none;"><input name="_token" type="hidden" value="dc5qhXEBgfYbOduSZWYF3W5A4XrVeg95AhrrDV6Q">
+    <div align="center" class="login_form">
+      <img src="public/images/landingpage/LogoVerticalDarkBG.png" style="max-height: 100px;margin-top: 30px;margin-bottom: -6px;"/>
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon" ><img src="public/images/user-icon.svg" style="height: 19px"/></span>
+        <input placeholder="Usuario" class="form-control" name="email" type="email">
+      </div>
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon" style="width: " ><img src="public/images/password-icon.svg" style="height: 20px; margin-right: 2px;margin-left: 2px"/></span>
+        <input placeholder="Contrase&ntilde;a" class="form-control" name="password" type="password" value="">
+      </div>
+      <div id="errormsg" style="display: none; color: rgb(255, 124, 124); padding-top: 5px; padding-bottom: 5px; font-size: 2em;">
+        <div>
+
+
+        </div>
+        Datos incorrectos!
+      </div>
+      <div align="center">
+        <a class="btn btn-warning btn-lg" style="width:440px; margin-top: 10px;" href="main.html">Entrar</a><br>
+        <!--<a class="btn btn-warning btn-lg" style="width:440px; margin-top: 10px;" onclick="landing.login('login_form')">Entrar</a><br>
+        { Form::submit('Entrar', array('class' => 'btn btn-warning btn-lg', 'style'=>'width:440px; margin-top: 10px; ')) }-->
+      </div>
+    </div>
+  </form>
+
+
+
+  <section align="center" class="main-search" style="background-image: url('public/images/landingpage/MainBG.png');">
+    <img style="max-height: 200px; margin-top: 70px;" src="public/images/landingpage/MainLogo.png"/>
+    <div style="color: #8F8F8F; font-size: 1.5em; margin: 20px;">Tus lecturas universitarias donde quieras, cuando quieras.</div>
+
+    <div align="center" style="width: 100%">
+      <div align="center" class="search-input">
+        <input type="text" placeholder="¿Cuál lectura buscas?"/><a href="#"><img src="public/images/search_icon.png" style="vertical-align: middle;"/></a>
+      </div>
+    </div>
+  </section>
+  <div class="slide_wrap">
+    <div class="slide_frame" id="slide_frame" style="overflow: hidden;">
+      <ul class="clearfix" style="transform: translateZ(0px) translateX(-1140px); width: 840px;">
+        <li class="slide_item">
+          <a href="lecturedetail.html?1"><img src="public/images/landing/book.png" alt="La riqueza de las naciones" title="La riqueza de las naciones" /></a>
+          <p>La riqueza de las naciones</p>
+          <p>Adam Smith</p>
+          <p>lecture1 seccion1</p>
+
+        </li>
+        <li class="slide_item">
+          <a href="lecturedetail.html?1"><img src="public/images/landing/book.png" alt="La riqueza de las naciones" title="La riqueza de las naciones" /></a>
+          <p>La riqueza de las naciones</p>
+          <p>Adam Smith</p>
+          <p>lecture1 seccion2</p>
+
+        </li>
+        <li class="slide_item">
+          <a href="lecturedetail.html?1"><img src="public/images/landing/book.png" alt="La riqueza de las naciones" title="La riqueza de las naciones" /></a>
+          <p>La riqueza de las naciones</p>
+          <p>Adam Smith</p>
+          <p>lecture1 seccion3</p>
+
+        </li>
+        <li class="slide_item">
+          <a href="lecturedetail.html?2"><img src="public/images/landing/book.png" alt="Estrategia del oceano azul" title="Estrategia del oceano azul" /></a>
+          <p>Estrategia del oceano azul</p>
+          <p>W. Cham Kim</p>
+          <p>lecture2 seccion4</p>
+
+        </li>
+        <li class="slide_item">
+          <a href="lecturedetail.html?2"><img src="public/images/landing/book.png" alt="Estrategia del oceano azul" title="Estrategia del oceano azul" /></a>
+          <p>Estrategia del oceano azul</p>
+          <p>W. Cham Kim</p>
+          <p>lecture2 seccion5</p>
+
+        </li>
+        <li class="slide_item">
+          <a href="lecturedetail.html?2"><img src="public/images/landing/book.png" alt="Estrategia del oceano azul" title="Estrategia del oceano azul" /></a>
+          <p>Estrategia del oceano azul</p>
+          <p>W. Cham Kim</p>
+          <p>lecture2 seccion6</p>
+
+        </li>
+        <li class="slide_item">
+          <a href="lecturedetail.html?3"><img src="public/images/landing/book.png" alt="Plusvalia, Capital y Trabajo" title="Plusvalia, Capital y Trabajo" /></a>
+          <p>Plusvalia, Capital y Trabajo</p>
+          <p>Karl Marx</p>
+          <p>lecture3 seccion7</p>
+
+        </li>
+        <li class="slide_item">
+          <a href="lecturedetail.html?3"><img src="public/images/landing/book.png" alt="Plusvalia, Capital y Trabajo" title="Plusvalia, Capital y Trabajo" /></a>
+          <p>Plusvalia, Capital y Trabajo</p>
+          <p>Karl Marx</p>
+          <p>lecture3 seccion8</p>
+
+        </li>
+        <li class="slide_item">
+          <a href="lecturedetail.html?3"><img src="public/images/landing/book.png" alt="Plusvalia, Capital y Trabajo" title="Plusvalia, Capital y Trabajo" /></a>
+          <p>Plusvalia, Capital y Trabajo</p>
+          <p>Karl Marx</p>
+          <p>lecture3 seccion9</p>
+
+        </li>
+
+      </ul>
+    </div>
+    <div class="slide_controls center">
+      <div class="btn prev"><img src="public/images/thin_left_arrow_333.png"></div>
+      &nbsp;&nbsp;
+      <div class="btn next"><img src="public/images/thin_right_arrow_333.png"></div>
+    </div>
+  </div>
+  <div align="center" style="height: 400px; width: 100%; background-color: #FFE7AF; color: #603813;">
+    <div style="font-size: 2em; padding-top: 20px;">Olvídate de las fotocopias</div>
+    <img style="max-height: 200px; padding: 20px;" src="public/images/landingpage/computer.png"/>
+    <div style="font-size: 1.15em; padding-top: 20px; text-align: center; width: 780px; "><p>Lee lo que te piden en la universidad desde tu computador. No más fotocopias, no más filas, no más papel. Somos la nueva generación de lectores.</p></div>
+  </div>
+  <div align="center" style="height: 500px; width: 100%; color: #603813;">
+    <div style="font-size: 2em; padding: 20px;">¿Cómo funciona?</div>
+    <div style="width: 780px; ">
+      <div style="display: table-row; width: 780px; ">
+        <div style="display: table-cell; " class="how_work">
+          <img style="max-height: 200px; padding: 10px;" src="public/images/landingpage/search-image.png"/>
+          <div style="font-size: 1.25em">Busca</div>
+          <div style="font-size: 1.125em"><p>¿Tu profesor te pidió leer algo? Usa nuestro buscador y encuentra la lectura que necesitas.</p></div>
+        </div>
+        <div style="display: table-cell; " class="how_work">
+          <img style="max-height: 200px; padding: 10px;" src="public/images/landingpage/money-image.png"/>
+          <div style="font-size: 1.25em">Alquila</div>
+          <div style="font-size: 1.125em"><p>Accede a tu lectura por un día al mejor precio o cómprala para tenerla siempre disponible.</p></div>
+        </div>
+        <div style="display: table-cell; " class="how_work">
+          <img style="max-height: 200px; padding: 10px;" src="public/images/landingpage/devices-image.png"/>
+          <div style="font-size: 1.25em">Lee</div>
+          <div style="font-size: 1.125em"><p>Subraya, toma notas, busca palabras. La mejor experiencia de lectura online.</p></div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size: 0.875em;"><sup>*</sup>A diferencia de las fotocopias, la mayor parte del ingreso de Lorapp es enviado a las editoriales y a los autores.</div>
+
+  </div>
+  <div align="center" style="height: 500px; width: 100%; background-color: #E4F4FF">
+    <div style="width: 780px;">
+      <div style="display: table-row;">
+        <div style="display: table-cell; color: rgb(117, 117, 117);text-align: center;height: 380px;vertical-align: middle;">
+          <div style="font-size: 3em">¡Únete!</div>
+          <div style="font-size: 1.5em">Regístrate y descubre una nueva forma de estudiar.</div>
+        </div>
+        <div align="center" style="display: table-cell;height: 380px;vertical-align: middle;">
+          <div id="message_register" style="font-size: 2em; color: green; display: none"><p>Cuenta creada correctamente!</p></div>
+          <form method="POST" action="http://beta.lorapp.com/alfa/lorapp/public" accept-charset="UTF-8" id="form_register"><input name="_token" type="hidden" value="dc5qhXEBgfYbOduSZWYF3W5A4XrVeg95AhrrDV6Q">
+            <input id="firstname" placeholder="Nombre" class="form_field" name="firstname" type="text" value="">
+            <input placeholder="Apellido" class="form_field" name="lastname" type="text" value="">
+            <input email="firstname" placeholder="Email" class="form_field" name="email" type="email" value="">
+            <input placeholder="Contrase&ntilde;a" class="form_field" name="password" type="password" value="">
+            <input placeholder="Repetir contrase&ntilde;a" class="form_field" name="password2" type="password" value="">
+            <a class="btn btn-warning btn-lg" style="width:560px; margin-top: 10px;" onclick="landing.registrationCreate('form_register')">Crear cuenta</a><br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="height: 100px; width: 100%; display:table-row; background-color: rgb(18, 120, 196); font-size: 1.25em; color: white; text-align: center;">
+    <div style="display: table-cell; width: 25%; vertical-align: middle;">Sobre nosotros</div>
+    <div style="display: table-cell; width: 25%; vertical-align: middle;">Términos y condiciones</div>
+    <div style="display: table-cell; width: 25%; vertical-align: middle;">Política de privacidad</div>
+    <div style="display: table-cell; width: 25%; vertical-align: middle;"><img src="public/images/landingpage/LogoVerticalDarkBG.png" style="max-height: 100px;  vertical-align: bottom;"/></div>
+  </footer>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="public/js/global.js"></script>
+  <script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="public/js/util.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
+  <script type="text/javascript">global.url = "http://beta.lorapp.com/alfa/lorapp/public";</script>
+  <script type="text/javascript" src="public/js/sly/plugins.js"></script>
+  <script type="text/javascript" src="public/js/sly/sly.min.js"></script>
+  <script type="text/javascript" src="public/js/fancybox/source/jquery.fancybox.js"></script>
+  <script type="text/javascript" src="public/js/util.min.js"></script>
+  <script type="text/javascript" src="public/js/landing.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    //se configura el slide
+    var $slide_frame = $('#slide_frame');
+    //var $slidee = $slide_frame.children('ul').eq(0);
+    var $slide_wrap = $slide_frame.parent();
+    $slide_frame.sly({
+      horizontal: 1,
+      itemNav: 'basic',
+      smart: 1,
+      activateOn: 'click',
+      mouseDragging: 1,
+      touchDragging: 1,
+      releaseSwing: 1,
+      startAt: 3,
+      activatePageOn: 'click',
+      speed: 300,
+      elasticBounds: 1,
+      easing: 'easeOutExpo',
+      dragHandle: 1,
+      dynamicHandle: 1,
+      clickBar: 1,
+      // Cycling
+      cycleBy: 'items',
+      cycleInterval: 1000,
+      pauseOnHover: 1,
+      // Buttons
+      prev: $slide_wrap.find('.prev'),
+      next: $slide_wrap.find('.next')
+    });
+
+    //configura el fancybox del login
+    landing.fancyBoxFormBinding('top-login-button', 'login_form');
+    /*
+    * //configura el fancybox para terminar registro
+    */
+  });
+
+  </script>
+
+</body>
+</html>
