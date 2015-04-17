@@ -10,7 +10,8 @@
         <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/landing.css" rel="stylesheet">
         <link href="public/css/jquery-ui/jquery-ui.css" rel="stylesheet">
-            </head>
+        <link rel="stylesheet" type="text/css" href="public/js/fancybox/source/jquery.fancybox.css" media="screen">
+    </head>
     <body>
 
                 <!-- START: navbar logged-in -->
@@ -61,40 +62,529 @@
         </nav>
         <!-- END: navbar logged-in -->
                 <!-- START Body -->
-        <div class="container">
-    <div align="center">
-        <h1>Mis Lecturas</h1>
-                        <div style="width: 100%; max-width: 600px; ">
-            <table class="table table-striped" width="100%">
-                <tbody><tr>
-                    <th></th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Sección</th>
-                    <th>Apuntes</th>
-                    <th>Tiempo restante</th>
-                </tr>
-                                <tr style="border: 1px solid #CCC;">
-                    <td><a title="Eliminar" class="btn btn-danger btn-xs" onclick="removeLectureSection(2)"><span class="glyphicon glyphicon-trash"></span></a></td>
-                    <td><a href="lecturedetail.html?1">Deserunt molestiae ullam eius repudiandae autem quo.</a></td>
-                    <td>Lucio Donnelly</td>
-                    <td><a href="mylecture.html?2">Quae velit impedit omnis neque excepturi sed placeat.</a></td>
-                    <td><a>Apuntes</a></td>
-                    <td>Ilimitado</td>
-                </tr>
-                                <tr style="border: 1px solid #CCC;">
-                    <td><a title="Eliminar" class="btn btn-danger btn-xs" onclick="removeLectureSection(14)"><span class="glyphicon glyphicon-trash"></span></a></td>
-                    <td><a href="lecturedetail.html?5">Nulla inventore optio amet laudantium enim illo et.</a></td>
-                    <td>John Luettgen</td>
-                    <td><a href="mylecture.html?14">Porro nihil nesciunt et beatae deserunt.</a></td>
-                    <td><a>Apuntes</a></td>
-                    <td>Ilimitado</td>
-                </tr>
-                            </tbody></table>
+
+<div class="container-fluid body-search row">
+
+    <div class="col-sm-3 search-filters"><!-- left column -->
+        <div class="list-group hidden-xs">
+            <div class="list-group-item active">
+                UNIVERSIDAD
+            </div>
+            <a href="#" class="list-group-item">Universidad Externado<span class="badge">15</span></a>
+            <a href="#" class="list-group-item">Universidad de los Andes<span class="badge">9</span></a>
+            <a href="#" class="list-group-item">Otras<span class="badge">18</span></a>
         </div>
+        <div class="list-group hidden-xs">
+            <div class="list-group-item active">
+                CARRERA
+            </div>
+            <a href="#" class="list-group-item">Administración<span class="badge">31</span></a>
+            <a href="#" class="list-group-item">Derecho<span class="badge">7</span></a>
+            <a href="#" class="list-group-item">Otras <span class="badge">4</span></a>
+        </div>
+        <div class="list-group hidden-xs">
+            <div class="list-group-item active">
+                MATERIA
+            </div>
+            <a href="#" class="list-group-item">Gerencia internacional<span class="badge">28</span></a>
+            <a href="#" class="list-group-item">Introducción al derecho<span class="badge">5</span></a>
+            <a href="#" class="list-group-item">Otras<span class="badge">9</span></a>
+        </div>
+    </div>
+
+    <div class="col-md-9 col-sm-offset-3 col-lg-6 container"><!-- center column -->
+
+
+
+        <!-- Información escrito en arena y piedra -->
+        <div class="purchase-type-info">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" src="public/images//sand.svg" alt="...">
+                </div>
+                <div class="media-body">
+                    <strong>Escrito en arena</strong> te da acceso a la lectura durante 24 horas desde que la abres por primera vez. Puedes subrayar hasta un 15% de la lectura. Tus apuntes y subrayados nunca se borran.
+                </div>
+            </div>
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" src="public/images//rock.svg" alt="...">
+                </div>
+                <div class="media-body">
+                    <strong>Escrito en piedra</strong> te da acceso a la lectura por siempre. Puedes imprimirla con facilidad y subrayar cuanto quieras. Tus apuntes y subrayados nunca se borran.
+                </div>
+            </div>
+        </div><!-- /Información escrito en arena y piedra -->
+
+        <h4>9 resultados para "a"</h4>
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Deserunt molestiae ullam eius repudiandae autem quo." title="Deserunt molestiae ullam eius repudiandae autem quo." src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Deserunt molestiae ullam eius repudiandae autem quo.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>Lucio Donnelly</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Dolorem sunt vero molestiae.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Economia</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free1"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="1">
+                <input name="type" type="hidden" value="free">
+                <a onclick="operation.addLectureSection('free1')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Deserunt molestiae ullam eius repudiandae autem quo." title="Deserunt molestiae ullam eius repudiandae autem quo." src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Deserunt molestiae ullam eius repudiandae autem quo.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>Lucio Donnelly</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Quae velit impedit omnis neque excepturi sed placeat.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Economia</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand2"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="2">
+                <input name="type" type="hidden" value="sand">
+                <a onclick="operation.addLectureSection('sand2')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 20</a>
+                </form>
+                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone2"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="2">
+                <input name="type" type="hidden" value="stone">
+                <a onclick="operation.addLectureSection('stone2')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 3</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Deserunt molestiae ullam eius repudiandae autem quo." title="Deserunt molestiae ullam eius repudiandae autem quo." src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Deserunt molestiae ullam eius repudiandae autem quo.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>Lucio Donnelly</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Blanditiis rerum voluptate sequi id dolorem rerum.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Economia</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free3"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="3">
+                <input name="type" type="hidden" value="free">
+                <a onclick="operation.addLectureSection('free3')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?4"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Eos sed cum qui praesentium tempore reprehenderit hic." title="Eos sed cum qui praesentium tempore reprehenderit hic." src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Eos sed cum qui praesentium tempore reprehenderit hic.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>Monserrat Romaguera</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Dolorem incidunt labore fuga enim quis et.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Derecho</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free10"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="10">
+                <input name="type" type="hidden" value="free">
+                <a onclick="operation.addLectureSection('free10')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?4"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Eos sed cum qui praesentium tempore reprehenderit hic." title="Eos sed cum qui praesentium tempore reprehenderit hic." src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Eos sed cum qui praesentium tempore reprehenderit hic.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>Monserrat Romaguera</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Esse porro fugit cumque.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Derecho</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand11"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="11">
+                <input name="type" type="hidden" value="sand">
+                <a onclick="operation.addLectureSection('sand11')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 13</a>
+                </form>
+                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone11"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="11">
+                <input name="type" type="hidden" value="stone">
+                <a onclick="operation.addLectureSection('stone11')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 19</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?4"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Eos sed cum qui praesentium tempore reprehenderit hic." title="Eos sed cum qui praesentium tempore reprehenderit hic." src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Eos sed cum qui praesentium tempore reprehenderit hic.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>Monserrat Romaguera</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Fugit aliquam quidem nisi est numquam qui.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Derecho</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand12"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="12">
+                <input name="type" type="hidden" value="sand">
+                <a onclick="operation.addLectureSection('sand12')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 5</a>
+                </form>
+                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone12"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="12">
+                <input name="type" type="hidden" value="stone">
+                <a onclick="operation.addLectureSection('stone12')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 19</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?5"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Nulla inventore optio amet laudantium enim illo et." title="Nulla inventore optio amet laudantium enim illo et." src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Nulla inventore optio amet laudantium enim illo et.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>John Luettgen</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Explicabo labore et culpa iure laboriosam laudantium.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Economia</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free13"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="13">
+                <input name="type" type="hidden" value="free">
+                <a onclick="operation.addLectureSection('free13')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?5"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Nulla inventore optio amet laudantium enim illo et." title="Nulla inventore optio amet laudantium enim illo et." src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Nulla inventore optio amet laudantium enim illo et.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>John Luettgen</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Porro nihil nesciunt et beatae deserunt.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Economia</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand14"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="14">
+                <input name="type" type="hidden" value="sand">
+                <a onclick="operation.addLectureSection('sand14')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 6</a>
+                </form>
+                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone14"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="14">
+                <input name="type" type="hidden" value="stone">
+                <a onclick="operation.addLectureSection('stone14')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 16</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+
+        <div class="search-result row">
+            <div class="media col-sm-9">
+                <div class="media-left media-middle">
+                                        <a href="lecturedetail.html?5"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Nulla inventore optio amet laudantium enim illo et." title="Nulla inventore optio amet laudantium enim illo et." src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269"></a>
+
+                </div>
+                <div class="media-body">
+                    <dl class="dl-horizontal search">
+                        <div class="row">
+                            <dt>Título</dt>
+                            <dd>Nulla inventore optio amet laudantium enim illo et.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Autor</dt>
+                            <dd>John Luettgen</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Sección</dt>
+                            <dd>Ad dolor aliquid quam at labore ut rerum placeat.</dd>
+                        </div>
+                        <div class="row">
+                            <dt>Se lee en</dt>
+                            <dd> <span class="label label-info">Economia</span> </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-3 btn-purchase-group">
+                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free15"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lsid" type="hidden" value="15">
+                <input name="type" type="hidden" value="free">
+                <a onclick="operation.addLectureSection('free15')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                </form>
+                                            </div>
+
+        </div><!-- search result -->
+
+                        <nav class="text-center">
+            <ul class="pagination">
+			<li class="disabled"><span>«</span></li><li class="active"><span>1</span></li><li><a href="lecturesearch.html??search=a&amp;render=lecturesearch&amp;page=2">2</a></li><li><a href="lecturesearch.html??search=a&amp;render=lecturesearch&amp;page=2" rel="next">»</a></li>	</ul>
+
+        </nav>
+
+
+
+
 
     </div>
+
+    <div class="col-sm-3 col-sm-offset-9 search-right-info hidden-md hidden-sm"><!-- right column -->
+        <div class="thumbnail text-center hidden-xs search-leaf-info">
+            <h4><span class="glyphicon glyphicon-leaf"></span> x 100</h4>
+            <p><strong>Las hojitas se cambian por lecturas.</strong></p>
+            <p>Cada vez que adquieres una lectura con hojitas apoyas la legalidad y ayudas al medio ambiente. Además, las lecturas en Lorapp muchas veces valen menos que las fotocopias. :)</p>
+            <a class="btn btn-success" href="">Consigue hojitas</a>
+        </div>
+
+        <div class="thumbnail text-center hidden-xs search-suggest-reading">
+            <h3><span class="search-question-icon">?</span></h3>
+            <h4>¿No encuentras tu lectura?</h4>
+            <p><strong>Háznoslo saber y ayúdanos a mejorar Lorapp.</strong> Cada semana sorteamos hojitas entre los usuarios que nos reportan lecturas faltantes.</p>
+            <a class="btn btn-primary" href="" data-toggle="modal" data-target="#modal-lecturesuggested">Sugerir lectura</a>
+        </div>
+    </div>
+
+
+
 </div>
+
+<!--
+<div class="container">
+    <h1 class="page-header">LECTURAS</h1>
+    <h2 class="sub-header">
+        <table width="100%">
+            <tr>
+                <td width="30%">&nbsp;</td>
+                <td width="30%">&nbsp;</td>
+                <td>
+                    <form method="GET" action="lecturesearch.html?" accept-charset="UTF-8" id="search_form">
+                    <div class="input-group" >
+                        <input id="search" placeholder="Buscar..." class="form-control" required="true" name="search" type="text" value="a">
+                        <input name="render" type="hidden" value="lecturesearch">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default">&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;</button>
+                        </span>
+                    </div>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </h2>
+    <div class="table-responsive">
+                <ul class="pagination">
+			<li class="disabled"><span>&laquo;</span></li><li class="active"><span>1</span></li><li><a href="lecturesearch.html??search=a&render=lecturesearch&page=2">2</a></li><li><a href="lecturesearch.html??search=a&render=lecturesearch&page=2" rel="next">&raquo;</a></li>	</ul>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Editorial</th>
+                    <th>Secciones</th>
+                </tr>
+            </thead>
+            <tbody id="tbody_result">
+                                <tr>
+                    <td><a href="lecturedetail.html?1">Deserunt molestiae ullam eius repudiandae autem quo.</a></td>
+                    <td>Lucio Donnelly</td>
+                    <td>Editorial Stehr, Jenkins and Koepp</td>
+                    <td>
+                                                <a class="btn btn-xs btn-success">Dolorem sunt vero molestiae.</a>
+                                                <a class="btn btn-xs btn-success">Quae velit impedit omnis neque excepturi sed placeat.</a>
+                                                <a class="btn btn-xs btn-success">Blanditiis rerum voluptate sequi id dolorem rerum.</a>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td><a href="lecturedetail.html?4">Eos sed cum qui praesentium tempore reprehenderit hic.</a></td>
+                    <td>Monserrat Romaguera</td>
+                    <td>Editorial Gerlach, Bauch and Rutherford</td>
+                    <td>
+                                                <a class="btn btn-xs btn-success">Dolorem incidunt labore fuga enim quis et.</a>
+                                                <a class="btn btn-xs btn-success">Esse porro fugit cumque.</a>
+                                                <a class="btn btn-xs btn-success">Fugit aliquam quidem nisi est numquam qui.</a>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td><a href="lecturedetail.html?5">Nulla inventore optio amet laudantium enim illo et.</a></td>
+                    <td>John Luettgen</td>
+                    <td>Editorial Fisher and Sons</td>
+                    <td>
+                                                <a class="btn btn-xs btn-success">Explicabo labore et culpa iure laboriosam laudantium.</a>
+                                                <a class="btn btn-xs btn-success">Porro nihil nesciunt et beatae deserunt.</a>
+                                                <a class="btn btn-xs btn-success">Ad dolor aliquid quam at labore ut rerum placeat.</a>
+                                            </td>
+                </tr>
+                            </tbody>
+        </table>
+        <ul class="pagination">
+			<li class="disabled"><span>&laquo;</span></li><li class="active"><span>1</span></li><li><a href="lecturesearch.html??search=a&render=lecturesearch&page=2">2</a></li><li><a href="lecturesearch.html??search=a&render=lecturesearch&page=2" rel="next">&raquo;</a></li>	</ul>
+
+            </div>
+</div>-->
         <!-- END Body -->
         <!-- START Modals -->
         <!-- FAQ -->
@@ -457,27 +947,7 @@
         <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript">global.url = "main.html?";</script>
         <script type="text/javascript" src="public/js/util.js"></script>
-                <script type="text/javascript">
-            function removeLectureSection(id){
-            var d = {};
-                    d.lsid = id;
-                    util.cursorBusy();
-                    $.ajax({
-                    data: d,
-                            type: "GET",
-                            dataType: "json",
-                            url: global.url + "/userdeletelecturesection",
-                            success: function(data) {
-                            util.cursorNormal();
-                                    if (data.valid) {
-                            location.reload();
-                            } else {
-                            alert('Error: ' + data.error);
-                            }
-                            }
-                    });
-            }
-</script>
+                <script type="text/javascript" src="public/js/operation.js"></script>
 
 
 </body></html>

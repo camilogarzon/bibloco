@@ -166,11 +166,11 @@ var myLecture = {
             }
         });
     },
-    openNoteLoader: function(){
+    openNoteLoader: function() {
         myLecture.getNote();
         $('#note_loader_container').show();
     },
-    closeNoteLoader: function(){
+    closeNoteLoader: function() {
         $('#note_loader_container').hide();
         $('#note_loader').empty();
     },
@@ -268,6 +268,11 @@ var myLecture = {
         }
 
     },
+    /**
+     * Metodo para eliminar una nota de usuario
+     * @param String id del la nota a eliminar
+     * @param String idelem id del elemento a remover de la lista de notas tomadas
+     */
     deleteNote: function(id, idelem) {
         var d = {};
         d.id = id;
@@ -288,13 +293,108 @@ var myLecture = {
                 }
             }
         });
+    },
+    /**
+     * Metodo para almacenar un Objeto en localStorage
+     * @param String key
+     * @param Object value
+     */
+    setLSO: function(key, value) {
+        window.localStorage.setItem(key, JSON.stringify(value));
+    },
+    /**
+     * Metodo para recuperar un Objeto de localStorage
+     * @param String key
+     * @returns Object 
+     */
+    getLSO: function(key) {
+        return JSON.parse(window.localStorage.getItem(key));
+    },
+    /**
+     * Metodo para almacenar un string en localStorage
+     * @param String key
+     * @param String value
+     */
+    setLS: function(key, value) {
+        window.localStorage.setItem(key, value);
+    },
+    /**
+     * Metodo para recuperar un string de localStorage
+     * @param String key
+     * @returns Object 
+     */
+    getLS: function(key) {
+        return window.localStorage.getItem(key);
+    },
+    /**
+     * Limpia localStorage
+     */
+    cleanLS: function() {
+        localStorage.clear();
+    },
+    /**
+     * Metodo para consrvar los valores de local storage
+     * @param StorageEvent e 
+     */
+    storageValue: function(e) {
+        myLecture.setLS(e.key, e.oldValue);
+    },
+    /**
+     * Verifica se localStorage est habilitado
+     * @returns Boolean 
+     */
+    checkLS: function() {
+        try {
+            localStorage.setItem('test', 'success');
+            localStorage.removeItem('test');
+            if (window.addEventListener) {
+                window.addEventListener('storage', myLecture.storageValue, false);
+            } else {
+                window.attachEvent('onstorage', myLecture.storageValue);
+            }
+            return true;
+        } catch (e) {
+            console.log(e);
+            alert('El navegador no es compatible con esta aplicación. \nPor favor habilite LocalStorage.\n\n' + e);
+            return false;
+        }
     }
 };
 
+var setTimer = function(cb, options) {
+    options = options || Object.prototype;
+    options.timeout = options.timeout || 0;
+    options.interval = options.interval || 0;
+    options.limit = options.limit || 1;
+    options.onClear = options.onClear || Function.prototype;
+    options.cb = cb || Function.prototype;
 
+    var timer = {
+        calls: 0,
+        options: options,
+        timeout: null,
+        interval: null,
+        clear: function() {
+            if (this.timeout)
+                clearTimeout(this.timeout);
+            if (this.interval)
+                clearInterval(this.interval);
+            options.onClear.call(this);
+        }
+    };
 
+    timer.timeout = setTimeout(function() {
+        timer.interval = setInterval(function() {
+            timer.calls++;
+            options.cb.call(timer);
+            if (timer.calls >= options.limit) {
+                timer.clear();
+            }
+        }, options.interval);
+    }, options.timeout);
 
-
+    return timer;
+};
 
 
 

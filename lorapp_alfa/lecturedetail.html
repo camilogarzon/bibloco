@@ -1,188 +1,784 @@
+
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <title>Lorapp - No más fotocopias</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" type="image/x-icon" href="public/favicon.png" />
-  <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link href="public/css/bootstrap/main.css" rel="stylesheet">
-</head>
-<body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lorapp - No más fotocopias</title>
+        <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+        <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="public/css/bootstrap/landing.css" rel="stylesheet">
+        <link href="public/css/jquery-ui/jquery-ui.css" rel="stylesheet">
+            </head>
+    <body>
 
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="main.html">Inicio</a>
-      </div>
+                <!-- START: navbar not logged-in -->
+        <nav class="navbar navbar-inverse navbar-fixed-top nav-not-logged-in">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html" ><img class="nav-logo img-responsive" alt="Lorapp" src="public/images/logo-vertical-dark.png" data-toggle="tooltip" data-placement="right" title="¡CRAAAR!" /></a>
+                </div>
 
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="mylecturesection.html">Mis lecturas</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              <span class="caret"></span> <span>camilo4@gmail.com</span><span><img style="max-height: 30px; padding-left: 10px; padding-right: 10px" src="public/images/wayra_logo.png" /></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Configuración</a></li>
-              <li class="divider"></li>
-              <li><a href="index.html">Cerrar sesión</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="nav navbar-right dropdown">
+                        <button class="btn btn-success dropdown-toggle nav-login" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Entrar
+                        </button>
+                        <div class="dropdown-menu form-group dropdown-login" role="menu" aria-labelledby="dropdownMenu1" >
+                            <form method="POST" action="main.html?" accept-charset="UTF-8" onsubmit="return landing.login(&quot;login_form&quot;);" id="login_form" class="form-login text-center"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                            <input id="email" placeholder="Usuario" class="form-control" name="email" type="email">
+                            <input id="password" placeholder="Contrase&ntilde;a" class="form-control" name="password" type="password" value="">
+                            <label class="pull-right login-forgotten-label"><a href="#" data-toggle="modal" data-target="#modal-forgot">¿Olvidado?</a></label>
+                            <div id="error_login" class="alert-danger" style="display: none">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Error:</span>
+                                <span id="message_login">Enter a valid email address</span>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block" onclick="landing.login('login_form')">Ingresar</button><br>
+                            <label>¿Nuevo en Lorapp? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</label>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="nav-search navbar-form navbar-right">
+                        <div class="input-group">
+                            <form method="GET" action="lecturesearch.html?" accept-charset="UTF-8" id="search_form">
+                            <input id="search" placeholder="&iquest;Cu&aacute;l lectura buscas?" class="form-control" required="true" name="search" type="text" value="">
+                            <input name="render" type="hidden" value="lecturesearch">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </span>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!-- END: navbar not logged-in -->
+
+        <!-- START: Pass olvidado -->
+        <div class="modal fade" id="modal-forgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="title-forgot">¿Olvidaste tu contraseña?</h4>
+                    </div>
+                    <form action="main.html?password/remind" method="POST">
+                        <div class="modal-body">
+                            <label class="text-center col-sm-8 col-md-offset-2"><strong>Enviaremos un correo para recuperar tu contraseña.</strong></label>
+                            <div class="row">
+                                <div class="form-horizontal col-sm-6 col-md-offset-3">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                                        <input type="email"  name="email" class="form-control" id="email_remember" placeholder="Email" onkeyup="landing.emailCorrect('email_remember')" onmouseout="landing.emailCorrect('email_remember')">
+                                    </div>
+                                    <div id="error_remember" class="alert-success" style="display: none">
+                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        <span class="sr-only">Error:</span>
+                                        <span id="message_remember">Enter a valid email address</span>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" id="btn_reminder" value="Enviar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END: Pass olvidado -->
+
+        <!-- Registro -->
+
+        <form method="GET" action="http://beta.lorapp.com/alfa/lorapp/public" accept-charset="UTF-8" id="form_register" class="form-horizontal" autocomplete="off">
+        <div class="modal fade" id="modal-registration-1" tabindex="-1" role="dialog" aria-labelledby="modal-registration-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                        <h4 class="modal-title" id="modal-registration-1-label">Bienvenido a Lorapp</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label class="text-center col-sm-10 col-md-offset-1">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</label>
+                        <div class="form-horizontal form-registration-1">
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-name">Nombre</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input id="firstname" placeholder="Nombre" class="form-control" name="firstname" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="form-group hidden">
+                                <label class="sr-only" for="registration-lastname">Apellido</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input id="lastname" placeholder="Apellido" class="form-control" name="lastname" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-email">Email</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input id="email_register" placeholder="Email" class="form-control" onfocusout="landing.emailExist(&quot;email_register&quot;)" onmousemove="landing.emailExist(&quot;email_register&quot;)" name="email" type="email" value="">
+                                    <div id="message_alert" class="alert-danger" style="display: none">
+                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        <span class="sr-only">Error:</span>
+                                        <span id="message_reg">Enter a valid email address</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-contraseña">Contraseña</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input id="password_register" placeholder="Contrase&ntilde;a" class="form-control" name="password" type="password" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <label>Al registrarte aceptas nuestros <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-terms">Términos de uso</a> y <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-privacy">Políticas de privacidad</a>.</label>
+                        <button disabled="true" id="btn_registro_1" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_1', 1)">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Registro-1 -->
+
+        <!-- Registro-2 -->
+        <div class="modal fade" id="modal-registration-2" tabindex="-1" role="dialog" aria-labelledby="modal-registration-2" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                        <h4 class="modal-title" id="modal-registration-2-label">Paso 2 de 3</h4>
+                    </div>
+                    <div class="modal-body" id="radio-form">
+                        <label class="text-center col-sm-10 col-md-offset-1"><strong>¿Dónde estudias?</strong></label>
+                        <!-- START: Radio options -->
+                        <div class="row registration-radio">
+                            <div class="col-lg-6 col-md-offset-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input id="colegio-radio-btn" type="radio" name="education" value="school" onchange="landing.educationSelected('radio-form')">
+                                    </span>
+                                    <label type="text" class="form-control" aria-label="colegio" for="registration-colegio-radio">Colegio</label>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                        </div><!-- /.row -->
+                        <div class="row registration-radio">
+                            <div class="col-lg-6 col-md-offset-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input id="universidad-radio-btn" type="radio" name="education" value="university" aria-label="universidad" onchange="landing.educationSelected('radio-form')">
+                                    </span>
+                                    <label type="text" class="form-control" aria-label="universidad" for="registration-universidad-radio">Universidad</label>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                        </div><!-- /.row -->
+                        <div class="row registration-radio">
+                            <div class="col-lg-6 col-md-offset-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input id="egresado-radio-btn" type="radio" name="education" value="egresado" aria-label="egresado" onchange="landing.educationSelected('radio-form')">
+                                    </span>
+                                    <label type="text" class="form-control" aria-label="egresado" for="registration-egresado-radio">Egresado</label>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                        </div><!-- /.row -->
+                        <!-- END: Radio options -->
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-1">Volver</button>
+                        <button id="btn_registro_2" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_2', 2)">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Registro-2 -->
+
+        <!-- Registro-3 -->
+        <div class="modal fade" id="modal-registration-3" tabindex="-1" role="dialog" aria-labelledby="modal-registration-3" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                        <h4 class="modal-title" id="modal-registration-3-label">Paso 3 de 3</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label class="text-center col-sm-10 col-md-offset-1"><strong>Déjanos saber un poco más de ti.</strong></label>
+
+                        <div class="school-fields">
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-colegio">Colegio</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input id="school_register" placeholder="Colegio" class="form-control" autocomplete="off" name="school_name" type="text" value="">
+                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-edad">Edad</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input type="number" class="form-control" id="school_age" name="school_age" placeholder="Edad">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="university-fields">
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-universidad">Universidad</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input id="university_register" placeholder="Universidad" class="form-control" autocomplete="off" name="university" type="text" value="">
+                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-carrera">Carrera</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input id="career_register" placeholder="Carrera" class="form-control" autocomplete="off" name="career" type="text" value="">
+                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-semestre">Semestre</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <select id="semester" name="semester" class="form-control">
+                                        <option value="0">- Selecciona tu Semestre -</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="Egresado">Egresado</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal form-registration-egresado-universidad hidden">
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-egresado-universidad">Universidad</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input type="text" class="form-control" id="registration-universidad" placeholder="Universidad">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-egresado-carrera">Carrera</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input type="text" class="form-control" id="registration-egresado-carrera" placeholder="Carrera">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="registration-egresado-año">Año de graduación</label>
+                                <div class="col-sm-6 col-md-offset-3">
+                                    <input type="text" class="form-control" id="registration-año" placeholder="Año de graduación">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-2">Volver</button>
+                        <button id="btn_registro_3" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_3', 3)">Terminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Registro-3 -->
+        </form>
+
+
+        <!-- END: Modals -->
+                <!-- START Body -->
+        <div class="container">
     <div align="center">
-      <h1>Estrategia del oceano azul</h1>
-      <div style="width: 200px; display: inline-block"><img src="public/images/landing/book.png" style="max-height: 100px"/></div>
-      <div style="width: 400px; display: inline-block">
-        <table>
-          <tr><td><label>Autor: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>W. Cham Kim</td></tr>
-          <tr><td><label>Año: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>2005</td></tr>
-          <tr><td><label>Editorial: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Editorial uno</td></tr>
-          <tr><td><label>Descripción: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><div style="height: 100px; overflow-y: auto; font-size: 0.7em"><p>La estrategia del océano azul, creada por W. Cham Kim, busca dejar a un lado la competencia entre las empresas, ampliando el mercado a través de la innovación. Lo que las compañías necesitan para lograr ser exitosas en el futuro es dejar de competir entre sí. En los últimos veinticinco años, todo el pensamiento estratégico ha sido dirigido al océano rojo; la administración define que en la competencia está el éxito o el fracaso de las compañías, lo que ha permitido a muchos saber desempeñarse hábilmente en este mundo, pero desconociendo que otro tipo de estrategia podría generar mejores resultados, sin preocuparse tanto por la competencia.</p></div></td></tr>
+        <h1>Deserunt molestiae ullam eius repudiandae autem quo.</h1>
+        <div style="width: 200px; display: inline-block">
+                        <img style="max-height: 100px" src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"/>
+                    </div>
+        <div style="width: 400px; display: inline-block">
+            <table>
+                <tr><td><label>Autor: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Lucio Donnelly</td></tr>
+                <tr><td><label>Año: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>2009</td></tr>
+                <tr><td><label>Editorial: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Editorial Stehr, Jenkins and Koepp</td></tr>
+                <tr><td><label>Descripción: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><div style="height: 100px; overflow-y: auto; font-size: 0.7em">Reprehenderit nulla at minima suscipit qui est. Sint ducimus dolor non. Dolor nihil repudiandae enim incidunt.</div></td></tr>
+                                <tr><td><label>Universidades: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <div><ul>
+
+                                <li>Universidad de Antioquia</li>
+
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                                                <tr><td><label>Carreras: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <div><ul>
+
+                                <li>Economia</li>
+
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                                                <tr><td><label>Clases: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <div><ul>
+
+                                <li>Calculo III</li>
+
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
 
 
-        </table>
-      </div>
+            </table>
+        </div>
     </div>
     <div align="center">
-      <div style="width: 100%; max-width: 600px; ">
-        <table width="100%">
-          <tr style="border: 1px solid #CCC;">
-            <td style=" vertical-align: middle;width: 200px;">
-              <a href="mylecture.html?4">lecture2 seccion4</a>
-            </td>
-            <td>
-              <div align="right" style="text-align: right">
-                <a class="btn btn-primary" onclick="addLectureSection(4)">Agregar a mis lecturas</a>
-              </div>
-            </td>
-            <td>
-              <div align="right">
-                <table>
-                  <tr>
-                    <td>Sand</td>
-                    <td><img src="public/images/landing/leaf.png" style="max-height: 20px"/></td>
-                    <td><span>x15</span></td>
-                  </tr>
-                  <tr>
-                    <td>Rock</td>
-                    <td><img src="public/images/landing/leaf.png" style="max-height: 20px"/></td>
-                    <td><span>x25</span></td>
-                  </tr>
-                </table>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div style="width: 100%; max-width: 600px; ">
-        <table width="100%">
-          <tr style="border: 1px solid #CCC;">
-            <td style=" vertical-align: middle;width: 200px;">
-              <a href="mylecture.html?5">lecture2 seccion5</a>
-            </td>
-            <td>
-              <div align="right" style="text-align: right">
-                <a class="btn btn-primary" onclick="addLectureSection(5)">Agregar a mis lecturas</a>
-              </div>
-            </td>
-            <td>
-              <div align="right">
-                <table>
-                  <tr>
-                    <td>Sand</td>
-                    <td><img src="public/images/landing/leaf.png" style="max-height: 20px"/></td>
-                    <td><span>x15</span></td>
-                  </tr>
-                  <tr>
-                    <td>Rock</td>
-                    <td><img src="public/images/landing/leaf.png" style="max-height: 20px"/></td>
-                    <td><span>x25</span></td>
-                  </tr>
-                </table>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div style="width: 100%; max-width: 600px; ">
-        <table width="100%">
-          <tr style="border: 1px solid #CCC;">
-            <td style=" vertical-align: middle;width: 200px;">
-              <a href="mylecture.html?6">lecture2 seccion6</a>
-            </td>
-            <td>
-              <div align="right" style="text-align: right">
-                <a class="btn btn-primary" onclick="addLectureSection(6)">Agregar a mis lecturas</a>
-              </div>
-            </td>
-            <td>
-              <div align="right">
-                <table>
-                  <tr>
-                    <td>Sand</td>
-                    <td><img src="public/images/landing/leaf.png" style="max-height: 20px"/></td>
-                    <td><span>x15</span></td>
-                  </tr>
-                  <tr>
-                    <td>Rock</td>
-                    <td><img src="public/images/landing/leaf.png" style="max-height: 20px"/></td>
-                    <td><span>x25</span></td>
-                  </tr>
-                </table>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+                        <div style="width: 100%; max-width: 600px; ">
+            <table width="100%">
+                <tr style="border: 1px solid #CCC;">
+                    <td style=" vertical-align: middle;width: 200px;">
+                        <a href="mylecture.html?1">Dolorem sunt vero molestiae.</a>
+                    </td>
+                                        <td>
+                        <div align="right" style="text-align: right">
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>
+                        </div>
+                    </td>
+                                    </tr>
+            </table>
+        </div>
+                <div style="width: 100%; max-width: 600px; ">
+            <table width="100%">
+                <tr style="border: 1px solid #CCC;">
+                    <td style=" vertical-align: middle;width: 200px;">
+                        <a href="mylecture.html?2">Quae velit impedit omnis neque excepturi sed placeat.</a>
+                    </td>
+                                        <td>
+                        <div align="right" style="text-align: right">
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>
+                        </div>
+                    </td>
+                                    </tr>
+            </table>
+        </div>
+                <div style="width: 100%; max-width: 600px; ">
+            <table width="100%">
+                <tr style="border: 1px solid #CCC;">
+                    <td style=" vertical-align: middle;width: 200px;">
+                        <a href="mylecture.html?3">Blanditiis rerum voluptate sequi id dolorem rerum.</a>
+                    </td>
+                                        <td>
+                        <div align="right" style="text-align: right">
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>
+                        </div>
+                    </td>
+                                    </tr>
+            </table>
+        </div>
 
     </div>
-  </div>
-  <footer style="height: 100px; width: 100%; display:table-row; background-color: rgb(18, 120, 196); font-size: 1.25em; color: white; text-align: center;">
-    <div style="display: table-cell; width: 25%; vertical-align: middle;">Sobre nosotros</div>
-    <div style="display: table-cell; width: 25%; vertical-align: middle;">Términos y condiciones</div>
-    <div style="display: table-cell; width: 25%; vertical-align: middle;">Política de privacidad</div>
-    <div style="display: table-cell; width: 25%; vertical-align: middle;"><img src="public/images/landingpage/LogoVerticalDarkBG.png" style="max-height: 100px;  vertical-align: bottom;"/></div>
-  </footer>
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script type="text/javascript" src="public/js/global.js"></script>
-  <script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
-  <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="public/js/util.min.js"></script>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
-  <script type="text/javascript">global.url = "http://beta.lorapp.com/alfa/lorapp/public";</script>
-  <script type="text/javascript">
-  function addLectureSection(id){
-    var d = {};
-    d.lsid = id;
-    util.cursorBusy();
-    $.ajax({
-      data: d,
-      type: "GET",
-      dataType: "json",
-      url: global.url + "/useraddlecturesection",
-      success: function(data) {
-        util.cursorNormal();
-        if (data.valid) {
-          alert('Agregado correctamente!');
-        } else {
-          alert('Error: ' + data.error);
-        }
-      }
-    });
-  }
-  </script>
-</body>
+</div>
+        <!-- END Body -->
+        <!-- START Modals -->
+        <!-- FAQ -->
+        <div class="modal fade" id="modal-FAQ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modal-FAQ-label">Preguntas frecuentes</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading1">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                            ¿Es legal leer en Lorapp?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading2">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                            ¿Qué ventajas tiene sobre las fotocopias?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading3">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                            ¿Cuándo cuesta cada lectura?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading4">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                            ¿Cómo puedo pagar las lecturas?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading5">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                            ¿Por cuánto tiempo se guardan mis apuntes?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <label>¿Tienes otra pregunta?</label>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-contact">Contáctanos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: FAQ -->
+
+        <!-- Términos y condiciones -->
+        <div class="modal fade" id="modal-terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Términos de uso</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Effective date: July 9, 2013</h5>
+
+                        <p>Hi there, and welcome to Oyster’s Terms of Service. These are important and influence your legal rights, so please set aside a few minutes to thoroughly and carefully read through them, along with our Privacy Policy. If you have any questions or concerns, you can always contact us at hello@oysterbooks.com. Let’s get started.</p>
+
+                        <h5>Introductions</h5>
+                        <p>Please read these Terms of Service (collectively with Oyster’s Privacy Policy and DMCA Copyright Policy, the “Terms of Service”) fully and carefully before using www.oysterbooks.com (the “Site”) and the services, features, content or applications, including the Oyster mobile application (the “Application”), offered by Studio SBV, Inc. d/b/a Oyster (“Oyster”, “we”, “us” or “our”) (together with the Site and the Application, the “Services”). These Terms of Service set forth the legally binding terms and conditions for your use of the Site and the Services.</p>
+
+                        <p>We’re excited to have you with us at Oyster, and we’re pleased to make our Services available to you.</p>
+
+                        <p>In order to use the Services, you must be 13 years of age or older. If you are under age 13, you may not use the Services under any circumstances or for any reason.  These Terms of Service apply to all users of the Services, including, without limitation, users who are contributors of content, information, and other materials or services, registered or otherwise. If you don’t agree with these terms, please do not use the Services.</p>
+
+                        <h5>Acceptance of Terms of Service</h5>
+                        <p>By registering for and/or using the Services in any manner -- including but not limited to visiting or browsing the Site or downloading our Application -- you agree to these Terms of Service and all other operating rules, policies, and procedures published on the Site by us, each of which is incorporated by reference and each of which may be updated from time to time without notice to you. When we make changes that we consider significant, we will post a notice on the Services.</p>
+
+                        <p>From time to time part of the Services may be subject to additional terms and conditions specified by us. When we make changes that we consider significant, we will post a notice on the Services. By continuing to use such Services after these changes are made, you are expressing your acceptance of these additional terms and conditions, which are incorporated into these Terms of Service by this reference.</p>
+
+                        <h5>Eligibility</h5>
+                        <p>You represent and warrant that you are at least 13 years of age. If you are under age 13, you may not, under any circumstances or for any reason, use the Services. We may, in our sole discretion, refuse to offer the Services to any person or entity and change its eligibility criteria at any time. You are solely responsible for ensuring that these Terms of Service are in compliance with all laws, rules and regulations applicable to you and the right to access the Services is revoked where these Terms of Service or use of the Services is prohibited or to the extent offering, sale or provision of the Services conflicts with any applicable law, rule or regulation. Further, the Services are offered only for your use, and not for the use or benefit of any third party.</p>
+
+                        <h5>Registration</h5>
+                        <p>To sign up for the Services, you must register for an account on the Services (an “Account”).  You must provide accurate and complete information and keep your Account information updated. Please respect Oyster and the other users of the Services. Some examples of what this means: it is not permitted to (i) select or use as a username a name of another person with the intent to impersonate that person; (ii) use as a username a name subject to any rights of a person other than you without appropriate authorization; or (iii) use, as a username, a name that is otherwise offensive, vulgar or obscene. You are solely responsible for the activity that occurs on your Account, and for keeping your Account password secure. You may never use another person’s user account or registration information for the Services. You must notify us immediately of any change in your eligibility to use the Services, breach of security or unauthorized use of your Account. You should never publish, distribute or post login information for your Account. You shall have the ability to cancel your subscription, either directly or through a request made to one of our employees or affiliates; provided we may retain copies of information and Content associated with your account.</p>
+
+                        <p>By registering for, or otherwise connecting to the Services with a third-party service (e.g., Facebook), you give us permission to access and use information, content and/or material you have supplied to that service as permitted by that service.</p>
+
+                        <h5>Content</h5>
+                        <h5>Definition</h5>
+                        <p>For purposes of these Terms of Service, the term “Content” includes, without limitation, information, data, text, photographs, videos, audio clips, written posts and comments, software, scripts, graphics, and interactive features generated, provided, or otherwise made accessible on or through the Services. For the purposes of this Agreement, “Content” also includes all User Content (as defined below).</p>
+
+                        <h5>User content</h5>
+                        <p>Users of the Services may add, create, upload, post and/or contribute Content to the Services. All such Content (collectively “User Content”), whether publicly posted or privately transmitted, is the sole responsibility of the person who originated such User Content. You represent that all User Content provided by you is accurate, complete, up-to-date, and in compliance with all applicable laws, rules and regulations. You acknowledge that all Content, including User Content, accessed by you using the Services is at your own risk and you will be solely responsible for any damage or loss to you or any other party resulting therefrom. We do not guarantee that any Content you access on or through the Services is or will continue to be accurate.</p>
+
+                        <p>Please be conscientious about what information you make public on the Services. As a default, information about all e-books that you access or read will be shared with your followers on the Services. The Services include social and interactive features; you may be able to share content, post User Content, and make certain information public at your discretion. It’s important to remember that shared and publicly available information, including your User Content, may be used and re-shared by other users of the Services or across the Internet. We ask that you be careful and manage your account settings regularly. Oyster has no responsibility for your choices to make actions, material, or content public on the Services.</p>
+
+                        <h5>Notices and restrictions</h5>
+                        <p>The Services may contain Content specifically provided by us, our partners or our users and such Content is protected by copyrights, trademarks, service marks, patents, trade secrets or other proprietary rights and laws. You shall abide by and maintain all copyright notices, information, and restrictions contained in any Content accessed through the Services.</p>
+
+                        <h5>Use license</h5>
+                        <p>Subject to these Terms of Service (including payment of all applicable fees and charges), we grant each registered user of the Services a worldwide, non-exclusive, non-sublicensable, revocable,and non-transferable license to access and use the Services in the manner set forth herein, and to access e-book Content we make available via the Services solely for such user’s personal, non-commercial purposes during an applicable subscription or free-trial period, and subject to any further usage restrictions we may indicate on the Services with respect to such Content. Use, reproduction, modification, distribution or storage of any Content for other than purposes of using the Services is expressly prohibited without prior written permission from us. You shall not sell, license, rent, or otherwise use or exploit any Content for commercial use or in any way that violates any third party right.</p>
+
+                        <p>We may, as part of the Services, allow you to store cached content on up to six (6) smartphone, mobile handset or other relevant compatible internet-connected device (collectively “Devices”). You shall not transfer copies of cached content to any other Device by any means. You shall not provide your password to any other person or use any other person’s user name and password. You grant us the right to use the processor, bandwidth and storage hardware on your Device in order to facilitate the operation of the Services.</p>
+
+                        <h5>License grant</h5>
+                        <p>By submitting User Content through the Services, you hereby do and shall grant us a worldwide, non-exclusive, perpetual, royalty-free, fully paid, sublicensable and transferable license to use, edit, modify, truncate, aggregate, reproduce, distribute, prepare derivative works of, display, perform, and otherwise fully exploit the User Content in connection with the Services and our (and our successors’ and assigns’) businesses, including without limitation for promoting and redistributing part or all of the Site or the Services (and derivative works thereof) in any media formats and through any media channels (including, without limitation, third party websites and feeds), and including after termination of your Account or the Services. You also hereby do and shall grant each user of the Site and/or the Services a non-exclusive, perpetual license to access your User Content through the Site and/or the Services, and to use, edit, modify, reproduce, distribute, prepare derivative works of, display and perform such User Content, including after your termination of your Account or the Services, as permitted through the functionality of the Services.  For clarity, the foregoing license grants to us and our users does not affect your other ownership or license rights in your User Content, including the right to grant additional licenses to your User Content, unless otherwise agreed in writing. You represent and warrant that you have all rights to grant such licenses to us without infringement or violation of any third party rights, including without limitation, any privacy rights, publicity rights, copyrights, trademarks, contract rights, or any other intellectual property or proprietary rights.</p>
+
+                        <h5>Intellectual property</h5>
+                        <p>Oyster takes intellectual property rights seriously and expects you to follow suit. This means, for example, that copying, reproducing, or making available to the public any part of the Services or Content is forbidden unless you have received express written permission from the underlying rights holder. You will not use the Services or Content to reverse-engineer, disassemble, decompile, modify or create derivative works based on the Services or Content (other than User Content that another user of the Services has expressly authorized you to modify in connection with your use of the Services) or any part thereof. You will not circumvent any technology used by Oyster, its licensors, or any third party to protect Content accessible through the Services. You will not rent or lease your Account (nor any of the Content thereof). Lastly, and this should go without saying: it is not permitted to remove or alter any copyright, trademark, or other intellectual property notices contained or provided through the Services.</p>
+
+                        <h5>Availability of content</h5>
+                        <p>The Services include an online subscription service that provides members with access to e-books on internet-connected Devices. Our library of e-books is ever-changing, and we reserve the right to alter the titles available without notice. We do not guarantee that any Content (including any e-books) will be made available (or continue to be available) on the Site or through the Services. For example, the availability of Content may vary from Device to Device, and may be affected by a number of factors. These factors include (but are not limited to) your location, the bandwidth available through and/or speed of your Internet connection. We cannot guarantee that the same Content will be available in all countries. You acknowledge that certain e-books will only be available in select territories. We hope that when you travel, you’ll take the Application with you, but please be aware that you are solely responsible for all Internet access charges. We reserve the right to, but do not have any obligation to, (i) remove, edit or modify any Content in our sole discretion, at any time, without notice to you and for any reason (including, but not limited to, upon receipt of claims or allegations from third parties or authorities relating to such Content or if we are concerned that you may have violated these Terms of Service), or for no reason at all and (ii) to remove or block any Content from the Services.</p>
+
+                        <h5>Privacy policy</h5>
+                        <p>For details about our information practices, please read our privacy policy. This policy explains how we treat your personal information, and how we protect your privacy when you use the Services. You agree to the use of your data in accordance with our privacy policy.</p>
+
+                        <h5>Rules of Conduct</h5>
+                        <p>As a condition of use, you promise not to use the Services for any purpose that is prohibited by these Terms of Use. You are responsible for all of your activity in connection with the Services.</p>
+
+                        <p>You shall not (and shall not permit any third party to) either (a) take any action or (b) upload, download, post, submit or otherwise distribute or facilitate distribution of any Content on or through the Service, including without limitation any User Content, that:</p>
+
+                        <p>infringes any patent, trademark, trade secret, copyright, right of publicity or other right of any other person or entity or violates any law or contractual duty (see our DMCA Copyright Policy);
+                            you know is false, misleading, untruthful or inaccurate;</p>
+                        <p>is unlawful, threatening, abusive, harassing, defamatory, libelous, deceptive, fraudulent, invasive of another's privacy, tortious, obscene, vulgar, pornographic, offensive, profane, contains or depicts nudity, contains or depicts sexual activity, or is otherwise inappropriate as determined by us in our sole discretion;
+                            constitutes unauthorized or unsolicited advertising, junk or bulk e-mail (“spamming”);</p>
+                        <p>contains software viruses or any other computer codes, files, or programs that are designed or intended to disrupt, damage, limit or interfere with the proper function of any software, hardware, or telecommunications equipment or to damage or obtain unauthorized access to any system, data, password or other information of ours or of any third party;</p>
+                        <p>impersonates any person or entity, including any of our employees or representatives; or
+                            includes anyone’s identification documents or sensitive financial information.</p>
+                        <p>You shall not: (i) take any action that imposes or may impose (as determined by us in our sole discretion) an unreasonable or disproportionately large load on our (or our third party providers’) infrastructure; (ii) interfere or attempt to interfere with the proper working of the Services or any activities conducted on the Services; (iii) bypass, circumvent or attempt to bypass or circumvent any measures we may use to prevent or restrict access to the Services (or other accounts, computer systems or networks connected to the Services); (iv) run any form of auto-responder or “spam” on the Services; (v) use manual or automated software, devices, or other processes to “crawl” or “spider” any page of the Site; (vi) harvest or scrape any Content from the Services; or (vii) otherwise take any action in violation of our guidelines and policies.</p>
+
+                        <p>You shall not (directly or indirectly): (i) decipher, decompile, disassemble, reverse engineer or otherwise attempt to derive any source code or underlying ideas or algorithms of any part of the Services (including without limitation any application), except to the limited extent applicable laws specifically prohibit such restriction, (ii) modify, translate, or otherwise create derivative works of any part of the Services, or (iii) copy, rent, lease, distribute, or otherwise transfer any of the rights that you receive hereunder. You shall abide by all applicable local, state, national and international laws and regulations.</p>
+
+                        <p>We also reserve the right to access, read, preserve, and disclose any information as we reasonably believe is necessary to (i) satisfy any applicable law, regulation, legal process or governmental request, (ii) enforce these Terms of Service, including investigation of potential violations hereof, (iii) detect, prevent, or otherwise address fraud, security or technical issues, (iv) respond to user support requests, or (v) protect the rights, property or safety of us, our users and the public.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Términos y condiciones -->
+
+        <!-- Política de privacidad -->
+        <div class="modal fade" id="modal-privacy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Política de privacidad</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h5>1.0 Our Privacy Pledge</h5>
+
+                        <p>EDUCA TECHNOLOGY AND CONTENTS GROUP, LLC ("ETC") provides certain services including a mobile application called CrowdBook (the "Application"). We want you to know that your trust is key to the success of our business. We take privacy and confidentiality very seriously and we safeguard the personal information of our users in accordance with this Policy. In this Policy "personal information" means personal information about an identifiable individual, but excludes business contact information; and "Services" means services provided by ETC through the Application or desktop interface.</p>
+
+                        <h5>1.1 Consent</h5>
+
+                        <p>By using our Services and supplying information to us, or by using the ETC Application, you consent to the collection, use and disclosure of your personal information by us for the purpose of providing Services to you via the ETC Application, and administering your account in accordance with: (a) this Policy, (b) any other agreement you may have entered into with us, and (c) applicable laws and regulations. It is your responsibility to ensure that we are kept informed of the correct and current contact information for you.</p>
+
+                        <h5>1.2 Collection of User Information</h5>
+
+                        <p>ETC collects limited personal information from its users (educational institution students or teachers or anyone who wishes to use the application, only as needed for the operation and management of the Services provided by ETC.</p>
+
+                        <h5>1.3 Collection of Student Information</h5>
+
+                        <p>ETC may collect limited personal information from students, only as needed for the operation and management of the Services provided by ETC, and only where that student's school board, educational institution or teacher has contracted with ETC to do so. We first require the school board, educational institution or teacher to obtain the consent of parents/legal guardians prior to collecting such information. If you are a minor student, do not send any personal information about yourself or other students to ETC, other than what is requested upon signing up for the Services. In the event that we discover we have the personal information of a student without consent of a parent/legal guardian, or information in excess of what we request upon sign-up, we will permanently destroy that information as quickly as possible. If you believe a student may have provided us personal information without consent of a parent/legal guardian, or information in excess of what we request upon sign-up, please contact us at info@educatablet.com.</p>
+
+                        <p>Students who have signed up with an access code provided by a school or teacher should be aware that their parent/legal guardian has access to all information within or associated with their ETC account, including, but not limited to, messages between other students, teachers, and assignment grades.</p>
+
+                        <p>All students and teachers within a single course group in the password-protected portion of the Application or ETC site have the ability to view one another's profiles, but visibility is limited to such information as their names, photographs, and biographies. Students are unable to see the grades of other students, irrespective of whether or not they are members of the same course group on the site</p>
+
+                        <h5>1.4 Information of Others</h5>
+
+                        <p>By inputting any personal information into the Application (including the personal information of others), you consent to the use of that personal information within the Application, and you represent and warrant that you have obtained any permissions or authorizations for any personal information of others that you input or send through the Application. We do not use, collect or retain any of that information.</p>
+
+                        <h5>1.5 Communication</h5>
+
+                        <p>You authorize us to communicate with you regarding our services and your account. You authorize us to communicate with you via the Internet and via the email address you have provided. You understand and accept the risk that data and information transmitted over the Internet is susceptible to error or security breaches.</p>
+
+                        <h5>1.6 Information Use & Sharing</h5>
+
+                        <p>We do not share, trade, sell or in any way disclose your personal information without your consent unless such a disclosure is: (a) required by law; (b) mandated by search warrant or court order; or (c) warranted during investigation of the commission of an offence, a breach of a contract, or breach of a law or regulation. We may collect, aggregate and anonymize data for system monitoring, quality control and product improvement purposes, provided it does not collect, use or disclose any personal information</p>
+
+                        <h5>1.7 Dispute Resolution</h5>
+
+                        <p>In the event you have a question, complaint or dispute regarding your personal information or our personal information handling practices, contact us at the number(s) or email address(es) as displayed in the “Contact Us” section of our Site.</p>
+
+                        <h5>1.8 Business Transfers</h5>
+
+                        <p>As a corporate entity, ETC may elect to buy or sell assets. These transactions normally entail the transferring of user information as a business asset. In such an event any acquirer of ETC may continue to use personal information as set forth in this Privacy Policy.</p>
+
+                        <h5>1.9 Changes</h5>
+
+                        <p>Changes to this Policy may be made from time to time by us, and the modified form of the Policy will take effect 15 days after posting on this page.</p>
+
+                        <h5>Last updated September 25, 2014</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Política de privacidad -->
+
+        <!-- Contacto -->
+        <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Contacto</h4>
+                    </div>
+                    <form action="main.html?contact/send" method="POST">
+                        <div class="modal-body">
+                            <div class="form-horizontal text-center">
+                                <div class="form-group">
+                                    <label class="sr-only" for="email">Email</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="email" class="form-control" id="contact-email" placeholder="Email" name="email" required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="email">Mensaje</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <textarea class="form-control" rows="5" id="contact-message" placeholder="Mensaje" name="message"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END: Contacto -->
+        <!-- Sugerir lectura -->
+        <div class="modal fade" id="modal-lecturesuggested" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Sugerir Lectura</h4>
+                    </div>
+                    <form action="main.html?lecturesuggested" method="POST">
+                        <div class="modal-body">
+                            <div class="form-horizontal text-center">
+                                                                <div class="form-group">
+                                    <label class="sr-only" for="email">Email</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="email" class="form-control" name="email" placeholder="Tu Email" required="true">
+                                    </div>
+                                </div>
+                                                                <div class="form-group">
+                                    <label class="sr-only" >Título</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="text" class="form-control" name="title" placeholder="Título" required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" >Autor</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="text" class="form-control" name="author" placeholder="Autor" required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" >Año</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="text" class="form-control" name="year" placeholder="Año">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" >Editorial</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="text" class="form-control" name="publisher" placeholder="Editorial">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END: Sugerir lectura -->
+        <!-- END Modals -->
+        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div> -->
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="public/images/logo-facebook.svg" /></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="public/images/logo-twitter.svg" /></a></li>
+                </ul>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  -->
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#" data-toggle="modal" data-target="#modal-FAQ">Preguntas frecuentes</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal-terms">Términos de uso</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal-privacy">Política de privacidad</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal-contact">Contacto</a></li>
+                </ul>
+                <!-- </div> -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/javascript" src="public/js/global.js"></script>
+        <script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="public/js/util.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
+        <script type="text/javascript">global.url = "main.html?";</script>
+        <script type="text/javascript" src="public/js/util.js"></script>
+                <script type="text/javascript" src="public/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="public/js/landing.js"></script>
+        <script type="text/javascript">
+                                    $(document).ready(function() {
+                            landing.loadAutocomplete('university_register', global.url + 'autocomplete/university');
+                                    landing.loadAutocomplete('career_register', global.url + 'autocomplete/career');
+                                    landing.loadAutocomplete('school_register', global.url + 'autocomplete/school');
+                            });
+
+        </script>
+                <script type="text/javascript" src="public/js/operation.js"></script>
+    </body>
 </html>

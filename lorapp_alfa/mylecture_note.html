@@ -1,17 +1,15 @@
-
 <!DOCTYPE html>
-<html>
-    <head>
+<html><head>
         <title>Lorapp</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="public/css/mylecture.css" rel="stylesheet" type="text/css"/>
-        <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="public/css/mylecture.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png">
         <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
         <noscript>
-            <meta http-equiv="refresh" content="0; url=http://beta.lorapp.com/alfa/lorapp/public" />
+            &lt;meta http-equiv="refresh" content="0; url=http://beta.lorapp.com/alfa/lorapp/public" /&gt;
         </noscript>
         <script type="text/javascript">
             function clickIE4() {
@@ -39,19 +37,19 @@
     </head>
     <body>
         <!--boton flotante para las lecturas-->
-        <div id="highlight-button">
-            <img title="Resaltar" id="highlighter" src="public/images/icons/png/highlight-icon.png"/>
+        <div id="highlight-button" style="position: absolute; top: 644px; left: 609px; display: none;">
+            <img title="Resaltar" id="highlighter" src="public/images/icons/png/highlight-icon.png">
             <span title="Limpiar" id="unhighlight" style="vertical-align: super;">X</span>
-            <img title="Crear nota" id="add_note" src="public/images/icons/png/addNote-icon.png"/>
+            <img title="Crear nota" id="add_note" src="public/images/icons/png/addNote-icon.png">
         </div>
         <!--ventana flotante para tomar notas-->
         <div class="float_note" id="float_note" style="display: none;">
-            <form method="POST" action="mylecture.html?1" accept-charset="UTF-8" id="form_note_create"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+            <form method="POST" action="mylecture.html?2" accept-charset="UTF-8" id="form_note_create"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
             <input name="lecture_id" type="hidden" value="1">
-            <input name="lecturesection_id" type="hidden" value="1">
-                        <input name="selectedtext" type="hidden" id="selectedtext"/>
-            <div id="selected_text">
-            </div>
+            <input name="lecturesection_id" type="hidden" value="2">
+                        <input name="user_id" type="hidden" value="2">
+                        <input name="selectedtext" type="hidden" id="selectedtext" value="Consectetur molestiae qui tempore beatae. Vero aut qui praesentium dolor molestias voluptatum nobis eos. Et tempore ea itaque neque corrupti labore.Suscipit voluptatibus laboriosam qui ut non fugiat est. Est dolor eos nobis ut. Officiis cum consequatur dolor aut corporis.Nesciunt deserunt quod aperiam eos aut molestiae. Consequatur vel et omnis nesciunt. Ad eos cumque rem et consequatur. Occaecati distinctio quibusdam expedita consectetur iusto.Voluptate rem quia qui nostrum vel. Error aut doloribus et asperiores possimus. Porro sunt nisi illo.Enim aut rerum consectetur asperiores atque est praesentium. Quasi facilis aliquam excepturi quas est voluptate adipisci. Earum aut ea unde fuga molestiae dolorem quae. Qui ea omnis laudantium sit.">
+            <div id="selected_text">Consectetur molestiae qui tempore beatae. Vero aut qui praesentium dolor molestias voluptatum nobis eos. Et tempore ea itaque neque corrupti labore.Suscipit voluptatibus laboriosam qui ut non fugiat est. Est dolor eos nobis ut. Officiis cum consequatur dolor aut corporis.Nesciunt deserunt quod aperiam eos aut molestiae. Consequatur vel et omnis nesciunt. Ad eos cumque rem et consequatur. Occaecati distinctio quibusdam expedita consectetur iusto.Voluptate rem quia qui nostrum vel. Error aut doloribus et asperiores possimus. Porro sunt nisi illo.Enim aut rerum consectetur asperiores atque est praesentium. Quasi facilis aliquam excepturi quas est voluptate adipisci. Earum aut ea unde fuga molestiae dolorem quae. Qui ea omnis laudantium sit.</div>
             <br>
             <div>
                 <div align="center">
@@ -59,19 +57,19 @@
                     <div align="center" style="display: inline-table; vertical-align: top;">
                         <span id="btn_guardar" class="float_label" style="width: 150px; cursor: pointer">Guardar</span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span id="btn_cancelar" class="float_label" style="width: 150px; cursor: pointer" >Cancelar</span>
+                        <span id="btn_cancelar" class="float_label" style="width: 150px; cursor: pointer">Cancelar</span>
                     </div>
                 </div>
             </div>
             </form>
         </div>
         <!--ventana flotante para cargar las notas de esta lectura-->
-        <div id="note_loader_container" class="notes" style="display: none;">
+        <div id="note_loader_container" class="notes" style="">
             <div align="left" class="notes_title" style="display: inline-block;">Mis apuntes</div>
             <hr>
-            <img id="close_note_loader" src="public/images/icons/svg/exit-icon/exitGray-icon.svg"/>
+            <img id="close_note_loader" src="public/images/icons/svg/exit-icon/exitGray-icon.svg">
 
-            <div id="note_loader" style="height: 80%; overflow-y: auto; "></div>
+            <div id="note_loader" style="height: 80%; overflow-y: auto; "><div id="rn0"><div class="notes_container notes_expandable"><p><q class="notes_fromtext">Consectetur numquam quis et nisi. Quas sint autem vero magni. Error quas provident iste ratione aspernatur aliquid fuga.</q></p><p>Rerum aut et exercitationem. Voluptatibus provident et ut maxime iusto facere error. Aliquam sit atque magni architecto quo quis consequatur.</p><p>Aut tempore odit omnis. Itaque rerum labore hic voluptatem. Quae nihil eos dolorem numquam quos eos.</p><p>Soluta maiores molestiae saepe. Facilis aut et pariatur fugit vel eius. Fuga iste aut aut id. Provident rerum quia cumque dolore omnis.</p><p>Quibusdam sequi hic maiores repellendus atque. Tempora repudiandae eos nam iste. Totam dignissimos architecto a voluptate saepe. Reprehenderit id quia magnam dolorem quas.</p><p class="notes_title_nota">NOTA:</p><p class="notes_title_nota_txt" id="note_text0">Et rerum molestiae cum vitae quae ratione ut sint. Nam sunt quo et incidunt. Quo voluptatem error hic et expedita. Voluptates reprehenderit dolorem et deleniti dolores et vel et. Qui nulla reprehenderit accusantium ipsam repellat. Accusantium nulla atque id commodi distinctio ipsam cumque. Nostrum repellat earum nostrum excepturi. Nihil tempore eveniet porro occaecati libero id enim. Consectetur qui maiores ea soluta dolorem sed. Non tempora qui dolor quasi aliquam inventore repellendus. Tenetur corrupti optio rerum vero quos voluptas consequuntur aliquid.</p><p><textarea id="note_text_edit0" rows="5" style="width: 96%; display: none">Et rerum molestiae cum vitae quae ratione ut sint. Nam sunt quo et incidunt. Quo voluptatem error hic et expedita. Voluptates reprehenderit dolorem et deleniti dolores et vel et. Qui nulla reprehenderit accusantium ipsam repellat. Accusantium nulla atque id commodi distinctio ipsam cumque. Nostrum repellat earum nostrum excepturi. Nihil tempore eveniet porro occaecati libero id enim. Consectetur qui maiores ea soluta dolorem sed. Non tempora qui dolor quasi aliquam inventore repellendus. Tenetur corrupti optio rerum vero quos voluptas consequuntur aliquid.</textarea></p><div align="right" class="note_option"><span id="btn_note_edit0" onclick="myLecture.editNoteShow(0, true)">Editar</span><span id="btn_note_save0" onclick="myLecture.updateNote(1, 0)" style="display: none">Guardar</span><span id="btn_note_cancel0" onclick="myLecture.editNoteShow(0, false)" style="display: none">Cancelar</span><span id="btn_note_delete0" onclick="myLecture.deleteNote(1,0)">Eliminar</span></div></div><hr></div><div id="rn1"><div class="notes_container notes_expandable"><p><q class="notes_fromtext">Consectetur molestiae qui tempore beatae. Vero aut qui praesentium dolor molestias voluptatum nobis eos. Et tempore ea itaque neque corrupti labore.Suscipit voluptatibus laboriosam qui ut non fugiat est. Est dolor eos nobis ut. Officiis cum consequatur dolor aut corporis.Nesciunt deserunt quod aperiam eos aut molestiae. Consequatur vel et omnis nesciunt. Ad eos cumque rem et consequatur. Occaecati distinctio quibusdam expedita consectetur iusto.Voluptate rem quia qui nostrum vel. Error aut doloribus et asperiores possimus. Porro sunt nisi illo.Enim aut rerum consectetur asperiores atque est praesentium. Quasi facilis aliquam excepturi quas est voluptate adipisci. Earum aut ea unde fuga molestiae dolorem quae. Qui ea omnis laudantium sit.</q></p><p class="notes_title_nota">NOTA:</p><p class="notes_title_nota_txt" id="note_text1">se toman algunas notas</p><p><textarea id="note_text_edit1" rows="5" style="width: 96%; display: none">se toman algunas notas</textarea></p><div align="right" class="note_option"><span id="btn_note_edit1" onclick="myLecture.editNoteShow(1, true)">Editar</span><span id="btn_note_save1" onclick="myLecture.updateNote(11, 1)" style="display: none">Guardar</span><span id="btn_note_cancel1" onclick="myLecture.editNoteShow(1, false)" style="display: none">Cancelar</span><span id="btn_note_delete1" onclick="myLecture.deleteNote(11,1)">Eliminar</span></div></div><hr></div></div>
         </div>
 
         <div style="display: table-row; width: 100%;">
@@ -79,37 +77,37 @@
             <div class="left_menu" style="display: table-cell; ">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div style="position: fixed; top: 20px; width: 60px;">
-                    <div id="label_my_lecture" class="float_label" style="position: fixed; left: 70px; top: 45px; display: none;" >Mis Lecturas</div>
+                    <div id="label_my_lecture" class="float_label" style="position: fixed; left: 70px; top: 45px; display: none;">Mis Lecturas</div>
                     <div id="label_font_down" class="float_label" style="position: fixed; left: 70px; top: 115px; display: none;">Disminuir Fuente</div>
                     <div id="label_font_up" class="float_label" style="position: fixed; left: 70px; top: 180px; display: none;">Aumentar Fuente</div>
-                    <div id="label_note" class="float_label" style="position: fixed; left: 70px; top: 250px; display: none;" >Mis Apuntes</div>
-                    <div id="label_fullscreen" class="float_label" style="position: fixed; left: 70px; top: 340px; display: none;" >Pantalla Completa</div>
-                    <div id="label_nightmode" class="float_label" style="position: fixed; left: 70px; top: 420px; display: none;" >Lectura Nocturna</div>
-                    <a href="lecturedetail.html?1"><img id="icon_my_lecture" src="public/images/icons/svg/back-icon.svg" /></a>
-                    <img id="icon_font_down" src="public/images/icons/svg/Aminus-icon.svg"/>
-                    <img id="icon_font_up" src="public/images/icons/svg/Aplus-icon.svg"/>
+                    <div id="label_note" class="float_label" style="position: fixed; left: 70px; top: 250px; display: none;">Mis Apuntes</div>
+                    <div id="label_fullscreen" class="float_label" style="position: fixed; left: 70px; top: 340px; display: none;">Pantalla Completa</div>
+                    <div id="label_nightmode" class="float_label" style="position: fixed; left: 70px; top: 420px; display: none;">Lectura Nocturna</div>
+                    <a href="mylecturesection.html?"><img id="icon_my_lecture" src="public/images/icons/svg/back-icon.svg"></a>
+                    <img id="icon_font_down" src="public/images/icons/svg/Aminus-icon.svg">
+                    <img id="icon_font_up" src="public/images/icons/svg/Aplus-icon.svg">
                     <a href="mylecture_note.html?1"><img id="icon_note_" src="public/images/icons/svg/notes-icon.svg"/></a>
-                    <img id="icon_fullscreen" src="public/images/icons/svg/notes-icon.svg"/>
-                    <img id="icon_nightmode" src="public/images/icons/svg/notes-icon.svg"/>
+                    <img id="icon_fullscreen" src="public/images/icons/svg/notes-icon.svg">
+                    <img id="icon_nightmode" src="public/images/icons/svg/notes-icon.svg">
                     <!--<a href="main.html?mynotes"><img id="icon_note" src="public/images/icons/svg/notes-icon.svg"/></a>-->
                 </div>
                 <div style="position: fixed; bottom: 10px; width: 60px;">
-                    <div id="label_print" class="float_label" style="position: fixed; left: 70px; bottom: 40px; display: none;" >Imprimir</div>
-                    <img id="icon_print" src="public/images/icons/svg/print-icon.svg"/>
+                    <div id="label_print" class="float_label" style="position: fixed; left: 70px; bottom: 40px; display: none;">Imprimir</div>
+                    <img id="icon_print" src="public/images/icons/svg/print-icon.svg">
                 </div>
             </div>
             <!--contenido de la lectura-->
             <div align="center" class="lecture_main" style="display: table-cell; width: 100%;">
                 <div style="display: table-row">
                     <div style="display: table-cell">
-                        <div  class="lecture" id="lecture">
+                        <div class="lecture" id="lecture">
                             <p class="lecture_title">Deserunt molestiae ullam eius repudiandae autem quo.</p>
                             <p class="lecture_author">Lucio Donnelly</p>
                             <hr>
-                            <p class="lecture_chapter">Dolorem sunt vero molestiae.</p>
+                            <p class="lecture_chapter">Quae velit impedit omnis neque excepturi sed placeat.</p>
                             <div class="lecture_container">
-                                Tempore impedit omnis accusamus tenetur nam. Earum et quia dolor sed suscipit sed quia. Sint illum aspernatur et a cupiditate aut. Qui quo numquam est facere voluptas non ea qui.</p><p>Et cum enim ullam id. Ratione officia quidem eum ullam. Ut est debitis aut similique quisquam.</p><p>Unde qui possimus natus. Sit et explicabo cupiditate facilis. Est quidem quis consequatur nam ut ipsam omnis. Ratione quaerat aperiam rem tempora.</p><p>Voluptatem sunt est quidem et perferendis accusamus. Omnis consequatur atque velit minima labore. Vero et debitis ipsum et eveniet.</p><p>Ratione earum veniam doloribus consequatur animi ea. Sit voluptas qui laborum autem. Voluptatem quisquam atque at similique quo. Rerum vero et minima iusto natus.</p><p>Ex tenetur sit maxime ex eos animi. Dolore et maxime magnam. Porro nulla ab culpa aut numquam quia quo.</p><p>Qui aut quam quam repudiandae. Ea qui laborum ex possimus eius.</p><p>Esse cupiditate repudiandae porro ullam nisi voluptatum autem. Aut asperiores neque dolorem atque aut odio iure molestias. Quo nesciunt aut non alias quaerat eligendi.</p><p>Magni aut repellat nobis iusto provident asperiores optio quam. Est nihil est at sint autem. Error qui illum omnis. Quae tempora corporis soluta.</p><p>Sed minima tempore expedita. Eum id dolorum blanditiis eaque aut dignissimos. Saepe odit enim quam esse nam quis.</p><p>Praesentium sed vero optio fuga voluptatem. Ad id sint natus suscipit vel quibusdam rerum. Dolorem ea numquam atque vel quia ullam. Ea aut eum distinctio sed provident.</p><p>Necessitatibus asperiores itaque architecto sit cum impedit officia quis. Inventore dolores neque tempore.</p><p>Eum ratione beatae sed quia. Quis ipsam inventore accusamus molestiae. Necessitatibus odit qui quia rerum id pariatur omnis.</p><p>Vero ea commodi eligendi est omnis. Expedita doloribus dolorem et non sapiente. Officiis ab magni iure praesentium. Sunt ad iste perspiciatis non eaque perferendis.
-                            </div>
+                                Consectetur molestiae qui tempore beatae. Vero aut qui praesentium dolor molestias voluptatum nobis eos. Et tempore ea itaque neque corrupti labore.<p></p><p>Suscipit voluptatibus laboriosam qui ut non fugiat est. Est dolor eos nobis ut. Officiis cum consequatur dolor aut corporis.</p><p>Nesciunt deserunt quod aperiam eos aut molestiae. Consequatur vel et omnis nesciunt. Ad eos cumque rem et consequatur. Occaecati distinctio quibusdam expedita consectetur iusto.</p><p>Voluptate rem quia qui nostrum vel. Error aut doloribus et asperiores possimus. Porro sunt nisi illo.</p><p>Enim aut rerum consectetur asperiores atque est praesentium. Quasi facilis aliquam excepturi quas est voluptate adipisci. Earum aut ea unde fuga molestiae dolorem quae. Qui ea omnis laudantium sit.</p><p>Voluptatem aliquam nostrum eum harum voluptas rerum quam sapiente. Ut fuga laboriosam unde itaque quia. Temporibus tenetur nobis non fugiat.</p><p>Quod hic iusto sit corporis labore ex. Earum in numquam odio ipsum omnis dolores. Ipsa harum sit itaque nobis voluptas vitae. Velit et dolorem debitis iure saepe ea veritatis.</p><p>Sit aut assumenda optio molestiae. Quia voluptatem libero molestias delectus. Sit aliquam est animi tempora quod. Quo eaque quia adipisci voluptatem. Laborum tenetur nemo officiis voluptatem a ut eveniet.</p><p>Libero officia sint doloremque molestiae dolore sapiente voluptatibus. Tenetur quo enim optio molestiae deleniti. Quo harum rerum nisi quod dolorem rem aut omnis. Nulla vel iusto deserunt quia ducimus molestiae sapiente maiores.</p><p>Magni autem et ipsa incidunt. Reiciendis sit at qui.</p><p>Facere ratione magni sint fugit voluptate quia dolor quia. Reiciendis consequatur nobis architecto modi. Et unde qui autem culpa cum eum ipsa. Fugit corporis ut odio non voluptatem. Possimus nobis explicabo ea deserunt tempora.</p><p>Ipsa a eos veniam laborum nemo optio atque. Harum facilis ad similique et eveniet. Occaecati aut pariatur quidem enim hic voluptas. In dolor doloribus quibusdam consequatur optio perferendis. Vero magni ut consequuntur et voluptatem sequi officia.</p><p>Repudiandae adipisci molestias illo ut aliquam voluptas. Quia id ut dolores dolor ullam autem. Fugit harum nisi adipisci expedita.</p><p>Consequatur aliquam quia molestiae blanditiis. Delectus rerum repellat soluta nisi deserunt. Velit quo error et aspernatur. Voluptas reiciendis quam expedita omnis.</p><p>Repellat adipisci odit vero. Fuga est sunt voluptatum. In architecto soluta nulla ex. Sed omnis earum quibusdam consequatur.</p><p>Voluptatem culpa quia aliquid et qui voluptas id. Sit quis voluptatem dolores et nostrum. Aut ea est molestias corrupti animi. Minima ea expedita ratione incidunt est.
+                            </p></div>
                         </div>
                     </div>
                 </div>
@@ -126,7 +124,7 @@
         <script type="text/javascript">
                     $(document).ready(function() {
                 global.url = "http://beta.lorapp.com/alfa/lorapp/public";
-                global.session = "fd76b9c6558b584160eed3d9685514f4541ba28a";
+                global.session = "1743b53a94ffc287db0139a545428b2325a9b523";
                 /**
                  * opciones del menu lateral
                  */
@@ -239,9 +237,9 @@
                 // END: SMOOTH SCROLLING ON CLICK
                 //localstorage
                 myLecture.checkLS();
-                lsid = 1;
-                j = "5fc31084408a07f4170a4109991b558b";
-                k = "fb88082fb684c94384ad80a2dacd0e6f";
+                lsid = 2;
+                j = "ae7ec2b45beed17d0786e97d65a39e8d";
+                k = "819074c37942211f286f7eb2cfb8dc5c";
                 //se verifica si ya se inicio proceso
                 leaf = myLecture.getLS('leaf');
                 if (leaf === null || leaf === "") {
@@ -289,5 +287,6 @@
                 }, 10000);
             });
         </script>
-    </body>
-</html>
+
+
+</body></html>

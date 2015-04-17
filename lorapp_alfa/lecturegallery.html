@@ -61,40 +61,91 @@
         </nav>
         <!-- END: navbar logged-in -->
                 <!-- START Body -->
-        <div class="container">
-    <div align="center">
-        <h1>Mis Lecturas</h1>
-                        <div style="width: 100%; max-width: 600px; ">
-            <table class="table table-striped" width="100%">
-                <tbody><tr>
-                    <th></th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Sección</th>
-                    <th>Apuntes</th>
-                    <th>Tiempo restante</th>
-                </tr>
-                                <tr style="border: 1px solid #CCC;">
-                    <td><a title="Eliminar" class="btn btn-danger btn-xs" onclick="removeLectureSection(2)"><span class="glyphicon glyphicon-trash"></span></a></td>
-                    <td><a href="lecturedetail.html?1">Deserunt molestiae ullam eius repudiandae autem quo.</a></td>
-                    <td>Lucio Donnelly</td>
-                    <td><a href="mylecture.html?2">Quae velit impedit omnis neque excepturi sed placeat.</a></td>
-                    <td><a>Apuntes</a></td>
-                    <td>Ilimitado</td>
-                </tr>
-                                <tr style="border: 1px solid #CCC;">
-                    <td><a title="Eliminar" class="btn btn-danger btn-xs" onclick="removeLectureSection(14)"><span class="glyphicon glyphicon-trash"></span></a></td>
-                    <td><a href="lecturedetail.html?5">Nulla inventore optio amet laudantium enim illo et.</a></td>
-                    <td>John Luettgen</td>
-                    <td><a href="mylecture.html?14">Porro nihil nesciunt et beatae deserunt.</a></td>
-                    <td><a>Apuntes</a></td>
-                    <td>Ilimitado</td>
-                </tr>
-                            </tbody></table>
-        </div>
+
+<div class="container">
+    <h1 class="page-header">LECTURAS</h1>
+    <h2 class="sub-header">
+        <table width="100%">
+            <tbody><tr>
+                <td width="30%">&nbsp;</td>
+                <td width="30%">&nbsp;</td>
+                <td>
+                    <form method="GET" action="lecturesearch.html?" accept-charset="UTF-8" id="search_form">
+                    <div class="input-group">
+                        <input id="search" placeholder="Buscar..." class="form-control" required="true" name="search" type="text" value="">
+                        <input name="render" type="hidden" value="lecturegallery">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default">&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;</button>
+                        </span>
+                    </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody></table>
+    </h2>
+
+    <div class="container">
+                <div class="row">
+                        <div class="col-md-3" style="background-color:#FDBB38">
+                                  <a href="lecturedetail.html?1"><img style="max-height: 100px" alt="Deserunt molestiae ullam eius repudiandae autem quo." title="Deserunt molestiae ullam eius repudiandae autem quo." src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"></a>
+                                <table>
+                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Deserunt molestiae ullam eius repudiandae autem quo.</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Lucio Donnelly</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Stehr, Jenkins and Koepp</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
+                </tbody></table>
+            </div>
+                        <div class="col-md-3" style="background-color:#FDBB38">
+                                  <a href="lecturedetail.html?4"><img style="max-height: 100px" alt="Eos sed cum qui praesentium tempore reprehenderit hic." title="Eos sed cum qui praesentium tempore reprehenderit hic." src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7"></a>
+                                <table>
+                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Eos sed cum qui praesentium tempore reprehenderit hic.</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Monserrat Romaguera</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Gerlach, Bauch and Rutherford</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
+                </tbody></table>
+            </div>
+                        <div class="col-md-3" style="background-color:#FDBB38">
+                                  <a href="lecturedetail.html?5"><img style="max-height: 100px" alt="Nulla inventore optio amet laudantium enim illo et." title="Nulla inventore optio amet laudantium enim illo et." src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269"></a>
+                                <table>
+                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Nulla inventore optio amet laudantium enim illo et.</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>John Luettgen</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Fisher and Sons</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
+                </tbody></table>
+            </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-3" style="background-color:#FDBB38">
+                                  <a href="lecturedetail.html?2"><img style="max-height: 100px" alt="Qui atque nesciunt dolorum inventore unde repudiandae molestiae." title="Qui atque nesciunt dolorum inventore unde repudiandae molestiae." src="public/images/book.png?6/069f40bd310de9b7ff923112bda98cec"></a>
+                                <table>
+                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Qui atque nesciunt dolorum inventore unde repudiandae molestiae.</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Adrianna Gulgowski</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Spinka-McGlynn</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
+                </tbody></table>
+            </div>
+                        <div class="col-md-3" style="background-color:#FDBB38">
+                                  <a href="lecturedetail.html?3"><img style="max-height: 100px" alt="Sapiente perspiciatis id aut vero cum perferendis adipisci." title="Sapiente perspiciatis id aut vero cum perferendis adipisci." src="public/images/book.png?7/302006542b94b6bd47d685375c2c906e"></a>
+                                <table>
+                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Sapiente perspiciatis id aut vero cum perferendis adipisci.</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Giovanni Roberts</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Brakus, Adams and Kub</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
+                </tbody></table>
+            </div>
+                        <div class="col-md-3" style="background-color:#FDBB38">
+                                 <a href="lecturedetail.html?6"><img style="max-height: 100px" alt="Test" title="Test" src="data:image/png;base64,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"></a>
+                                <table>
+                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Test</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Test</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Test</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>2</td></tr>
+                </tbody></table>
+            </div>
+                    </div>
+            </div>
 
     </div>
-</div>
         <!-- END Body -->
         <!-- START Modals -->
         <!-- FAQ -->
@@ -457,27 +508,6 @@
         <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript">global.url = "main.html?";</script>
         <script type="text/javascript" src="public/js/util.js"></script>
-                <script type="text/javascript">
-            function removeLectureSection(id){
-            var d = {};
-                    d.lsid = id;
-                    util.cursorBusy();
-                    $.ajax({
-                    data: d,
-                            type: "GET",
-                            dataType: "json",
-                            url: global.url + "/userdeletelecturesection",
-                            success: function(data) {
-                            util.cursorNormal();
-                                    if (data.valid) {
-                            location.reload();
-                            } else {
-                            alert('Error: ' + data.error);
-                            }
-                            }
-                    });
-            }
-</script>
 
 
 </body></html>
