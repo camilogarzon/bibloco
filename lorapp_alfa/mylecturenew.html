@@ -268,55 +268,6 @@
                 });
                 // END: SMOOTH SCROLLING ON CLICK
                 //localstorage
-                myLecture.checkLS();
-                lsid = 1;
-                j = "5fc31084408a07f4170a4109991b558b";
-                k = "fb88082fb684c94384ad80a2dacd0e6f";
-                //se verifica si ya se inicio proceso
-                leaf = myLecture.getLS('leaf');
-                if (leaf === null || leaf === "") {
-                    //como no existe se crea el primer objeto
-                    leaf = {};
-                    leaf[j] = {};
-                    leaf[j].i = lsid;
-                    leaf[j].k = k;
-                    leaf[j].t = 0;
-                    myLecture.setLSO('leaf', leaf);
-                } else {
-                    leaf = myLecture.getLSO('leaf');
-                    if (leaf[j] === null || leaf[j] === undefined || leaf[j] === "") {
-                        //como no existe la lectura, se crea
-                        leaf[j] = {};
-                        leaf[j].i = lsid;
-                        leaf[j].k = k;
-                        leaf[j].t = 0;
-                        myLecture.setLSO('leaf', leaf);
-                    }
-                }
-                setInterval(function() {
-                    leaf = myLecture.getLSO('leaf');
-                    leaf[j].t = leaf[j].t + 1;
-                    myLecture.setLSO('leaf', leaf);
-                }, 1000);
-                setInterval(function() {
-                    leaf = myLecture.getLSO('leaf');
-                    $.ajax({
-                        data: leaf[j],
-                        type: "POST",
-                        dataType: "json",
-                        url: global.url + "/leaf",
-                        success: function(data) {
-                            if (data.valid) {
-                                leaf = myLecture.getLSO('leaf');
-                                leaf[j].t = 0;
-                                myLecture.setLSO('leaf', leaf);
-                            }
-                        },
-                        error: function(e, a, b) {
-                            //error si se pierde conexion con el servidor
-                        }
-                    });
-                }, 10000);
             });
         </script>
 
