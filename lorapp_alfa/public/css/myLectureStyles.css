@@ -86,26 +86,32 @@ div {
 /*Reading titles properties*/
 .titleWrapper {
 	border-bottom: 1px solid #CACACA;
-	font-family: 'Verdana';
+	font-family: 'Lato';
 	padding: 1em;
-	margin: 2em 0em 0;
+	margin: 1.3em 0em 0;
 }
 .readingTitle,
 .readingAuthor {
 	text-align: center;
 }
 .readingTitle {
-	font-size: 1.6em;
+	font-size: 1.8em;
 	font-weight: normal;
+	line-height: .5em;
+}
+.readingAuthor {
+	color: #AAA;
+	font-size: 1.2em;
+	font-weight: lighter;
 }
 .chapterTitle {
-	font-family: 'Verdana';
-	font-size: 1.1em;
+	font-family: 'Lato';
+	font-size: 1.4em;
 	font-weight: bold;
 	margin: 1em 0;
 	-webkit-font-smoothing: antialiased; /*text smoothing*/
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004); /*text smoothing*/
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 
@@ -171,7 +177,7 @@ div {
 	border: 1px solid #888;
 	color: #888;
 	display: inline-block;
-	font-family: 'Verdana';
+	font-family: 'Lato';
 	font-size: .9em;
 	overflow: hidden;
 	max-width: 30em;
