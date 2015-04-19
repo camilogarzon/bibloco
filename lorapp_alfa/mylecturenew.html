@@ -15,7 +15,9 @@
         <noscript>
             <meta http-equiv="refresh" content="0; url=http://beta.lorapp.com/alfa/lorapp/public" />
         </noscript>
+
         <script type="text/javascript">
+        // bloquea el click derecho
             function clickIE4() {
                 if (event.button == 2) {
                     return false;
@@ -102,7 +104,7 @@
 			<!-- Contenido lectura -->
 			<div class="bodyWrapper">
 				<!-- Título y autor -->
-				<div class="titleWrapper">
+				<div class="titleWrapper" style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;' unselectable='on' onselectstart='return false;' onmousedown='return false;'>
 					<h2 class="readingTitle">La riqueza de las naciones</h2>
 					<p class="readingAuthor">Adam Smith</p>
 				</div> <!-- titleWrapper -->
@@ -152,8 +154,6 @@
         <script type="text/javascript" src="public/js/global.js"></script>
         <script type="text/javascript" src="public/js/util.js"></script>
         <script type="text/javascript" src="public/js/mylecture.js"></script>
-        <script>
-        </script>
         <script type="text/javascript">
                     $(document).ready(function() {
                 global.url = "http://beta.lorapp.com/alfa/lorapp/public";
