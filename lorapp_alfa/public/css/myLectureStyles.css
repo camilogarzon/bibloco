@@ -32,7 +32,7 @@ div {
 	background: #F6F6F6;
 	display: inline-block;
 	height: 100%;
-	margin-left: 10px; /*same as .sideMenu width - left position*/
+	margin-left: 15px;
 	width: 41em; /*reading width*/
 }
 .mainWrapper {
@@ -88,6 +88,7 @@ div {
 	border-bottom: 1px solid #CACACA;
 	font-family: 'Lato';
 	padding: 1em;
+	cursor: default;
 	margin: 1.3em 0em 0;
 }
 .readingTitle,
@@ -97,12 +98,14 @@ div {
 .readingTitle {
 	font-size: 1.8em;
 	font-weight: normal;
-	line-height: .5em;
+	line-height: 1.3em;
+	margin: .4em 0 .45em;
 }
 .readingAuthor {
 	color: #AAA;
 	font-size: 1.2em;
 	font-weight: lighter;
+	margin: 0 0 1em;
 }
 .chapterTitle {
 	font-family: 'Lato';
@@ -111,7 +114,6 @@ div {
 	margin: 1em 0;
 	-webkit-font-smoothing: antialiased; /*text smoothing*/
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004); /*text smoothing*/
-    /*text-transform: uppercase;*/
 }
 
 
