@@ -26,10 +26,12 @@ div {
 	padding: 0;
 	margin: 0;
 }
+p {
+	margin: 0;
+}
 
 
 .bodyWrapper {
-	background: #F6F6F6;
 	display: inline-block;
 	height: 100%;
 	margin-left: 15px;
@@ -37,6 +39,7 @@ div {
 }
 .mainWrapper {
 	height: 100%;
+	overflow: scroll;
 	text-align: center;
 	width: 100%;
 }
@@ -45,7 +48,7 @@ div {
 .sideMenu {
 	height: 100%;
 	left: 0px;
-	opacity: .1;
+	opacity: .2;
 	padding: 0 50px 0 15px;
 	position: fixed;
 	top: 0;
@@ -82,7 +85,6 @@ div {
 
 
 
-
 /*Reading titles properties*/
 .titleWrapper {
 	border-bottom: 1px solid #CACACA;
@@ -94,6 +96,10 @@ div {
 .readingTitle,
 .readingAuthor {
 	text-align: center;
+}
+.readingTitle:first-letter,
+.readingAuthor:first-letter {
+	text-transform: capitalize;
 }
 .readingTitle {
 	font-size: 1.8em;
@@ -124,13 +130,18 @@ div {
 	text-align: left;
 	padding: 1em 0em 2em;
 }
+.bodyText p:first-letter {
+	text-transform: capitalize;
+}
 .bodyText p {
 	letter-spacing: 0.01em;
 	line-height: 1.9em;
+	padding: .5em 0;
 	text-indent: 1em;
 }
 .bodyText figure {
-	margin: 1.7em;
+	margin: 0;
+	padding: 1.5em 0;
 	text-align: center;
 }
 .bodyText figcaption {
@@ -208,6 +219,82 @@ div {
 
 
 
+
+
+/* Apuntes */
+.notesMainWrapper {
+	background: #F6F6F6;
+	border-left: 1px solid #888;
+	height: 100%;
+	left: 100%;
+	overflow: scroll;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+}
+.notesMainWrapper .chapterTitle:first-child {
+	margin: 1em 0;
+}
+.notesMainWrapper .chapterTitle {
+	margin: 3em 0 1em;
+}
+.notesMainWrapper .bodyText p {
+	padding: .5em 0 .5em 30px;
+}
+.notesHighlight {
+	border-left: 4px solid #95E2DE;
+}
+.notesNote {
+	border-left: 4px solid #E3E3E3;
+}
+.notesGroup {
+	position: relative;
+}
+.notesGroup:hover {
+	background: #EEE;
+}
+.notesOptions {
+	left: 0px;
+	position: absolute;
+	width: 0px;
+	visibility: hidden;
+}
+.notesOptions a {
+	display: block;
+	font-family: 'Lato';
+	font-size: .6em;
+	letter-spacing: 0.02em;
+	opacity: 0;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.notesOptionsDelete {
+	background: rgb(255, 90, 90);
+	color: #FFF;
+}
+.notesOptionsEdit {
+	background: #DDD;
+	color: #555;
+}
+.notesOptionsDelete:hover {
+	background: red;
+}
+.notesOptionsEdit:hover {
+	background: #CCC;
+}
+.notesGroup:hover > .notesOptions {
+	left: -80px;
+	transition: all .4s;
+	visibility: visible;
+	width: 80px;
+}
+.notesGroup:hover > .notesOptions a {
+	opacity: .75;
+	transition: all .5s ease-in;
+}
 
 
 
