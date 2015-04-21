@@ -17,7 +17,7 @@ body {
 	background: #F6F6F6;
 	color: #4A4A4A;
 	font-family: 'Merriweather', serif;
-	font-size: 18px;
+	font-size: 17px;
 	height: 100%;
 	margin: auto;
 	overflow-x: hidden;
@@ -225,6 +225,7 @@ p {
 /* Apuntes */
 .notesMainWrapper {
 	background: #F6F6F6;
+	border-left: 2px solid #888;
 	height: 100%;
 	left: 100%;
 	overflow: scroll;
@@ -253,7 +254,7 @@ p {
 	background: #FFF;
 	box-shadow: 0px 0px 10px #CCC;
 	margin: 2em auto 4em;
-	width: 49em; 
+	width: 49.5em; 
 }
 .notesMainWrapper .bodyText {
 	margin-bottom: 3em;
@@ -271,11 +272,15 @@ p {
 	border-bottom: 1px solid rgba(0,0,0,.05);
 	border-left: 4px solid rgba(0,0,0,.05);
 	color: #555;
-	font-size: 0.9em;
+	font-size: 0.95em;
 }
 .notesGroup {
 	margin: 0 0 .8em 0em;
 	position: relative;
+}
+.notesHighlight:first-letter,
+.notesNote:first-letter {
+	text-transform: capitalize;
 }
 .notesGroup:hover > .notesHighlight {
 	background: inherit;
