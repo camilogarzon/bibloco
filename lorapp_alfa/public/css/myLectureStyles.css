@@ -34,7 +34,7 @@ p {
 
 .bodyWrapper {
 	display: inline-block;
-	height: 100%;
+	/*height: 100%;*/
 	margin-left: 15px;
 	width: 41em; /*reading width*/
 }
@@ -225,7 +225,7 @@ p {
 /* Apuntes */
 .notesMainWrapper {
 	background: #F6F6F6;
-	border-left: 2px solid #888;
+	/*border-left: 2px solid #888;*/
 	height: 100%;
 	left: 100%;
 	overflow: scroll;
@@ -241,19 +241,50 @@ p {
 	margin: 3em 0 1em;
 }
 .notesMainWrapper .bodyText p {
-	padding: .5em 0 .5em 30px;
+	font-family: 'Lato';
+	line-height: 1.5em;
+	/*padding: .5em 15px .5em 30px;*/
+}
+.notesMainWrapper .bodyText .notesHighlight {
+	padding: .5em 15px .5em 30px;
+}
+.notesMainWrapper .bodyText .notesNote {
+	padding: .8em 15px .8em 30px;
+}
+.notesPageWrapper {
+	background: #FFF;
+	box-shadow: 0px 0px 10px #CCC;
+	margin: 2em auto 4em;
+	width: 50em; 
+}
+.notesMainWrapper .bodyText {
+	margin-bottom: 3em;
 }
 .notesHighlight {
-	border-left: 4px solid #95E2DE;
+	background: rgba(4,196,187,.04);
+	border: 1px solid rgba(4,196,187,.1);
+	border-left: 4px solid rgba(4,196,187,.1);
+	color: #00918B;
 }
 .notesNote {
-	border-left: 4px solid #E3E3E3;
+	border-right: 1px solid rgba(0,0,0,.05);
+	border-bottom: 1px solid rgba(0,0,0,.05);
+	border-left: 4px solid rgba(0,0,0,.05);
+	color: #555;
+	font-size: 0.9em;
 }
 .notesGroup {
+	margin: 0 0 .8em 0em;
 	position: relative;
 }
+.notesGroup:hover > .notesHighlight {
+	background: inherit;
+	border-top: 1px solid #F5F5F5; /*same color as .notesGroup:hover background*/
+	border-right: 1px solid #F5F5F5; /*same color as .notesGroup:hover background*/
+	border-bottom: 1px solid #F5F5F5; /*same color as .notesGroup:hover background*/
+}
 .notesGroup:hover {
-	background: #EEE;
+	background: #F5F5F5;
 }
 .notesOptions {
 	left: 0px;
@@ -286,6 +317,10 @@ p {
 .notesOptionsEdit:hover {
 	background: #CCC;
 }
+.notesGroup:hover > .notesNote {
+	border-right: 1px solid rgba(0,0,0,.0);
+	border-bottom: 1px solid rgba(0,0,0,.0);
+}
 .notesGroup:hover > .notesOptions {
 	left: -80px;
 	transition: all .4s;
@@ -296,7 +331,6 @@ p {
 	opacity: .75;
 	transition: all .5s ease-in;
 }
-
 
 
 
