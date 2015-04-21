@@ -131,9 +131,9 @@ p {
 	text-align: left;
 	padding: 1em 0em 2em;
 }
-.bodyText p:first-letter {
-	text-transform: capitalize;
-}
+/*.bodyText p:first-letter {
+	text-transform: capitalize; Hay un bug en Webkit que impide seleccionar la primera letra del texto. Ver https://bugs.webkit.org/show_bug.cgi?id=6185
+}*/
 .bodyText p {
 	letter-spacing: 0.01em;
 	line-height: 1.9em;
@@ -253,7 +253,7 @@ p {
 	background: #FFF;
 	box-shadow: 0px 0px 10px #CCC;
 	margin: 2em auto 4em;
-	width: 50em; 
+	width: 49em; 
 }
 .notesMainWrapper .bodyText {
 	margin-bottom: 3em;
