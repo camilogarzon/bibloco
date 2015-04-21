@@ -296,12 +296,12 @@
                     * click en botón apuntes hace slide de apuntes
                     */
                     event.preventDefault();
-                    if ( $(this).hasClass("isDown") ) {
-                        $(".notesMainWrapper").animate({left:"100%"}, 1000);                            
+                    if ( $(this).hasClass("apuntesOn") ) {
+                        $(".notesMainWrapper").animate({left:"100%"}, 1000);
                     } else {
                         $(".notesMainWrapper").animate({left:"0%"}, 1000);
                     }
-                    $(this).toggleClass("isDown");
+                    $(this).toggleClass("apuntesOn");
                     return false;    
                 });
 

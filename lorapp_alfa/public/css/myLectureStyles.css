@@ -14,8 +14,10 @@ html {
 	width: 100%;
 }
 body {
-	background: rgba(255,155,0,.06);
-	color: rgba(0,0,0,.8);
+	/*background: rgba(255,125,0,.06);*/ /*Test colors to reduce visual fatigue*/
+	/*color: rgba(0,0,0,.8);*/ /*Test colors to reduce visual fatigue*/
+	background: #F6F6F6;
+	color: #4A4A4A;
 	font-family: 'Merriweather', serif;
 	font-size: 17px;
 	height: 100%;
@@ -126,8 +128,9 @@ p {
 
 /*Body text properties*/
 .bodyText {
-	text-align: left;
 	padding: 1em 0em 2em;
+	text-align: left;
+	/*text-shadow: 0px 1px 0px rgba(0,0,0,0.07);*/ /*test for better legibility*/
 }
 /*.bodyText p:first-letter {
 	text-transform: capitalize; Hay un bug en Webkit que impide seleccionar la primera letra del texto. Ver https://bugs.webkit.org/show_bug.cgi?id=6185
@@ -223,7 +226,7 @@ p {
 /* Apuntes */
 .notesMainWrapper {
 	background: #F6F6F6;
-	border-left: 2px solid #888;
+	border-left: 2px solid #BBB;
 	height: 100%;
 	left: 100%;
 	overflow: scroll;
