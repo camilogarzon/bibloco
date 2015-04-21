@@ -14,8 +14,8 @@ html {
 	width: 100%;
 }
 body {
-	background: #F6F6F6;
-	color: #4A4A4A;
+	background: rgba(255,155,0,.06);
+	color: rgba(0,0,0,.8);
 	font-family: 'Merriweather', serif;
 	font-size: 17px;
 	height: 100%;
@@ -34,7 +34,6 @@ p {
 
 .bodyWrapper {
 	display: inline-block;
-	/*height: 100%;*/
 	margin-left: 15px;
 	width: 41em; /*reading width*/
 }
@@ -109,9 +108,8 @@ p {
 	margin: .4em 0 .45em;
 }
 .readingAuthor {
-	color: #AAA;
+	color: rgba(0,0,0,.3);
 	font-size: 1.2em;
-	font-weight: lighter;
 	margin: 0 0 1em;
 }
 .chapterTitle {
@@ -213,8 +211,8 @@ p {
 }
 .btn-prev-chapter:hover,
 .btn-next-chapter:hover {
-	border: 1px solid #4A4A4A;
-	background-color: #4A4A4A;
+	border: 1px solid rgba(0,0,0,0);
+	background-color: rgba(0,0,0,.6);
 	color: #F6F6F6;
 }
 
