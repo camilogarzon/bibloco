@@ -225,7 +225,6 @@ p {
 /* Apuntes */
 .notesMainWrapper {
 	background: #F6F6F6;
-	/*border-left: 2px solid #888;*/
 	height: 100%;
 	left: 100%;
 	overflow: scroll;
@@ -243,7 +242,6 @@ p {
 .notesMainWrapper .bodyText p {
 	font-family: 'Lato';
 	line-height: 1.5em;
-	/*padding: .5em 15px .5em 30px;*/
 }
 .notesMainWrapper .bodyText .notesHighlight {
 	padding: .5em 15px .5em 30px;
@@ -265,6 +263,8 @@ p {
 	border: 1px solid rgba(4,196,187,.1);
 	border-left: 4px solid rgba(4,196,187,.1);
 	color: #00918B;
+	-webkit-font-smoothing: antialiased; /*text smoothing*/
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004); /*text smoothing*/
 }
 .notesNote {
 	border-right: 1px solid rgba(0,0,0,.05);
