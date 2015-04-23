@@ -313,9 +313,11 @@ p {
 }
 .notesOptionsDelete:hover {
 	background: red;
+        cursor: pointer;
 }
 .notesOptionsEdit:hover {
 	background: #CCC;
+        cursor: pointer;
 }
 .notesGroup:hover > .notesNote {
 	border-right: 1px solid rgba(0,0,0,.0);
