@@ -239,7 +239,7 @@ p {
 .notesMainWrapper .chapterTitle {
 	margin: 3em 0 1em;
 }
-.notesMainWrapper .bodyText p {
+.notesMainWrapper .bodyText div {
 	font-family: 'Lato';
 	line-height: 1.5em;
 }
