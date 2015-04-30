@@ -246,7 +246,7 @@ p {
 .notesMainWrapper .chapterTitle {
 	margin: 3em 0 1em;
 }
-.notesMainWrapper .bodyText p {
+.notesMainWrapper .bodyText div {
 	font-family: 'Lato';
 	line-height: 1.5em;
 }
@@ -324,9 +324,11 @@ p {
 }
 .notesOptionsDelete:hover {
 	background: red;
+        cursor: pointer;
 }
 .notesOptionsEdit:hover {
 	background: #CCC;
+        cursor: pointer;
 }
 .notesGroup:hover > .notesNote {
 	border-right: 1px solid rgba(0,0,0,.0);
