@@ -15,7 +15,7 @@
             <meta http-equiv="refresh" content="0; url=http://beta.lorapp.com/alfa/lorapp/public" />
         </noscript>
 
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
         // bloquea el click derecho
             function clickIE4() {
                 if (event.button == 2) {
@@ -38,7 +38,7 @@
             document.oncontextmenu = new Function("return false");
             document.ondragstart = new Function("return false");
             document.oncopy = new Function("return false");
-        </script>
+        </script>-->
     </head>
 
 
@@ -79,13 +79,14 @@
             <div id="note_loader" style="height: 80%; overflow-y: auto; "></div>
         </div>
 
+
         
 
 
 
 	    <div class="mainWrapper">
 	    	<!-- Menu lateral -->
-			<div class="sideMenu" style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;' unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+			<div class="sideMenu unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
 				<div class="sideMenuGroup1">
 					<a href="" class="sideMenu-icon"><img src="public/images/icons/svg/back-icon.svg"></a>
 					<a href="" class="sideMenu-icon"><img src="public/images/icons/svg/Aminus-icon.svg"></a>
@@ -105,15 +106,29 @@
 			<!-- Contenido lectura -->
 			<div class="bodyWrapper">
 				<!-- Título y autor -->
-				<div class="titleWrapper" style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;' unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+				<div class="titleWrapper unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
 					<h2 class="readingTitle">La riqueza de las naciones</h2>
 					<p class="readingAuthor">Adam Smith</p>
 				</div> <!-- titleWrapper -->
 
+                
+
 				<!-- Texto cuerpo lectura -->
 				<div class="bodyText">
+                    <!-- Campo para agregar nota -->
+                    <!-- <div class="add-note-main-wrapper"> -->
+                    <div class="add-note-wrapper">
+                        <p class="add-note-highlight unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>el progreso es más importante en las facultades productivas.</p>
+                        <textarea class="note-input" type="text" placeholder="Escribe tu nota&hellip;"></textarea>
+                        <div class="add-note-buttons unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+                            <a href="" class="btn-discard-note">Cancelar</a>
+                            <button class="btn-save-note unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>¡Listo!</button>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+
 					<div class="btn-prev-chapter-container">
-						<a href="" class="btn-prev-chapter" style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;' unselectable='on' onselectstart='return false;' onmousedown='return false;'>Introducción</a>
+						<a href="" id="take-note" class="btn-prev-chapter unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>Introducción</a>
 					</div>
 					<h3 class="chapterTitle">Capítulo 1: De la división del trabajo</h3>
 					<p class="quote">"El progreso es más importante en las facultades productivas".</p>
@@ -140,7 +155,7 @@
 					<p>En fin, el importante trabajo de hacer un alfiler queda dividido de esta manera en unas dieciocho operaciones distintas, las cuales son desempeñadas en algunas fabricas por otros tantos obreros diferentes, aunque en otras un solo hombre desempeñe a veces dos o tres operaciones. He visto una pequeña fabrica de esta especie que no empleaba mas que diez obreros, donde, por consiguiente, algunos de ellos tenían a su cargo dos o tres operaciones. Pero a pesar de que eran pobres y, por lo tanto, no estaban bien provistos de la maquinaria debida, podían, cuando se esforzaban, hacer entre todos, diariamente, unas doce libras de alfileres. En cada libra había mas de cuatro mil alfileres de tamaño mediano. Por consiguiente, estas diez personas podían hacer cada día, en conjunto, mas de cuarenta y ocho mil alfileres, cuya cantidad, dividida entre diez, correspondería a cuatro mil ochocientos por persona. En cambio si cada uno hubiera trabajado separada e independientemente, y ninguno hubiera sido adiestrado en esa clase de tarea, es seguro que no hubiera podido hacer veinte, o, tal vez, ni un solo alfiler al día; es decir, seguramente no hubiera podido hacer la doscientascuarentava parte, tal vez ni la cuatromilochocientosava parte de lo que son capaces de confeccionar en la actualidad gracias a la división y combinación de las diferentes operaciones en forma conveniente.</p>
 				</div> <!-- bodyText -->
 				<div class="btn-next-chapter-container">
-						<a href="" class="btn-next-chapter" style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;' unselectable='on' onselectstart='return false;' onmousedown='return false;'>Capítulo 2: De la mano de obra</a>
+						<a href="" class="btn-next-chapter unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>Capítulo 2: De la mano de obra</a>
 				</div>
 			</div> <!-- bodyWrapper -->
 		</div> <!-- mainWrapper -->
@@ -153,7 +168,7 @@
             <div class="notesPageWrapper">
                 <div class="bodyWrapper">
                     <!-- Título y autor -->
-                    <div class="titleWrapper" style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;' unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+                    <div class="titleWrapper unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
                         <h2 class="readingTitle">Apuntes</h2>
                         <p class="readingAuthor">La riqueza de las naciones</p>
                     </div> <!-- titleWrapper -->
@@ -283,6 +298,18 @@
                 // });
 
 
+                /**
+                * click en botón agregar apunte hace slide de casilla de apuntes
+                */
+                $("#take-note").click(function(event) { 
+                    
+                    event.preventDefault();
+                    $(".add-note-wrapper").animate({
+                        bottom:"0%"
+                    }, 500, function() {
+                    });
+                });
+
                 
                 $("#icon_note").click( function(event){
                     /**
@@ -304,6 +331,9 @@
                     $(this).toggleClass("apuntesOn");
                     return false;    
                 });
+
+
+
 
 
                 $('#close_note_loader').click(function() {
@@ -383,6 +413,5 @@
                 //localstorage
             });
         </script>
-
     </body>
 </html>

@@ -1,6 +1,3 @@
-*:focus {
-    outline: 0; /*Hide outline on focus*/
-}
 ::selection {
 	color: #FFFFFF;
 	background: #04C4BB; /* WebKit/Blink Browsers */
@@ -31,6 +28,13 @@ div {
 }
 p {
 	margin: 0;
+}
+
+.unselectable {
+ -moz-user-select: none;
+ -webkit-user-select: none;
+ -ms-user-select:none;
+ user-select:none;-o-user-select:none;
 }
 
 
@@ -126,6 +130,7 @@ p {
 
 
 
+
 /*Body text properties*/
 .bodyText {
 	padding: 1em 0em 2em;
@@ -137,7 +142,7 @@ p {
 }*/
 .bodyText p {
 	letter-spacing: 0.01em;
-	line-height: 1.9em;
+	line-height: 1.8em;
 	padding: .5em 0;
 	text-indent: 1em;
 }
@@ -337,7 +342,85 @@ p {
 	opacity: .75;
 	transition: all .5s ease-in;
 }
-
+/* Agregar apuntes */
+.add-note-wrapper {
+	background: #F6F6F6;
+	bottom: -14em;
+	max-height: 96%;
+	overflow-y: auto;
+	padding: 1em 0;
+	position: fixed;
+	width: 41em; /*same as .bodyWrapper width*/
+}
+.add-note-wrapper .add-note-highlight {
+	background: rgba(4,196,187,.04);
+	border: 1px solid rgba(4,196,187,.1);
+	border-left: 4px solid rgba(4,196,187,.1);
+	color: #00918B;
+	font-family: 'Lato';
+	line-height: 1.5em;
+	padding: .5em 1em;
+	-webkit-font-smoothing: antialiased; /*text smoothing*/
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004); /*text smoothing*/
+}
+.add-note-highlight:first-letter {
+	text-transform: capitalize;
+}
+.note-input {
+	border: 1px solid #DDD;
+	border-top: none;
+	border-left: 4px solid #EEE;
+	color: rgba(0,0,0,.6);
+	font-family: 'Lato';
+	font-size: 1em;
+	height: 5em;
+	margin: 0 0 0.5em;
+	max-height: 20em;
+	padding: .5em;
+	width: 39.7em;
+	max-width: 39.7em;
+}
+.note-input:focus {
+	background: #FFFFEC;
+	outline: none; 
+}
+.note-input::selection {
+	background: rgba(0,168,255,.3);
+	color: inherit;
+}
+.add-note-buttons {
+	text-align: right;
+}
+.btn-save-note {
+	background-color: #4aaaa5;
+	border: none;
+	border-bottom: 2px solid #3a9a95;
+	border-radius: 4px;
+	color: #FFF;
+	font-size: .85em;
+	letter-spacing: 0.05em;
+	margin: 0 0 .5em;
+	padding: .65em 2em;
+	text-shadow: 1px 1px rgba(0,0,0,.3);
+}
+.btn-save-note:hover {
+	background-color: #2a8a85;
+	cursor: pointer;
+}
+.btn-save-note:active {
+	background-color: #1B5A57;
+}
+.btn-discard-note {
+	color: #AAA;
+	font-family: 'Lato';
+	font-size: .85em;
+	margin: 0 2em;
+	text-decoration: none;
+}
+.btn-discard-note:hover {
+	color: #555;
+	text-decoration: underline;
+}
 
 
 /*Otros estilos*/
