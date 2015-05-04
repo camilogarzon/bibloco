@@ -251,7 +251,7 @@ p {
 	line-height: 1.5em;
 }
 .notesMainWrapper .bodyText .notesHighlight {
-	padding: .5em 15px .5em 30px;
+	padding: .5em 34px .5em 30px;
 }
 .notesMainWrapper .bodyText .notesNote {
 	padding: .8em 15px .8em 30px;
@@ -267,18 +267,23 @@ p {
 }
 .notesHighlight {
 	background: rgba(4,196,187,.04);
-	border: 1px solid rgba(4,196,187,.1);
+	border-bottom: 1px solid rgba(4,196,187,0);
+	border-right: 1px solid rgba(4,196,187,.1);
+	border-top: 1px solid rgba(4,196,187,.1);
 	border-left: 4px solid rgba(4,196,187,.1);
 	color: #00918B;
 	-webkit-font-smoothing: antialiased; /*text smoothing*/
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004); /*text smoothing*/
+    transition: all .4s;
 }
 .notesNote {
 	border-right: 1px solid rgba(0,0,0,.05);
 	border-bottom: 1px solid rgba(0,0,0,.05);
 	border-left: 4px solid rgba(0,0,0,.05);
+	border-top: 1px solid rgba(4,196,187,.1);
 	color: #555;
 	font-size: 0.95em;
+	transition: all .4s;
 }
 .notesGroup {
 	margin: 0 0 .8em 0em;
@@ -288,62 +293,50 @@ p {
 .notesNote:first-letter {
 	text-transform: capitalize;
 }
-.notesGroup:hover > .notesHighlight {
-	background: inherit;
-	border-top: 1px solid #F5F5F5; /*same color as .notesGroup:hover background*/
-	border-right: 1px solid #F5F5F5; /*same color as .notesGroup:hover background*/
-	border-bottom: 1px solid #F5F5F5; /*same color as .notesGroup:hover background*/
-}
-.notesGroup:hover {
-	background: #F5F5F5;
-}
-.notesOptions {
-	left: 0px;
-	position: absolute;
-	width: 0px;
-	visibility: hidden;
-}
-.notesOptions a {
-	display: block;
-	font-family: 'Lato';
-	font-size: .6em;
-	letter-spacing: 0.02em;
-	opacity: 0;
-	padding: 10px;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
-}
-.notesOptionsDelete {
-	background: rgb(255, 90, 90);
-	color: #FFF;
-}
-.notesOptionsEdit {
-	background: #DDD;
-	color: #555;
-}
-.notesOptionsDelete:hover {
-	background: red;
-        cursor: pointer;
-}
-.notesOptionsEdit:hover {
-	background: #CCC;
-        cursor: pointer;
-}
-.notesGroup:hover > .notesNote {
-	border-right: 1px solid rgba(0,0,0,.0);
-	border-bottom: 1px solid rgba(0,0,0,.0);
-}
-.notesGroup:hover > .notesOptions {
-	left: -80px;
+.notesNote:hover {
+	background: rgba(0, 154, 234, .075);
+	border-bottom: 1px dashed rgb(0, 154, 234);
+	border-left: 4px solid rgb(0, 154, 234);
+	border-right: 1px dashed rgb(0, 154, 234);
+	border-top: 1px dashed rgb(0, 154, 234);
+	color: rgb(0, 154, 234);
+	cursor: pointer;
 	transition: all .4s;
-	visibility: visible;
-	width: 80px;
 }
-.notesGroup:hover > .notesOptions a {
-	opacity: .75;
-	transition: all .5s ease-in;
+.notesGroup .notesHighlight:only-child {
+	border-bottom: 1px solid rgba(4,196,187,.1); /* Si hay un resaltado sin nota tiene border-bottom */
 }
+.notesGroup .delete-note-icon img {
+	border: none;
+	height: 15px;
+	margin: 5px;
+	opacity: 0;
+	padding: 5px;
+	position: absolute;
+	right: 0;
+	transition: all .4s;
+}
+.notesGroup:hover .delete-note-icon img {
+	opacity: .15;
+}
+.delete-note-icon:hover + div p,
+.delete-note-icon:hover + div figure {
+	background: rgba(255,0,0,.05);
+	border-left: 4px solid rgba(255,0,0,.2);
+	border-right: 1px solid rgba(255,0,0,.2);
+	border-top: 1px solid rgba(255,0,0,.2);
+	color: rgba(0,0,0,.6);
+	transition: all .4s;
+}
+.delete-note-icon:hover + div p:nth-child(2) {
+	border-bottom: 1px solid rgba(255,0,0,.2);
+}
+.delete-note-icon:hover + div p:only-child {
+	border-bottom: 1px solid rgba(255,0,0,.2);
+}
+
+
+
 /* Agregar apuntes */
 .add-note-wrapper {
 	background: #F6F6F6;
