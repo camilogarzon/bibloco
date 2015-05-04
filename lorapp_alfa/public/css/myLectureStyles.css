@@ -160,7 +160,7 @@ p {
 	border: 1px solid #D9D9D9;
 	display: block;
 	margin: auto;
-	max-height: 200px;
+	max-height: 350px;
 	padding: 5px;
 }
 .quote {
@@ -309,9 +309,9 @@ p {
 .notesGroup .delete-note-icon img {
 	border: none;
 	height: 15px;
-	margin: 5px;
+	margin: 2px; 
 	opacity: 0;
-	padding: 5px;
+	padding: 8px;
 	position: absolute;
 	right: 0;
 	transition: all .4s;
@@ -321,7 +321,7 @@ p {
 }
 .delete-note-icon:hover + div p,
 .delete-note-icon:hover + div figure {
-	background: rgba(255,0,0,.05);
+	background: rgba(255,0,0,.03);
 	border-left: 4px solid rgba(255,0,0,.2);
 	border-right: 1px solid rgba(255,0,0,.2);
 	border-top: 1px solid rgba(255,0,0,.2);
