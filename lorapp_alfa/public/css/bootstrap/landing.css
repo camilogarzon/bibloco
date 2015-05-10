@@ -12,7 +12,7 @@ body {
     color: #605E6B;
     font-family: 'Lato';
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0;
     padding: 0 0 70px;
 }
@@ -473,6 +473,9 @@ footer span {
 .slide_item img{
     max-height: 100px;
     max-width: 100px;
+}
+.form-login input:last-child {
+    margin-bottom: 0;
 }
 
 
@@ -1057,10 +1060,32 @@ form {
 	font-weight: 400;
 }
 .thumbnail {
+    font-size: 1.2em;
 	min-height: 260px;
+    padding-top: 15px;
+}
+.thumbnail:hover {
+    background-color: rgba(0,0,0,.05);
+}
+.thumbnail img {
+    max-height: 120px;
+    text-align: center;
+}
+.thumbnail .thumbnail_title {
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: .6em 0;
+    text-align: center;
+}
+.thumbnail p {
+    line-height: 1em;
+    font-weight: 400;
+}
+.caption p strong {
+    padding-right: 5px;
 }
 .btn-read {
-	margin-bottom: 0;
+	margin: 1.4em 0 0 0;
 }
 .social-logo {
 	height: 30px;
@@ -1154,6 +1179,15 @@ form {
 /*=== END: Search.html styles ===*/
 
 
+
+
+/*=== START: lecturegallery.html styles ===*/
+.content_container {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding-bottom: 40px;
+}
+/*=== END: lecturegallery.html styles ===*/
 
 
 
