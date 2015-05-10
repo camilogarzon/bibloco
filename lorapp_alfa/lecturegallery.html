@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="es"><head>
+<html lang="es">
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lorapp - No más fotocopias</title>
-        <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png">
+        <title>No más fotocopias - Lorapp</title>
+        <meta property="og:title" content="¡No más fotocopias!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://lorapp.com/" />
+        <meta property="og:image" content="http://lorapp.com/images/fbimage.png" />
+        <meta property="og:description" content="¿Aún sacas fotocopias? ¡Tienes huevo! Este es el trato: No tumbes mi casa y te ahorraré dinero. Entra a Lorapp y encuentra todas las lecturas de tu universidad." />
+        <meta property="og:site_name" content="Lorapp" />
+        <link rel="shortcut icon" type="image/x-icon" href="http://beta.lorapp.com/alfa/lorapp/public/favicon.png" />
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
         <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
@@ -12,7 +19,6 @@
         <link href="public/css/jquery-ui/jquery-ui.css" rel="stylesheet">
             </head>
     <body>
-
                 <!-- START: navbar logged-in -->
         <nav class="navbar navbar-inverse navbar-fixed-top nav-logged-in">
             <div class="container-fluid">
@@ -23,12 +29,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img class="nav-logo img-responsive" alt="Lorapp" src="public/images/logo-vertical-dark.png"></a>
+                    <a class="navbar-brand" href="/"><img class="nav-logo img-responsive" alt="Lorapp" src="public/images/logo-vertical-dark.png" /></a>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="lecturegallery.html?">Libros</a></li>
-                        <li><a href="mylecturesection.html?">Mis lecturas</a></li>
+                        <li><a href="http://beta.lorapp.com/alfa/lorapp/public/lecture/gallery">Libros</a></li>
+                        <li><a href="http://beta.lorapp.com/alfa/lorapp/public/mylecturesection">Mis lecturas</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mi cuenta <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -37,7 +43,7 @@
                                 <li><a href="#">Perfil</a></li>
                                 <li><a href="#">Configuración</a></li>
                                 <li class="divider"></li>
-                                <li><a href="index.html?">Salir</a></li>
+                                <li><a href="http://beta.lorapp.com/alfa/lorapp/public/logout">Salir</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -46,8 +52,8 @@
 
                     <div class="nav-search navbar-form navbar-right">
                         <div class="input-group">
-                            <form method="GET" action="lecturesearch.html?" accept-charset="UTF-8" id="search_form">
-                            <input id="search" placeholder="¿Cuál lectura buscas?" class="form-control" required="true" name="search" type="text" value="">
+                            <form method="GET" action="http://beta.lorapp.com/alfa/lorapp/public/lecture/search" accept-charset="UTF-8" id="search_form">
+                            <input id="search" placeholder="&iquest;Cu&aacute;l lectura buscas?" class="form-control" required="true" name="search" type="text" value="">
                             <input name="render" type="hidden" value="lecturesearch">
                             <span class="input-group-btn">
                                 <button class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -55,97 +61,100 @@
                             </form>
                         </div>
                     </div>
-                    <a href="#" class="nav-hojitas navbar-right btn btn-success" role="button"><span class="glyphicon glyphicon-leaf"></span> x <span id="user_credit_actual">1164</span></a>
+                    <a href="#" class="nav-hojitas navbar-right btn btn-success" role="button"><span class="glyphicon glyphicon-leaf"></span> x <span id="user_credit_actual">0</span></a>
                 </div>
             </div>
         </nav>
         <!-- END: navbar logged-in -->
                 <!-- START Body -->
-
+        <div id="body_content_wrapper" class="body_content_wrapper" style="padding-top: 50px !important; min-height:104%;">
+            
 <div class="container">
-    <h1 class="page-header">LECTURAS</h1>
-    <h2 class="sub-header">
-        <table width="100%">
-            <tbody><tr>
-                <td width="30%">&nbsp;</td>
-                <td width="30%">&nbsp;</td>
-                <td>
-                    <form method="GET" action="lecturesearch.html?" accept-charset="UTF-8" id="search_form">
-                    <div class="input-group">
-                        <input id="search" placeholder="Buscar..." class="form-control" required="true" name="search" type="text" value="">
-                        <input name="render" type="hidden" value="lecturegallery">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default">&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;</button>
-                        </span>
-                    </div>
-                    </form>
-                </td>
-            </tr>
-        </tbody></table>
-    </h2>
-
+    <h1 class="page-header">LIBROS</h1>
+        
     <div class="container">
                 <div class="row">
-                        <div class="col-md-3" style="background-color:#FDBB38">
-                                  <a href="lecturedetail.html?1"><img style="max-height: 100px" alt="Deserunt molestiae ullam eius repudiandae autem quo." title="Deserunt molestiae ullam eius repudiandae autem quo." src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"></a>
+                        <div class="col-md-3"  style="background-color:#FDBB38" >
+                                  <a href="lecturedetail.html?4"><img style="max-height: 100px" alt="Aliquid ea consequatur voluptatibus distinctio sit facilis." title="Aliquid ea consequatur voluptatibus distinctio sit facilis." src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/8/0085d482371e8f65b97841cdc2f38ce7"/></a>
                                 <table>
-                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Deserunt molestiae ullam eius repudiandae autem quo.</td></tr>
-                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Lucio Donnelly</td></tr>
-                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Stehr, Jenkins and Koepp</td></tr>
-                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
-                </tbody></table>
+                    <tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Aliquid ea consequatur voluptatibus distinctio sit facilis.</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Leone Boyle</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Breitenberg-Ernser</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>4</td></tr>
+                </table>
             </div>
-                        <div class="col-md-3" style="background-color:#FDBB38">
-                                  <a href="lecturedetail.html?4"><img style="max-height: 100px" alt="Eos sed cum qui praesentium tempore reprehenderit hic." title="Eos sed cum qui praesentium tempore reprehenderit hic." src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7"></a>
+                        <div class="col-md-3"  style="background-color:#FDBB38" >
+                                 <a href="lecturedetail.html?7"><img style="max-height: 100px" alt="Constitución Política de Colombia" title="Constitución Política de Colombia" src="data:image/png;base64,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"/></a>
                                 <table>
-                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Eos sed cum qui praesentium tempore reprehenderit hic.</td></tr>
-                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Monserrat Romaguera</td></tr>
-                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Gerlach, Bauch and Rutherford</td></tr>
-                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
-                </tbody></table>
+                    <tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Constitución Política de Colombia</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>República de Colombia</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Leyes y decretos</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>2</td></tr>
+                </table>
             </div>
-                        <div class="col-md-3" style="background-color:#FDBB38">
-                                  <a href="lecturedetail.html?5"><img style="max-height: 100px" alt="Nulla inventore optio amet laudantium enim illo et." title="Nulla inventore optio amet laudantium enim illo et." src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269"></a>
+                        <div class="col-md-3"  style="background-color:#FDBB38" >
+                                  <a href="lecturedetail.html?2"><img style="max-height: 100px" alt="El arte de la guerra" title="El arte de la guerra" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/6/069f40bd310de9b7ff923112bda98cec"/></a>
                                 <table>
-                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Nulla inventore optio amet laudantium enim illo et.</td></tr>
-                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>John Luettgen</td></tr>
-                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Fisher and Sons</td></tr>
-                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
-                </tbody></table>
+                    <tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>El arte de la guerra</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Sun Tzu</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Dominio publico</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>14</td></tr>
+                </table>
             </div>
                     </div>
                 <div class="row">
-                        <div class="col-md-3" style="background-color:#FDBB38">
-                                  <a href="lecturedetail.html?2"><img style="max-height: 100px" alt="Qui atque nesciunt dolorum inventore unde repudiandae molestiae." title="Qui atque nesciunt dolorum inventore unde repudiandae molestiae." src="public/images/book.png?6/069f40bd310de9b7ff923112bda98cec"></a>
+                        <div class="col-md-3"  style="background-color:#FDBB38" >
+                                  <a href="lecturedetail.html?1"><img style="max-height: 100px" alt="El origen de las especies" title="El origen de las especies" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/5/3e5e2dff53cb56feb570f3fc80ca8e02"/></a>
                                 <table>
-                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Qui atque nesciunt dolorum inventore unde repudiandae molestiae.</td></tr>
-                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Adrianna Gulgowski</td></tr>
-                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Spinka-McGlynn</td></tr>
-                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
-                </tbody></table>
+                    <tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>El origen de las especies</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Charles Darwin</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Dominio publico</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>11</td></tr>
+                </table>
             </div>
-                        <div class="col-md-3" style="background-color:#FDBB38">
-                                  <a href="lecturedetail.html?3"><img style="max-height: 100px" alt="Sapiente perspiciatis id aut vero cum perferendis adipisci." title="Sapiente perspiciatis id aut vero cum perferendis adipisci." src="public/images/book.png?7/302006542b94b6bd47d685375c2c906e"></a>
+                        <div class="col-md-3"  style="background-color:#FDBB38" >
+                                  <a href="lecturedetail.html?8"><img style="max-height: 100px" alt="Guía lengua castellana y lengua extranjera (inglés) – Grado 8" title="Guía lengua castellana y lengua extranjera (inglés) – Grado 8" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/13/52b5ee9de6bd8fad83a3fd52df55b4aa"/></a>
                                 <table>
-                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Sapiente perspiciatis id aut vero cum perferendis adipisci.</td></tr>
-                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Giovanni Roberts</td></tr>
-                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Brakus, Adams and Kub</td></tr>
-                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
-                </tbody></table>
+                    <tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Guía lengua castellana y lengua extranjera (inglés) – Grado 8</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Colegio Prueba</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Área de humanidades</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>7</td></tr>
+                </table>
             </div>
-                        <div class="col-md-3" style="background-color:#FDBB38">
-                                 <a href="lecturedetail.html?6"><img style="max-height: 100px" alt="Test" title="Test" src="data:image/png;base64,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"></a>
+                        <div class="col-md-3"  style="background-color:#FDBB38" >
+                                 <a href="lecturedetail.html?6"><img style="max-height: 100px" alt="Guide to finding interesting public domain works online" title="Guide to finding interesting public domain works online" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAALD0lEQVR4Xu2be3BU5RnGn3PZs2dvSTYXcudOlMZxQA0qVYsRNNyslDqi423Q6mCL1opVZjpt6nSmMlWLojK1whS8F0WlBUKVODCtFFCKFqoIIUDIZUOSve+ePdfOu2TjkmzCkk1A9Hwz55/snu9853ee93nfzXk/BuYYkABj8hmYgAnoNAoxAZmAMjMRU0Gmgs6eghJqMzK75Dk/+4zu43QhxtTV1blrampCr+/4fLXBWw5trf/46dWP3RMGoJ/zWz2zBbALl61yXFc99RFGVcbfduXFC+vq6pw1NTVeAP0+9IEA8Tt27Lh9woQJy1RVPXowKOf6OXEcq2kNAX/Xy/Uf/m3lS48/HjwPQLH3Pfmkq3r63EVZ2bn36hw3LkuTGipcQhfP86MaGxuXVlVVrQWgpQKVChBbWVnJv/baa7+tqKh42GazWelBGYaBzlAER4ISumQDmqY0+bwdb+z5ZO/TTy26s+MbCIpdsnJt/iWXTXokx51/K8tZyvMEBqNcIvKddjDMyVuPRqNyY2Pjc0uWLPnV5s2bld730RsQV3/b3CeKH1xaNnbypXcIgpBSYcGohCP+CDwxDbKiNns7PCu3vPPh8leeejT6DQDF3rHkD7Yb5k//uTu/cJFg4UsLrRxGZ9ngsttSBqUsy0bDZ3vWtS3/3aHq1zf+ultN8e8mA2ABiB//aHq42J2jCxdNZrJrbmTsF1T20O49uyTLaApE4YkqCEryAV9Hx5p3X313xboXayPnABR78wO19nm3z1uck59/l1MULiiyWVCeZYMoCKndyjAQObAf/i0bEPt8j9Hq8zNT13/oACAl1p8MiAOQvX3qxM4SsXtCloN10mXIqp4Jx1XXgnNlp7yQpmnwBCNojSjwSnJjl9f76t79u5/9/V13kQEOt5mzS9escU+qrHoo1+2+PUcUxpTYLSh02cFxdEt9hxb0I/zPjxCs3wxp7yeATvYDtEgyrvn4izwA/oSKkgHxAHK3T53o6QGUNDeXl4+smpuQNWse+KLSfvOHNxRBU0iCJyofOdHe8cIHde88/5faWnkYQLF319YKM2rm/6xgRP5PC23C6DKnFW7H1/7Se5FqWzMCm9YjUPc+tE6yzVNHN6BCAF0A1N4hRoDytk+d2JYKUGIq1maH46pqOK+tge2SKWAsqeVLPtUaktDiD+1v8flXba3f+PLqxx4bivKAXbhsmWNa9ex7Rzic94zOz64scYpw2cSUD81QZET37EToo7q4avQoRX/q0Q2oCEDnoAElTy2MHAPnjNlwXTcLfGFJagNUFLSHJTT7wo1H206s3rpt04pBlgfxdH3FldMXd/ijC/974NiY480e/PLW61EzpbLPtVVPC4JbNyH0wUbIxxr7hZL8wZADSlYVKco18yaI37s49ZOMlwlhHO0KNnzV3PLsK2+ueWnzihV90mqKk9mZixdbZs1ccJ83GH1o976GcfsOHkM0RqcCHMfi/rlX49EFMyAKFkj/+wzBze8h9NGWAdWSapHDBqjnYiwL26QqOKtr4Lx6Olinq886qJ7yRySjpcv/xdE2z+pdm3aurK29vydrJJ3A1tb+SSyYXLGoodW38GCTZ+K+hiYmASZ5YkNTMWesG0/wTYju3Q3og8sLww8o2dRz8+EiUDPmwDr+wpSqojLB4wscOnL8+J9fWPX+i+terKU6yqB0veieHz4wtrTsJ9kO2/i36vfgmXVbEQjTx4lhQI9JUKNB6FIYlUwEa8TjaYXSWfOgdFbDcDxsl14OV81NcEydBsZi6esXqooTPt/BtubWVYqm6WXl5fcWuLMrLDzljZPj88PNePj5ddh/+Di0aAgagVFiPZ9fxErnJ6BTTH30OLhmzIHzupngCyhZnDr07tBgWapZTx1qexu+eG89pq3dBqq7eo9vBaDETbF2O+yXXxP3KnvV91Oqir5LKTqy619xw43s3I6OcAw10dHQTvkBcHLWbxWg5Kefd+NsZN35IBhL/DdxzzCUGAJrn0Pnho09f+syuO8eoKxCHoLTAvQOK12HHFIQ8MQL2vj47gKypf63lBw1TEBxBQ0CkAgD91s6MZ6VEQYLKwxcw9EvmcGPs1oHpbvMwQAawypYKrRjEkv15dCN8x6Q1+CwXMnDw5ZO5DB9U32mqM57QIkfEH2rpEzRnDz/vAc0NBj6n8UEdBrCJiATUGZBaCrIVJCpoMwImArKjJ/pQaaCTAVlRsBUUGb8TA8yFWQqKDMCpoIy42d6kKkgU0GZETAVlBm/tDxo05SKtnKbFQLLgOvuJc7ssgOffSavfYZrHZphQNYNNEVjmLXrqwFb8HKXTSz3jLZZUWi1IIvnIHIMLAzTbytwpos+V4CokUsxDEiagYCqwRNT0BiJ4fEvm/pt4oy3AS8eU/gbkeOud3DM+GKrhS8VBeQLPBwcByvLgB1iVZ1tQLphIKYbCGsaOmQVzZKM1piihjXjkKJrW5Yf9jzRXxswvSCnVnQ3gJw5RTlTxtnEW2wcMyVf4N3lohXFogUuUhXLgmcwJKo6G4BILaoBSLqOoKqhVVLQJMUIkDeqGbsaotJbf2/z7QLgA0C93fFON4qOPlsRAFAfCvXU2uko4fn82aV5C7I59oYsnh1fahPYEqsAt8DFVZWpVw0noIS3kFq8soaWmIzmqKwHdOOQX9G2bGzufLNFValhmnqD6aB32dS21vPaNlVbBf2NXl5Srxw1QRMsas93zC/K+8FIOz9fZNnL8gTeRf3UxVYLciz8oFU11ICS1eJTVLTFlHgYdcpqUNL0T49F5bffafNuA0CdDnQQFGp0T3TcnrI1aqDtUPQZHeRNBIqURapyTBDFwurCnB87eVQ7Oa6iTBQs5TYBbgt5FRtXVbpeNVSAyFsoE4U1HV5FRVNUxnEppoY0/UBIRX29x/f2QUnydEMhtZBSCExiG1TKPWOn21CXSFIJUNRVmRyCjrkjciaPd4l3iyx7+QiBd5CpJzIgmfrpMmAmgBKZiEyXMlF7TMFxSUZ7TA1Lur6zISit3XDC92kSlEQIUVdWyv1hvbNyuoCSQdE5BIqOhFc5Jmc7yq/Icd7i5BlS1ahiUeDKRAvyujNgf6oaDKCv1aJR6KBZUqjxQAtp2tGQztTv7gr89RN/+FgvtVAIERTqgUh7W+mZAkoGnOxVpCrKgPEQvLE494qxDvFmG5iqAoHLofAjVaXKgOkCSvaWkKrFvYXCqEPRfBFN3304Glm3odX/7yQolIkojFJ6S7r1WyaAklVFpk5eRcZOqiJYjpGUActy73Ty7IwsjhtVIgosGXuuhYe926vcRZYBO8y8bUrcWyKaji5FRaskk+nqAVU7FtL0f9R1Bl5tDErt3WAICoXRoNSSCtpQAOqtKgJF4UfGHgdFxy1ludUlom2eCP3SAsHiTHjVqFIrspwc2F4r0Q0gENJwrCWGNulkJjohKyFJx3/aorH1b7R2bU3KRASGDDdtbzmbCuoPfMKrEqqKh98FIl9cXZS7wMFx07J4dmxlqZ0f6bbGq/TkQcbb5JWxrzmsBlS9Mayq2+o93tcPSGprL9MltRAY8pW0veVcA+pPVad41bzygqoLcy2/YDhcmEpBrM5+ua89+Mf3WvxU5VLNQuk54S1DrpazEWIDPZiEqSd7FanK2e1bX2/MODkLASA/CSVVuUPmLd8kBfX3YBJeRaqiMOzdekjpmIAkqty06pZ0bzzd7w21Sad73d51VaJqTz4/4SnD4i3pLvRcA0p3nefseyag06A3AZmAMotOU0Gn4fd/8jyNo8B4Xx4AAAAASUVORK5CYII="/></a>
                                 <table>
-                    <tbody><tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Test</td></tr>
-                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Test</td></tr>
-                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Test</td></tr>
-                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>2</td></tr>
-                </tbody></table>
+                    <tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Guide to finding interesting public domain works online</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>http://publicdomainreview.org/</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td></td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>1</td></tr>
+                </table>
+            </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-3"  style="background-color:#FDBB38" >
+                                  <a href="lecturedetail.html?5"><img style="max-height: 100px" alt="Impedit dolorum eum qui rerum nesciunt nesciunt." title="Impedit dolorum eum qui rerum nesciunt nesciunt." src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/9/e1dae6046744330aef39e2a89dd24269"/></a>
+                                <table>
+                    <tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Impedit dolorum eum qui rerum nesciunt nesciunt.</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Howard Pacocha</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Huels-Runolfsson</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
+                </table>
+            </div>
+                        <div class="col-md-3"  style="background-color:#FDBB38" >
+                                  <a href="lecturedetail.html?3"><img style="max-height: 100px" alt="Ut et velit omnis quis cum." title="Ut et velit omnis quis cum." src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/7/302006542b94b6bd47d685375c2c906e"/></a>
+                                <table>
+                    <tr><td><b>Título:</b></td><td>&nbsp;&nbsp;</td><td>Ut et velit omnis quis cum.</td></tr>
+                    <tr><td><b>Autor:</b></td><td>&nbsp;&nbsp;</td><td>Percival Jast</td></tr>
+                    <tr><td><b>Editorial:</b></td><td>&nbsp;&nbsp;</td><td>Editorial Tromp-Wilkinson</td></tr>
+                    <tr><td><b>Secciones:</b></td><td>&nbsp;&nbsp;</td><td>3</td></tr>
+                </table>
             </div>
                     </div>
             </div>
-
+    
     </div>
+        </div>
         <!-- END Body -->
         <!-- START Modals -->
         <!-- FAQ -->
@@ -153,7 +162,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="modal-FAQ-label">Preguntas frecuentes</h4>
                     </div>
                     <div class="modal-body">
@@ -244,7 +253,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Términos de uso</h4>
                     </div>
                     <div class="modal-body">
@@ -332,7 +341,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Política de privacidad</h4>
                     </div>
                     <div class="modal-body">
@@ -364,7 +373,7 @@
 
                         <p>You authorize us to communicate with you regarding our services and your account. You authorize us to communicate with you via the Internet and via the email address you have provided. You understand and accept the risk that data and information transmitted over the Internet is susceptible to error or security breaches.</p>
 
-                        <h5>1.6 Information Use &amp; Sharing</h5>
+                        <h5>1.6 Information Use & Sharing</h5>
 
                         <p>We do not share, trade, sell or in any way disclose your personal information without your consent unless such a disclosure is: (a) required by law; (b) mandated by search warrant or court order; or (c) warranted during investigation of the commission of an offence, a breach of a contract, or breach of a law or regulation. We may collect, aggregate and anonymize data for system monitoring, quality control and product improvement purposes, provided it does not collect, use or disclose any personal information</p>
 
@@ -395,10 +404,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Contacto</h4>
                     </div>
-                    <form action="main.html?contact/send" method="POST">
+                    <form action="http://beta.lorapp.com/alfa/lorapp/public/contact/send" method="POST">
                         <div class="modal-body">
                             <div class="form-horizontal text-center">
                                 <div class="form-group">
@@ -428,33 +437,33 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Sugerir Lectura</h4>
                     </div>
-                    <form action="main.html?lecturesuggested" method="POST">
+                    <form action="http://beta.lorapp.com/alfa/lorapp/public/lecturesuggested" method="POST">
                         <div class="modal-body">
                             <div class="form-horizontal text-center">
                                                                 <input type="hidden" name="email" value="camilogc2@gmail.com">
                                                                 <div class="form-group">
-                                    <label class="sr-only">Título</label>
+                                    <label class="sr-only" >Título</label>
                                     <div class="col-sm-10 col-md-offset-1">
                                         <input type="text" class="form-control" name="title" placeholder="Título" required="true">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only">Autor</label>
+                                    <label class="sr-only" >Autor</label>
                                     <div class="col-sm-10 col-md-offset-1">
                                         <input type="text" class="form-control" name="author" placeholder="Autor" required="true">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only">Año</label>
+                                    <label class="sr-only" >Año</label>
                                     <div class="col-sm-10 col-md-offset-1">
                                         <input type="text" class="form-control" name="year" placeholder="Año">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only">Editorial</label>
+                                    <label class="sr-only" >Editorial</label>
                                     <div class="col-sm-10 col-md-offset-1">
                                         <input type="text" class="form-control" name="publisher" placeholder="Editorial">
                                     </div>
@@ -470,7 +479,7 @@
         </div>
         <!-- END: Sugerir lectura -->
         <!-- END Modals -->
-        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <nav id="footer_content_wrapper" class="navbar navbar-inverse footer_content_wrapper">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- <div class="navbar-header">
@@ -484,12 +493,12 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="public/images/logo-facebook.svg"></a></li>
-                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="public/images/logo-twitter.svg"></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="public/images/logo-facebook.svg" /></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="public/images/logo-twitter.svg" /></a></li>
                 </ul>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  -->
+                <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  -->  
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="#" data-toggle="modal" data-target="#modal-FAQ">Preguntas frecuentes</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#modal-terms">Términos de uso</a></li>
@@ -506,8 +515,7 @@
         <script type="text/javascript" src="public/js/util.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript">global.url = "main.html?";</script>
+        <script type="text/javascript">global.url = "http://beta.lorapp.com/alfa/lorapp/public/";</script>
         <script type="text/javascript" src="public/js/util.js"></script>
-
-
-</body></html>
+                    </body>
+</html>
