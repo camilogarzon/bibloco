@@ -12,7 +12,7 @@ body {
     color: #605E6B;
     font-family: 'Lato';
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
     padding: 0 0 70px;
 }
@@ -1065,7 +1065,7 @@ form {
     padding-top: 15px;
 }
 .thumbnail:hover {
-    background-color: rgba(0,0,0,.05);
+    background-color: rgba(0,0,0,.03);
 }
 .thumbnail img {
     max-height: 120px;
@@ -1100,8 +1100,7 @@ form {
 /*=== START: Search.html styles ===*/
 .body-search {
     font-weight: 400;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 30px;
 }
 .search-filters,
 .search-right-info {
@@ -1188,6 +1187,65 @@ form {
     padding-bottom: 40px;
 }
 /*=== END: lecturegallery.html styles ===*/
+
+
+/*=== START: lecturedetail.html styles ===*/
+.lecturedetail {
+    font-size: 1.2em;
+    font-weight: 400;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+}
+.lecturedetail_info {
+    display: block;
+    padding-bottom: 30px;
+}
+.book_cover {
+    display: inline-block;
+    margin-right: 20px;
+    max-width: 13%;
+    min-width: 120px;
+    vertical-align: text-top;
+}
+.lecturedetail table tr td {
+    padding: 5px 10px 5px 0px;
+    vertical-align: text-top;
+}
+.lecturedetail table tr td:first-child {
+    font-weight: 700;
+}
+.lecturedetail_data {
+    display: inline-block;
+    vertical-align: text-top;
+    width: 80%;
+}
+.lecturedetail_chapters {
+
+}
+.btn_preview {
+    color: rgb(200,200,200);
+    margin-right: 10px;
+}
+.btn_preview:hover {
+    color: rgb(0, 187, 40);
+}
+.lecturedetail_chapters ul li div .btn-horizontal { /*mala práctica para forzar estilos en botones de compra, corregir*/
+    margin: 0px;
+    min-width: 140px;
+    position: relative;
+    top: -6px;
+}
+.lecturedetail_chapters ul li div .btn-horizontal:first-child {
+    margin-right: 4px;
+}
+.lecturedetail_chapters ul li div .btn-horizontal img {
+    margin-right: 13px;
+}
+.list-group-item {
+    padding-right: 4px;
+}
+/*=== END: lecturedetail.html styles ===*/
 
 
 

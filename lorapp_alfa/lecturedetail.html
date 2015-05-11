@@ -110,408 +110,277 @@
         <!-- END: Pass olvidado -->
 
         <!-- Registro -->
-
         <form method="GET" action="/" accept-charset="UTF-8" id="form_register" class="form-horizontal" autocomplete="off">
-        <div class="modal fade" id="modal-registration-1" tabindex="-1" role="dialog" aria-labelledby="modal-registration-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                        <h4 class="modal-title" id="modal-registration-1-label">Bienvenido a Lorapp</h4>
-                    </div>
-                    <div class="modal-body">
-                        <label class="text-center col-sm-10 col-md-offset-1">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</label>
-                        <div class="form-horizontal form-registration-1">
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-name">Nombre y Apellido</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="firstname" placeholder="Nombre y Apellido" class="form-control" name="firstname" type="text" value="">
-                                </div>
-                            </div>
-                            <div class="form-group hidden">
-                                <label class="sr-only" for="registration-lastname">Apellido</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="lastname" placeholder="Apellido" class="form-control" name="lastname" type="text" value="">
-                                </div>
-                            </div> 
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-email">Email</label>
-                                <div class="col-sm-6 col-md-offset-3"> 
-                                    <input id="email_register" placeholder="Email" class="form-control" onfocusout="landing.emailExist(&quot;email_register&quot;)" onmousemove="landing.emailExist(&quot;email_register&quot;)" name="email" type="email" value="">
-                                    <div id="message_alert" class="alert-danger" style="display: none">
-                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                        <span class="sr-only">Error:</span>
-                                        <span id="message_reg">Enter a valid email address</span>
-                                    </div>                                    
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-contraseña">Contraseña</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="password_register" placeholder="Contrase&ntilde;a" class="form-control" name="password" type="password" value="">
-                                </div>
-                            </div>
-                        </div>		
-
-                    </div>
-                    <div class="modal-footer">
-                        <label>Al registrarte aceptas nuestros <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-terms">Términos de uso</a> y <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-privacy">Políticas de privacidad</a>.</label>
-                        <button disabled="true" id="btn_registro_1" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_1', 1)">Continuar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END: Registro-1 -->
-
-        <!-- Registro-2 -->
-        <div class="modal fade" id="modal-registration-2" tabindex="-1" role="dialog" aria-labelledby="modal-registration-2" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                        <h4 class="modal-title" id="modal-registration-2-label">Paso 2 de 3</h4>
-                    </div>
-                    <div class="modal-body" id="radio-form">
-                        <label class="text-center col-sm-10 col-md-offset-1"><strong>¿Dónde estudias?</strong></label>
-                        <!-- START: Radio options -->
-                        <div class="row registration-radio">
-                            <div class="col-lg-6 col-md-offset-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <input id="colegio-radio-btn" type="radio" name="education" value="school" onchange="landing.educationSelected('radio-form')">
-                                    </span>
-                                    <label type="text" class="form-control" aria-label="colegio" for="registration-colegio-radio">Colegio</label>
-                                </div><!-- /input-group -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                        <div class="row registration-radio">
-                            <div class="col-lg-6 col-md-offset-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <input id="universidad-radio-btn" type="radio" name="education" value="university" aria-label="universidad" onchange="landing.educationSelected('radio-form')">
-                                    </span>
-                                    <label type="text" class="form-control" aria-label="universidad" for="registration-universidad-radio">Universidad</label>
-                                </div><!-- /input-group -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                        <div class="row registration-radio">
-                            <div class="col-lg-6 col-md-offset-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <input id="egresado-radio-btn" type="radio" name="education" value="egresado" aria-label="egresado" onchange="landing.educationSelected('radio-form')">
-                                    </span>
-                                    <label type="text" class="form-control" aria-label="egresado" for="registration-egresado-radio">Egresado</label>
-                                </div><!-- /input-group -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                        <!-- END: Radio options -->
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-1">Volver</button>
-                        <button id="btn_registro_2" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_2', 2)">Continuar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END: Registro-2 -->
-
-        <!-- Registro-3 -->
-        <div class="modal fade" id="modal-registration-3" tabindex="-1" role="dialog" aria-labelledby="modal-registration-3" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                        <h4 class="modal-title" id="modal-registration-3-label">Paso 3 de 3</h4>
-                    </div>
-                    <div class="modal-body">
-                        <label class="text-center col-sm-10 col-md-offset-1"><strong>Déjanos saber un poco más de ti.</strong></label>
-
-                        <div class="school-fields">
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-colegio">Colegio</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="school_register" placeholder="Colegio" class="form-control" autocomplete="off" name="school_name" type="text" value="">
-                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-edad">Edad</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input type="number" class="form-control" id="school_age" name="school_age" placeholder="Edad">
-                                </div>
-                            </div>
-                        </div>	
-
-                        <div class="university-fields">
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-universidad">Universidad</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="university_register" placeholder="Universidad" class="form-control" autocomplete="off" name="university" type="text" value="">
-                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-carrera">Carrera</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="career_register" placeholder="Carrera" class="form-control" autocomplete="off" name="career" type="text" value="">
-                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-semestre">Semestre</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <select id="semester" name="semester" class="form-control">
-                                        <option value="0">- Selecciona tu Semestre -</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="Egresado">Egresado</option>
-                                    </select>
-                                </div>
-                            </div>
+            <div class="modal fade" id="modal-registration-1" tabindex="-1" role="dialog" aria-labelledby="modal-registration-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                            <h4 class="modal-title" id="modal-registration-1-label">Bienvenido a Lorapp</h4>
                         </div>
+                        <div class="modal-body">
+                            <label class="text-center col-sm-10 col-md-offset-1">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</label>
+                            <div class="form-horizontal form-registration-1">
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-name">Nombre y Apellido</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="firstname" placeholder="Nombre y Apellido" class="form-control" name="firstname" type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group hidden">
+                                    <label class="sr-only" for="registration-lastname">Apellido</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="lastname" placeholder="Apellido" class="form-control" name="lastname" type="text" value="">
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-email">Email</label>
+                                    <div class="col-sm-6 col-md-offset-3"> 
+                                        <input id="email_register" placeholder="Email" class="form-control" onfocusout="landing.emailExist(&quot;email_register&quot;)" onmousemove="landing.emailExist(&quot;email_register&quot;)" name="email" type="email" value="">
+                                        <div id="message_alert" class="alert-danger" style="display: none">
+                                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                            <span class="sr-only">Error:</span>
+                                            <span id="message_reg">Enter a valid email address</span>
+                                        </div>                                    
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-contraseña">Contraseña</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="password_register" placeholder="Contrase&ntilde;a" class="form-control" name="password" type="password" value="">
+                                    </div>
+                                </div>
+                            </div>		
 
-                        <div class="form-horizontal form-registration-egresado-universidad hidden">
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-egresado-universidad">Universidad</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input type="text" class="form-control" id="registration-universidad" placeholder="Universidad">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-egresado-carrera">Carrera</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input type="text" class="form-control" id="registration-egresado-carrera" placeholder="Carrera">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-egresado-año">Año de graduación</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input type="text" class="form-control" id="registration-año" placeholder="Año de graduación">
-                                </div>
-                            </div>
-                        </div>	
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-2">Volver</button>
-                        <button id="btn_registro_3" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_3', 3)">Terminar</button>
+                        </div>
+                        <div class="modal-footer">
+                            <label>Al registrarte aceptas nuestros <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-terms">Términos de uso</a> y <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-privacy">Políticas de privacidad</a>.</label>
+                            <button disabled="true" id="btn_registro_1" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_1', 1)">Continuar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- END: Registro-3 -->
-        </form>
+            <!-- END: Registro-1 -->
 
+            <!-- Registro-2 -->
+            <div class="modal fade" id="modal-registration-2" tabindex="-1" role="dialog" aria-labelledby="modal-registration-2" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                            <h4 class="modal-title" id="modal-registration-2-label">Paso 2 de 3</h4>
+                        </div>
+                        <div class="modal-body" id="radio-form">
+                            <label class="text-center col-sm-10 col-md-offset-1"><strong>¿Dónde estudias?</strong></label>
+                            <!-- START: Radio options -->
+                            <div class="row registration-radio">
+                                <div class="col-lg-6 col-md-offset-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input id="colegio-radio-btn" type="radio" name="education" value="school" onchange="landing.educationSelected('radio-form')">
+                                        </span>
+                                        <label type="text" class="form-control" aria-label="colegio" for="registration-colegio-radio">Colegio</label>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                            <div class="row registration-radio">
+                                <div class="col-lg-6 col-md-offset-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input id="universidad-radio-btn" type="radio" name="education" value="university" aria-label="universidad" onchange="landing.educationSelected('radio-form')">
+                                        </span>
+                                        <label type="text" class="form-control" aria-label="universidad" for="registration-universidad-radio">Universidad</label>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                            <div class="row registration-radio">
+                                <div class="col-lg-6 col-md-offset-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input id="egresado-radio-btn" type="radio" name="education" value="egresado" aria-label="egresado" onchange="landing.educationSelected('radio-form')">
+                                        </span>
+                                        <label type="text" class="form-control" aria-label="egresado" for="registration-egresado-radio">Egresado</label>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                            <!-- END: Radio options -->
 
-        <!-- END: Modals -->
-                <!-- START Body -->
-        <div id="body_content_wrapper" class="body_content_wrapper" style="padding-top: 50px !important; min-height:104%;">
-            <div class="container">
-    <div align="center">
-        <h1>El origen de las especies</h1>
-        <div style="width: 200px; display: inline-block">
-                        <img style="max-height: 100px" src="http://localhost/lorapp/dev/lorapp/public/attachment/get/view/5/3e5e2dff53cb56feb570f3fc80ca8e02"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-1">Volver</button>
+                            <button id="btn_registro_2" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_2', 2)">Continuar</button>
+                        </div>
                     </div>
-        <div style="width: 400px; display: inline-block">
-            <table>
-                <tr><td><label>Autor: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Charles Darwin</td></tr>
-                <tr><td><label>Año: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>1859</td></tr>
-                <tr><td><label>Editorial: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Dominio publico</td></tr>
-                <tr><td><label>Descripción: </label></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><div style="height: 100px; overflow-y: auto; font-size: 0.7em">El Origen de las Especies es el título abreviado más común del trabajo clásico de Charles Darwin: Sobre el Origen de las Especies por Medio de la Selección Natural, o la Preservación de las Razas Favorecidas en la Lucha por la Vida. El naturalista británico Charles Darwin (1809-1882) comenzó a esbozar el Origen de las Especies en 1842, sólo seis años después de regresar de su predeterminado viaje de cinco años a bordo del HMS Beagle (1831-36). Bastante influenciado por los Principios de Geología (1830-1833, un trabajo de tres volúmenes) de Sir Charles Lyell, y Un Ensayo sobre el Principio de Población (1798) de Thomas Malthus, el Origen de las Especies fue finalmente publicado en 1859.
+                </div>
+            </div>
+            <!-- END: Registro-2 -->
 
-En el Origen de las Especies, Charles Darwin introdujo el concepto de la selección natural. La selección natural es un proceso natural que actúa para preservar y acumular las variaciones ventajosas menores dentro de los sistemas vivos.</div></td></tr>
-                                                
+            <!-- Registro-3 -->
+            <div class="modal fade" id="modal-registration-3" tabindex="-1" role="dialog" aria-labelledby="modal-registration-3" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                            <h4 class="modal-title" id="modal-registration-3-label">Paso 3 de 3</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label class="text-center col-sm-10 col-md-offset-1"><strong>Déjanos saber un poco más de ti.</strong></label>
 
-            </table>
+                            <div class="school-fields">
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-colegio">Colegio</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="school_register" placeholder="Colegio" class="form-control" autocomplete="off" name="school_name" type="text" value="">
+                                        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-edad">Edad</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input type="number" class="form-control" id="school_age" name="school_age" placeholder="Edad">
+                                    </div>
+                                </div>
+                            </div>	
+
+                            <div class="university-fields">
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-universidad">Universidad</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="university_register" placeholder="Universidad" class="form-control" autocomplete="off" name="university" type="text" value="">
+                                        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-carrera">Carrera</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="career_register" placeholder="Carrera" class="form-control" autocomplete="off" name="career" type="text" value="">
+                                        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-semestre">Semestre</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <select id="semester" name="semester" class="form-control">
+                                            <option value="0">- Selecciona tu Semestre -</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="Egresado">Egresado</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-horizontal form-registration-egresado-universidad hidden">
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-egresado-universidad">Universidad</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input type="text" class="form-control" id="registration-universidad" placeholder="Universidad">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-egresado-carrera">Carrera</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input type="text" class="form-control" id="registration-egresado-carrera" placeholder="Carrera">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-egresado-año">Año de graduación</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input type="text" class="form-control" id="registration-año" placeholder="Año de graduación">
+                                    </div>
+                                </div>
+                            </div>	
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-2">Volver</button>
+                            <button id="btn_registro_3" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_3', 3)">Terminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Registro-3 -->
+        </form>
+        <!-- END: Modals -->
+
+
+        <!-- START: Content -->
+        <div class="container lecturedetail">
+            <h1 class="page-header">El arte de la guerra</h1>
+            <div class="lecturedetail_info">
+                <img src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/6/069f40bd310de9b7ff923112bda98cec" class="img-thumbnail book_cover"/>
+                <div class="lecturedetail_data">
+                    <table>
+                        <tr>
+                            <td>Autor:</td>
+                            <td>Sun Tzu</td>
+                        </tr>
+                        <tr>
+                            <td>Año:</td>
+                            <td>1914</td>
+                        </tr>
+                        <tr>
+                            <td>Editorial:</td>
+                            <td>Dominio público</td>
+                        </tr>
+                        <tr>
+                            <td>Edición:</td>
+                            <td>5ta</td>
+                        </tr>
+                        <tr>
+                            <td>Sinopsis:</td>
+                            <td>El arte de la guerra, uno de los mejores libros de estrategia de todos los tiempos. Inspiró a Mao Tse Tung, Napoleón, Maquiavelo y muchas más figuras históricas, expandiéndose en la actualidad al ámbito de los negocios. Fue Escrito por Sun Tzu; general chino que vivió alrededor del siglo V antes de Cristo, sin embargo hasta la actualidad sigue manteniendo plenamente su vigencia. Esta obra no es únicamente un libro de práctica y estrategia militar, sino un tratado que enseña la estrategia suprema de aplicar con inteligencia y sabiduría el conocimiento de la naturaleza humana en los momentos de confrontación o enfrentamiento en cualquier ámbito. "La mejor victoria es vencer sin combatir".</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="lecturedetail_chapters">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href=""><span class="glyphicon glyphicon-eye-open btn_preview" aria-hidden="true" title="Vista previa"></span></a>Introducción
+                        <div class="pull-right">
+                            <a onclick="operation.addLectureSection('sand2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 10</a>
+                            <a onclick="operation.addLectureSection('stone2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 20</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item"><a href=""><span class="glyphicon glyphicon-eye-open btn_preview" aria-hidden="true" title="Vista previa"></span></a>Capitulo 1 – Sobre la evaluacion
+                        <div class="pull-right">
+                            <a onclick="operation.addLectureSection('sand2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 12</a>
+                            <a onclick="operation.addLectureSection('stone2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 24</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item"><a href=""><span class="glyphicon glyphicon-eye-open btn_preview" aria-hidden="true" title="Vista previa"></span></a>Capitulo 2 – Sobre la iniciacion de las acciones
+                        <div class="pull-right">
+                            <a onclick="operation.addLectureSection('sand2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 8</a>
+                            <a onclick="operation.addLectureSection('stone2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 16</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item"><a href=""><span class="glyphicon glyphicon-eye-open btn_preview" aria-hidden="true" title="Vista previa"></span></a>Capitulo 3 – Sobre las posiciones de la victoria y la derrota
+                        <div class="pull-right">
+                            <a onclick="operation.addLectureSection('sand2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 15</a>
+                            <a onclick="operation.addLectureSection('stone2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 30</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item"><a href=""><span class="glyphicon glyphicon-eye-open btn_preview" aria-hidden="true" title="Vista previa"></span></a>Capitulo 4 – Sobre la medida en la disposicion de los medios
+                        <div class="pull-right">
+                            <a onclick="operation.addLectureSection('sand2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 11</a>
+                            <a onclick="operation.addLectureSection('stone2')" class="btn btn-default btn-purchase btn-horizontal"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 22</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div align="center">
-        <style>
-            .btn-purchase{
-                width: 125px !important;
-            }
-        </style>
-                        <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Prólogo
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition1">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?1" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Introducción
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition2">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?2" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 1 – La variacion en estado domestico
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition3">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?3" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 3 – La lucha por la existencia
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition4">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?4" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 2 – La variacion en la naturaleza
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition5">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?5" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 5 – Leyes de la variacion
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition6">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?6" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 4 – La seleccion natural o la supervivencia de los mas aptos
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition7">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?7" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 6 – Dificultades de la teoria
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition8">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?8" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 7 – Objeciones a la teoria de la seleccion natural
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition9">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?9" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 8 – Instinto
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition10">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?10" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                <div style="width: 100%; max-width: 600px; ">
-            <table width="100%">
-                <tr style="border: 1px solid #CCC;">
-                    <td style=" vertical-align: middle;width: 300px;">
-                        Capítulo 9 – Hibridismo
-                    </td>
-                    <td style=" vertical-align: middle;width: 200px;">
-                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition11">
-                            <!--                    <a class="btn btn-primary" data-toggle="modal" data-target="#modal-registration-1">¡Regístrate!</a>-->
-                                            <a href="mylecturenew.html?11" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                                                            </div>
-                    </td>
-                </tr>
-            </table>
-        </div>            
-                            
-    </div>
-</div>
-        </div>
-        <!-- END Body -->
+        <!-- END: Content -->
+
         <!-- START Modals -->
         <!-- FAQ -->
         <div class="modal fade" id="modal-FAQ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -867,7 +736,7 @@ En el Origen de las Especies, Charles Darwin introdujo el concepto de la selecci
                     <li><a href="#" data-toggle="modal" data-target="#modal-contact">Contacto</a></li>
                 </ul>
                 <!-- </div> -->
-            </div><!-- /.container-fluid -->
+            </div><!-- /.container -->
         </nav>
         <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/javascript" src="public/js/global.js"></script>
