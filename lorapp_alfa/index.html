@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"><head>
+<html lang="es">
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
         <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/landing.css" rel="stylesheet">
         <link href="public/css/jquery-ui/jquery-ui.css" rel="stylesheet">
-            </head>
+    </head>
     <body>
 
                 <!-- START: navbar not logged-in -->
@@ -33,18 +34,19 @@
                         <button class="btn btn-success dropdown-toggle nav-login" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                         </button>
                         <div class="dropdown-menu form-group dropdown-login" role="menu" aria-labelledby="dropdownMenu1">
-                            <form method="POST" action="main.html?" accept-charset="UTF-8" onsubmit="return landing.login(&quot;login_form&quot;);" id="login_form" class="form-login text-center"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                            <input id="email" placeholder="Usuario" class="form-control" name="email" type="email">
-                            <input id="password" placeholder="Contraseña" class="form-control" name="password" type="password" value="">
-                            <label class="pull-right login-forgotten-label"><a href="#" data-toggle="modal" data-target="#modal-forgot">¿Olvidado?</a></label>
-                            <div id="error_login" class="alert-danger" style="display: none">
-                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                <span class="sr-only">Error:</span>
-                                <span id="message_login">Enter a valid email address</span>
-                            </div>
-                            <br>
-                            <button type="submit" class="btn btn-primary btn-block" onclick="landing.login('login_form')">Ingresar</button><br>
-                            <label>¿Nuevo en Lorapp? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</label>
+                            <form method="POST" action="main.html?" accept-charset="UTF-8" onsubmit="return landing.login(&quot;login_form&quot;);" id="login_form" class="form-login text-center">
+                                <input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                                <input id="email" placeholder="Usuario" class="form-control" name="email" type="email">
+                                <input id="password" placeholder="Contraseña" class="form-control" name="password" type="password" value="">
+                                <label class="pull-right login-forgotten-label"><a href="#" data-toggle="modal" data-target="#modal-forgot">¿Olvidado?</a></label>
+                                <div id="error_login" class="alert-danger" style="display: none">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="sr-only">Ups!</span>
+                                    <span id="message_login">Revisa el email que ingresaste.</span>
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-primary btn-block" onclick="landing.login('login_form')">Ingresar</button><br>
+                                <label>¿Nuevo en Lorapp? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</label>
                             </form>
                         </div>
                     </div>
