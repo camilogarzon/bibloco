@@ -331,7 +331,8 @@ function registerHandler(data) {
         $("#semestre").val('1');
         setTimeout(function() {
             $("#message_register").hide(1000);
-        }, 15000);
+            window.location = window.location.href;
+        }, 5000);
     } else {
         alert('Error: ' + data.output.response.content);
     }
