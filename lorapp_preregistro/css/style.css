@@ -355,6 +355,36 @@ footer span {
     position: absolute;
     right: 20px;
 }
+.signup-confirmation {
+    border-radius: 8px;
+    color: rgba(0,0,0,.6);
+    font-size: .8em;
+    font-weight: normal;
+    line-height: 2.8em;
+    padding: 2.7em;
+    text-align: justify;
+    width: 500px;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+.signup-confirmation h3 {
+    font-weight: normal;
+    text-align: center;
+}
+.signup-confirmation hr {
+    margin-bottom: 2em;
+    opacity: .4;
+}
+.signup-confirmation p span {
+    font-weight: bold;
+}
+.signup-confirmation-share-message {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    padding-top: 1em;
+}
 
 
 
