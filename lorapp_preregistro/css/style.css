@@ -426,7 +426,7 @@ footer span {
     fill: #FFC500;
     transition: all .2s;
 }
-.report-problem-div:hover .test {
+.report-problem-div:hover .report-problem-text {
     display: initial;
 }
 
