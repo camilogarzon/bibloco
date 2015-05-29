@@ -17,7 +17,7 @@ function printLecture() {
     WinPrint.document.close();
     WinPrint.focus();
 //WinPrint.print();
-//WinPrint.close();    
+//WinPrint.close();
 }
 
 function printThis() {
@@ -321,6 +321,8 @@ function registerHandler(data) {
     if (data.output.valid) {
         //$("#form_register").hide();
         $("#message_register").show();
+        $("#email_enviado").empty();
+        $("#email_enviado").append($("#email").val());
         $("#email").val('');
         $("#pass").val('');
         $("#pass2").val('');
@@ -330,12 +332,27 @@ function registerHandler(data) {
         $("#carrera").val('');
         $("#semestre").val('1');
         setTimeout(function() {
-            $("#message_register").hide(1000);
-            window.location = window.location.href;
-        }, 5000);
+            $("#message_register").hide(5000);
+            $('.university-fields').hide();
+            $('.school-fields').hide();
+            $('#form_register').trigger("reset");
+            signupConfirmation();
+        }, 10);
     } else {
         alert('Error: ' + data.output.response.content);
     }
+}
+
+function signupConfirmation (){
+  $.fancybox({
+      href: "#signup_confirmation",
+      afterClose: function() { // it was onClosed for v1.3.4
+          //$("#signup_confirmation_error").hide();
+          //$("#signup_confirmation").show();
+          $("#email_enviado").empty();
+          window.location = window.location.href;
+      }
+  }); // fancybox
 }
 
 function login() {

@@ -15,7 +15,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="js/fancybox/source/jquery.fancybox.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css?v=20150528">
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -23,7 +23,7 @@
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
             ga('create', 'UA-59955417-1', 'auto');
             ga('send', 'pageview');
-        </script>        
+        </script>
     </head>
     <body>
         <div id="fb-root"></div>
@@ -35,7 +35,7 @@
                 js.id = id;
                 js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1562161117399883&version=v2.0";
                 fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>	
+            }(document, 'script', 'facebook-jssdk'));</script>
 
         <section class="main-section">
             <div class="main-wrapper">
@@ -44,7 +44,7 @@
                 <div class="image-form-wrapper flex">
                     <img class="main-computer-img" src="images/landing/flat_demo.png"/>
                     <div class="form-style" id="login_form_ajax" >
-                        <div align="center" id="message_register" style=""><p style="padding-top: 10px; font-size: 1.2em !important">¡Serás el primero en saber!</p></div>
+                        <!-- <div align="center" id="message_register" style=""><p style="padding-top: 10px; font-size: 1.2em !important">¡Serás el primero en saber!</p></div> -->
                         <form id="form_register" onsubmit="return false;">
                             <fieldset>
                                 <legend>¿Quieres ser el primero en probar Lorapp?</legend>
@@ -200,7 +200,7 @@
         </section>
 
         <!-- Boton reportar problema -->
-        <a href="">
+        <a href="" style="display:none">
             <div class="report-problem-div">
                 <span class="report-problem-text">Reportar problema</span>
                 <!-- warning-icon: inline SVG -->
@@ -218,18 +218,21 @@
                     </g>
                 </svg>
                 <!-- /warning-icon: inline SVG -->
-            </div> 
+            </div>
         </a>
         <!-- /Boton reportar problema -->
 
-        <div class="signup-confirmation">
+        <div class="signup-confirmation" id="signup_confirmation" style="display: none">
             <h3>Bienvenido a la evolución de las fotocopias</h3>
             <hr>
-            <p>Te enviaremos un mensaje a <span>test@lorapp.com</span> cuando tengamos disponibles las lecturas que te piden en tus clases. Muy pronto no tendrás que volver a sacar fotocopias.</p>
+            <p>Te enviaremos un mensaje a <span id="email_enviado">tu correo</span> cuando tengamos disponibles las lecturas que te piden en tus clases. Muy pronto no tendrás que volver a sacar fotocopias.</p>
             <p class="signup-confirmation-share-message">¡Cuéntale tus amigos sobre Lorapp!</p>
-            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+            <div align="center" style="width:100%">
+              <!-- <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div> -->
+              <div class="fb-share-button" data-href="http://lorapp.com/" data-layout="button_count"></div>
+            </div>
         </div>
-        
+
         <footer class="flex">
             <span>Lorapp &COPY; 2014. Todos los derechos reservados.</span>
             <img class="logo-footer" src="images/landing/logofooter.png" />
@@ -239,7 +242,7 @@
         <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.js"></script>
         <script type="text/javascript" src="js/util.js"></script>
-        <script type="text/javascript" src="js/app.js?v=20150526"></script>
+        <script type="text/javascript" src="js/app.js?v=201505282021"></script>
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54e581140ab1512b" async="async"></script>
         <script type="text/javascript">
                                 $("#top-login-button").click(function() {
