@@ -1,22 +1,77 @@
+
+
+
+
+<!--*************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+
+
+
+
+
+    ¡LEE ESTO!
+
+
+    El contenido de las lecturas está protegido por derechos de autor.
+
+    Por favor evita extraerlo. Además de estar prohibido, nos perjudica 
+    a todos al obligar a los dueños del contenido a implementar medidas 
+    proteccionistas y a evitar alternativas como Lorapp.
+
+    Solo podemos funcionar gracias al apoyo de nuestros usuarios. Nos 
+    esforzamos mucho para poder traerte contenidos legales a precios 
+    justos, ayúdanos a que siga siendo así.
+
+
+    ¡Buena lectura!
+    Att. El equipo de Lorapp
+
+
+
+
+
+
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+/**************************************************************************-->
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <title>[Nombre del libro] – Lorapp</title>
+        <title>Don't make me think – Lorapp</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <!-- <link href="public/css/mylecture.css" rel="stylesheet" type="text/css"/> -->
         <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png" />
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> <!-- Para prueba de fuentes se usan todos los pesos. Eliminar innecesarios para mejor tiempo de carga -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="public/bootstrap-full/css/bootstrap.min.css"><!-- Custom: Solo tool-tips y popovers -->
+        <link rel="stylesheet" type="text/css" href="public/bootstrap-full/css/bootstrap-theme.min.css"><!-- Custom: Solo tool-tips y popovers -->
         <link rel="stylesheet" type="text/css" href="public/css/myLectureStyles.css">
         <script src="prefixfree.min.js"></script>
+
+        <!-- Cargar fuentes de TypeKit -->
+        <!-- <script src="//use.typekit.net/bmz3ihs.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script> -->
+
         <noscript>
             <meta http-equiv="refresh" content="0; url=http://beta.lorapp.com/alfa/lorapp/public" />
         </noscript>
 
         <!--<script type="text/javascript">
-        // bloquea el click derecho
+        // Bloquea el click derecho
             function clickIE4() {
                 if (event.button == 2) {
                     return false;
@@ -41,8 +96,12 @@
         </script>-->
     </head>
 
-
-    <body>
+    <body class=""><!-- Al body se le agregan las clases "sepia" o "night" para cambiar su estilo.
+    Se le agrega la clase "blurred" cuando una lectura expira, esto pone el texto borroso. -->
+        
+        <!-- Este div es un overlay negro que puede ajustar el brillo de la pantalla al modificar su opacidad -->
+        <div class="brightness">
+        </div>
         <!--boton flotante para las lecturas-->
         <div id="highlight-button">
             <img title="Resaltar" id="highlighter" src="public/images/icons/png/highlight-icon.png"/>
@@ -51,23 +110,24 @@
         </div>
         <!--ventana flotante para tomar notas-->
         <div class="float_note" id="float_note" style="display: none;">
-            <form method="POST" action="mylecture.html?1" accept-charset="UTF-8" id="form_note_create"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-            <input name="lecture_id" type="hidden" value="1">
-            <input name="lecturesection_id" type="hidden" value="1">
-                        <input name="selectedtext" type="hidden" id="selectedtext"/>
-            <div id="selected_text">
-            </div>
-            <br>
-            <div>
-                <div align="center">
-                    <textarea id="note" name="note" style="width: 99%;" rows="6" placeholder="Mis Notas"></textarea><br><br>
-                    <div align="center" style="display: inline-table; vertical-align: top;">
-                        <span id="btn_guardar" class="float_label" style="width: 150px; cursor: pointer">Guardar</span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span id="btn_cancelar" class="float_label" style="width: 150px; cursor: pointer" >Cancelar</span>
+            <form method="POST" action="mylecture.html?1" accept-charset="UTF-8" id="form_note_create">
+                <input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                <input name="lecture_id" type="hidden" value="1">
+                <input name="lecturesection_id" type="hidden" value="1">
+                <input name="selectedtext" type="hidden" id="selectedtext"/>
+                <div id="selected_text">
+                </div>
+                <br>
+                <div>
+                    <div align="center">
+                        <textarea id="note" name="note" style="width: 99%;" rows="6" placeholder="Mis Notas"></textarea><br><br>
+                        <div align="center" style="display: inline-table; vertical-align: top;">
+                            <span id="btn_guardar" class="float_label" style="width: 150px; cursor: pointer">Guardar</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span id="btn_cancelar" class="float_label" style="width: 150px; cursor: pointer" >Cancelar</span>
+                        </div>
                     </div>
                 </div>
-            </div>
             </form>
         </div>
         <!--ventana flotante para cargar las notas de esta lectura-->
@@ -80,333 +140,385 @@
         </div>
 
 
-        
+
+        <div class="body-wrapper">
+            <!-- Título y autor -->
+            <div class="heading-wrapper">
+                <div class="titleWrapper unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+                    <h2 class="readingTitle">Don't make me think</h2>
+                    <span class="readingAuthor">Steve Krug</span>
+                </div> <!-- titleWrapper -->
 
 
-
-	    <div class="mainWrapper">
-	    	<!-- Menu lateral -->
-			<div class="sideMenu unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
-				<div class="sideMenuGroup1">
-					<a href="" class="sideMenu-icon"><img src="public/images/icons/svg/back-icon.svg"></a>
-					<a href="" class="sideMenu-icon"><img src="public/images/icons/svg/Aminus-icon.svg"></a>
-					<a href="" class="sideMenu-icon"><img src="public/images/icons/svg/Aplus-icon.svg"></a>
+                <!-- Capítulo anterior/siguiente para pantallas pequeñas-->
+                <div class="chapter-control-wrapper top-chapter-control flex space-around">
+                    <a href="" class="prev-chapter flex flex-center-align flex-center-justify prev-chapter-mobile">
+                        <span>Preface</span>
+                    </a>
+                    <a href="" class="next-chapter flex flex-center-align flex-right next-chapter-mobile">
+                        <span>1. Don't make me think!</span>
+                    </a>
                 </div>
-                <div>
-					<a href="" class="sideMenu-icon" id="icon_note"><img src="public/images/icons/svg/notes-icon.svg" data-swap="public/images/icons/svg/reading-icon.svg" class="icon-notes-reading"></a>
-				</div>
-				<div class="sideMenuGroup2">
-					<a href="" class="sideMenu-icon"><img src="public/images/icons/svg/fullScreen-icon.svg"></a>
-					<a href="" class="sideMenu-icon"><img src="public/images/icons/svg/night-icon.svg"></a>
-					<a href="" class="sideMenu-icon"><img src="public/images/icons/svg/print-icon.svg"></a>
-				</div>
-			</div>
 
 
-			<!-- Contenido lectura -->
-			<div class="bodyWrapper">
-				<!-- Título y autor -->
-				<div class="titleWrapper unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
-					<h2 class="readingTitle">La riqueza de las naciones</h2>
-					<p class="readingAuthor">Adam Smith</p>
-				</div> <!-- titleWrapper -->
+                <!-- Capítulo anterior/actual/siguiente -->
+                <div class="chapter-control-wrapper top-chapter-control flex space-around">
+                    <a href="" class="prev-chapter flex flex-center-align">
+                        <span>Preface</span>
+                    </a>
+                    <div class="current-chapter flex flex-column flex-center-justify">
+                        <span class="pre-chapter-title">Estás leyendo</span>
+                        <div><h3 class="chapterTitle">Introduction</h3></div>
+                    </div>
+                    <a href="" class="next-chapter flex flex-right flex-center-align">
+                        <span>1. Don't make me think!</span>
+                    </a>
+                </div>
 
-                
 
-				<!-- Texto cuerpo lectura -->
-				<div class="bodyText">
-                    <!-- Campo para agregar nota -->
-                    <!-- <div class="add-note-main-wrapper"> -->
-                    <div class="add-note-wrapper">
-                        <p class="add-note-highlight unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>el progreso es más importante en las facultades productivas.</p>
-                        <textarea class="note-input" type="text" placeholder="Escribe tu nota&hellip;"></textarea>
-                        <div class="add-note-buttons unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
-                            <a href="" class="btn-discard-note">Cancelar</a>
-                            <button class="btn-save-note unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>¡Listo!</button>
+                <!-- Botones para mostrar mis lecturas y mis apuntes -->
+                <div class="show-my-readings-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="right" title="Mis lecturas">
+                    <div class="flex flex-center-justify">
+                        <img src="public/images/icons/svg/library-icon.svg">
+                    </div>
+                </div>
+                <div class="show-my-notes-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="left" title="Mis apuntes">
+                    <div class="flex flex-center-justify">
+                        <img src="public/images/icons/svg/my-notes-icon.svg">
+                    </div>
+                </div>
+
+
+                <!-- Sección lateras de mis lecturas -->
+                <div class="my-readings-wrapper">
+                    <img class="right-close-icon" src="public/images/icons/png/close-icon.png">
+                    <div class="my-readings-header flex space-between">
+                        <span>Tabla de contenido</span>
+                        <a href="" class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 450</a>
+                    </div>
+                    <div class="my-readings-list">
+                        <div class="list-book-container">
+                            <div class="list-book-title">
+                                <span>Don't make me think<em> – Steve Krug</em></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">Preface</span>
+                                    <span class="list-book-chapter-subtitle">About the second edition</span>
+                                </span>
+                                <span class="list-book-chapter-status flex flex-center-align">4 días</span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">Introduction</span>
+                                    <span class="list-book-chapter-subtitle">Read me first</span>
+                                </span>
+                                <span class="list-book-chapter-status flex flex-center-align">5 días</span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">1. Don't make me think!</span>
+                                    <span class="list-book-chapter-subtitle">Krug's first law of usability</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 22</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">2. How we really use the Web</span>
+                                    <span class="list-book-chapter-subtitle">Scanning, satisficing, and muddling through</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 35</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">3. Billboard Design 101</span>
+                                    <span class="list-book-chapter-subtitle">Designing pages for scanning, not reading</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 20</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">4. Animal, vegetable or mineral?</span>
+                                    <span class="list-book-chapter-subtitle">Why users like mindless choices</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 28</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">5. Omit needless words</span>
+                                    <span class="list-book-chapter-subtitle">The art of not writing for the Web</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 17</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">6. Street signs and breadcrumbs</span>
+                                    <span class="list-book-chapter-subtitle">Designing navigation</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 23</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">7. The first step in recovering is admitting that the Home page is beyond your control</span>
+                                    <span class="list-book-chapter-subtitle">Designing the Home page</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 38</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">8. "The Farmer and the Cowman Should Be Friends"</span>
+                                    <span class="list-book-chapter-subtitle">Why most Web design team arguments about usability are a waste of time, and how to avoid them</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 29</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">9. Usability testing on 10 cents a day</span>
+                                    <span class="list-book-chapter-subtitle">Why user testing—done simply enough—is the cure for all your site’s ills</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 15</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">10. Usability as common courtesy</span>
+                                    <span class="list-book-chapter-subtitle">Why your Web site should be a mensch</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 27</span></span>
+                            </div>
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">11. Accessibility, Cascading Style Sheets, and you</span>
+                                    <span class="list-book-chapter-subtitle">Just when you think you’re done, a cat floats by with buttered toast strapped to its back</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 21</span></span>
+                            </div>                            
+                            <div class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">12. Help! My boss wants me to _______.</span>
+                                    <span class="list-book-chapter-subtitle">When bad design decisions happen to good people</span>
+                                </span>
+                                <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves"><img src="public/images/icons/svg/leaf-icon.svg"> x 19</span></span>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="my-readings-footer flex space-between flex-center-align">
+                        <img class="footer-logo" src="public/images/lorapp-footer-logo.svg">
+                        <div>
+                            <a href=""><img src="public/images/icons/svg/home-icon.svg">Inicio</a>
+                            <a href=""><img src="public/images/icons/svg/feedback-icon.svg">Feedback?</a>
                         </div>
                     </div>
-                    <!-- </div> -->
-
-					<div class="btn-prev-chapter-container">
-						<a href="" id="take-note" class="btn-prev-chapter unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>Introducción</a>
-					</div>
-					<h3 class="chapterTitle">Capítulo 1: De la división del trabajo</h3>
-					<p class="quote">"El progreso es más importante en las facultades productivas".</p>
-					<p>El progreso más importante en las facultades productivas del trabajo, y gran parte de la aptitud, destreza y sensatez con que diste se aplica o dirige, por doquier, parecen ser consecuencia de la división del trabajo.</p>
-					<figure>
-						<img src="http://www.spinelessclassics.com/src/The-Wealth-of-Nations-_588334_h500.jpg" />
-						<figcaption>FIG 1. Adam Smith en la riqueza de las naciones, publicado en 1776.</figcaption>
-					</figure>
-					<p>Los efectos de la división del trabajo en los negocios generales de la sociedad se entenderán más fácilmente considerando la manera como opera en algunas de las manufacturas. Generalmente se cree que tal división es mucho mayor en <span>esta es una prueba</span> ciertas actividades económicas de poca importancia, no porque efectivamente esa división se extreme mas que en otras actividades de importancia mayor, sino porque en aquellas manufacturas que se destinan a ofrecer satisfacciones para las pequeñas necesidades de un reducido numero de personas, el numero de operarios ha de ser pequeño, y los empleados en los diversos pasos o etapas de la producción se pueden reunir generalmente en el mismo taller y a la vista del espectador.</p>
-					<p>Por el contrario, en aquellas manufacturas destinadas a satisfacer los pedidos de un gran numero de personas, cada uno de los diferentes ramos de la obra emplea un numero tan considerable de obreros, que es imposible juntarlos en el mismo taller. Difícilmente podemos abarcar de una vez, con la mirada, sino los obreros empleados en un ramo de la producción. Aun cuando en las grandes manufacturas la tarea se puede dividir realmente en un numero de operaciones mucho mayor que en otras manufactures más pequeñas, la división del trabajo no es tan obvia y, por consiguiente, ha sido menos observada.</p>
-					<p>Tomemos como ejemplo una manufactura de poca importancia, pero a cuya división del trabajo
-					se ha hecho muchas veces refrenda: la de fabricar alfileres. Un obrero que no haya sido
-					adiestrado en esa clase de tarea (converja por virtud de la división del trabajo en un oficio
-					nuevo) y que no este" acostumbrado a manejar la maquinaria que en 61 se utiliza (cuya
-					invención ha derivado, probablemente, de la división del trabajo), por mis que trabaje, apenas
-					podría hacer un alfiler al día, y desde luego no podría confeccionar mas de veinte. Pero dada la
-					manera como se practica hoy día la fabricación de alfileres, no solo la fabricación misma
-					constituye un oficio aparte, sino que esta dividida en varios ramos, la mayor parte de los cuales
-					también constituyen otros tantos oficios distintos. Un obrero estira el alambre, otro lo endereza,
-					un tercero lo va cortando en trozos iguales, un cuarto hace la punta, un quinto obrero esta
-					ocupado en limar el extreme donde se va a colocar la cabeza: a su vez la confección de la
-					cabeza requiere dos o tres operaciones distintas: fijarla es un trabajo especial, esmaltar los
-					alfileres, otro, y todavía es un oficio distinto colocarlos en el papel.</p>
-					<p>En fin, el importante trabajo de hacer un alfiler queda dividido de esta manera en unas dieciocho operaciones distintas, las cuales son desempeñadas en algunas fabricas por otros tantos obreros diferentes, aunque en otras un solo hombre desempeñe a veces dos o tres operaciones. He visto una pequeña fabrica de esta especie que no empleaba mas que diez obreros, donde, por consiguiente, algunos de ellos tenían a su cargo dos o tres operaciones. Pero a pesar de que eran pobres y, por lo tanto, no estaban bien provistos de la maquinaria debida, podían, cuando se esforzaban, hacer entre todos, diariamente, unas doce libras de alfileres. En cada libra había mas de cuatro mil alfileres de tamaño mediano. Por consiguiente, estas diez personas podían hacer cada día, en conjunto, mas de cuarenta y ocho mil alfileres, cuya cantidad, dividida entre diez, correspondería a cuatro mil ochocientos por persona. En cambio si cada uno hubiera trabajado separada e independientemente, y ninguno hubiera sido adiestrado en esa clase de tarea, es seguro que no hubiera podido hacer veinte, o, tal vez, ni un solo alfiler al día; es decir, seguramente no hubiera podido hacer la doscientascuarentava parte, tal vez ni la cuatromilochocientosava parte de lo que son capaces de confeccionar en la actualidad gracias a la división y combinación de las diferentes operaciones en forma conveniente.</p>
-				</div> <!-- bodyText -->
-				<div class="btn-next-chapter-container">
-						<a href="" class="btn-next-chapter unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>Capítulo 2: De la mano de obra</a>
-				</div>
-			</div> <!-- bodyWrapper -->
-		</div> <!-- mainWrapper -->
+                    <div class="closer-box">
+                    </div>
+                </div>
+            </div><!-- heading-wrapper -->
 
 
+
+            <div class="mainWrapper">
+                <!-- Menu inferior -->
+                <div class="nav-menu flex space-between" unselectable='on' onselectstart='return false;'>
+                    <div class="reading-options flex">
+                        <div class="full-screen-btn flex flex-center-align">
+                            <img src="public/images/icons/svg/full-screen-icon2.svg">
+                        </div>
+                        <div class="brightness-btn-div2 flex flex-center-align">
+                            <img src="public/images/icons/svg/brightness-high-icon2.svg" class="decrease-brightness-btn">
+                            <div class="brightness-bar2 full-bar"></div>
+                            <div class="brightness-bar2 full-bar"></div>
+                            <div class="brightness-bar2 full-bar"></div>
+                            <div class="brightness-bar2 full-bar"></div>
+                            <div class="brightness-bar2 full-bar"></div>
+                            <img src="public/images/icons/svg/brightness-high-icon2.svg" class="increase-brightness-btn">
+                        </div>
+                        <div class="sizes-btn-div2 flex flex-center-align">
+                            <div class="size-small-div flex flex-center-align flex-center-justify" title="Tamaño pequeño"><img src="public/images/icons/svg/size-icon.svg"></div>
+                            <div class="size-medium-div active flex flex-center-align flex-center-justify" title="Tamaño mediano"><img src="public/images/icons/svg/size-icon.svg"></div>
+                            <div class="size-large-div flex flex-center-align flex-center-justify" title="Tamaño grande"><img src="public/images/icons/svg/size-icon.svg"></div>
+                        </div>
+                        <div class="flex flex-center-align">
+                            <div class="color-btn-container flex">
+                                <div class="color-light-btn active flex flex-center-align flex-center-justify"><img src="public/images/icons/svg/checkmark-icon.svg"></div>
+                                <div class="color-sepia-btn flex flex-center-align flex-center-justify"><img src="public/images/icons/svg/checkmark-icon.svg"></div>
+                                <div class="color-night-btn flex flex-center-align flex-center-justify"><img src="public/images/icons/svg/checkmark-icon.svg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reading-info flex flex-center-align">
+                        <div title="Expiración de la lectura">disponible <strong>5 días</strong> más</div>
+                        <div title="Tiempo de lectura"><strong><span class="minutes-left-data">0</span> mins</strong> restantes</div>
+                        <div title="Porcentaje de lectura"><strong><span class="reading-percentage-data">0</span>%</strong> leído</div>
+                    </div>
+                </div><!-- Menu inferior -->
+
+
+
+    			<!-- Contenido lectura -->
+    			<div class="reading-wrapper">
+    				<!-- Texto cuerpo lectura -->
+    				<div class="bodyText unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+
+                        <blockquote>
+                            <p><span class="sentence">Is this trip really necessary?</span></p>
+                            <p class="author"><strong><span class="author sentence">—slogan on World War II posters encouraging gas rationing</span></strong></p>
+                        </blockquote>
+                        <p><span class="sentence">When I started telling people that I was writing a book about how to do what I do, they all asked the same thing: “Aren’t you afraid of putting yourself out of a job?”</span></p>
+                        <p><span class="sentence">It’s true, I have a great job.</span></p>
+                        <ol>
+                            <li><p><span class="sentence highlight">People (“clients”) send me proposed page designs for the new Website they’re building or the URL of the existing site that they’re redesigning.</span></p></li>
+                            <figure>
+                                <a class="fancybox" href="public/images/testing/1.jpg"><img src="public/images/testing/1.jpg" /></a>
+                            </figure>
+                            <li><p><span class="sentence">I look at the designs or use the site and figure out whether they’re easy enough to use (an “expert usability review”).</span> <span class="sentence">Sometimes I pay other people to try to use the site while I watch (“usability testing”).<span class="sup" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" title="1" data-content="...not to be confused with “voyeurism.”">1</span></span></p></li>
+                            <li><p><span class="sentence">I write a report describing the problems that I found that are likely to cause users grief (“usability issues”) and suggesting possible solutions.<span class="sup" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" title="2" data-content="Actually, this is one thing that has changed since the first edition. See Chapter 9 for the reason why I’ve pretty much stopped writing what I now refer to as the “big honking report.”">2</span></span></p></li>
+                            <li><p><span class="sentence highlight">I work with the client’s Web design team to help them figure out how to fix the problems.</span></p></li>
+                            <figure>
+                                <a class="fancybox image" href="public/images/testing/2.jpg"><img src="public/images/testing/2.jpg" /></a>
+                            </figure>
+                            <li><p><span class="sentence">They pay me.</span></p></li>
+                        </ol>
+                        <p><span class="sentence">Being a consultant, I get to work on interesting projects with a lot of nice, smart people, and when we’re finished, the sites are better than when we started.</span> <span class="sentence">I get to work at home most of the time and I don’t have to sit in mind-numbing meetings every day or deal with office politics.</span> <span class="sentence">I get to say what I think, and people usually appreciate it.</span> <span class="sentence">And I get paid well.</span></p>
+                        <p><span class="sentence">Believe me, I would not lightly jeopardize this way of life.<span class="sup" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" title="3" data-content="I have an even cushier job now. Since the book came out, I spend a lot of my time teaching workshops, where, unlike consulting, there’s no opportuntiy to procrastinate and no homework. At the end of the day, you’re done.">3</span></span></p>
+                        <p><span class="sentence">But the reality is there are so many Web sites in need of help—and so few people who do what I do—that barring a total collapse of the Internet boom,<span href="" class="sup" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" title="4" data-content="The boom obviously turned to bust not long after I wrote this (late in 2000). Even so, there are probably more people working on usability now than there were then.">4</span> there’s very little chance of my running out of work for years.</span></p>
+                        <p><span class="sentence">Suddenly a lot of people with little or no previous experience have been made responsible for big-budget projects that may determine the future of their companies, and they’re looking for people to tell them that they’re doing it right.</span></p>
+                        <p><span class="sentence popular-highlight">Graphic designers and developers find themselves responsible for designing interfaces—things like interaction design (what happens next when the user clicks) and information architecture (how everything is organized).</span></p>
+                        <p><span class="sentence">And most people don’t have the budget to hire a usability consultant to review their work—let alone have one around all the time.</span></p>
+                        <p><span class="sentence">I’m writing this book for people who can’t afford to hire (or rent) someone like me.</span> <span class="sentence">I would hope that it’s also of value to people who work with a usability professional.</span></p>
+                        <p><span class="sentence">At the very least, I hope it can help you avoid some of the endless, circular religious Web design debates that seem to eat up so much time.</span></p>
+                        <h3>It’s not rocket surgery&trade;</h3>
+                        <p><span class="sentence highlight">The good news is that much of what I do is just common sense, and anyone with some interest can learn to do it.</span></p>
+                        <p><span class="sentence popular-highlightr">After all, usability really just means making sure that something works well: that a person of average (or even below average) ability and experience can use the thing—whether it’s a Web site, a fighter jet, or a revolving door—for its intended purpose without getting hopelessly frustrated.</span></p>
+                        <p><span class="sentence">Like a lot of common sense, though, it’s not necessarily obvious until after someone’s pointed it out to you.<span href="" class="sup" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" title="5" data-content="...which is one reason why my consulting business (actually just me and a few well-placed mirrors) is called Advanced Common Sense. “It’s not rocket surgery” is my corporate motto.">5</span></span></p>
+                        <p><span class="sentence">No question: if you can afford to, hire someone like me.</span> <span class="sentence">But if you can’t, I hope this book will enable you to do it yourself (in your copious spare time).</span></p>
+                        <h3>Yes, it’s a thin book</h3>
+                        <p><span class="sentence">I’ve worked hard to keep this book short—hopefully short enough you can read it on a long plane ride.</span> <span class="sentence">I did this for two reasons:</span></p>
+                        <ul>
+                            <li><p><strong><span class="sentence popular-highlight">If it’s short, it’s more likely to actually be used.</strong><span href="" class="sup" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" title="6" data-content="There’s a good usability principle right there: if something requires a large investment of time—or looks like it will—it’s less likely to be used.">6</span></span> <span class="sentence">I’m writing for the people who are in the trenches—the designers, the developers, the site producers, the project managers, the marketing people, and the people who sign the checks, and for the one-man-band people who are doing it all themselves.</span> <span class="sentence">Usability isn’t your life’s work, and you don’t have time for a long book.</span></p></li>
+                            <li><p><strong><span class="sentence">You don’t need to know everything.</span></strong> <span class="sentence">As with any field, there’s a lot you could learn about usability.</span> <span class="sentence">But unless you’re a usability professional, there’s a limit to how much is useful to learn.<span href="" class="sup" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" title="7" data-content="I’ve always liked the passage in A Study in Scarlet where Dr. Watson is shocked to learn that Sherlock Holmes doesn’t know that the earth travels around the sun. Given the finite capacity of the human brain, Holmes explains, he can’t afford to have useless facts elbowing out the useful ones: “What the deuce is it to me? You say that we go round the sun. If we went round the moon it would not make a pennyworth of difference to me or to my work.”">7</span></span></p></li>
+                        </ul>
+                        <p><span class="sentence">I find that the most valuable contributions I make to each project always come from keeping just a few key usability principles in mind. I think there’s a lot more leverage for most people in understanding these principles than in another laundry list of specific do’s and don’ts.</span> <span class="sentence">I’ve tried to boil down the few things I think everybody involved in building Web sites should know.</span></p>
+                        <h3>Not present at time of photo</h3>
+                        <p><span class="sentence">Just so you don’t waste your time looking for them, here are a few things you won’t find in this book:</span></p>
+                        <ul>
+                            <li><p><span class="sentence"><strong>“The truth” about the right way to design Web sites.</strong></span> <span class="sentence">I’ve been at this for a long time, long enough to know that there is no one “right” way to design Web sites.</span> <span class="sentence">It’s a complicated process and the real answer to most of the questions that people ask me is “It depends.”<span href="" class="sup" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" title="8" data-content="Jared Spool and his usability consulting cohorts at User Interface Engineering (www.uie.com) even have “It depends” T-shirts.">8</span></span> <span class="sentence">But I do think that there are a few useful guiding principles it always helps to have in mind, and those are what I’m trying to convey.</span></p></li>
+                            <li><p><span class="sentence"><strong>Discussion of business models.</strong></span> <span class="sentence">If history has taught us anything, it’s that Internet business models are like buses: If you miss one, all you have to do is wait a little while and another one will come along.</span> <span class="sentence">I’m no expert when it comes to making money on the Web, and even if I were, whatever I had to say would probably be passé by the time you read it.</span></p></li>
+                            <li><p><span class="sentence"><strong>Predictions for the future of the Web.</strong></span> <span class="sentence">Your guess is as good as mine.</span> <span class="sentence">The only thing I’m sure of is that (a) most of the predictions I hear are almost certainly wrong, and (b) the things that will turn out to be important will come as a surprise, even though in hindsight they’ll seem perfectly obvious.</span></p></li>
+                            <li><p><span class="sentence"><strong>Bad-mouthing of poorly designed sites.</strong></span> <span class="sentence">If you enjoy people poking fun at sites with obvious flaws, you’re reading the wrong book.</span> <span class="sentence">Designing, building, and maintaining a great Web site isn’t easy.</span> <span class="sentence">It’s like golf: a handful of ways to get the ball in the hole, a million ways not to.</span> <span class="sentence">Anyone who gets it even half right has my admiration.</span></p>
+                            <p><span class="sentence">As a result, you’ll find that the sites I use as examples tend to be excellent sites with minor flaws.</span> <span class="sentence">I think you can learn more from looking at good sites than bad ones.</span></p></li>
+                            <li><p><span class="sentence"><strong>Examples from all kinds of sites.</strong></span> <span class="sentence">Most of the examples in the book are from e-commerce sites, but the principles I’m describing apply just as well to my next-door neighbor’s vanity page, your daughter’s soccer team’s site, or your company’s intranet.</span> <span class="sentence">Including illustrations from all the different genres would have resulted in a much larger—and less useful book.</span></p></li>
+                        </ul>
+                        <h3>Who’s on first?</h3>
+                        <p><span class="sentence">Throughout the book, I’ve tried to avoid constant references to “the user” and “users.”</span> <span class="sentence">This is partly because of the tedium factor, but also to try to get you to think about your own experience as a Web user while you’re reading—something most of us tend to forget when we’ve got our Web design hats on.</span> <span class="sentence">This has led to the following use of pronouns in this book:</span></p>
+                        <ul>
+                            <li><p><strong><span class="sentence">“I” is me, the author.</span></strong> <span class="sentence">Sometimes it’s me the usability professional (“I tell my clients...”) and sometimes it’s me speaking as a Web user (“If I can’t find a Search button...”), but it’s always me.</span></p></li>
+                            <li><p><strong><span class="sentence">“You” is you, the reader</span></strong><span class="sentence">—someone who designs, builds, publishes, or pays the bills for a Web site.</span></p></li>
+                            <li><p><strong><span class="sentence">“We” (“How we really use the Web”) is all Web users</strong>, which includes “you” and “I.”</span></p></li>
+                        </ul>
+                        <p><span class="sentence">I may sidestep these rules occasionally, but hopefully the context will always make it clear who I’m talking about.</span></p>
+                        <h3>Is this trip really necessary?</h3>
+                        <p><span class="sentence">I could recite some of the usual awe-inspiring statistics about how many umpteen gazillion dollars will be left on the table this year by sites that don’t mind their usability P’s and Q’s.</span></p>
+                        <p><span class="sentence">But given that you’re already holding a book about usability in your hands, you probably don’t need me to tell you that usability matters.</span> <span class="sentence popular-highlight">You know from your own experience as a Web user that paying attention to usability means less frustration and more satisfaction for your visitors, and a better chance that you’ll see them again.</span></p>
+                        <p><span class="sentence">I think my wife put her finger on the essence of it better than any statistic I’ve seen:</span></p>
+                        <blockquote><p><span class="sentence highlight">If something is hard to use, I just don't use it as much.</span></p>
+                        <p class="author"><strong><span class="author sentence">—My wife</span></strong></p></blockquote>
+                        <p><span class="sentence">I hope this book will help you build a better site and—if you can skip a few design arguments—maybe even get home in time for dinner once in a while.</span></p>
+    				</div>
+    			</div> <!-- reading-wrapper -->
+
+                <!-- Capítulo anterior/actual/siguiente -->
+                <div class="chapter-control-wrapper bottom-chapter-control flex space-around">
+                    <a href="" class="prev-chapter flex flex-center-align">
+                        <span>Preface</span>
+                    </a>
+                    <div class="current-chapter flex flex-column flex-center-justify">
+                        <span class="pre-chapter-title">Leíste</span>
+                        <div><h3 class="chapterTitle">Introduction</h3></div>
+                    </div>
+                    <a href="" class="next-chapter flex flex-center-align flex-right">
+                        <span>1. Don't make me think!</span>
+                    </a>
+                </div>
+
+                <!-- Capítulo anterior/siguiente para pantallas pequeñas-->
+                <div class="chapter-control-wrapper bottom-chapter-control flex space-around">
+                    <a href="" class="prev-chapter flex flex-center-align flex-center-justify prev-chapter-mobile">
+                        <span>Preface</span>
+                    </a>
+                    <a href="" class="next-chapter flex flex-center-align flex-right next-chapter-mobile">
+                        <span>1. Don't make me think!</span>
+                    </a>
+                </div>
+
+                <!-- Campo para agregar nota -->
+                <div class="add-note-wrapper">
+                    <p class="add-note-highlight unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>El progreso más importante en las facultades productivas del trabajo, y gran parte de la aptitud, destreza y sensatez con que diste se aplica o dirige, por doquier, parecen ser consecuencia de la división del trabajo.</p>
+                    <textarea class="note-input" type="text" placeholder="Escribe tu nota&hellip;" ></textarea>
+                    <div class="add-note-buttons unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+                        <a href="" class="btn-discard-note">Cancelar</a>
+                        <button class="btn-save-note unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>¡Listo!</button>
+                    </div>
+                </div>
+    		</div> <!-- mainWrapper -->
+        </div> <!-- body-wrapper -->
+
+
+        
 
 
         <!-- Apuntes -->
         <div class="notesMainWrapper">
-            <div class="notesPageWrapper">
-                <div class="bodyWrapper">
-                    <!-- Título y autor -->
-                    <div class="titleWrapper unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
-                        <h2 class="readingTitle">Apuntes</h2>
-                        <p class="readingAuthor">La riqueza de las naciones</p>
-                    </div> <!-- titleWrapper -->
+            <img class="left-close-icon" src="public/images/icons/png/close-icon.png">
+            <div class="reading-wrapper">
+                <!-- Título y autor -->
+                <div class="titleWrapper unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+                    <h2 class="readingTitle">Apuntes</h2>
+                    <p class="readingAuthor">Don't make me think</p>
+                </div> <!-- titleWrapper -->
 
-                    <!-- Texto cuerpo lectura -->
-                    <div class="bodyText">
-                        <h3 class="chapterTitle">Capítulo 1: De la división del trabajo</h3>
-                        <div class="notesGroup">
-                            <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
-                            <div>
-                                <p class="quote notesHighlight">"El progreso es más importante en las facultades productivas".</p>
-                                <p class="notesNote" title="Editar nota">El progreso más importante en las facultades productivas del trabajo, y gran parte de la aptitud, destreza y sensatez con que diste se aplica o dirige, por doquier, parecen ser consecuencia de la división del trabajo.</p>
-                            </div>
+                <!-- Texto cuerpo lectura -->
+                <div class="bodyText">
+                    <h4 class="chapterTitle">Introduction</h4>
+                    <div class="notesGroup">
+                        <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
+                        <div>
+                            <p class="quote notesHighlight">People (“clients”) send me proposed page designs for the new Website they’re building or the URL of the existing site that they’re redesigning.</p>
+                            <p class="notesNote" title="Editar nota">Usability consultants work with designers and developers to look at how a product meets user needs so that they can improve the product to enhance productivity, increase user satisfaction, and minimize user errors.</p>
                         </div>
-                        <div class="notesGroup">
-                            <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
-                            <div>
-                                <figure class="notesHighlight">
-                                    <img src="http://www.spinelessclassics.com/src/The-Wealth-of-Nations-_588334_h500.jpg" />
-                                    <figcaption>FIG 1. Adam Smith en la riqueza de las naciones, publicado en 1776.</figcaption>
-                                </figure>
-                                <p class="notesNote" title="Editar nota">Los efectos de la división del trabajo en los negocios generales de la sociedad se entenderán más fácilmente considerando la manera como opera en algunas de las manufacturas.</p>
-                            </div>
+                    </div>
+                    <div class="notesGroup">
+                        <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
+                        <div>
+                            <p class="notesHighlight">I work with the client’s Web design team to help them figure out how to fix the problems.</p>
                         </div>
-                        <div class="notesGroup">
-                            <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
-                            <div>
-                                <p class="notesHighlight">Generalmente se cree que tal división es mucho mayor en ciertas actividades económicas de poca importancia, no porque efectivamente esa división se extreme mas que en otras actividades de importancia mayor, sino porque en aquellas manufacturas que se destinan a ofrecer satisfacciones.</p>
-                            </div>
+                    </div>
+                    <div class="notesGroup">
+                        <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
+                        <div>
+                            <p class="notesHighlight" id="content">The good news is that much of what I do is just common sense, and anyone with some interest can learn to do it.</p>
+                            <p class="notesNote" title="Editar nota">Large part of usability relies on common sense, thinking how something would make more sense to the user.</p>
                         </div>
-                        <div class="notesGroup">
-                            <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
-                            <div>
-                                <p class="notesHighlight">para las pequeñas necesidades de un reducido numero de personas, el numero de operarios ha de ser pequeño, y los empleados en los diversos pasos o etapas de la producción se pueden reunir generalmente en el mismo taller y a la vista del espectador.</p>
-                            </div>
+                    </div>
+                    <div class="notesGroup">
+                        <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
+                        <div>
+                            <p class="notesHighlight" id="content">If something is hard to use, I just don't use it as much.</p>
+                            <p class="notesNote" title="Editar nota">Usability generates value to our products by making them more likeable to our users.</p>
                         </div>
-                        <div class="notesGroup">
-                            <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
-                            <div>
-                                <p class="notesHighlight">Por el contrario, en aquellas manufacturas destinadas a satisfacer los pedidos de un gran numero de personas, cada uno de los diferentes ramos de la obra emplea un numero tan considerable de obreros, que es imposible juntarlos en el mismo taller.</p>
-                                <p class="notesNote" title="Editar nota">Tomemos como ejemplo una manufactura de poca importancia, pero a cuya división del trabajo
-                            se ha hecho muchas veces refrenda: la de fabricar alfileres.</p>
-                            </div>
-                        </div>
-                        <h3 class="chapterTitle">Capítulo 2: De la mano de obra</h3>
-                        <div class="notesGroup">
-                            <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
-                            <div>
-                                <p class="notesHighlight">Generalmente se cree que tal división es mucho mayor en ciertas actividades económicas de poca importancia, no porque efectivamente esa división se extreme mas que en otras actividades de importancia mayor, sino porque en aquellas manufacturas que se destinan a ofrecer satisfacciones.</p>
-                            </div>
-                        </div>
-                        <div class="notesGroup">
-                            <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
-                            <div>
-                                <p class="notesHighlight">para las pequeñas necesidades de un reducido numero de personas, el numero de operarios ha de ser pequeño, y los empleados en los diversos pasos o etapas de la producción se pueden reunir generalmente en el mismo taller y a la vista del espectador.</p>
-                            </div>
-                        </div>
-                        <div class="notesGroup">
-                            <a href="" class="delete-note-icon" title="Borrar apunte"><img src="public/images/icons/svg/delete-icon.svg"/></a>
-                            <div>
-                                <p class="notesHighlight">Por el contrario, en aquellas manufacturas destinadas a satisfacer los pedidos de un gran numero de personas, cada uno de los diferentes ramos de la obra emplea un numero tan considerable de obreros, que es imposible juntarlos en el mismo taller.</p>
-                                <p class="notesNote" title="Editar nota">Tomemos como ejemplo una manufactura de poca importancia, pero a cuya división del trabajo se ha hecho muchas veces refrenda: la de fabricar alfileres.</p>
-                            </div>
-                        </div>
-                    </div> <!-- bodyText -->
-                </div> <!-- bodyWrapper -->
-            </div>
-        </div>
-
-
-
-
-
+                    </div>
+                </div> <!-- bodyText -->
+            </div> <!-- reading-wrapper -->
+        </div><!-- notesMainWrapper -->
 
         <script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="public/js/jquery.highlight.js"></script>
         <script type="text/javascript" src="public/js/global.js"></script>
         <script type="text/javascript" src="public/js/util.js"></script>
         <script type="text/javascript" src="public/js/mylecture.js"></script>
-        <script type="text/javascript">
+        <script type="text/javascript" src="public/js/reading.js"></script>
+        <script type="text/javascript" src="public/bootstrap-full/js/bootstrap.min.js"></script><!-- Custom bootstrap: Solo tool-tips y popovers -->                
 
-                
-
-                    $(document).ready(function() {
-                global.url = "http://beta.lorapp.com/alfa/lorapp/public";
-                global.session = "fd76b9c6558b584160eed3d9685514f4541ba28a";
-                /**
-                 * opciones del menu lateral
-                 */
-                $('#icon_my_lecture').mouseover(function() {
-                    util.byIdShowHide('label_my_lecture', true);
-                });
-                $('#icon_my_lecture').mouseout(function() {
-                    util.byIdShowHide('label_my_lecture', false);
-                });
-                $('#icon_font_down').mouseover(function() {
-                    util.byIdShowHide('label_font_down', true);
-                });
-                $('#icon_font_down').mouseout(function() {
-                    util.byIdShowHide('label_font_down', false);
-                });
-                $('#icon_font_down').click(function() {
-                    myLecture.changeFontSize('.lecture', '-');
-                });
-                $('#icon_font_up').mouseover(function() {
-                    util.byIdShowHide('label_font_up', true);
-                });
-                $('#icon_font_up').mouseout(function() {
-                    util.byIdShowHide('label_font_up', false);
-                });
-                $('#icon_font_up').click(function() {
-                    myLecture.changeFontSize('.lecture', '+');
-                });
-                $('#icon_note').mouseover(function() {
-                    util.byIdShowHide('label_note', true);
-                });
-                $('#icon_note').mouseout(function() {
-                    util.byIdShowHide('label_note', false);
-                });
-                // $('#icon_note').click(function() {
-                //     myLecture.openNoteLoader();
-                // });
-
-
-                /**
-                * click en botón agregar apunte hace slide de casilla de apuntes
-                */
-                $("#take-note").click(function(event) { 
-                    
-                    event.preventDefault();
-                    $(".add-note-wrapper").animate({
-                        bottom:"0%"
-                    }, 500, function() {
-                    });
-                });
-
-                
-                $("#icon_note").click( function(event){
-                    /**
-                    * click en botón apuntes hace cambiar icono
-                    */
-                    var _this = $('.icon-notes-reading');
-                    var current = _this.attr("src");
-                    var swap = _this.attr("data-swap");     
-                    _this.attr('src', swap).attr("data-swap",current); 
-                    /**
-                    * click en botón apuntes hace slide de apuntes
-                    */
-                    event.preventDefault();
-                    if ( $(this).hasClass("apuntesOn") ) {
-                        $(".notesMainWrapper").animate({left:"100%"}, 1000);
-                    } else {
-                        $(".notesMainWrapper").animate({left:"0%"}, 1000);
-                    }
-                    $(this).toggleClass("apuntesOn");
-                    return false;    
-                });
-
-
-
-
-
-                $('#close_note_loader').click(function() {
-                    myLecture.closeNoteLoader();
-                });
-                $('#icon_print').mouseover(function() {
-                    util.byIdShowHide('label_print', true);
-                });
-                $('#icon_print').mouseout(function() {
-                    util.byIdShowHide('label_print', false);
-                });
-                $('#icon_print').click(function() {
-                    myLecture.printContentById('lecture');
-                });
-                $('#icon_fullscreen').mouseover(function() {
-                    util.byIdShowHide('label_fullscreen', true);
-                });
-                $('#icon_fullscreen').mouseout(function() {
-                    util.byIdShowHide('label_fullscreen', false);
-                });
-                // START: CLICK EN #BUTTON-FULLSCREEN LLEVA A PANTALLA COMPLETA Y CLICK DE NUEVO SALE DE ELLA
-                $('#icon_fullscreen').click(function toggleFullScreen() {
-                    if (!document.fullscreenElement && // alternative standard method
-                            !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
-                        if (document.documentElement.requestFullscreen) {
-                            document.documentElement.requestFullscreen();
-                        } else if (document.documentElement.msRequestFullscreen) {
-                            document.documentElement.msRequestFullscreen();
-                        } else if (document.documentElement.mozRequestFullScreen) {
-                            document.documentElement.mozRequestFullScreen();
-                        } else if (document.documentElement.webkitRequestFullscreen) {
-                            document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-                        }
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        } else if (document.msExitFullscreen) {
-                            document.msExitFullscreen();
-                        } else if (document.mozCancelFullScreen) {
-                            document.mozCancelFullScreen();
-                        } else if (document.webkitExitFullscreen) {
-                            document.webkitExitFullscreen();
-                        }
-                    }
-                });
-                $('#icon_nightmode').mouseover(function() {
-                    util.byIdShowHide('label_nightmode', true);
-                });
-                $('#icon_nightmode').mouseout(function() {
-                    util.byIdShowHide('label_nightmode', false);
-                });
-                // START: CLICK EN #BUTTON-NIGHT CAMBIA EL COLOR DEL FONDO Y DE LA LETRA
-                $('#icon_nightmode').click(function() {
-                    $('.lecture_main').toggleClass("night");
-                    return false;
-                });
-
-                /**
-                 * opciones del toolbox de lectura: seleccionar, resaltar, limpiar, crear nota
-                 */
-                $('.lecture').mouseup(myLecture.floatMenu);
-                $('#add_note').mousedown(myLecture.addNote);
-                //resalta texto
-                $('#highlighter').click(myLecture.highlighter);
-                //limpia el texto resaltado
-                $('#unhighlight').click(myLecture.unHighlight);
-                $('#btn_guardar').click(myLecture.saveNote);
-                $('#btn_cancelar').click(myLecture.closeNote);
-                // START: SMOOTH SCROLLING ON CLICK
-                $('#down-scroll').click(function() {
-                    $('html, body').animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top
-                    }, 500);
-                    return false;
-                });
-                // END: SMOOTH SCROLLING ON CLICK
-                //localstorage
-            });
-        </script>
+        <!-- Add fancyBox -->
+        <link rel="stylesheet" href="public/js/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="public/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     </body>
 </html>

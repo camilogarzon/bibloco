@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="8px" height="9px" viewBox="0 0 8 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>medium-size-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-4-Copy" sketch:type="MSArtboardGroup" transform="translate(-192.000000, -774.000000)" fill="#FFFFFF">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(-23.000000, 765.000000)">
+                <g id="Rectangle-342-+-Shape-Copy-+-Rectangle-342-Copy-2-+-Shape-Copy-Copy-+-Rectangle-342-Copy-+-Shape-Copy-2-Copy" transform="translate(181.250000, 3.625000)" sketch:type="MSShapeGroup">
+                    <g id="Rectangle-342-Copy-2-+-Shape-Copy-Copy" transform="translate(27.791667, 0.000000)">
+                        <path d="M11.1506244,5.57671402 C11.1168489,5.48390467 11.0535198,5.4375 10.960637,5.4375 L9.3267663,5.4375 C9.23388358,5.4375 9.17055446,5.48390467 9.13677892,5.57671402 L6.65427722,13.7270624 C6.63738945,13.8029973 6.64583333,13.8577772 6.67960887,13.891526 C6.7133844,13.9421493 6.76826964,13.967523 6.84426459,13.967523 L8.3135003,13.967523 C8.4148269,13.967523 8.47815602,13.9211183 8.50348767,13.8283089 L8.9214599,12.3602338 L11.3659848,12.3602338 L11.7839571,13.8283089 C11.8092887,13.9211183 11.8683959,13.967523 11.9612786,13.967523 L13.4431801,13.967523 L13.4557839,13.967523 C13.5064472,13.967523 13.5508396,13.9506279 13.5888371,13.9168997 C13.6268346,13.8831715 13.6458333,13.8367462 13.6458333,13.7776857 C13.6458333,13.7608526 13.6373688,13.7271037 13.6204396,13.6764391 L11.1506244,5.57671402 L11.1506244,5.57671402 Z M9.30143465,10.7782562 L10.1373791,7.7914826 L10.9859894,10.7782562 L9.30143465,10.7782562 L9.30143465,10.7782562 Z" id="medium-size-icon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

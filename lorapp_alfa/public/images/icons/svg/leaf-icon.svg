@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>leaf-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-4-Copy" sketch:type="MSArtboardGroup" transform="translate(-373.000000, -20.000000)" fill="#8192A1">
+            <path d="M377.984399,21.790787 C374.161504,24.038566 374.380944,27.6997965 374.512568,29.054464 C379.450265,23.1274138 386.836007,23.4148474 386.836007,23.4148474 C386.836007,23.4148474 376.366505,27.0539832 373.291546,34.3515117 C373.048702,34.927595 374.430953,35.6767871 374.74641,34.9957034 C375.687981,32.966236 377.00002,31.4441355 377.00002,31.4441355 C378.935772,32.1740708 382.28438,33.0294795 384.657811,31.337108 C387.810384,29.0889236 387.488125,24.1052555 391.988543,21.6786919 C393.039734,21.1121357 383.16714,18.7431399 377.984399,21.790787 L377.984399,21.790787 Z" id="leaf-icon" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
