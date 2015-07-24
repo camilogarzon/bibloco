@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>sepia-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-4" sketch:type="MSArtboardGroup" transform="translate(-493.000000, -408.000000)" stroke="#000000" stroke-opacity="0.2" fill="#FAF5D3">
+            <g id="Group-Copy-7" sketch:type="MSLayerGroup" transform="translate(0.000000, 393.000000)">
+                <g id="Rectangle-341-Copy-2-+-crescent33-+-Rectangle-341-Copy-3-+-Oval-1578-+-Rectangle-341-Copy-+-expand42" transform="translate(473.000000, 7.000000)" sketch:type="MSShapeGroup">
+                    <g id="Rectangle-341-Copy-3-+-Oval-1578" transform="translate(12.000000, 0.000000)">
+                        <circle id="sepia-icon" cx="18" cy="18" r="10"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

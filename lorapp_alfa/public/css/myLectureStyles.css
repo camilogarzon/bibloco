@@ -49,7 +49,7 @@ body.mac .bodyText {
 	font-size: 0.85em;
 }
 body.mac .bodyText p {
-	line-height: 1.8;
+	line-height: 1.7;
 }
 body.mac .bodyText {
 	margin-top: 2.35em;
@@ -71,6 +71,7 @@ body.mac .bodyText h6 {
 	margin-top: .77em;
 }
 body.mac .bodyText blockquote {
+	font-size: 1.1em;
 	margin-bottom: 1.35em;
 	margin-top: 0;
 	padding-bottom: 0em;
@@ -85,10 +86,16 @@ body.mac .bodyText blockquote p {
 
 /*For PCs*/
 body.pc .bodyText {
-	font-family: 'Lato', 'sans-serif';
+	color: rgba(40,40,40,1);
+	font-family: 'Merriweather', 'serif';
+	/*font-family: 'Lato', 'sans-serif';*/
 	font-size: 0.9em;
-	text-shadow:0 0 1px transparent; /*test for better font rendering in Windows*/
+	text-shadow: 0 0 0 rgba(0,0,0,.9); /*test for better font rendering in Windows*/
 }
+body.pc .bodyText p {
+	line-height: 1.8;
+}
+
 
 
 
@@ -440,7 +447,7 @@ ol {
 body,
 li p,
 ol p {
-	color: rgba(0,0,0,.85);
+	color: rgba(0,0,0,.9);
 }
 .bodyText a {
 	text-decoration: underline;
@@ -469,8 +476,7 @@ ol p {
 	display: inline-block;
 	margin: 0;
 	max-width: 29em; /*reading width*/
-	padding-left: 4.5em;
-	padding-right: 4.5em;
+	padding: 0 6%;
 	position: relative;
 	/*-webkit-transition: background-color .2s;
 	        transition: background-color .2s;*/
@@ -490,6 +496,16 @@ ol p {
 
 
 
+
+
+/*Full-width mode */
+.reading-wrapper.reading-full-width {
+	max-width: initial;
+	/*font-size: 1.4em;*/
+}
+body.mac .reading-wrapper.reading-full-width p {
+	line-height: 1.6;
+}
 
 
 
@@ -577,12 +593,17 @@ ol p {
 	background-color: #CCC;
 	box-shadow: inset 0px -1px 0px #DDD, inset 0px 1px 0px #AAA;
 }
+.wideness-btn-div div {
+	cursor: pointer;
+	padding: 7px;
+}
 .sizes-btn-div2 div {
 	cursor: pointer;
 	height: 25px; /* same height as .nav-menu */
 	width: 25px;
 }
-.sizes-btn-div2 div:hover img {
+.sizes-btn-div2 div:hover img,
+.wideness-btn-div div:hover img {
 	opacity: 1;
 }
 .size-small-div img {
@@ -597,6 +618,8 @@ ol p {
 .size-large-div {
 	padding: 0 2px;
 }
+.wide-btn-div.active img,
+.narrow-btn-div.active img,
 .size-small-div.active img,
 .size-medium-div.active img,
 .size-large-div.active img {
@@ -752,7 +775,7 @@ ol p {
 	border-left: 1px solid rgba(255,255,255,.08);
 	border-right: 1px solid rgba(0,0,0,1);
 	max-width: 29em;
-	padding: .6em 4.5em;
+	padding: .6em 6%;
 	text-align: left;
 	width: 100000px;
 }
@@ -804,7 +827,6 @@ ol p {
     /*word-spacing: 0.02em;*/
 }
 .bodyText blockquote {
-	font-size: 1em;
 	line-height: 1.524em;
 	margin-top: .2em; 
 	margin-bottom: 1.17em;
@@ -897,7 +919,7 @@ blockquote p.author {
 	border-bottom: 0.15em solid rgba(255,255,255,0);
 	border-radius: 4px;
 	margin-right: -.3em; /*same as the negative of .bodyText .sentence padding right*/
-	padding: .19em .3em .19em 0; /*this makes the highlighted <p> appear one block and not many lines*/
+	padding: .27em .3em 0em 0; /*this makes the highlighted <p> appear one block and not many lines*/
 	-webkit-transition: border-color 0s, border-color .5s, background-color 1s; 
 	        transition: border-color 0s, border-color .5s, background-color 1s;
 }
@@ -927,7 +949,7 @@ body .reading-wrapper .bodyText .highlight {
 	margin: -.2em;
 }
 .popular-highlight {
-	background: rgba(80, 80, 80, .1);
+	background: rgba(80, 80, 80, .15);
 }
 .sup {
 	cursor: pointer;
@@ -978,7 +1000,6 @@ body .reading-wrapper .bodyText .highlight {
 .night .bodyText figcaption,
 .night .bodyText li {
 	color: #FFF;
-	font-weight: 300;
 	letter-spacing: 0.01em;
 }
 .night .popular-highlight {
@@ -1232,6 +1253,7 @@ body .reading-wrapper .bodyText .highlight {
 	height: 100%;
 	left: -450px; /*same as .my-readings-wrapper width*/
 	top: 0;
+	padding-bottom: 141px;
 	position: fixed;
 	width: 450px;
 	z-index: 1100;
@@ -1241,12 +1263,7 @@ body .reading-wrapper .bodyText .highlight {
 }
 .my-readings-list {
 	height: 100%;
-	padding-bottom: 116px;
 	overflow-y: scroll;
-	width: 100%;
-}
-.list-book-container div {
-	border-bottom: 1px solid #F4F4F6;
 	width: 100%;
 }
 .my-readings-header {
@@ -1266,8 +1283,9 @@ body .reading-wrapper .bodyText .highlight {
 .my-readings-header {
 	padding: 17px 15px;
 }
-.list-book-container {
-	margin-bottom: 25px;
+.list-book-container div {
+	border-bottom: 1px solid #F4F4F6;
+	width: 100%;
 }
 .list-book-title {
 	font-size: 18px;
@@ -1388,7 +1406,7 @@ body .reading-wrapper .bodyText .highlight {
 }
 .notesMainWrapper .titleWrapper {
 	background-color: transparent;
-	color: rgba(0,0,0,.85);
+	color: rgba(0,0,0,.9);
 	padding-bottom: .5em;
 }
 .notesMainWrapper .chapterTitle {
@@ -1428,7 +1446,11 @@ body .reading-wrapper .bodyText .highlight {
 .notesMainWrapper .bodyText p {
 	text-indent: 0;
 }
-.notesHighlight {
+.bodyText .notesGroup {
+	margin: 0 0 .8em 0em;
+	position: relative;
+}
+.bodyText .notesGroup .notesHighlight {
 	background-color: rgba(255,239,80,.075);
 	border-bottom: 1px solid rgba(255,239,80,0);
 	border-right: 1px solid rgba(255,239,80,1);
@@ -1438,7 +1460,8 @@ body .reading-wrapper .bodyText .highlight {
     -webkit-transition: border .4s, background .4s, color .4s;
             transition: border .4s, background .4s, color .4s;
 }
-.notesNote {
+.bodyText .notesGroup .notesNote {
+	-webkit-font-smoothing: auto; /*text smoothing*/
 	border-right: 1px solid rgba(0,0,0,.075);
 	border-bottom: 1px solid rgba(0,0,0,.075);
 	border-left: 4px solid rgba(0,0,0,.075);
@@ -1448,15 +1471,11 @@ body .reading-wrapper .bodyText .highlight {
 	-webkit-transition: border .4s, background .4s, color .4s;
 	        transition: border .4s, background .4s, color .4s;
 }
-.notesGroup {
-	margin: 0 0 .8em 0em;
-	position: relative;
-}
-.notesHighlight:first-letter,
-.notesNote:first-letter {
+.bodyText .notesHighlight:first-letter,
+.bodyText .notesNote:first-letter {
 	text-transform: capitalize;
 }
-.notesNote:hover {
+.bodyText .notesNote:hover {
 	background: rgba(0, 154, 234, .05);
 	border-bottom: 1px dashed rgb(0, 154, 234);
 	border-left: 4px solid rgb(0, 154, 234);
@@ -1467,10 +1486,10 @@ body .reading-wrapper .bodyText .highlight {
 	-webkit-transition: all .4s;
 	        transition: all .4s;
 }
-.notesGroup .notesHighlight:only-child {
+.bodyText .notesGroup .notesHighlight:only-child {
 	border-bottom: 1px solid rgba(255,239,80,1); /* Si hay un resaltado sin nota tiene border-bottom */
 }
-.notesGroup .delete-note-icon img {
+.bodyText .notesGroup .delete-note-icon img {
 	border: none;
 	height: 15px;
 	margin: 2px; 
@@ -1481,11 +1500,11 @@ body .reading-wrapper .bodyText .highlight {
 	-webkit-transition: all .4s;
 	        transition: all .4s;
 }
-.notesGroup:hover .delete-note-icon img {
+.bodyText .notesGroup:hover .delete-note-icon img {
 	opacity: .15;
 }
-.delete-note-icon:hover + div p,
-.delete-note-icon:hover + div figure {
+.bodyText .delete-note-icon:hover + div p,
+.bodyText .delete-note-icon:hover + div figure {
 	background: rgba(255,0,0,.03);
 	border-left: 4px solid rgba(255,0,0,.2);
 	border-right: 1px solid rgba(255,0,0,.2);
@@ -1493,13 +1512,13 @@ body .reading-wrapper .bodyText .highlight {
 	-webkit-transition: all .4s;
 	        transition: all .4s;
 }
-.delete-note-icon:hover + div .notesHighlight {
+.bodyText .delete-note-icon:hover + div .notesHighlight {
 	color: rgba(80, 0, 0, 0.9);
 }
-.delete-note-icon:hover + div p:nth-child(2) {
+.bodyText .delete-note-icon:hover + div p:nth-child(2) {
 	border-bottom: 1px solid rgba(255,0,0,.2);
 }
-.delete-note-icon:hover + div p:only-child {
+.bodyText .delete-note-icon:hover + div p:only-child {
 	border-bottom: 1px solid rgba(255,0,0,.2);
 }
 
@@ -1761,8 +1780,6 @@ body .reading-wrapper .bodyText .highlight {
 	}
 	.current-chapter {
 		border: none;
-		padding-left: 6%;
-		padding-right: 6%;
 	}
 }
 @media (max-width : 1000px) {
@@ -1794,7 +1811,8 @@ body .reading-wrapper .bodyText .highlight {
 		border: none;
 	}
 	.back-btn-text,
-	.brightness-bar {
+	.brightness-bar,
+	.wideness-btn-div {
 		display: none;
 	}
 }

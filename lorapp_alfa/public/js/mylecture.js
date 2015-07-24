@@ -395,9 +395,3 @@ var setTimer = function(cb, options) {
 
     return timer;
 };
-
-
-
-
-
-

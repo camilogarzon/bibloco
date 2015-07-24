@@ -319,12 +319,15 @@ $(document).scroll(function() {
 
 
 // START: Click on size buttons changes body font-size
+var currentSize = 'medium';
+
 $('.size-small-div').click(function() {
     $('body').css({'font-size': '1.125em'});
     $('.size-small-div').removeClass('active');
     $('.size-medium-div').removeClass('active');
     $('.size-large-div').removeClass('active');
     $(this).addClass('active');
+    currentSize = 'small';
 
     // Rerun info calculations for correct % read and minutes left.
     height = $(document).height(); 
@@ -340,6 +343,7 @@ $('.size-medium-div').click(function() {
     $('.size-medium-div').removeClass('active');
     $('.size-large-div').removeClass('active');
     $(this).addClass('active');
+    currentSize = 'medium';
 
     // Rerun info calculations for correct % read and minutes left.
     height = $(document).height(); 
@@ -355,6 +359,7 @@ $('.size-large-div').click(function() {
     $('.size-medium-div').removeClass('active');
     $('.size-large-div').removeClass('active');
     $(this).addClass('active');
+    currentSize = 'large';
 
     // Rerun info calculations for correct % read and minutes left.
     height = $(document).height(); 
@@ -421,7 +426,70 @@ $('.footer-logo').on('click',
             $('body').addClass('blurred');
         }
 });
-// START: TESTING Click en logo Lorapp le agrega o elimina clase .blurred al body
+// END: TESTING Click en logo Lorapp le agrega o elimina clase .blurred al body
+
+// START: TESTING Click en título de capítulo lleva a full-width
+$('.wide-btn-div').on('click',
+    function () {
+        // if the button is clicked when active
+        $('.reading-wrapper').addClass('reading-full-width');
+        $('.narrow-btn-div').removeClass('active');
+        $(this).addClass('active');
+
+        // Set font-size to large
+        // $('body').css({'font-size': '1.575em'});
+        // $('.size-small-div').removeClass('active');
+        // $('.size-medium-div').removeClass('active');
+        // $('.size-large-div').removeClass('active');
+        // $('.size-large-div').addClass('active');
+        
+        // Rerun info calculations for correct % read and minutes left.
+        height = $(document).height(); 
+        scrollTop = $(document).scrollTop();
+        percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+        $('.reading-percentage-data').html(percentageRead);
+            var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+        $('.minutes-left-data').html(minutesLeft);
+});
+
+$('.narrow-btn-div').on('click',
+    function () {
+        // if the button is clicked when active
+        $('.reading-wrapper').removeClass('reading-full-width');
+        $('.wide-btn-div').removeClass('active');
+        $(this).addClass('active');
+        // Return to previous size
+        // if (currentSize == 'medium') {
+        //     $('body').css({'font-size': '1.35em'});
+        //     $('.size-small-div').removeClass('active');
+        //     $('.size-medium-div').removeClass('active');
+        //     $('.size-large-div').removeClass('active');
+        //     $('.size-medium-div').addClass('active');
+        // }
+        // else if (currentSize == 'large') {
+        //     $('body').css({'font-size': '1.575em'});
+        //     $('.size-small-div').removeClass('active');
+        //     $('.size-medium-div').removeClass('active');
+        //     $('.size-large-div').removeClass('active');
+        //     $('.size-large-div').addClass('active');
+        // }
+        // else {
+        //     $('body').css({'font-size': '1.125em'});
+        //     $('.size-small-div').removeClass('active');
+        //     $('.size-medium-div').removeClass('active');
+        //     $('.size-large-div').removeClass('active');
+        //     $('.size-small-div').addClass('active');
+        //     currentSize = 'small';
+        // }
+        // Rerun info calculations for correct % read and minutes left.
+        height = $(document).height(); 
+        scrollTop = $(document).scrollTop();
+        percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+        $('.reading-percentage-data').html(percentageRead);
+            var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+        $('.minutes-left-data').html(minutesLeft);
+});
+// END: TESTING Click en título de capítulo lleva a full-width
 
 // START: Initialize bootstrap popovers on hover and tooltips
 $(function () {
