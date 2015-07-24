@@ -10,50 +10,50 @@
 $(document).ready(function() {
     global.url = "http://beta.lorapp.com/alfa/lorapp/public";
     global.session = "fd76b9c6558b584160eed3d9685514f4541ba28a";
-    
+
     // START: If user is on a Mac, add class .mac to the body, else add class .pc
     if (navigator.userAgent.indexOf('Mac OS X') != -1) {
-      $("body").addClass("mac");
+        $("body").addClass("mac");
     } else {
-      $("body").addClass("pc");
+        $("body").addClass("pc");
     }
     // END: If user is on a Mac, add class .mac to the body, else add class .pc
 
     /**
-    * click en botón agregar apunte hace slide de casilla de apuntes
-    */
-    $("#take-note").click(function(event) { 
-        
+     * click en botón agregar apunte hace slide de casilla de apuntes
+     */
+    $("#take-note").click(function(event) {
+
         event.preventDefault();
         $(".add-note-wrapper").animate({
-            bottom:"0%"
+            bottom: "0%"
         }, 500);
     });
 
 
-    $(".show-my-notes-btn").click( function(event){
+    $(".show-my-notes-btn").click(function(event) {
         /**
-        * click en botón apuntes hace slide de apuntes
-        */
+         * click en botón apuntes hace slide de apuntes
+         */
         event.preventDefault();
         // $('.notesMainWrapper').css('left', 'auto');
         $(".notesMainWrapper").animate({
-            right:"0"
+            right: "0"
         }, 500);
         // Se bloquea el scroll del body mientras los apuntes se muestren
         $("body").addClass("stop-scrolling");
-        
+
         $('.closer-box').fadeIn(500);
-        $('.left-close-icon').fadeIn(500); 
+        $('.left-close-icon').fadeIn(500);
     });
 
     /**
-    * click en botón .show-my-readings-btn hace slide de menú lateral
-    */
-    $(".show-my-readings-btn").click(function(event) {   
+     * click en botón .show-my-readings-btn hace slide de menú lateral
+     */
+    $(".show-my-readings-btn").click(function(event) {
         event.preventDefault();
         $(".my-readings-wrapper").animate({
-            left:"0"
+            left: "0"
         }, 500);
         // Se bloquea el scroll del body mientras el menú lateral se muestre
         $("body").addClass("stop-scrolling");
@@ -63,15 +63,15 @@ $(document).ready(function() {
 
 
     /**
-    * click en el botón X o en la sección oscurecida que sale en los menus laterales los cierra
-    */
-    $(".closer-box, .right-close-icon, .left-close-icon").click(function(event) {   
+     * click en el botón X o en la sección oscurecida que sale en los menus laterales los cierra
+     */
+    $(".closer-box, .right-close-icon, .left-close-icon").click(function(event) {
         event.preventDefault();
         $(".my-readings-wrapper").animate({
-            left:"-450px"
+            left: "-450px"
         }, 500);
         $(".notesMainWrapper").animate({
-            right:"-650px"
+            right: "-650px"
         }, 500);
         // Se desbloquea el scroll del body
         $("body").removeClass("stop-scrolling");
@@ -135,11 +135,11 @@ $(document).ready(function() {
             }
         }
     });
-    
+
 
 
     // START: Click en botones de color ajusta estilos
-    $('.color-light-btn').on('click', function () {
+    $('.color-light-btn').on('click', function() {
         if ($('body').hasClass('sepia')) {
             $('body').removeClass('sepia');
         }
@@ -152,7 +152,7 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
 
-    $('.color-sepia-btn').on('click', function () {
+    $('.color-sepia-btn').on('click', function() {
         if ($('body').hasClass('night')) {
             $('body').removeClass('night');
             $('body').addClass('sepia');
@@ -166,7 +166,7 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
 
-    $('.color-night-btn').on('click', function () {
+    $('.color-night-btn').on('click', function() {
         if ($('body').hasClass('sepia')) {
             $('body').removeClass('sepia');
             $('body').addClass('night');
@@ -211,21 +211,23 @@ $(document).ready(function() {
 
 
 // START: Click on brightness buttons changes .brightness opacity
-$('.increase-brightness-btn').click(function(){
-    brightness= ($('.brightness').css('opacity'))
-    if(brightness>0) {
-        brightness= (parseFloat($('.brightness').css('opacity')) - 0.175).toFixed(3);
+$('.increase-brightness-btn').click(function() {
+    brightness = ($('.brightness').css('opacity'))
+    if (brightness > 0) {
+        brightness = (parseFloat($('.brightness').css('opacity')) - 0.175).toFixed(3);
         $('.brightness').css('opacity', brightness);
         $('.brightness-bar2.full-bar + .brightness-bar2').addClass('full-bar');
-    };
+    }
+    ;
 });
 $('.decrease-brightness-btn').click(function() {
-    brightness= ($('.brightness').css('opacity'))
-    if (brightness<=0.526) {
-        brightness= (parseFloat($('.brightness').css('opacity')) + 0.175).toFixed(3);
+    brightness = ($('.brightness').css('opacity'))
+    if (brightness <= 0.526) {
+        brightness = (parseFloat($('.brightness').css('opacity')) + 0.175).toFixed(3);
         $('.brightness').css('opacity', brightness);
         $('.full-bar:last').removeClass('full-bar');
-    };
+    }
+    ;
     // (BUG FIX) If user clicks during transition from 0.6 to 0.8 brightess 
     // stays in 0.8 and first bar regains full-bar class
     // if (brightness>0.6) {
@@ -237,45 +239,45 @@ $('.decrease-brightness-btn').click(function() {
 
 // Brightness bars change .brightness opacity and get full or empty
 $('.brightness-bar2:nth-child(2)').click(function() {
-        $('.brightness').css({opacity: 0.7});
-        $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(3)').removeClass('full-bar');
-        $('.brightness-bar2:nth-child(4)').removeClass('full-bar');
-        $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
-        $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
-    });
+    $('.brightness').css({opacity: 0.7});
+    $('.brightness-bar2:nth-child(2)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(3)').removeClass('full-bar');
+    $('.brightness-bar2:nth-child(4)').removeClass('full-bar');
+    $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
+    $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
+});
 $('.brightness-bar2:nth-child(3)').click(function() {
-        $('.brightness').css({opacity: 0.525});
-        $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(3)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(4)').removeClass('full-bar');
-        $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
-        $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
-    });
+    $('.brightness').css({opacity: 0.525});
+    $('.brightness-bar2:nth-child(2)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(3)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(4)').removeClass('full-bar');
+    $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
+    $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
+});
 $('.brightness-bar2:nth-child(4)').click(function() {
-        $('.brightness').css({opacity: 0.35});
-        $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(3)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(4)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
-        $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
-    });
+    $('.brightness').css({opacity: 0.35});
+    $('.brightness-bar2:nth-child(2)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(3)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(4)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
+    $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
+});
 $('.brightness-bar2:nth-child(5)').click(function() {
-        $('.brightness').css({opacity: 0.175});
-        $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(3)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(4)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(5)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
-    });
+    $('.brightness').css({opacity: 0.175});
+    $('.brightness-bar2:nth-child(2)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(3)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(4)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(5)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
+});
 $('.brightness-bar2:nth-child(6)').click(function() {
-        $('.brightness').css({opacity: 0});
-        $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(3)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(4)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(5)').addClass('full-bar');
-        $('.brightness-bar2:nth-child(6)').addClass('full-bar');
-    });
+    $('.brightness').css({opacity: 0});
+    $('.brightness-bar2:nth-child(2)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(3)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(4)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(5)').addClass('full-bar');
+    $('.brightness-bar2:nth-child(6)').addClass('full-bar');
+});
 // END: Click on brightness buttons changes .brightness opacity
 
 
@@ -286,15 +288,15 @@ $('.brightness-bar2:nth-child(6)').click(function() {
 var height = $(document).height();
 var viewportHeight = $(window).height();
 var scrollTop = $(document).scrollTop();
-var percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+var percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
 // print percentageRead in html
-$('.reading-percentage-data').html(percentageRead);        
+$('.reading-percentage-data').html(percentageRead);
 
 $(document).scroll(function() {
-    height = $(document).height(); 
+    height = $(document).height();
     viewportHeight = $(window).height();
     scrollTop = $(document).scrollTop();
-    percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+    percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
 
     // update percentageRead in html on scroll
     $('.reading-percentage-data').html(percentageRead);
@@ -304,14 +306,14 @@ $(document).scroll(function() {
 
 // START: Calculate reading minutes remaining
 var words = $('.bodyText').text()
-    , wordCount = words.replace(/[^\w ]/g, "").split(/\s+/).length;
+        , wordCount = words.replace(/[^\w ]/g, "").split(/\s+/).length;
 var averageWordsPerMin = 250;
-var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
 // print minutesLeft in html
 $('.minutes-left-data').html(minutesLeft);
 
 $(document).scroll(function() {
-    var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+    var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
     // update minutesLeft in html on scroll
     $('.minutes-left-data').html(minutesLeft);
 });
@@ -327,11 +329,11 @@ $('.size-small-div').click(function() {
     $(this).addClass('active');
 
     // Rerun info calculations for correct % read and minutes left.
-    height = $(document).height(); 
+    height = $(document).height();
     scrollTop = $(document).scrollTop();
-    percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+    percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
     $('.reading-percentage-data').html(percentageRead);
-        var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+    var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
     $('.minutes-left-data').html(minutesLeft);
 });
 $('.size-medium-div').click(function() {
@@ -342,11 +344,11 @@ $('.size-medium-div').click(function() {
     $(this).addClass('active');
 
     // Rerun info calculations for correct % read and minutes left.
-    height = $(document).height(); 
+    height = $(document).height();
     scrollTop = $(document).scrollTop();
-    percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+    percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
     $('.reading-percentage-data').html(percentageRead);
-        var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+    var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
     $('.minutes-left-data').html(minutesLeft);
 });
 $('.size-large-div').click(function() {
@@ -357,15 +359,15 @@ $('.size-large-div').click(function() {
     $(this).addClass('active');
 
     // Rerun info calculations for correct % read and minutes left.
-    height = $(document).height(); 
+    height = $(document).height();
     scrollTop = $(document).scrollTop();
-    percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+    percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
     $('.reading-percentage-data').html(percentageRead);
-        var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+    var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
     $('.minutes-left-data').html(minutesLeft);
 });
 // END: Click on size buttons changes body font-size
-    
+
 // START: .reading-info-box, .menu-tip and .nav-menu opacity is 1 if mouse moves, then fade away
 // $(window).on("mousemove",function(e){
 //     $(".reading-info-box").css({opacity:1});
@@ -386,10 +388,61 @@ $('.size-large-div').click(function() {
 
 // START: Autogrow.js textareas enlarge as user keeps typing
 /* autogrow.js - Copyright (C) 2014, Jason Edelman <edelman.jason@gmail.com>
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
-;(function(e){e.fn.autogrow=function(t){function s(n){var r=e(this),i=r.innerHeight(),s=this.scrollHeight,o=r.data("autogrow-start-height")||0,u;if(i<s){this.scrollTop=0;t.animate?r.stop().animate({height:s},t.speed):r.innerHeight(s)}else if(!n||n.which==8||n.which==46||n.ctrlKey&&n.which==88){if(i>o){u=r.clone().addClass(t.cloneClass).css({position:"absolute",zIndex:-10,height:""}).val(r.val());r.after(u);do{s=u[0].scrollHeight-1;u.innerHeight(s)}while(s===u[0].scrollHeight);s++;u.remove();r.focus();s<o&&(s=o);i>s&&t.animate?r.stop().animate({height:s},t.speed):r.innerHeight(s)}else{r.innerHeight(o)}}}var n=e(this).css({overflow:"hidden",resize:"none"}),r=n.selector,i={context:e(document),animate:true,speed:200,fixMinHeight:true,cloneClass:"autogrowclone",onInitialize:false};t=e.isPlainObject(t)?t:{context:t?t:e(document)};t=e.extend({},i,t);n.each(function(n,r){var i,o;r=e(r);if(r.is(":visible")||parseInt(r.css("height"),10)>0){i=parseInt(r.css("height"),10)||r.innerHeight()}else{o=r.clone().addClass(t.cloneClass).val(r.val()).css({position:"absolute",visibility:"hidden",display:"block"});e("body").append(o);i=o.innerHeight();o.remove()}if(t.fixMinHeight){r.data("autogrow-start-height",i)}r.css("height",i);if(t.onInitialize){s.call(r)}});t.context.on("keyup paste",r,s);return n}})(jQuery);
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
+;
+(function(e) {
+    e.fn.autogrow = function(t) {
+        function s(n) {
+            var r = e(this), i = r.innerHeight(), s = this.scrollHeight, o = r.data("autogrow-start-height") || 0, u;
+            if (i < s) {
+                this.scrollTop = 0;
+                t.animate ? r.stop().animate({height: s}, t.speed) : r.innerHeight(s)
+            } else if (!n || n.which == 8 || n.which == 46 || n.ctrlKey && n.which == 88) {
+                if (i > o) {
+                    u = r.clone().addClass(t.cloneClass).css({position: "absolute", zIndex: -10, height: ""}).val(r.val());
+                    r.after(u);
+                    do {
+                        s = u[0].scrollHeight - 1;
+                        u.innerHeight(s)
+                    } while (s === u[0].scrollHeight);
+                    s++;
+                    u.remove();
+                    r.focus();
+                    s < o && (s = o);
+                    i > s && t.animate ? r.stop().animate({height: s}, t.speed) : r.innerHeight(s)
+                } else {
+                    r.innerHeight(o)
+                }
+            }
+        }
+        var n = e(this).css({overflow: "hidden", resize: "none"}), r = n.selector, i = {context: e(document), animate: true, speed: 200, fixMinHeight: true, cloneClass: "autogrowclone", onInitialize: false};
+        t = e.isPlainObject(t) ? t : {context: t ? t : e(document)};
+        t = e.extend({}, i, t);
+        n.each(function(n, r) {
+            var i, o;
+            r = e(r);
+            if (r.is(":visible") || parseInt(r.css("height"), 10) > 0) {
+                i = parseInt(r.css("height"), 10) || r.innerHeight()
+            } else {
+                o = r.clone().addClass(t.cloneClass).val(r.val()).css({position: "absolute", visibility: "hidden", display: "block"});
+                e("body").append(o);
+                i = o.innerHeight();
+                o.remove()
+            }
+            if (t.fixMinHeight) {
+                r.data("autogrow-start-height", i)
+            }
+            r.css("height", i);
+            if (t.onInitialize) {
+                s.call(r)
+            }
+        });
+        t.context.on("keyup paste", r, s);
+        return n
+    }
+})(jQuery);
 // END: Autogrow.js textareas enlarge as user keeps typing
 
 
@@ -400,47 +453,47 @@ $('.note-input').autogrow({onInitialize: true});
 
 // START: Click en una frase le agrega o elimina clase .highlight
 $('.bodyText .sentence').on('click',
-    function () {
-        if ($(this).hasClass("highlight")) {
-            $(this).removeClass("highlight");
-        }
-        else {
-            $(this).addClass("highlight");
-        }
-});
+        function() {
+            if ($(this).hasClass("highlight")) {
+                $(this).removeClass("highlight");
+            }
+            else {
+                $(this).addClass("highlight");
+            }
+        });
 // END: Click en una frase le agrega o elimina clase .highlight
 
 
 // START: TESTING Click en logo Lorapp le agrega o elimina clase .blurred al body -Borrar en versión abierta al público
 $('.footer-logo').on('click',
-    function () {
-        if ($('body').hasClass('blurred')) {
-            $('body').removeClass('blurred');
-        }
-        else {
-            $('body').addClass('blurred');
-        }
-});
+        function() {
+            if ($('body').hasClass('blurred')) {
+                $('body').removeClass('blurred');
+            }
+            else {
+                $('body').addClass('blurred');
+            }
+        });
 // START: TESTING Click en logo Lorapp le agrega o elimina clase .blurred al body
 
 // START: Initialize bootstrap popovers on hover and tooltips
-$(function () {
-  $('[data-toggle="popover"]').popover({ trigger: "hover" });
-  $('[data-toggle="tooltip"]').tooltip();
+$(function() {
+    $('[data-toggle="popover"]').popover({trigger: "hover"});
+    $('[data-toggle="tooltip"]').tooltip();
 });
 // END: Initialize bootstrap popovers on hover and tooltips
 
 // START: Initialize Fancybox with overlay not locked to fix bug that made page jump to top when using fancybox
-    $(document).ready(function() {
-        $(".fancybox").fancybox({
-          // padding: 0,
-          helpers: {
+$(document).ready(function() {
+    $(".fancybox").fancybox({
+        // padding: 0,
+        helpers: {
             overlay: {
-              locked: false
+                locked: false
             }
-          }
-        });
+        }
     });
+});
 // END: Initialize Fancybox
 
 

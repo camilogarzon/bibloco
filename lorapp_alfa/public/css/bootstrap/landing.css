@@ -47,7 +47,7 @@ label {
 }
 .landing-p {
     font-size: 1.75em;
-    padding-bottom: .5em; 
+    padding-bottom: .5em;
 }
 section {
     min-height: 300px;
@@ -185,6 +185,7 @@ section {
     padding: 40px 0;
     display: block;
     margin: 0 auto;
+    width: 360px;
 }
 .features-text {
     width: 35%;
@@ -194,7 +195,7 @@ section {
 }
 .features-text div:nth-child(1),
 .features-text div:nth-child(2) {
-    margin-right: 1%; 
+    margin-right: 1%;
 }
 .features-text p {
     font-size: 1.4em;
@@ -251,10 +252,10 @@ section {
 }
 .section-7-text {
     -webkit-flex-direction: column;
-    flex-direction: column;    
+    flex-direction: column;
 }
 .section-7-text p {
-    font-size: 3em;    
+    font-size: 3em;
 }
 .section-8 {
     border-bottom: 1px solid #CCC;
@@ -292,7 +293,7 @@ section {
 .section-9 p {
     font-size: 1.5em;
     font-weight: 400;
-    margin: 0 0 .5em; 
+    margin: 0 0 .5em;
     text-align: center;
 }
 .signin-bottom-button {
@@ -335,14 +336,57 @@ footer span {
     right: 20px;
 }
 
-
+/*::::::::REPORT PROBLEM STYLES::::::::*/
+.report-problem-div {
+    background: rgba(200,200,200,1);
+    border: 1px solid #999;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    bottom: 0;
+    color: #000;
+    right: 20px;
+    display: inline-block;
+    opacity: .4;
+    overflow: hidden;
+    padding: 5px;
+    position: fixed;
+}
+.report-problem-div span {
+    display: none;
+    font-size: 1.2em;
+    font-weight: normal;
+    padding: 8px;
+    position: relative;
+    top: -5px;
+}
+.report-problem-div:hover {
+    background-color: rgba(0,0,0,.5);
+    border: 1px solid rgba(0,0,0,.0);
+    border-bottom: none;
+    opacity: 1;
+    transition: all .2s;
+}
+.report-problem-div:hover {
+    color: #FFF;
+}
+.report-problem-div:hover .warning-icon-fill {
+    fill: #FFC500;
+    transition: all .2s;
+}
+.report-problem-div:hover .report-problem-text {
+    display: initial;
+}
 
 /*::::::::FORM STYLE::::::::*/
 .form-style {
     font-weight: 400;
     display: inline-block;
     max-width: 350px;
-    min-width: 200px; 
+    min-width: 200px;
     padding: 10px 20px;
     background: #f4f7f8;
     margin: 10px auto;
@@ -376,9 +420,9 @@ footer span {
     outline: 0;
     padding: 7px;
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
     background-color: #e8eeef;
     color:#8a97a0;
     -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
@@ -438,8 +482,8 @@ footer span {
 }
 
 .slide_wrap {
-/*    background: #B7E8D4;
-    color: #605E6B;*/
+    /*    background: #B7E8D4;
+        color: #605E6B;*/
 }
 .slide_frame {
     height: 300px;
@@ -463,8 +507,8 @@ footer span {
 .slide_frame ul li.active {
     background: #FDBB38;
 }
-.slide_controls { 
-    text-align: center; 
+.slide_controls {
+    text-align: center;
 }
 .slide_item{
     width: 200px;
@@ -474,12 +518,10 @@ footer span {
     max-height: 100px;
     max-width: 100px;
 }
+
 .form-login input:last-child {
     margin-bottom: 0;
 }
-
-
-
 
 /*::::::::MEDIA QUERIES::::::::*/
 @media only screen and (max-width: 1115px) {
@@ -533,7 +575,7 @@ footer span {
         display: none;
     }
     .section-7-text p {
-        font-size: 2.4em;    
+        font-size: 2.4em;
     }
     .book-img {
         max-height: 150px;
@@ -643,14 +685,14 @@ footer span {
     }
     .section-9 h2 {
         font-size: 3em;
-        padding: 1.5em 0 .5em; 
+        padding: 1.5em 0 .5em;
     }
     .section-9 p {
         font-size: 2em;
         font-weight: 300;
     }
     .signin-bottom-button {
-        margin: 2em; 
+        margin: 2em;
         width: 200px;
     }
     footer span {
@@ -682,184 +724,184 @@ footer span {
     0%, 100% {
     }
     4% {
-     -webkit-transform: translateY(-8px);
+        -webkit-transform: translateY(-8px);
         -moz-transform: translateY(-8px);
-         -ms-transform: translateY(-8px);
-          -o-transform: translateY(-8px);
-             transform: translateY(-8px);
+        -ms-transform: translateY(-8px);
+        -o-transform: translateY(-8px);
+        transform: translateY(-8px);
     }
     8% {
-      -webkit-transform: translateY(8px);
-         -moz-transform: translateY(8px);
-          -ms-transform: translateY(8px);
-           -o-transform: translateY(8px);
-              transform: translateY(8px);
+        -webkit-transform: translateY(8px);
+        -moz-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        -o-transform: translateY(8px);
+        transform: translateY(8px);
     }
     12% {
-      -webkit-transform: translateY(0px);
-         -moz-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-           -o-transform: translateY(0px);
-              transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
     }
     16% {
-      -webkit-transform: translateY(-4px);
-         -moz-transform: translateY(-4px);
-          -ms-transform: translateY(-4px);
-           -o-transform: translateY(-4px);
-              transform: translateY(-4px);
+        -webkit-transform: translateY(-4px);
+        -moz-transform: translateY(-4px);
+        -ms-transform: translateY(-4px);
+        -o-transform: translateY(-4px);
+        transform: translateY(-4px);
     }
     20% {
-      -webkit-transform: translateY(4px);
-         -moz-transform: translateY(4px);
-          -ms-transform: translateY(4px);
-           -o-transform: translateY(4px);
-              transform: translateY(4px);
+        -webkit-transform: translateY(4px);
+        -moz-transform: translateY(4px);
+        -ms-transform: translateY(4px);
+        -o-transform: translateY(4px);
+        transform: translateY(4px);
     }
     24% {
-      -webkit-transform: translateY(0px);
-         -moz-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-           -o-transform: translateY(0px);
-              transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
     }
 }
 @-moz-keyframes bounceDown {
     0%, 100% {
     }
     4% {
-     -webkit-transform: translateY(-8px);
+        -webkit-transform: translateY(-8px);
         -moz-transform: translateY(-8px);
-         -ms-transform: translateY(-8px);
-          -o-transform: translateY(-8px);
-             transform: translateY(-8px);
+        -ms-transform: translateY(-8px);
+        -o-transform: translateY(-8px);
+        transform: translateY(-8px);
     }
     8% {
-      -webkit-transform: translateY(8px);
-         -moz-transform: translateY(8px);
-          -ms-transform: translateY(8px);
-           -o-transform: translateY(8px);
-              transform: translateY(8px);
+        -webkit-transform: translateY(8px);
+        -moz-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        -o-transform: translateY(8px);
+        transform: translateY(8px);
     }
     12% {
-      -webkit-transform: translateY(0px);
-         -moz-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-           -o-transform: translateY(0px);
-              transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
     }
     16% {
-      -webkit-transform: translateY(-4px);
-         -moz-transform: translateY(-4px);
-          -ms-transform: translateY(-4px);
-           -o-transform: translateY(-4px);
-              transform: translateY(-4px);
+        -webkit-transform: translateY(-4px);
+        -moz-transform: translateY(-4px);
+        -ms-transform: translateY(-4px);
+        -o-transform: translateY(-4px);
+        transform: translateY(-4px);
     }
     20% {
-      -webkit-transform: translateY(4px);
-         -moz-transform: translateY(4px);
-          -ms-transform: translateY(4px);
-           -o-transform: translateY(4px);
-              transform: translateY(4px);
+        -webkit-transform: translateY(4px);
+        -moz-transform: translateY(4px);
+        -ms-transform: translateY(4px);
+        -o-transform: translateY(4px);
+        transform: translateY(4px);
     }
     24% {
-      -webkit-transform: translateY(0px);
-         -moz-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-           -o-transform: translateY(0px);
-              transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
     }
 }
 @-o-keyframes bounceDown {
     0%, 100% {
     }
     4% {
-     -webkit-transform: translateY(-8px);
+        -webkit-transform: translateY(-8px);
         -moz-transform: translateY(-8px);
-         -ms-transform: translateY(-8px);
-          -o-transform: translateY(-8px);
-             transform: translateY(-8px);
+        -ms-transform: translateY(-8px);
+        -o-transform: translateY(-8px);
+        transform: translateY(-8px);
     }
     8% {
-      -webkit-transform: translateY(8px);
-         -moz-transform: translateY(8px);
-          -ms-transform: translateY(8px);
-           -o-transform: translateY(8px);
-              transform: translateY(8px);
+        -webkit-transform: translateY(8px);
+        -moz-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        -o-transform: translateY(8px);
+        transform: translateY(8px);
     }
     12% {
-      -webkit-transform: translateY(0px);
-         -moz-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-           -o-transform: translateY(0px);
-              transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
     }
     16% {
-      -webkit-transform: translateY(-4px);
-         -moz-transform: translateY(-4px);
-          -ms-transform: translateY(-4px);
-           -o-transform: translateY(-4px);
-              transform: translateY(-4px);
+        -webkit-transform: translateY(-4px);
+        -moz-transform: translateY(-4px);
+        -ms-transform: translateY(-4px);
+        -o-transform: translateY(-4px);
+        transform: translateY(-4px);
     }
     20% {
-      -webkit-transform: translateY(4px);
-         -moz-transform: translateY(4px);
-          -ms-transform: translateY(4px);
-           -o-transform: translateY(4px);
-              transform: translateY(4px);
+        -webkit-transform: translateY(4px);
+        -moz-transform: translateY(4px);
+        -ms-transform: translateY(4px);
+        -o-transform: translateY(4px);
+        transform: translateY(4px);
     }
     24% {
-      -webkit-transform: translateY(0px);
-         -moz-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-           -o-transform: translateY(0px);
-              transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
     }
 }
 @keyframes bounceDown {
     0%, 100% {
     }
     4% {
-     -webkit-transform: translateY(-8px);
+        -webkit-transform: translateY(-8px);
         -moz-transform: translateY(-8px);
-         -ms-transform: translateY(-8px);
-          -o-transform: translateY(-8px);
-             transform: translateY(-8px);
+        -ms-transform: translateY(-8px);
+        -o-transform: translateY(-8px);
+        transform: translateY(-8px);
     }
     8% {
-      -webkit-transform: translateY(8px);
-         -moz-transform: translateY(8px);
-          -ms-transform: translateY(8px);
-           -o-transform: translateY(8px);
-              transform: translateY(8px);
+        -webkit-transform: translateY(8px);
+        -moz-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        -o-transform: translateY(8px);
+        transform: translateY(8px);
     }
     12% {
-      -webkit-transform: translateY(0px);
-         -moz-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-           -o-transform: translateY(0px);
-              transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
     }
     16% {
-      -webkit-transform: translateY(-4px);
-         -moz-transform: translateY(-4px);
-          -ms-transform: translateY(-4px);
-           -o-transform: translateY(-4px);
-              transform: translateY(-4px);
+        -webkit-transform: translateY(-4px);
+        -moz-transform: translateY(-4px);
+        -ms-transform: translateY(-4px);
+        -o-transform: translateY(-4px);
+        transform: translateY(-4px);
     }
     20% {
-      -webkit-transform: translateY(4px);
-         -moz-transform: translateY(4px);
-          -ms-transform: translateY(4px);
-           -o-transform: translateY(4px);
-              transform: translateY(4px);
+        -webkit-transform: translateY(4px);
+        -moz-transform: translateY(4px);
+        -ms-transform: translateY(4px);
+        -o-transform: translateY(4px);
+        transform: translateY(4px);
     }
     24% {
-      -webkit-transform: translateY(0px);
-         -moz-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-           -o-transform: translateY(0px);
-              transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
     }
 }
 /*END: MAIN CONTAINER DOWN ARROW ANIMATION*/
@@ -900,168 +942,168 @@ footer span {
 
 
 body {
-	font-family: 'Lato';
+    font-family: 'Lato';
 }
 .hidden {
-	display: none;
+    display: none;
 }
 
 /* === Nav styles === */
 
 .nav-logged-in {
-	/*display: none;*/
+    /*display: none;*/
 }
 /*.nav-not-logged-in {
-	display: none;
+        display: none;
 }*/
 .navbar-inverse {
-	background-color: #24334C;
-	background-image: none;
-	border-radius: 0; 
+    background-color: #24334C;
+    background-image: none;
+    border-radius: 0;
 }
 .navbar {
-	margin-bottom: 0;
-	font-weight: 400;
-	font-size: 1.2em;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 1.2em;
 }
 .nav-logo {
-	height: 44px;
-	position: relative;
-	bottom: 8px;
+    height: 44px;
+    position: relative;
+    bottom: 8px;
 }
 .nav-search {
-	padding: 0 2%;
+    padding: 0 2%;
 }
 .navbar-inverse .nav-hojitas {
-	padding: 6px 15px;
-	margin: 8px 15px;
+    padding: 6px 15px;
+    margin: 8px 15px;
 }
 .navbar-inverse .nav-login {
-	padding: 6px 35px;
-	margin: 8px 15px;
+    padding: 6px 35px;
+    margin: 8px 15px;
 }
 /*.navbar-default {
-	background-image: linear-gradient(to bottom,#ECFFF8 0,#ECFFF8 100%);
+        background-image: linear-gradient(to bottom,#ECFFF8 0,#ECFFF8 100%);
 }*/
 .navbar-form .input-group .form-control {
-	width: 250px;
+    width: 250px;
 }
 .btn-login {
-	padding: 6px 30px;
+    padding: 6px 30px;
 }
 .dropdown-login {
-	padding: 15px; 
+    padding: 15px;
 }
 .form-login input {
-	margin-bottom: 15px;
-	width: 200px;
+    margin-bottom: 15px;
+    width: 200px;
 }
 .form-login label {
-	font-size: 1em;
-	text-align: center;
+    font-size: 1em;
+    text-align: center;
 }
 .login-forgotten-label {
-	position: absolute;
-	top: 145px;
-	right: 25px;
+    position: absolute;
+    top: 145px;
+    right: 25px;
 }
 #password:focus ~ .login-forgotten-label {
-	display: none;
+    display: none;
 }
 /* === END: Nav styles === */
 
 
 /*=== START: Modal styles ===*/
 .panel-title {
-	font-weight: 400;
+    font-weight: 400;
 }
 .modal-body {
-	font-size: 1.3em;
-	font-weight: 300;
+    font-size: 1.3em;
+    font-weight: 300;
 }
 .modal-body label {
-	font-size: .9em;
+    font-size: .9em;
 }
 .modal-footer label {
-	padding: 0 10px;
+    padding: 0 10px;
 }
 .modal-body h5 {
-	padding-top: 10px;
+    padding-top: 10px;
 }
 #modal-registration-1 .modal-footer {
-	font-size: 0.75em;
+    font-size: 0.75em;
 }
 /*=== END: Modal styles ===*/
 
 /*=== START: Form styles ===*/
 textarea {
-	resize: vertical;
+    resize: vertical;
     overflow: auto;
 }
 form {
-	font-weight: 400;
+    font-weight: 400;
 }
 .modal-body label {
-	padding-bottom: 1em; /*genera un espacio entre los labels y los forms*/
+    padding-bottom: 1em; /*genera un espacio entre los labels y los forms*/
 }
 .registration-radio {
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 /*=== END: Form styles ===*/
 
 .img-main-logo {
-	height: 180px;
+    height: 180px;
 }
 .jumbotron-main {
-	background-color: rgb(234, 255, 246);
-/*	background-image: url("assets/main-background.png");
-	background-size: cover;
-	background-repeat: no-repeat;*/
-	border: 1px #EEE solid;
-	padding: 80px 48px 20px;
+    background-color: rgb(234, 255, 246);
+    /*	background-image: url("assets/main-background.png");
+            background-size: cover;
+            background-repeat: no-repeat;*/
+    border: 1px #EEE solid;
+    padding: 80px 48px 20px;
 }
 .btn-lorapp-start {
-	padding: 12px 80px;
-	margin: 10px;
+    padding: 12px 80px;
+    margin: 10px;
 }
 .table-lorapp-info table {
-	table-layout: fixed;
-	width: 100%;
+    table-layout: fixed;
+    width: 100%;
 }
 .table-lorapp-info {
-	font-size: 1.3em;
-	font-weight: 400;
+    font-size: 1.3em;
+    font-weight: 400;
 }
 .table-lorapp-info th,
 .table-lorapp-info td {
-	overflow: hidden;
+    overflow: hidden;
     width: 50%;
 }
 .readings-lorapp {
-	font-size: 1.1em;
-	font-weight: 400;
-	margin: 10px auto 30px;
+    font-size: 1.1em;
+    font-weight: 400;
+    margin: 10px auto 30px;
 }
 .readings-lorapp h3 {
-	font-size: 1.2em;
-	font-weight: 700;
-	margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: 5px;
 }
 .container-full {
-  margin: 0 auto;
-  width: 100%;
+    margin: 0 auto;
+    width: 100%;
 }
 .dinamic-message {
-	font-size: 3em;
-	padding: 1.8em 1em .5em;
+    font-size: 3em;
+    padding: 1.8em 1em .5em;
 }
 #changing-message {
-	color: rgb(14, 206, 204);
-	font-weight: 400;
+    color: rgb(14, 206, 204);
+    font-weight: 400;
 }
 .thumbnail {
     font-size: 1.2em;
-	min-height: 260px;
+    min-height: 260px;
     padding-top: 15px;
 }
 .thumbnail:hover {
@@ -1085,13 +1127,13 @@ form {
     padding-right: 5px;
 }
 .btn-read {
-	margin: 1.4em 0 0 0;
+    margin: 1.4em 0 0 0;
 }
 .social-logo {
-	height: 30px;
+    height: 30px;
 }
 .navbar-nav>li> .social-logo-link {
-	padding: 10px 15px;
+    padding: 10px 15px;
 }
 
 
@@ -1170,15 +1212,12 @@ form {
 }
 .search-leaf-info .btn,
 .search-suggest-reading .btn {
-    margin: 15px 0 10px; 
+    margin: 15px 0 10px;
 }
 .search-suggest-reading h3 {
     margin-top: 8px;
 }
 /*=== END: Search.html styles ===*/
-
-
-
 
 /*=== START: lecturegallery.html styles ===*/
 .content_container {
@@ -1246,17 +1285,3 @@ form {
     padding-right: 4px;
 }
 /*=== END: lecturedetail.html styles ===*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
