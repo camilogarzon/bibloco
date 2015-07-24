@@ -4,5 +4,7 @@ var global = {
      * @type String
      */
     url : '',
+    lecture_id : '',
+    lecturesection_id : '',
     session : ''
 };

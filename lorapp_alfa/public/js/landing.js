@@ -120,6 +120,10 @@ var landing = {
                 alert('El email ingresado no es correcto');
                 return;
             }
+            if (p.length < 8) {
+                alert('La contraseña debe tener mínimo 8 caracteres');
+                return;
+            }
             landing.loadAutocomplete();
             $('#' + id_btn).attr('data-dismiss', 'modal');
             $('#' + id_btn).attr('data-target', '#modal-registration-2');
@@ -237,6 +241,8 @@ var landing = {
                     $('#error_login').show();
                     return false;
                 }
+            }, error: function(data) {
+                util.cursorNormal();
             }
         });
         return false;

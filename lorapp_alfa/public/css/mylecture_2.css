@@ -1,10 +1,14 @@
+/*
+* CSS para la lectura
+*/
+
 body{
     margin: 0;
     padding: 0;
     border: 0;
     font: inherit;
     font-family: verdana;
-    font-size: 16px;
+    font-size: 18px;
     color: #4A4A4A;
     vertical-align: baseline;
     background-color: #F6F6F6;
@@ -18,6 +22,7 @@ hr{
     text-align: center;
     width: 46em;
     padding: 2em 2em;
+    transition: all .5s;
 }
 .lecture_title{
     font-size: 1.75em;
@@ -42,8 +47,9 @@ hr{
     font-size: 1.125em;
     font-weight: regular;
     letter-spacing: 0.01em;
-    line-height: 1.7em;
+    line-height: 1.9em;
     text-align: justify;
+    text-indent: 1em;
 }
 .lecture_images {
     border: 1px solid #D9D9D9; 
@@ -139,15 +145,42 @@ hr{
 .highlight {
     background-color: #ACE6E3;
 }
-
+.night {
+    background-color: #121319;
+    color: #DDDDDD;
+    font-weight: 300;
+    transition: all .5s;
+}
 .notes{
-    text-align: center;
-    margin: 30px;
+    padding: 30px;
+    width: 80%; 
+    height: 80%; 
+    /*    overflow-y: auto; */
+    background-color: #F6F6F6; 
+    position: fixed; 
+    top: 20px; 
+    left: 80px; 
+    border: 0px solid #000; 
+    border-radius: 8px;
+    box-shadow: 0 0 60px #000;
+    -webkit-box-shadow: 0 0 60px #000;
+    -ms-box-shadow: 0 0 60px #000;
+    -moz-box-shadow: 0 0 60px #000;
+    -o-box-shadow: 0 0 60px #000;
+}
+
+.notes img {
+    display: inline;
+    position:absolute;
+    top:20px;
+    right:20px;
+    cursor: pointer;
 }
 
 .notes_title{
     font-family: 'Nunito'; 
     font-size: 1.5em;
+    max-height: 200px;
 }
 
 .notes_title_nota{
@@ -190,12 +223,24 @@ hr{
 }
 
 .notes_expandable {
-/*    padding-top: 10px;
-    overflow: hidden;
-    overflow-y: auto;
-    -moz-transition: all 2s ease-in-out;
-    -ms-transition: all 2s ease-in-out;
-    -o-transition: all 2s ease-in-out;
-    -webkit-transition: all 2s ease-in-out;
-    transition: all 2s;*/
+    /*    padding-top: 10px;
+        overflow: hidden;
+        overflow-y: auto;
+        -moz-transition: all 2s ease-in-out;
+        -ms-transition: all 2s ease-in-out;
+        -o-transition: all 2s ease-in-out;
+        -webkit-transition: all 2s ease-in-out;
+        transition: all 2s;*/
 }
+
+#button-night {
+    position: fixed;
+    right: 1%;
+    top: 70px;
+}
+#button-fullscreen {
+    position: fixed;
+    right: 1%;
+    top: 30px;
+}
+
