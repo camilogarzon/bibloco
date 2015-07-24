@@ -171,6 +171,40 @@ var ReadingLorapp = {};
                 }
             });
 
+        
+            // START: Click en boton full-width lleva a full-width
+            $('.wide-btn-div').on('click',
+                function () {
+                    // if the button is clicked when active
+                    $('.reading-wrapper').addClass('reading-full-width');
+                    $('.narrow-btn-div').removeClass('active');
+                    $(this).addClass('active');
+                    
+                    // Rerun info calculations for correct % read and minutes left.
+                    height = $(document).height(); 
+                    scrollTop = $(document).scrollTop();
+                    percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+                    $('.reading-percentage-data').html(percentageRead);
+                        var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+                    $('.minutes-left-data').html(minutesLeft);
+            });
+
+            $('.narrow-btn-div').on('click',
+                function () {
+                    // if the button is clicked when active
+                    $('.reading-wrapper').removeClass('reading-full-width');
+                    $('.wide-btn-div').removeClass('active');
+                    $(this).addClass('active');
+
+                    // Rerun info calculations for correct % read and minutes left.
+                    height = $(document).height(); 
+                    scrollTop = $(document).scrollTop();
+                    percentageRead = Math.round((scrollTop * 100)/(height - viewportHeight));
+                    $('.reading-percentage-data').html(percentageRead);
+                        var minutesLeft = Math.round((wordCount/averageWordsPerMin) - ((wordCount/averageWordsPerMin) * (percentageRead/100)));
+                    $('.minutes-left-data').html(minutesLeft);
+            });
+            // END: Click en título de capítulo lleva a full-width
 
 
             // START: Click en botones de color ajusta estilos
