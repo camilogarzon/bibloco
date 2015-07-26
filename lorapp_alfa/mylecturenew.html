@@ -55,7 +55,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png" />
         <!-- <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> <!-- Para prueba de fuentes se usan todos los pesos. Eliminar innecesarios para mejor tiempo de carga -->
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'> <!-- Para prueba de fuentes se usan todos los pesos. Eliminar innecesarios para mejor tiempo de carga -->
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css"><!-- Custom: Solo tool-tips y popovers -->
         <link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap-theme.min.css"><!-- Custom: Solo tool-tips y popovers -->
@@ -246,7 +246,7 @@
                     <img class="right-close-icon" src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/png/close-icon.png">
                     <div class="my-readings-header flex space-between">
                         <span>Tabla de contenido</span>
-                        <span class="my-readings-leaves"> Tienes: <span id="user_credit_actual">888</span> <img src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/svg/leaf-icon.svg"></span>
+                        <span class="my-readings-leaves"> Tienes <strong><span id="user_credit_actual">888</span></strong> <img src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/svg/leaf-icon.svg"></span>
                     </div>
                     <div class="my-readings-list">
                         <div class="list-book-container">
@@ -296,6 +296,10 @@
                         <div class="full-screen-btn flex flex-center-align">
                             <img src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/svg/full-screen-icon2.svg">
                         </div>
+                        <div class="wideness-btn-div flex flex-center-align">
+                            <div class="narrow-btn-div active flex flex-center-align flex-center-justify"><img src="public/images/icons/svg/reading-narrow-icon.svg"></div>
+                            <div class="wide-btn-div flex flex-center-align flex-center-justify"><img src="public/images/icons/svg/reading-wide-icon.svg"></div>
+                        </div>
                         <div class="brightness-btn-div2 flex flex-center-align">
                             <img src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/svg/brightness-high-icon2.svg" class="decrease-brightness-btn">
                             <div class="brightness-bar2 full-bar"></div>
@@ -319,7 +323,7 @@
                         </div>
                     </div>
                     <div class="reading-info flex flex-center-align">
-                        <div title="Expiración de la lectura">tiempo disponible: <strong>6 días, 23 horas</strong></div>
+                        <div title="Expiración de la lectura">disponible <strong>6 días, 23 horas</strong> más</div>
                         <div title="Tiempo de lectura"><strong><span class="minutes-left-data">16</span> mins</strong> restantes</div>
                         <div title="Porcentaje de lectura"><strong><span class="reading-percentage-data">0</span>%</strong> leído</div>
                     </div>
@@ -580,27 +584,29 @@
 
                 <!-- Campo para agregar nota -->
                 <div class="add-note-wrapper">
-                    <input name="load_scroll_top" type="hidden" id="load_scroll_top">
-                    <input name="load_font_size" type="hidden" id="load_font_size">
-                    <form method="POST" action="http://beta.lorapp.com/alfa/lorapp/public/mylecture/76" accept-charset="UTF-8" id="form_note_create"><input name="_token" type="hidden" value="SdRlwj4cWltGpczBzuYTpPzco3SZyJT40Vj3CRy1">
-                        <input name="lecture_id" type="hidden" value="13">
-                        <input name="lecturesection_id" type="hidden" value="76">
-                        <input name="user_id" type="hidden" value="1">
+                    <div>
+                        <input name="load_scroll_top" type="hidden" id="load_scroll_top">
+                        <input name="load_font_size" type="hidden" id="load_font_size">
+                        <form method="POST" action="http://beta.lorapp.com/alfa/lorapp/public/mylecture/76" accept-charset="UTF-8" id="form_note_create"><input name="_token" type="hidden" value="SdRlwj4cWltGpczBzuYTpPzco3SZyJT40Vj3CRy1">
+                            <input name="lecture_id" type="hidden" value="13">
+                            <input name="lecturesection_id" type="hidden" value="76">
+                            <input name="user_id" type="hidden" value="1">
 
-                        <input name="scroll_top" type="hidden" id="scroll_top">
-                        <input name="scroll_height" type="hidden" id="scroll_height">
-                        <input name="scroll_width" type="hidden" id="scroll_width">
-                        <input name="count_words" type="hidden" id="count_words">
-                        <input name="font_size" type="hidden" id="font_size">
-                        <input name="selectedtext" type="hidden" id="selectedtext">
-                        <input name="selectedtext_html" type="hidden" id="selectedtext_html">
-                        <p id="selectedtext_display" class="add-note-highlight unselectable" onmousedown="return false;">El progreso más importante en las facultades productivas del trabajo, y gran parte de la aptitud, destreza y sensatez con que diste se aplica o dirige, por doquier, parecen ser consecuencia de la división del trabajo.</p>
-                        <textarea id="note" name="note" class="note-input" placeholder="Escribe tu nota…" style="overflow: hidden; resize: none; height: 33px;"></textarea>
-                        <div class="add-note-buttons unselectable" onmousedown="return false;">
-                            <a id="btn_cancelar_note" class="btn-discard-note">Cancelar</a>
-                            <button id="btn_guardar" class="btn-save-note unselectable" onmousedown="return false;">¡Listo!</button>
-                        </div>
-                    </form>
+                            <input name="scroll_top" type="hidden" id="scroll_top">
+                            <input name="scroll_height" type="hidden" id="scroll_height">
+                            <input name="scroll_width" type="hidden" id="scroll_width">
+                            <input name="count_words" type="hidden" id="count_words">
+                            <input name="font_size" type="hidden" id="font_size">
+                            <input name="selectedtext" type="hidden" id="selectedtext">
+                            <input name="selectedtext_html" type="hidden" id="selectedtext_html">
+                            <p id="selectedtext_display" class="add-note-highlight unselectable" onmousedown="return false;">El progreso más importante en las facultades productivas del trabajo, y gran parte de la aptitud, destreza y sensatez con que diste se aplica o dirige, por doquier, parecen ser consecuencia de la división del trabajo.</p>
+                            <textarea id="note" name="note" class="note-input" placeholder="Escribe tu nota…" style="overflow: hidden; resize: none;"></textarea>
+                            <div class="add-note-buttons unselectable" onmousedown="return false;">
+                                <a id="btn_cancelar_note" class="btn-discard-note">Cancelar</a>
+                                <button id="btn_guardar" class="btn-save-note unselectable" onmousedown="return false;">¡Listo!</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div> <!-- mainWrapper -->
         </div> <!-- body-wrapper -->

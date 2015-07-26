@@ -176,7 +176,7 @@ var ReadingLorapp = {};
             $('.wide-btn-div').on('click',
                 function () {
                     // if the button is clicked when active
-                    $('.reading-wrapper').addClass('reading-full-width');
+                    $('.body-wrapper').addClass('reading-full-width');
                     $('.narrow-btn-div').removeClass('active');
                     $(this).addClass('active');
                     
@@ -192,7 +192,7 @@ var ReadingLorapp = {};
             $('.narrow-btn-div').on('click',
                 function () {
                     // if the button is clicked when active
-                    $('.reading-wrapper').removeClass('reading-full-width');
+                    $('.body-wrapper').removeClass('reading-full-width');
                     $('.wide-btn-div').removeClass('active');
                     $(this).addClass('active');
 
