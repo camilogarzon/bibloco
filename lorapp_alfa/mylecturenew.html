@@ -97,10 +97,11 @@
         <!-- START: alert -->
         <style>
             .alert {
-                padding: 15px;
+                padding: 10px;
                 margin-bottom: 20px;
                 border: 1px solid transparent;
                 border-radius: 4px;
+                font-size: 0.75em;
             }
             .alert-dismissable, .alert-dismissible {
                 padding-right: 35px;
@@ -229,7 +230,7 @@
 
 
                 <!-- Botones para mostrar mis lecturas y mis apuntes -->
-                <div class="show-my-readings-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="right" title="" data-original-title="Mis lecturas">
+                <div class="show-my-readings-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="right" title="" data-original-title="Menú">
                     <div class="flex flex-center-justify">
                         <img src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/svg/library-icon.svg">
                     </div>
@@ -278,7 +279,7 @@
                     <div class="my-readings-footer flex space-between flex-center-align">
                         <img class="footer-logo" src="http://beta.lorapp.com/alfa/lorapp/public/images/lorapp-footer-logo.svg">
                         <div>
-                            <a href="http://beta.lorapp.com/alfa/lorapp/public"><img src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/svg/home-icon.svg">Inicio</a>
+                            <a href="http://beta.lorapp.com/alfa/lorapp/public/mylecturesection"><img src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/svg/home-icon.svg">Mis lecturas</a>
                             <a href="" data-toggle="modal" data-target="#modal-contact"><img src="http://beta.lorapp.com/alfa/lorapp/public/images/icons/svg/feedback-icon.svg">Feedback?</a>
                         </div>
                     </div>
@@ -343,12 +344,35 @@
 
                     <!-- Texto cuerpo lectura -->
                     <!--<div class="bodyText unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>-->
-                    <div class="bodyText" id="bodyText">
-                        <p><strong>REVOLUTION: SOMETHING LOST AND SOMETHING FOUND</strong></p>
+                    <div class="bodyText georgia" id="bodyText">
+                        <p><h3>REVOLUTION: SOMETHING LOST AND SOMETHING FOUND</h3></p>
 
-                        <p>Powered by a chain reaction of ideas and innovations, a revolution of industry swept the western hemisphere in the late eighteenth and nineteenth centuries. In a relatively short time, we discovered ways to transform mined materials into manufacturing devices, transportation systems, and agricultural tools that fueled the twentieth century’s explosive innovations. Inventions like the cotton gin, machine tools, the steam engine, the telegraph, and the telephone promised a future filled with opportunity and prosperity.&nbsp;</p>
+                        <p>Powered by a chain reaction of ideas and innovations<!-- (<a href="">this is a link</a>) -->, a revolution of industry swept the western hemisphere in the late eighteenth and nineteenth centuries. In a relatively short time, we discovered ways to transform mined materials into manufacturing devices, transportation systems, and agricultural tools that fueled the twentieth century’s explosive innovations. Inventions like the cotton gin, machine tools, the steam engine, the telegraph, and the telephone promised a future filled with opportunity and prosperity.&nbsp;</p>
 
                         <p>Though the industrial revolution sprang from a utopian vision of human progress, humans were so often the ones left behind. Skilled craftsmen like blacksmiths, cobblers, tin-smiths, weavers, and many others slowly forfeited their trade to factories that could produce goods faster and at a lower cost. As the machine found its place in our world, the human hand’s presence in everyday objects slowly faded.</p>
+
+                        <ul>
+                            <li>Unordered list 1</li>
+                            <li>Unordered list 2</li>
+                            <li>Unordered list 3</li>
+                        </ul>
+                        <ul>
+                            <li><p>Unordered list 1 (paragraph)</p></li>
+                            <li><p>Unordered list 2 (paragraph)</p></li>
+                            <li><p>Unordered list 3 (paragraph)</p></li>
+                        </ul>
+
+                        <ol>
+                            <li>Ordered list 1</li>
+                            <li>Ordered list 2</li>
+                            <li>Ordered list 3</li>
+                        </ol>
+
+                        <ol>
+                            <li><p>Ordered list 1 (paragraph)</p></li>
+                            <li><p>Ordered list 2 (paragraph)</p></li>
+                            <li><p>Ordered list 3 (paragraph)</p></li>
+                        </ol>
 
                         <p>But some challenged the blind march toward progress. As mass production expanded in the mid-nineteenth century, the Arts and Crafts movement sought to preserve the craftsman’s role in domestic goods production, and with it the human touch. The founders of the Arts and Crafts movement revered the things they designed, built, and used every day. They recognized that a craftsman leaves a bit of themselves in their work, a true gift that can be enjoyed for many years.&nbsp;</p>
 
@@ -366,7 +390,7 @@
 
                         <p>&nbsp;</p>
 
-                        <p><strong>THE WAY WE WERE</strong></p>
+                        <p><h3>THE WAY WE WERE</h3></p>
 
                         <p>The web had a rocky start in building emotional connections.&nbsp;</p>
 
@@ -394,7 +418,7 @@
 
                         <p>&nbsp;</p>
 
-                        <p><strong>HELLO, MASLOW</strong></p>
+                        <p><h3>HELLO, MASLOW</h3></p>
 
                         <p>In the 1950s and 60s, the American psychologist Abraham Maslow discovered something that we all knew but had yet to put into words: no matter our age, gender, race, or station in life, we all have basic needs that must be met. Maslow illustrated his ideas in a pyramid he called the Hierarchy of Needs (<strong>fig 1.2</strong>).&nbsp;</p>
 
@@ -410,7 +434,7 @@
 
                         <p>&nbsp;</p>
 
-                        <p><strong>GETTING THE BASICS RIGHT</strong></p>
+                        <p><h3>GETTING THE BASICS RIGHT</h3></p>
 
                         <p>For a user’s needs to be met, <em>an interface must be functional. </em>&nbsp;</p>
 
@@ -434,7 +458,7 @@
 
                         <p>&nbsp;</p>
 
-                        <p><strong>USABLE = EDIBLE</strong></p>
+                        <p><h3>USABLE = EDIBLE</h3></p>
 
                         <p>If you’re working on the web, chances are you’ve used 37Signals’ handy project management app Basecamp (http://basecamphq.com) (<strong>fig 1.4</strong>).&nbsp;</p>
 
@@ -456,7 +480,7 @@
 
                         <p>&nbsp;</p>
 
-                        <p><strong>Wufoo: more than usable</strong></p>
+                        <p><h3>Wufoo: more than usable</h3></p>
 
                         <p>Wufoo (http://wufoo.com/), a popular web app that helps people build forms and connect them to databases, has emotional design baked right into the interface (<strong>fig 1.5</strong>). Like Basecamp, Wufoo serves a utilitarian purpose. Its users want to perform tasks quickly. Making databases and designing forms can be tricky and intimidating if you’re not very technical. But Wufoo makes it easy and, unlike most of its competitors, they make it fun.&nbsp;</p>
 
@@ -482,9 +506,7 @@
 
                         <p>It turns out emotion and memory are closely linked.&nbsp;</p>
 
-                        <p>&nbsp;</p>
-
-                        <p><strong>EMOTION AND MEMORY</strong></p>
+                        <p><h3>EMOTION AND MEMORY</h3></p>
 
                         <p>Emotional experiences make a profound imprint on our long-term memory. We generate emotion and record memories in the limbic system, a collection of glands and structures in the brain’s foldy gray matter. In his book <em>Brain Rules,&nbsp;</em> molecular biologist John Medina shares the science behind the relationship between emotion and memory:</p>
 
@@ -524,7 +546,7 @@
 
                         <p>&nbsp;</p>
 
-                        <p><strong>THE EMOTIONAL DESIGN PRINCIPLE</strong></p>
+                        <p><h3>THE EMOTIONAL DESIGN PRINCIPLE</h3></p>
 
                         <p>They may not know it, but Betabrand has the emotional design principle at the heart of their business. When you start your next design project, keep this principle in mind: people will forgive shortcomings, follow your lead, and sing your praises if you reward them with positive emotion.&nbsp;</p>
 
@@ -623,21 +645,38 @@
                 </div> <!-- titleWrapper -->
 
                 <!-- Texto cuerpo lectura -->
-                <div class="bodyText" id="note_loader"><h4 class="chapterTitle">1. Emotional design</h4><div id="rn0" class="notesGroup"><a onclick="NoteAction.deleteNote(92, 0)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/alfa/lorapp/public//images/icons/svg/delete-icon.svg"></a><div id="load_selectedtexthtml0" class="notesHighlight"><p>n order (I’m looking at you, Rainn Wilson, http://bkaprt.com/de/1; <strong>fig 1.1</strong>).&nbsp;</p>
-
+                <div class="bodyText" id="note_loader">
+                    <h4 class="chapterTitle">1. Emotional design</h4>
+                    <div id="rn0" class="notesGroup">
+                        <a onclick="NoteAction.deleteNote(92, 0)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/alfa/lorapp/public//images/icons/svg/delete-icon.svg"></a>
+                        <div id="load_selectedtexthtml0" class="notesHighlight">
+                            <p>n order (I’m looking at you, Rainn Wilson, http://bkaprt.com/de/1; <strong>fig 1.1</strong>).&nbsp;</p>
                             <p><img alt="FIG 1.1: Dear Rainn Wilson, TMI." src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/50/2635a71c12a09787060400564b69aca1"></p>
+                            <p>The curtain has been drawn back, exposing our humor, grumpiness, concern, stress, and all the other emotions that season our days. As we’ll</p>
+                        </div>
+                        <div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(0, true)">
+                            <div id="note_text0">nota</div>
+                            <input type="hidden" id="load_scroll_top0" value="0">
+                            <input type="hidden" id="load_font_size0" value="0">
+                            <textarea id="note_text_edit0" rows="1" style="width: 96%; display: none">nota</textarea>
+                        </div>
+                        <div align="right" class="note_option">
+                            <a id="btn_note_cancel0" onclick="NoteAction.editNoteShow(0, false)" class="btn-discard-note unselectable" style="display: none">Cancelar</a>
+                            <span id="btn_note_save0" onclick="NoteAction.updateNote(92, 0)" class="btn-save-note unselectable" style="display: none">Guardar</span>
+                        </div>
+                    </div>
+                    <div id="rn1" class="notesGroup"><a onclick="NoteAction.deleteNote(94, 1)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/alfa/lorapp/public//images/icons/svg/delete-icon.svg"></a><div id="load_selectedtexthtml1" class="notesHighlight"><p>Facebook and Twitter surfaced and influenced the voice of the web. These new social tools allowed users to share the minutiae of daily life. That may not sound terribly profound, but it represents a major change in the way that we communicate on the web. Whereas professionalism might have buttoned down our communiqués before social networks, today conversations are often more true to the way that we’d speak to friends. Of course, a little moderation is sometimes in order (I’m looking at you, Rainn Wilson, http://bkaprt.com/de/1; <strong>fig 1.1</strong>).&nbsp;</p>
 
-                            <p>The curtain has been drawn back, exposing our humor, grumpiness, concern, stress, and all the other emotions that season our days. As we’ll</p></div><div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(0, true)"><div id="note_text0">nota</div><input type="hidden" id="load_scroll_top0" value="0"><input type="hidden" id="load_font_size0" value="0"><textarea id="note_text_edit0" rows="5" style="width: 96%; display: none">nota</textarea></div><div align="right" class="note_option"><span id="btn_note_save0" onclick="NoteAction.updateNote(92, 0)" class="btn-save-note unselectable" style="display: none">Guardar</span><span id="btn_note_cancel0" onclick="NoteAction.editNoteShow(0, false)" class="btn-save-note unselectable" style="display: none">Cancelar</span></div></div><div id="rn1" class="notesGroup"><a onclick="NoteAction.deleteNote(94, 1)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/alfa/lorapp/public//images/icons/svg/delete-icon.svg"></a><div id="load_selectedtexthtml1" class="notesHighlight"><p>Facebook and Twitter surfaced and influenced the voice of the web. These new social tools allowed users to share the minutiae of daily life. That may not sound terribly profound, but it represents a major change in the way that we communicate on the web. Whereas professionalism might have buttoned down our communiqués before social networks, today conversations are often more true to the way that we’d speak to friends. Of course, a little moderation is sometimes in order (I’m looking at you, Rainn Wilson, http://bkaprt.com/de/1; <strong>fig 1.1</strong>).&nbsp;</p>
+                <p><img alt="FIG 1.1: Dear Rainn Wilson, TMI." src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/50/2635a71c12a09787060400564b69aca1"></p>
 
-                            <p><img alt="FIG 1.1: Dear Rainn Wilson, TMI." src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/50/2635a71c12a09787060400564b69aca1"></p>
+                <p>The curtain has been drawn back, exposing our humo</p></div><div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(1, true)"><div id="note_text1">nota 1</div><input type="hidden" id="load_scroll_top1" value="0"><input type="hidden" id="load_font_size1" value="0"><textarea id="note_text_edit1" rows="5" style="width: 96%; display: none">nota 1</textarea></div><div align="right" class="note_option"><span id="btn_note_cancel0" onclick="NoteAction.editNoteShow(0, false)" class="btn-save-note unselectable" style="display: none">Cancelar</span>
+                <span id="btn_note_save0" onclick="NoteAction.updateNote(92, 0)" class="btn-save-note unselectable" style="display: none">Guardar</span></div></div><div id="rn2" class="notesGroup"><a onclick="NoteAction.deleteNote(95, 2)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/alfa/lorapp/public//images/icons/svg/delete-icon.svg"></a><div id="load_selectedtexthtml2" class="notesHighlight"><p>So where do we start? Well, like any good user experience designer, we begin by understanding the needs of the people we’re designing for.&nbsp;</p>
 
-                            <p>The curtain has been drawn back, exposing our humo</p></div><div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(1, true)"><div id="note_text1">nota 1</div><input type="hidden" id="load_scroll_top1" value="0"><input type="hidden" id="load_font_size1" value="0"><textarea id="note_text_edit1" rows="5" style="width: 96%; display: none">nota 1</textarea></div><div align="right" class="note_option"><span id="btn_note_save1" onclick="NoteAction.updateNote(94, 1)" class="btn-save-note unselectable" style="display: none">Guardar</span><span id="btn_note_cancel1" onclick="NoteAction.editNoteShow(1, false)" class="btn-save-note unselectable" style="display: none">Cancelar</span></div></div><div id="rn2" class="notesGroup"><a onclick="NoteAction.deleteNote(95, 2)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/alfa/lorapp/public//images/icons/svg/delete-icon.svg"></a><div id="load_selectedtexthtml2" class="notesHighlight"><p>So where do we start? Well, like any good user experience designer, we begin by understanding the needs of the people we’re designing for.&nbsp;</p>
+                <p>&nbsp;</p>
 
-                            <p>&nbsp;</p>
+                <p><strong>HELLO, MASLOW</strong></p>
 
-                            <p><strong>HELLO, MASLOW</strong></p>
-
-                            <p>In the 1950s and 60s, the American psychologist Abraham Maslow discovered something that we all knew but had yet to put into words: no matter our age, gender, race, or station in life, we all have basic needs that must be met. Maslow illustrated his ideas in a pyramid he called the Hierarchy of Needs (<strong>fig 1.2</strong>).&nbsp;</p></div><div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(2, true)"><div id="note_text2">nota2</div><input type="hidden" id="load_scroll_top2" value="0"><input type="hidden" id="load_font_size2" value="0"><textarea id="note_text_edit2" rows="5" style="width: 96%; display: none">nota2</textarea></div><div align="right" class="note_option"><span id="btn_note_save2" onclick="NoteAction.updateNote(95, 2)" class="btn-save-note unselectable" style="display: none">Guardar</span><span id="btn_note_cancel2" onclick="NoteAction.editNoteShow(2, false)" class="btn-save-note unselectable" style="display: none">Cancelar</span></div></div></div> <!-- bodyText -->
+                <p>In the 1950s and 60s, the American psychologist Abraham Maslow discovered something that we all knew but had yet to put into words: no matter our age, gender, race, or station in life, we all have basic needs that must be met. Maslow illustrated his ideas in a pyramid he called the Hierarchy of Needs (<strong>fig 1.2</strong>).&nbsp;</p></div><div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(2, true)"><div id="note_text2">nota2</div><input type="hidden" id="load_scroll_top2" value="0"><input type="hidden" id="load_font_size2" value="0"><textarea id="note_text_edit2" rows="5" style="width: 96%; display: none">nota2</textarea></div><div align="right" class="note_option"><span id="btn_note_save2" onclick="NoteAction.updateNote(95, 2)" class="btn-save-note unselectable" style="display: none">Guardar</span><span id="btn_note_cancel2" onclick="NoteAction.editNoteShow(2, false)" class="btn-save-note unselectable" style="display: none">Cancelar</span></div></div></div> <!-- bodyText -->
             </div> <!-- reading-wrapper -->
         </div>        
         <!-- notesMainWrapper -->
@@ -648,22 +687,21 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="reportproblem">Adquirir Lectura</h4>
+                        <h4 class="modal-title" id="reportproblem">Alquilar Lectura</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="form-horizontal text-center">
+                        <!-- <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="sr-only"></label>
-                                <div class="col-sm-10 col-md-offset-1">
-                                    <div>A continuación vas a utilizar <b><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></b> para adquirir esta lectura.</div>
-                                    <div>¿Deseas continuar?</div>
-                                </div>
+                                <div> -->
+                                    <p>Vas a usar <strong><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para alquilar esta lectura durante <strong>7 días</strong>.</p>
+                                <!-- </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="modal-footer">
-                        <a class="btn btn-primary" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
                         <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                        <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
                     </div>
                 </div>
             </div>
@@ -736,7 +774,7 @@
 
 
 
-        <div id="alert_container" align="center" style="position: fixed; top: 50px;width: 100%; display:none; z-index: 10">
+        <div id="alert_container" align="center" style="position: fixed; top: 50px;width: 100%; display: none; z-index: 10">
             <div id="alert_general" class="alert alert-dismissible" role="alert" style="width: 400px">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <div id="alert_content"></div>

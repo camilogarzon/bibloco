@@ -61,7 +61,7 @@ var ReadingLorapp = {};
             $("#take-note").click(function(event) {
                 event.preventDefault();
                 $(".add-note-wrapper").animate({
-                    bottom: "0%"
+                    top: "auto"
                 }, 500);
             });
 

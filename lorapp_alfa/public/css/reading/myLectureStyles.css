@@ -47,28 +47,6 @@
 body.mac .bodyText {
 	font-size: 0.85em;
 }
-body.mac .bodyText p {
-	line-height: 1.7;
-}
-body.mac .bodyText {
-	margin-top: 2.35em;
-}
-body.mac .bodyText p {
-	padding-bottom: 0.87em;
-}
-body.mac .bodyText ul,
-body.mac .bodyText ol {
-	margin-bottom: 0.02em;
-}
-body.mac .bodyText h1,
-body.mac .bodyText h2,
-body.mac .bodyText h3,
-body.mac .bodyText h4,
-body.mac .bodyText h5,
-body.mac .bodyText h6 {
-	margin-bottom: .6em;
-	margin-top: .77em;
-}
 body.mac .bodyText blockquote {
 	font-size: 1.1em;
 	margin-bottom: 1.35em;
@@ -101,7 +79,7 @@ body.pc .bodyText p {
 /* Font-family */
 .titleWrapper,
 .bodyText {
-	font-family: 'Merriweather', 'serif';
+	font-family: 'Merriweather', 'Georgia', 'serif';
 }
 body,
 blockquote,
@@ -160,34 +138,40 @@ blockquote p,
 
 
 /* Selected text color */
-p::-moz-selection,
-em::-moz-selection,
-strong::-moz-selection,
-img::-moz-selection,
-figcaption::-moz-selection,
-span::-moz-selection,
-blockquote::-moz-selection,
-h1::-moz-selection,
-h2::-moz-selection,
-h3::-moz-selection,
-h4::-moz-selection,
-h5::-moz-selection,
-h6::-moz-selection {
+.bodyText p::-moz-selection,
+.bodyText em::-moz-selection,
+.bodyText strong::-moz-selection,
+.bodyText img::-moz-selection,
+.bodyText figcaption::-moz-selection,
+.bodyText span::-moz-selection,
+.bodyText blockquote::-moz-selection,
+.bodyText ul::-moz-selection,
+.bodyText ol::-moz-selection,
+.bodyText li::-moz-selection,
+.bodyText h1::-moz-selection,
+.bodyText h2::-moz-selection,
+.bodyText h3::-moz-selection,
+.bodyText h4::-moz-selection,
+.bodyText h5::-moz-selection,
+.bodyText h6::-moz-selection {
 	background-color: rgba(255,239,80,.4);
 }
-p::selection,
-em::selection,
-strong::selection,
-img::selection,
-figcaption::selection,
-span::selection,
-blockquote::selection,
-h1::selection,
-h2::selection,
-h3::selection,
-h4::selection,
-h5::selection,
-h6::selection {
+.bodyText p::selection,
+.bodyText em::selection,
+.bodyText strong::selection,
+.bodyText img::selection,
+.bodyText figcaption::selection,
+.bodyText span::selection,
+.bodyText blockquote::selection,
+.bodyText ul::selection,
+.bodyText ol::selection,
+.bodyText li::selection,
+.bodyText h1::selection,
+.bodyText h2::selection,
+.bodyText h3::selection,
+.bodyText h4::selection,
+.bodyText h5::selection,
+.bodyText h6::selection {
 	background-color: rgba(255,239,80,.4);
 }
 
@@ -345,8 +329,9 @@ html {
 body {
 	/*background: rgba(255,125,0,.06);*/ /*Test colors to reduce visual fatigue*/
 	/*color: rgba(0,0,0,.8);*/ /*Test colors to reduce visual fatigue*/
-	background-color: #333;
+	background-color: #121212;
 	color: #242424;
+	/*color: rgba(0,0,0,.9);*/
 	font-size: 1.35em;
 	/*font-size: 17px;*/ /* small=14px medium=17px large=20px */
 	height: 100%;
@@ -375,8 +360,10 @@ p {
 .bodyText h6 {
 	font-weight: 700;
 	margin-top: 0;
+	/*margin-bottom: .2em;
+	margin-top: .77em;*/
 }
-.bodyText h1 {
+/*.bodyText h1 {
   font-size: 2.441em;
   font-weight: normal;
   line-height: 1.21;
@@ -411,14 +398,46 @@ p {
 	line-height: 1.9;
 	margin: 2.43em 0 0em;
 	text-transform: uppercase;
+}*/
+.bodyText h1 {
+	font-size: 1.563em;
+	line-height: 1.42;
+	margin: 1.28em 0 .43em;
 }
-ul {
+.bodyText h2 {
+	font-size: 1.25em;
+	line-height: 1.2;
+	margin: 1.4em 0 .74em;
+}
+.bodyText h3 {
+	font-size: 1em;
+	font-weight: bold;
+	letter-spacing: 0.03em;
+	line-height: 1.47;
+	margin: .79em 0 .22em;
+	text-transform: uppercase;
+}
+.bodyText ul,
+.bodyText ol {
+	/*margin-top: .12em;*/
+	padding-bottom: .27em;
+}
+.bodyText ul li,
+.bodyText ol li {
+	line-height: 1.65em;
+	padding-bottom: 0;
+}
+.bodyText ul li p,
+.bodyText ol li p {
+	padding-bottom: .82em;
+}
+.bodyText ul {
 	list-style-type: disc;
 }
-.bodyText ol p + p,
+/*.bodyText ol p + p,
 .bodyText ul p + p{
 	text-indent: 0;
-}
+}*/
 
 .bodyText h1,
 .bodyText h2,
@@ -426,20 +445,13 @@ ul {
 .bodyText h4,
 .bodyText h5,
 .bodyText h6,
-.sup,
-ul,
-ol {
+.sup {
 	color: #FF6E6E;
 }
-ul,
+/*ul,
 ol {
 	padding-left: 1.5em;
-}
-body,
-li p,
-ol p {
-	color: rgba(0,0,0,.9);
-}
+}*/
 .bodyText a {
 	text-decoration: underline;
 }
@@ -469,12 +481,12 @@ ol p {
 	width: 29em; /*reading width*/
 	padding: 0 6%;
 	position: relative;
-	/*-webkit-transition: background-color .2s;
-	        transition: background-color .2s;*/
+	-webkit-transition: background-color .5s;
+	        transition: background-color .5s;
 	/*z-index: -2;*/
 }
 .mainWrapper {
-	background-color: #333;
+	background: url(../../images/reading/dark-texture-bg.png);
 	height: 100%;
 	position: relative;
 	text-align: center;
@@ -803,7 +815,7 @@ ol p {
   	        font-kerning: normal;
   	font-size: .9em;
 	/*letter-spacing: 0.01em;*/ /*test for better legibility*/
-	margin-top: 1.95em;
+	margin-top: 2.2em;
 	padding: 0 0 1.8em;
 	text-align: left;
 	text-rendering: optimizeLegibility; /* Some known bugs. If problems look here first */
@@ -831,22 +843,22 @@ ol p {
 	padding-top: .3em;
 }
 .bodyText p {
-	line-height: 1.524em;
-	padding-bottom: 0.75em;
+	line-height: 1.65em;
+	padding-bottom: 0.815em;
 }
-.bodyText p + p {
-	/*text-indent: 1.5em;*/
+/*.bodyText p + p {
+	text-indent: 1.5em;
 }
-/*.bodyText p:first-letter {
+.bodyText p:first-letter {
 	font-size: 3.1em;
 	float: left;
 	margin: .17em .01em 0 0;
 	line-height: .5em;
-}*/
-/*.bodyText:first-line {
+}
+.bodyText:first-line {
 	font-weight: bold;
-}*/
-/*.bodyText p:first-of-type:first-line {
+}
+.bodyText p:first-of-type:first-line {
 	font-family: 'Scala-smallcaps';
 }*/
 .bodyText figure {
@@ -975,17 +987,17 @@ body .reading-wrapper .bodyText .highlight {
 
 /* Night theme */
 .night .mainWrapper {
-    background-color: #000;
+    /*background-color: #000;*/
 }
 .night .reading-wrapper {
-	background-color: rgba(255,255,255,.2);
+	background-color: #333;
 	border-left: 1px solid #333;
 	border-right: 1px solid #333;
 }
-.night .bodyText p,
-.night .bodyText blockquote,
-.night .bodyText figcaption,
-.night .bodyText li {
+.night .mainWrapper .bodyText p,
+.night .mainWrapper .bodyText blockquote,
+.night .mainWrapper .bodyText figcaption,
+.night .mainWrapper .bodyText li {
 	color: #FFF;
 	letter-spacing: 0.01em;
 }
@@ -998,10 +1010,6 @@ body .reading-wrapper .bodyText .highlight {
 .night blockquote:before {
 	color: white;
 	opacity: .4;
-}
-.night .add-note-wrapper {
-	background: -webkit-linear-gradient(transparent 0%, #333 15%);
-	background: linear-gradient(transparent 0%, #333 15%);
 }
 .night .menu-tip {
 	background-color: rgba(255,255,255,.9);
@@ -1023,17 +1031,24 @@ body .reading-wrapper .bodyText .highlight {
 
 /* Sepia theme */
 .sepia .mainWrapper {
-	background-color: #55544C;
+	/*background-color: #55544C;*/
 	color: rgba(0,0,0,.85);
 }
 .sepia .reading-wrapper {
-	background-color: #F0EDD8;
-	border-left: 1px solid #F0EDD8;
-	border-right: 1px solid #F0EDD8;
+	background-color: #E6D6B0;
+	border-left: 1px solid #E6D6B0;
+	border-right: 1px solid #E6D6B0;
 }
-.sepia .add-note-wrapper {
-	background: -webkit-linear-gradient(transparent 0%, #F0EDD8 15%);
-	background: linear-gradient(transparent 0%, #F0EDD8 15%);
+.sepia .bodyText h1,
+.sepia .bodyText h2,
+.sepia .bodyText h3,
+.sepia .bodyText h4,
+.sepia .bodyText h5,
+.sepia .bodyText h6 {
+	color: #005499;
+}
+.sepia .sup {
+	color: #0071CE;
 }
 .sepia .side-note {
 	background-color: rgba(255,255,255,.4);
@@ -1183,25 +1198,17 @@ body .reading-wrapper .bodyText .highlight {
 }
 .show-my-readings-btn,
 .show-my-notes-btn {
-	/*background: -webkit-gradient(linear, left top, left bottom, from(#505050), to(#383838));
-	background: -webkit-linear-gradient(#505050, #383838);
-	background: linear-gradient(#505050, #383838);
-	border-top: 1px solid black;
-	box-shadow: inset 0 1px 0 #6e6e6e,0 2px 2px rgba(0,0,0,0.4);*/
-	background-color: rgba(0,0,0,.8);
+	background-color: #000;
+	border: 1px solid #333;
 	cursor: pointer;
 	display: inline-block;
 	position: fixed;
 	top: 10px;
 }
 .show-my-readings-btn {
-	/*border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;*/
 	left: 10px;
 }
 .show-my-notes-btn {
-	/*border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;*/
 	right: 10px;
 }
 .show-my-readings-btn:hover img,
@@ -1382,8 +1389,8 @@ body .reading-wrapper .bodyText .highlight {
 	height: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	max-width: initial;
 	padding: 0 5%;
+	width: auto;
 }
 .notesMainWrapper .reading-wrapper .bodyText p {
 	letter-spacing: 0;
@@ -1397,12 +1404,13 @@ body .reading-wrapper .bodyText .highlight {
 	color: rgba(0,0,0,.9);
 	padding-bottom: .5em;
 }
-.notesMainWrapper .chapterTitle {
+.notesMainWrapper .bodyText .chapterTitle {
 	border-bottom: 1px solid rgba(0,0,0,.1); 
 	border-top: 1px solid rgba(0,0,0,.1); 
 	color: rgba(0,0,0,.75);
 	font-size: .8em;
 	letter-spacing: 0.02em;
+	margin: 3em 0 2em;
 	padding: .5em 0;
 	text-align: center;
 	text-transform: uppercase;
@@ -1412,9 +1420,6 @@ body .reading-wrapper .bodyText .highlight {
 }
 .notesMainWrapper .chapterTitle:first-child {
 	margin: .2em 0 2em;
-}
-.notesMainWrapper .chapterTitle {
-	margin: 3em 0 2em;
 }
 .notesMainWrapper .bodyText {
 	margin-top: 0;
@@ -1459,6 +1464,20 @@ body .reading-wrapper .bodyText .highlight {
 	-webkit-transition: border .4s, background .4s, color .4s;
 	        transition: border .4s, background .4s, color .4s;
 }
+.bodyText .notesGroup .btn-discard-note,
+.bodyText .notesGroup .btn-save-note {
+	font-size: .85em;
+}
+.bodyText .notesGroup .btn-discard-note {
+	color: #777;
+	font-weight: 400;
+	margin: 0 1em;
+	text-decoration: none;
+}
+.bodyText .notesGroup .btn-discard-note:hover {
+	color: #000;
+	text-decoration: underline;
+}
 .bodyText .notesHighlight:first-letter,
 .bodyText .notesNote:first-letter {
 	text-transform: capitalize;
@@ -1477,6 +1496,9 @@ body .reading-wrapper .bodyText .highlight {
 .bodyText .notesGroup .notesHighlight:only-child {
 	border-bottom: 1px solid rgba(255,239,80,1); /* Si hay un resaltado sin nota tiene border-bottom */
 }
+.bodyText .notesGroup .delete-note-icon {
+	cursor: pointer;
+}
 .bodyText .notesGroup .delete-note-icon img {
 	border: none;
 	height: 15px;
@@ -1491,7 +1513,7 @@ body .reading-wrapper .bodyText .highlight {
 .bodyText .notesGroup:hover .delete-note-icon img {
 	opacity: .15;
 }
-.bodyText .delete-note-icon:hover + div p,
+/*.bodyText .delete-note-icon:hover + div p,
 .bodyText .delete-note-icon:hover + div figure {
 	background: rgba(255,0,0,.03);
 	border-left: 4px solid rgba(255,0,0,.2);
@@ -1499,8 +1521,8 @@ body .reading-wrapper .bodyText .highlight {
 	border-top: 1px solid rgba(255,0,0,.2);
 	-webkit-transition: all .4s;
 	        transition: all .4s;
-}
-.bodyText .delete-note-icon:hover + div .notesHighlight {
+}*/
+/*.bodyText .delete-note-icon:hover + div .notesHighlight {
 	color: rgba(80, 0, 0, 0.9);
 }
 .bodyText .delete-note-icon:hover + div p:nth-child(2) {
@@ -1508,9 +1530,20 @@ body .reading-wrapper .bodyText .highlight {
 }
 .bodyText .delete-note-icon:hover + div p:only-child {
 	border-bottom: 1px solid rgba(255,0,0,.2);
+}*/
+.bodyText .delete-note-icon:hover + .notesHighlight {
+	background: rgba(255,0,0,.03);
+	border-left: 4px solid rgba(255,0,0,.2);
+	border-right: 1px solid rgba(255,0,0,.2);
+	border-top: 1px solid rgba(255,0,0,.2);
+	color: rgba(80, 0, 0, 0.9);
 }
-
-
+.bodyText .delete-note-icon:hover + .notesHighlight + .notesNote {
+	color: rgba(80, 0, 0, 0.9);
+	background: rgba(255,0,0,.03);
+	border: 1px solid rgba(255,0,0,.2);
+	border-left: 4px solid rgba(255,0,0,.2);
+}
 
 
 
@@ -1628,6 +1661,15 @@ body .reading-wrapper .bodyText .highlight {
 
 
 
+/*Modal alquilar lectura*/
+.modal {
+	color: #605E6B;
+}
+.modal-body {
+	font-size: 0.75em;
+	text-align: center;
+}
+
 
 
 
@@ -1736,6 +1778,7 @@ body .reading-wrapper .bodyText .highlight {
     font-size: 1em;
     font-family: 'Lato';    
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .note_option span {
@@ -1780,7 +1823,7 @@ body .reading-wrapper .bodyText .highlight {
 /*:::::::MEDIA QUERIES::::::::*/
 @media (max-width : 1250px) {
 	.chapter-control-wrapper {
-	border-top: 1px solid rgba(255,255,255,.1);
+		border-top: 1px solid rgba(255,255,255,.1);
 	}
 	.prev-chapter,
 	.next-chapter {
@@ -1797,20 +1840,23 @@ body .reading-wrapper .bodyText .highlight {
 @media (max-width : 1000px) {
 	.mainWrapper {
 		background-color: #F4F5F5;
-		font-size: 1em; /* BASE 17px: small=14px (0.824em) medium=17px (1em) large=20px (1.176em) / small=1em medium=*/
+		background-image: none; 
+		font-size: 1em;
+		-webkit-transition: background-color 0s;
+	        	transition: background-color 0s;
 	}
 	.bodyText {
 		text-rendering: auto;/* El text-rendering puede tener problemas en móvil. Aquí se desactiva para pantallas pequeñas. */
 	}
 	.reading-wrapper {
-		background-color: transparent;
 		border: none;
 		padding-left: 3%;
 		padding-right: 3%;
+		-webkit-transition: background-color 0s;
+	        	transition: background-color 0s;
 	}
-
-	.sepia {
-		background-color: #F0EDD8;
+	.sepia .mainWrapper {
+		background-color: #EFE4CC;
 	}
 	.sepia .reading-wrapper {
 		border: none;
@@ -1826,6 +1872,16 @@ body .reading-wrapper .bodyText .highlight {
 	.brightness-bar,
 	.wideness-btn-div {
 		display: none;
+	}
+	.show-my-readings-btn,
+	.show-my-notes-btn {
+		top: 0;
+	}
+	.show-my-readings-btn {
+		left: 0;
+	}
+	.show-my-notes-btn {
+		right: 0;
 	}
 }
 
@@ -1857,6 +1913,18 @@ body .reading-wrapper .bodyText .highlight {
 	.reading-info div {
 		border-left: none;
 		box-shadow: none;
+	}
+	.show-my-readings-btn img {
+		padding: 10px;
+	}
+	.show-my-notes-btn img {
+		padding: 5px 5px 7px 7px;
+	}
+}
+
+@media (max-width : 730px) {
+	.reading-wrapper {
+		width: auto;
 	}
 }
 
@@ -1916,12 +1984,18 @@ body .reading-wrapper .bodyText .highlight {
 	.btn-next-chapter {
 		max-width: 80%;
 	}
+	.show-my-readings-btn img {
+		height: 15px;
+		opacity: 1;
+	}
+	.show-my-notes-btn img {
+		height: 25px;
+		opacity: 1;
+	}
 }
 
 /* General rules for mobile devices */
 @media only screen and (max-device-width : 1024px) {
-	.show-my-readings-btn,
-	.show-my-notes-btn,
 	.full-screen-btn,
 	.brightness-btn-div2 {
 		display: none;

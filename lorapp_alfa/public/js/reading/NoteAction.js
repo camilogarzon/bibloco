@@ -48,9 +48,9 @@ var NoteAction = {};
      */
     NoteAction.saveNoteSuccess = function(data) {
         if (data.valid) {
-            Util.alertBootstrap('Información guardada correctamente!', 'info');
+            Util.alertBootstrap('Guardaste una nota', 'info');
         } else {
-            Util.alertBootstrap('No se guardó la información! Error: ' + data.error, 'error');
+            Util.alertBootstrap('No se pudo guardar la nota. Error: ' + data.error, 'error');
         }
         TextHighlight.NoteContainer.openClose('close');
     };
