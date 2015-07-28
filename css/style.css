@@ -201,11 +201,10 @@ div.fb-like {
     padding: 1em 7%;
 }
 .features-img {
-    max-height: 220px;
     padding: 40px 0;
     display: block;
     margin: 0 auto;
-    width: 50%;
+    width: 40%;
 }
 .features-text {
     width: 35%;
