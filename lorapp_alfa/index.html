@@ -625,6 +625,29 @@
     <input class="signin-bottom-button" type="submit" value="Regístrate" data-toggle="modal" data-target="#modal-registration-1">
 </section>
 
+<!-- Boton reportar problema -->
+<a href="" data-toggle="modal" data-target="#modal-report-problem">
+    <div class="report-problem-div">
+        <span class="report-problem-text">Reportar problema</span>
+        <!-- warning-icon: inline SVG -->
+        <svg width="25px" viewBox="0 0 209 185" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+            <title>Reportar problema</title>
+            <defs></defs>
+            <g id="warning-icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <g id="warning-icon" sketch:type="MSArtboardGroup">
+                    <g id="Rectangle-21-+-!" sketch:type="MSLayerGroup" transform="translate(7.000000, 7.000000)">
+                        <path d="M77.2041101,14.2702882 C88.3449371,-4.80141172 106.316427,-4.7537031 117.355391,14.395644 L188.655436,138.080198 C199.689549,157.22113 190.729352,172.737922 168.636196,172.737922 L24.6327344,172.737922 C2.54230022,172.737922 -6.32997157,157.270169 4.80671676,138.205554 L77.2041101,14.2702882 Z" id="Rectangle-21" class="warning-icon-fill" fill="#000000" sketch:type="MSShapeGroup"></path>
+                        <path d="M90.4589844,114.12207 L80.2490234,54.7714844 C80.083007,53.7753856 80,52.7793019 80,51.7832031 C80,43.2610251 85.5614678,39 96.6845703,39 C107.807673,39 113.369141,43.2333561 113.369141,51.7001953 C113.369141,52.8623105 113.286134,53.8860633 113.120117,54.7714844 L102.910156,114.12207 L90.4589844,114.12207 Z M96.6845703,126.324219 C106.424202,126.324219 111.293945,131.193962 111.293945,140.933594 C111.293945,150.673226 106.424202,155.542969 96.6845703,155.542969 C86.9449383,155.542969 82.0751953,150.673226 82.0751953,140.933594 C82.0751953,131.193962 86.9449383,126.324219 96.6845703,126.324219 L96.6845703,126.324219 Z" id="!" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+        <!-- /warning-icon: inline SVG -->
+    </div>
+</a>
+<!-- /Boton reportar problema -->
+
+
 
         <!-- END Body -->
         <!-- START Modals -->
@@ -957,6 +980,66 @@
             </div>
         </div>
         <!-- END: Términos y condiciones -->
+        <!-- START: Reportar problema -->
+        <div class="modal fade" id="modal-report-problem" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="reportproblem">Reportar Problema</h4>
+                    </div>
+                    <form action="http://beta.lorapp.com/alfa/lorapp/public/reportproblem" method="POST">
+                        <div class="modal-body">
+                            <div class="form-horizontal text-center">
+                                                                <div class="form-group">
+                                    <label class="sr-only" for="email">Email</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="email" class="form-control" name="email" placeholder="Tu Email" required="true">
+                                    </div>
+                                </div>
+                                                                <div class="form-group">
+                                    <label class="sr-only"></label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <textarea class="form-control" rows="5" id="contact-message" placeholder="¿Viste que algo no funciona bien?  !Cuéntanos que te paso! " name="reportproblem"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END: Reportar problema -->
+        <!-- START: Confirmar adquisicion de lectura con hojitas -->
+        <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="reportproblem">Adquirir Lectura</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal text-center">
+                            <div class="form-group">
+                                <label class="sr-only"></label>
+                                <div class="col-sm-10 col-md-offset-1">
+                                    <div>A continuación vas a utilizar <b><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></b> para adquirir esta lectura.</div>
+                                    <div>¿Deseas continuar?</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-primary" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
+                        <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Confirmar adquisicion de lectura con hojitas -->
 
         <!-- Contacto -->
         <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
