@@ -1206,12 +1206,18 @@ body .reading-wrapper .bodyText .highlight {
 	display: inline-block;
 	position: fixed;
 	top: 10px;
+	-webkit-transition: border-color .5s;
+	        transition: border-color .5s;
 }
 .show-my-readings-btn {
 	left: 10px;
 }
 .show-my-notes-btn {
 	right: 10px;
+}
+.show-my-readings-btn:hover,
+.show-my-notes-btn:hover {
+	border: 1px solid #FFF;
 }
 .show-my-readings-btn:hover img,
 .show-my-notes-btn:hover img {

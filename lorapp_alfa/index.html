@@ -76,7 +76,7 @@
                     </div>
                     <form action="main.html?password/remind" method="POST">
                         <div class="modal-body">
-                            <label class="text-center col-sm-8 col-md-offset-2"><strong>Enviaremos un correo para recuperar tu contraseña.</strong></label>
+                            <label class="text-center col-sm-10 col-md-offset-1"><strong>Enviaremos un correo para recuperar tu contraseña.</strong></label>
                             <div class="row">
                                 <div class="form-horizontal col-sm-6 col-md-offset-3">
                                     <div class="input-group">
@@ -112,7 +112,7 @@
                         <h4 class="modal-title" id="modal-registration-1-label">Bienvenido a Lorapp</h4>
                     </div>
                     <div class="modal-body">
-                        <label class="text-center col-sm-10 col-md-offset-1">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</label>
+                        <label class="text-center col-sm-12">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</label>
                         <div class="form-horizontal form-registration-1">
                             <div class="form-group">
                                 <label class="sr-only" for="registration-name">Nombre</label>
@@ -130,10 +130,10 @@
                                 <label class="sr-only" for="registration-email">Email</label>
                                 <div class="col-sm-6 col-md-offset-3">
                                     <input id="email_register" placeholder="Email" class="form-control" onfocusout="landing.emailExist(&quot;email_register&quot;)" onmousemove="landing.emailExist(&quot;email_register&quot;)" name="email" type="email" value="">
-                                    <div id="message_alert" class="alert-danger" style="display: none">
+                                    <div id="message_alert" class="alert-danger" style="display: none; padding: 2px 10px;">
                                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                         <span class="sr-only">Error:</span>
-                                        <span id="message_reg">Enter a valid email address</span>
+                                        <span id="message_reg">Este no parece un email</span>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <label>Al registrarte aceptas nuestros <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-terms">Términos de uso</a> y <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-privacy">Políticas de privacidad</a>.</label>
+                        <label>Al registrarte aceptas nuestros <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-terms">Términos de uso</a>.</label>
                         <button disabled="true" id="btn_registro_1" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_1', 1)">Continuar</button>
                     </div>
                 </div>
@@ -315,13 +315,13 @@
     <div class="container text-center">
         <img src="public/images/logo-main.png" class="img-main-logo">
         <h1>No más fotocopias</h1>
-        <p class="lead">Lee ahorrando dinero y tiempo, sin tala de árboles.</p>
-        <p><input class="signin-bottom-button" href="#" type="submit" value="Empieza" data-toggle="modal" data-target="#modal-registration-1"></p>
+        <p class="lead landing-p">Lee ahorrando dinero y tiempo, sin tala de árboles</p>
+        <input class="signin-bottom-button" href="#" type="submit" value="Empieza" data-toggle="modal" data-target="#modal-registration-1">
     </div>
 </div>
 
 <h3 class="text-center title3">Pruébalo</h3>
-<div class="container readings-lorapp">
+<div class="readings-lorapp">
     <div class="slide_wrap">
         <div class="slide_frame" id="slide_frame" style="overflow: hidden;">
             <ul class="clearfix" style="transform: translateZ(0px) translateX(-540px); width: 3400px;">
@@ -513,16 +513,16 @@
             <th class="text-center">Carreras</th>
         </tr>
         <tr>
-            <td class="text-center">
-                                <span class="label label-info">Universidad de Antioquia</span>
-                                <span class="label label-info">Universidad de los Andes</span>
-                                <span class="label label-info">Universidad Externado</span>
-                            </td>
-            <td class="text-center">
-                                <span class="label label-info">Administracion</span>
-                                <span class="label label-info">Derecho</span>
-                                <span class="label label-info">Economia</span>
-                            </td>
+            <td class="universidades-labels text-center">
+                <span class="label label-info">Universidad de Antioquia</span>
+                <span class="label label-info">Universidad de los Andes</span>
+                <span class="label label-info">Universidad Externado</span>
+            </td>
+            <td class="carreras-labels text-center">
+                <span class="label label-info">Administracion</span>
+                <span class="label label-info">Derecho</span>
+                <span class="label label-info">Economia</span>
+            </td>
         </tr>
     </tbody></table>
 
@@ -530,8 +530,8 @@
 
 <section class="section-2 flex" id="section-2">
     <div class="section-2-text">
-        <p class="landing-p">¿Todavía sigues fotocopiando?</p>
-        <p>Con Lorapp tienes acceso a tus lecturas para estudiar de manera económica, ecológica y legal.</p>
+        <h3 class="title3">¿Aún sigues fotocopiando?</h3>
+        <p class="landing-p">Con Lorapp tienes acceso a tus lecturas para estudiar de manera económica, ecológica y legal.</p>
     </div>
     <img class="lora-front-img" src="public/images/lora-front.png">
 </section>
@@ -555,8 +555,8 @@
             <p class="landing-p">Busca</p>
         </div>
         <div>
-            <img src="public/images/coin.png">
-            <p class="landing-p">Compra</p>
+            <img src="public/images/hourglass.png">
+            <p class="landing-p">Alquila</p>
         </div>
         <div>
             <img src="public/images/flat-demo.png">
@@ -614,9 +614,9 @@
     <div class="section-8-text flex">
         <h3 class="title3">También en tu teléfono</h3>
         <ul>
-            <li>Accede a tus lecturas en cualquier momento y lugar.</li>
-            <li>Tus notas y subrayados se sincronizan en todos tus dispositivos.</li>
-            <li>Agrega recordatorios y recibe notificaciones con lo que tienes que leer.</li>
+            <li class="landing-p">Accede a tus lecturas en cualquier momento y lugar.</li>
+            <li class="landing-p">Tus notas y subrayados se sincronizan en todos tus dispositivos.</li>
+            <li class="landing-p">Agrega recordatorios y recibe notificaciones con lo que tienes que leer.</li>
         </ul>
     </div>
 </section>
@@ -882,13 +882,13 @@
                         <hr>
                         <h3 id="term-9">Novena</h3>
                         <h4><strong>PROPIEDAD INTELECTUAL</strong></h4>
-                        <p class="term-number-p"><strong class="term-number">9.1.</strong>    El Usuario reconoce expresamente que Lorapp, en conjunto con los contenidos, logotipos, marcas, insignias, símbolos, señales distintivas y cualquier otro material asociado al Sitio web constituyen, conforme al caso, derechos de autor, secretos empresariales, derechos de propiedad industrial de propiedad de Inntouch o de sus lincenciadores, siendo dichos derechos protegidos por la legislación nacional e internacional aplicable a la propiedad intelectual y a los secretos empresariales. En ninguna hipótesis, dichos derechos serán transferidos al Usuario, bien sea en consecuencia de la suscripción del presente Contrato o de la utilización del Sitio web.</p>
+                        <p class="term-number-p"><strong class="term-number">9.1.</strong>    El Usuario reconoce expresamente que Lorapp, en conjunto con los contenidos, logotipos, marcas, insignias, símbolos, señales distintivas y cualquier otro material asociado al Sitio web constituyen, conforme al caso, derechos de autor, secretos empresariales, derechos de propiedad industrial de propiedad de Inntouch o de sus licenciadores, siendo dichos derechos protegidos por la legislación nacional e internacional aplicable a la propiedad intelectual y a los secretos empresariales. En ninguna hipótesis, dichos derechos serán transferidos al Usuario, bien sea en consecuencia de la suscripción del presente Contrato o de la utilización del Sitio web.</p>
 
                         <p class="term-number-p"><strong class="term-number">9.2.</strong>    El Usuario acepta que a través de Lorapp se garantiza el acceso a contenidos protegidos por el régimen de protección de Derechos de Autor. En consecuencia, el Usuario se obliga a no realizar ninguna conducta que atente contra la titularidad de Lorapp o de cualquiera de los contenidos alojados en el Sitio, y propiedad de los licenciadores.</p>
 
                         <p class="term-number-p"><strong class="term-number">9.3.</strong>    Queda expresamente vedado al Usuario y a terceros, so pena de aplicar las sanciones legales, vender, alquilar, arrendar, ceder, donar, prestar, reproducir, adaptar, traducir, dar en garantía, permitir la prenda, ofrecer en comodato, sublicenciar, transferir, transmitir, permitir el uso compartido, poner a disposición para acceso o utilización por terceros sea vía online o de cualquier otra forma las Lecturas o los elementos de propiedad intelectual de Lorapp.</p>
 
-                        <p class="term-number-p"><strong class="term-number">9.4.</strong>    El Usuario no podrá realizar ningún tipo de copia de Lorapp, ni de cualquiera de los contenidos alojados en el Sitio, ni tampoco podrá distribuir, vender, arrendar, dar en comodato, realizar cualquier actividad comercial, modificar, crear obras derivadas, adaptar, traducir, sublicenciar, reproducir y/o recrear públicamente la totalidad o parte de Lorapp, desarrollar o proporcionar servicios de enlace para Lorapp, o crear o mantener conexiones no autorizadas con lorapp.</p>
+                        <p class="term-number-p"><strong class="term-number">9.4.</strong>    El Usuario no podrá realizar ningún tipo de copia de Lorapp, ni de cualquiera de los contenidos alojados en el Sitio, ni tampoco podrá distribuir, vender, arrendar, dar en comodato, realizar cualquier actividad comercial, modificar, crear obras derivadas, adaptar, traducir, sublicenciar, reproducir y/o recrear públicamente la totalidad o parte de Lorapp, desarrollar o proporcionar servicios de enlace para Lorapp, o crear o mantener conexiones no autorizadas con Lorapp.</p>
 
                         <p class="term-number-p"><strong class="term-number">9.5.</strong>    Inntouch declara que Lorapp contiene derechos de propiedad intelectual de terceros, incluyendo pero no limitado a licenciatarios de Inntouch, encontrándose éste facultado, en su calidad de sublicenciatario para hacer valer los derechos de propiedad intelectual sobre estos.</p>
 
@@ -1065,7 +1065,7 @@
                 <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  -->
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="#" data-toggle="modal" data-target="#modal-FAQ">Preguntas frecuentes</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#modal-terms">Términos de uso y Política de privacidad</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal-terms">Términos de uso</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#modal-contact">Contacto</a></li>
                 </ul>
                 <!-- </div> -->
