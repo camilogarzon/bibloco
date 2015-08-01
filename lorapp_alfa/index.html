@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lorapp - No más fotocopias</title>
         <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png">
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
         <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/landing.css" rel="stylesheet">
@@ -38,7 +38,7 @@
                                 <input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
                                 <input id="email" placeholder="Usuario" class="form-control" name="email" type="email">
                                 <input id="password" placeholder="Contraseña" class="form-control" name="password" type="password" value="">
-                                <label class="pull-right login-forgotten-label"><a href="#" data-toggle="modal" data-target="#modal-forgot">¿Olvidado?</a></label>
+                                <span class="pull-right login-forgotten-label"><a href="#" data-toggle="modal" data-target="#modal-forgot">¿Olvidado?</a></span>
                                 <div id="error_login" class="alert-danger" style="display: none">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                     <span class="sr-only">Ups!</span>
@@ -46,7 +46,7 @@
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary btn-block" onclick="landing.login('login_form')">Ingresar</button><br>
-                                <label>¿Nuevo en Lorapp? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</label>
+                                <span>¿Nuevo en Lorapp? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</span>
                             </form>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                                     <div id="error_remember" class="alert-success" style="display: none">
                                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                         <span class="sr-only">Error:</span>
-                                        <span id="message_remember">Enter a valid email address</span>
+                                        <span id="message_remember">Este no parece un email.</span>
                                     </div>
                                     <br>
                                 </div>
@@ -112,7 +112,7 @@
                         <h4 class="modal-title" id="modal-registration-1-label">Bienvenido a Lorapp</h4>
                     </div>
                     <div class="modal-body">
-                        <label class="text-center col-sm-12">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</label>
+                        <p class="text-center col-sm-12">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</p>
                         <div class="form-horizontal form-registration-1">
                             <div class="form-group">
                                 <label class="sr-only" for="registration-name">Nombre</label>
@@ -147,7 +147,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <label>Al registrarte aceptas nuestros <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-terms">Términos de uso</a>.</label>
+                        <span class="modal-footer-note">Al registrarte aceptas nuestros <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-terms">Términos de uso</a>.</span>
                         <button disabled="true" id="btn_registro_1" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_1', 1)">Continuar</button>
                     </div>
                 </div>
@@ -625,27 +625,41 @@
     <input class="signin-bottom-button" type="submit" value="Regístrate" data-toggle="modal" data-target="#modal-registration-1">
 </section>
 
-<!-- Boton reportar problema -->
-<a href="" data-toggle="modal" data-target="#modal-report-problem">
-    <div class="report-problem-div">
-        <span class="report-problem-text">Reportar problema</span>
-        <!-- warning-icon: inline SVG -->
-        <svg width="25px" viewBox="0 0 209 185" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-            <title>Reportar problema</title>
-            <defs></defs>
-            <g id="warning-icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                <g id="warning-icon" sketch:type="MSArtboardGroup">
-                    <g id="Rectangle-21-+-!" sketch:type="MSLayerGroup" transform="translate(7.000000, 7.000000)">
-                        <path d="M77.2041101,14.2702882 C88.3449371,-4.80141172 106.316427,-4.7537031 117.355391,14.395644 L188.655436,138.080198 C199.689549,157.22113 190.729352,172.737922 168.636196,172.737922 L24.6327344,172.737922 C2.54230022,172.737922 -6.32997157,157.270169 4.80671676,138.205554 L77.2041101,14.2702882 Z" id="Rectangle-21" class="warning-icon-fill" fill="#000000" sketch:type="MSShapeGroup"></path>
-                        <path d="M90.4589844,114.12207 L80.2490234,54.7714844 C80.083007,53.7753856 80,52.7793019 80,51.7832031 C80,43.2610251 85.5614678,39 96.6845703,39 C107.807673,39 113.369141,43.2333561 113.369141,51.7001953 C113.369141,52.8623105 113.286134,53.8860633 113.120117,54.7714844 L102.910156,114.12207 L90.4589844,114.12207 Z M96.6845703,126.324219 C106.424202,126.324219 111.293945,131.193962 111.293945,140.933594 C111.293945,150.673226 106.424202,155.542969 96.6845703,155.542969 C86.9449383,155.542969 82.0751953,150.673226 82.0751953,140.933594 C82.0751953,131.193962 86.9449383,126.324219 96.6845703,126.324219 L96.6845703,126.324219 Z" id="!" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+<!-- Boton feedback -->
+<div class="feedback-btn-container dropup">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!-- feedback-icon: inline SVG -->
+        <svg width="18px" height="18px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+            <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+                <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                <feGaussianBlur stdDeviation="0" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+                <feMerge>
+                    <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+            </filter>
+        </defs>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+            <g id="Artboard-8-Copy" sketch:type="MSArtboardGroup" transform="translate(-27.000000, -43.000000)" filter="url(#filter-1)" fill="#333333">
+                <g id="Path-+-Shape-Copy" sketch:type="MSLayerGroup" transform="translate(27.000000, 43.000000)">
+                    <path d="M23.5,0 C36.4778366,0 47,9.2060866 47,20.5625 C47,27.0529542 43.5557908,32.8309592 38.1875,36.5997908 L38.1875,47 L27.8930408,40.7533775 C26.4682958,40.9884542 25.0025408,41.125 23.5,41.125 C10.5206275,41.125 0,31.9189134 0,20.5625 C0,9.2060866 10.5206275,0 23.5,0 Z M31.09375,24 C31.9045,24 32.5625,25.12 32.5625,26.5 C32.5625,27.88 31.9045,29 31.09375,29 L16.40625,29 C15.5955,29 14.9375,27.88 14.9375,26.5 C14.9375,25.12 15.5955,24 16.40625,24 L31.09375,24 Z M13.46875,14 L34.03125,14 C34.842,14 35.5,15.12 35.5,16.5 C35.5,17.88 34.842,19 34.03125,19 L13.46875,19 C12.658,19 12,17.88 12,16.5 C12,15.12 12.658,14 13.46875,14 Z" id="Path" sketch:type="MSShapeGroup" transform="translate(23.500000, 23.500000) scale(-1, 1) translate(-23.500000, -23.500000) "></path>
                     </g>
                 </g>
             </g>
         </svg>
-        <!-- /warning-icon: inline SVG -->
-    </div>
-</a>
-<!-- /Boton reportar problema -->
+        <!-- /feedback-icon: inline SVG -->
+        Feedback?
+    </button>
+    
+    <ul class="feedback-list dropdown-menu" aria-labelledby="feedback-dropup-menu">
+        <li><a href="#" data-toggle="modal" data-target="#modal-report-problem">Informa de un error o problema</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#modal-reading-not-found">No encuentras la lectura que necesitas</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#modal-feedback-questions">Consejos, comentarios o preguntas</a></li>
+    </ul>
+</div>
+<!-- /Boton feedback -->
 
 
 
@@ -980,39 +994,148 @@
             </div>
         </div>
         <!-- END: Términos y condiciones -->
-        <!-- START: Reportar problema -->
-        <div class="modal fade" id="modal-report-problem" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="reportproblem">Reportar Problema</h4>
-                    </div>
+
+        <!-- START: Reportar error o problema -->
+        <div class="modal fade" id="modal-report-problem" tabindex="-1" role="dialog" aria-labelledby="reportproblem">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Informa de un problema</h4>
+              </div>
+              <div class="modal-body row">
+                <div class="col-md-10 col-md-offset-1">
                     <form action="http://beta.lorapp.com/alfa/lorapp/public/reportproblem" method="POST">
-                        <div class="modal-body">
-                            <div class="form-horizontal text-center">
-                                                                <div class="form-group">
-                                    <label class="sr-only" for="email">Email</label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <input type="email" class="form-control" name="email" placeholder="Tu Email" required="true">
-                                    </div>
-                                </div>
-                                                                <div class="form-group">
-                                    <label class="sr-only"></label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <textarea class="form-control" rows="5" id="contact-message" placeholder="¿Viste que algo no funciona bien?  !Cuéntanos que te paso! " name="reportproblem"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </div>
+                      <div class="form-group">
+                        <label for="report-problem-email" class="control-label">Email</label>
+                        <input type="email" class="form-control" name="email" required="true" id="report-problem-email">
+                      </div>
+                      <div class="form-group">
+                        <label for="report-problem-message" class="control-label">Cuéntanos qué pasó</label>
+                        <textarea class="form-control" id="report-problem-message" required="true" name="reportproblem"></textarea>
+                      </div>
                     </form>
                 </div>
+              </div>
+              <div class="modal-footer">
+                <button  type="submit" class="btn btn-primary">Enviar</button>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- END: Reportar problema -->
+        <!-- END: Reportar error o problema -->
+
+        <!-- START: Reportar lectura faltante -->
+        <div class="modal fade" id="modal-reading-not-found" tabindex="-1" role="dialog" aria-labelledby="reading-not-found">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">¿Cuál lectura necesitas?</h4>
+              </div>
+              <div class="modal-body row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p>Para nosotros es de gran ayuda que nos digas las lecturas que no tenemos. A veces tardamos menos de 24 horas en tener la lectura disponible.
+                    <br>
+                    <strong>No es obligatorio llenar todos los campos.</strong></p>
+                    
+
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label for="reading-not-found-email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="reading-not-found-email">
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="radio-inline">
+                              <input type="radio" name="content-type-radio-option" id="reading-not-found-radio-book" value="Libro"> Libro
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="content-type-radio-option" id="reading-not-found-radio-other" value="Otro"> Otro (artículo, ensayo, capítulo, etc.)
+                            </label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="reading-not-found-title" class="col-sm-2 control-label">Título</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reading-not-found-title">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="reading-not-found-author" class="col-sm-2 control-label">Autor</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="reading-not-found-author">
+                        </div>
+                        <label for="reading-not-found-publisher" class="col-sm-2 control-label">Editorial</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="reading-not-found-publisher">
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="form-group">
+                        <label for="reading-not-found-university" class="col-sm-2 control-label">Universidad</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control tooltip-active" id="reading-not-found-university" data-toggle="tooltip" data-placement="top" data-trigger="focus" title="¿En qué universidad piden esta lectura?">
+                        </div>
+                        <label for="reading-not-found-class" class="col-sm-2 control-label">Clase</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control tooltip-active" id="reading-not-found-class" data-toggle="tooltip" data-placement="top" data-trigger="focus" title="¿En qué clase piden esta lectura?">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" checked> Notificarme cuando la lectura esté disponible
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button  type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END: Reportar lectura faltante -->
+
+        <!-- START: Reportar pregunta, consejo o comentario -->
+        <div class="modal fade" id="modal-feedback-questions" tabindex="-1" role="dialog" aria-labelledby="report-question">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Consejos, comentarios y preguntas</h4>
+              </div>
+              <div class="modal-body row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p>¿Cómo podríamos ser mejores? ¿Qué piensas de Lorapp? ¿Tienes una pregunta? ¡Queremos escucharte!</p>
+                    <form>
+                      <div class="form-group">
+                        <label for="report-question-email" class="control-label">Email</label>
+                        <input type="email" class="form-control" name="email" required="true" id="report-question-email">
+                      </div>
+                      <div class="form-group">
+                        <label for="report-question-message" class="control-label">Tu mensaje</label>
+                        <textarea class="form-control" id="report-question-message" required="true" name="report-question-message"></textarea>
+                      </div>
+                    </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button  type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END: Reportar pregunta, consejo o comentario -->
+
         <!-- START: Confirmar adquisicion de lectura con hojitas -->
         <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
             <div class="modal-dialog">
@@ -1126,7 +1249,7 @@
         </div>
         <!-- END: Sugerir lectura -->
         <!-- END Modals -->
-        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <nav class="navbar navbar-inverse">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- <div class="navbar-header">
@@ -1175,7 +1298,9 @@
         </script>
                 <script type="text/javascript" src="public/js/sly/plugins.js"></script>
 <script type="text/javascript" src="public/js/sly/sly.min.js"></script>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+    $('.tooltip-active').tooltip();
+</script>
 <script type="text/javascript">
                             function nextMsg() {
                                 if (messages.length == 0) {
