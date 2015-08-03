@@ -60,41 +60,431 @@
             </div>
         </nav>
         <!-- END: navbar logged-in -->
-                <!-- START Body -->
-        <div class="container">
-    <div align="center">
-        <h1>Mis Lecturas</h1>
-                        <div style="width: 100%; max-width: 600px; ">
-            <table class="table table-striped" width="100%">
-                <tbody><tr>
-                    <th></th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Sección</th>
-                    <th>Apuntes</th>
-                    <th>Tiempo restante</th>
-                </tr>
-                                <tr style="border: 1px solid #CCC;">
-                    <td><a title="Eliminar" class="btn btn-danger btn-xs" onclick="removeLectureSection(2)"><span class="glyphicon glyphicon-trash"></span></a></td>
-                    <td><a href="lecturedetail.html?1">Deserunt molestiae ullam eius repudiandae autem quo.</a></td>
-                    <td>Lucio Donnelly</td>
-                    <td><a href="mylecture.html?2">Quae velit impedit omnis neque excepturi sed placeat.</a></td>
-                    <td><a>Apuntes</a></td>
-                    <td>Ilimitado</td>
-                </tr>
-                                <tr style="border: 1px solid #CCC;">
-                    <td><a title="Eliminar" class="btn btn-danger btn-xs" onclick="removeLectureSection(14)"><span class="glyphicon glyphicon-trash"></span></a></td>
-                    <td><a href="lecturedetail.html?5">Nulla inventore optio amet laudantium enim illo et.</a></td>
-                    <td>John Luettgen</td>
-                    <td><a href="mylecture.html?14">Porro nihil nesciunt et beatae deserunt.</a></td>
-                    <td><a>Apuntes</a></td>
-                    <td>Ilimitado</td>
-                </tr>
-                            </tbody></table>
-        </div>
+        <!-- START Body -->
+        <div class="my-readings container col-md-8 col-md-offset-2">
+                
+            <h3>Mis lecturas</h3>
+            <div class="list-group my-readings-list">
+              <li class="list-group-item active my-reading-title flex flex-center-align space-between">
+                <div class="list-book-title">[Título del libro] – <em>[Autor del libro]</em></div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-time-left-title text-center">Estado</div>
+                    <div class="my-reading-notes-title text-center">Apuntes</div>
+                    <div class="my-reading-action-title text-center"></div>
+                </div>
+              </li>
 
-    </div>
-</div>
+              <li class="list-group-item flex flex-center-align space-between free-reading hidden">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 1 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">15</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="read-btn flex flex-center-justify">
+                        <a href="#">
+                            <div class="btn btn-info">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between active-reading">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 2 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">15</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="read-btn flex flex-center-justify">
+                        <a href="#">
+                            <div class="btn btn-info">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between rent-reading hidden">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 3 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">15</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="rent-btn flex flex-center-justify">
+                        <a href="#" data-toggle="modal" data-target="#modal-confirm-lecture-adquisition">
+                            <div class="btn btn-default">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between expired-reading">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 4 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">15</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="renew-btn flex flex-center-justify">
+                        <a href="#" data-toggle="modal" data-target="#modal-renew-reading">
+                            <div class="btn btn-default">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between rent-reading hidden">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 5 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">21</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="rent-btn flex flex-center-justify">
+                        <a href="#" data-toggle="modal" data-target="#modal-confirm-lecture-adquisition">
+                            <div class="btn btn-default">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li href="#" class="list-group-item flex flex-center-align space-between flex-center-justify list-more-readings">
+                    &darr; Ver más lecturas de este libro
+              </li>
+            </div>
+
+            <div class="list-group my-readings-list">
+              <li class="list-group-item active my-reading-title flex flex-center-align space-between">
+                <div class="list-book-title">[Título del libro] – <em>[Autor del libro]</em></div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-time-left-title text-center">Estado</div>
+                    <div class="my-reading-notes-title text-center">Apuntes</div>
+                    <div class="my-reading-action-title text-center"></div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between free-reading hidden">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 1 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">15</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="read-btn flex flex-center-justify">
+                        <a href="#">
+                            <div class="btn btn-info">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between active-reading">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 2 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">15</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="read-btn flex flex-center-justify">
+                        <a href="#">
+                            <div class="btn btn-info">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between rent-reading hidden">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 3 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">15</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="rent-btn flex flex-center-justify">
+                        <a href="#" data-toggle="modal" data-target="#modal-confirm-lecture-adquisition">
+                            <div class="btn btn-default">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between expired-reading">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 4 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">15</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="renew-btn flex flex-center-justify">
+                        <a href="#" data-toggle="modal" data-target="#modal-renew-reading">
+                            <div class="btn btn-default">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="list-group-item flex flex-center-align space-between rent-reading hidden">
+                <div class="flex flex-center-align">
+                    <span class="glyphicon glyphicon-eye-open my-reading-preview-btn" aria-hidden="true" title="Vista previa"></span>
+                    <div class="list-chapter-title">
+                    Capítulo 5 <em>Lo lees en 5 mins</em>
+                    </div>
+                </div>
+                <div class="flex flex-center-align">
+                    <div class="my-reading-free text-center">
+                        <span></span>
+                    </div>
+                    <div class="my-reading-price text-center">
+                        <span class="my-reading-price-number">21</span>
+                        <span class="glyphicon glyphicon-leaf my-reading-leaf-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-reading-time-left text-center">
+                        <span class="glyphicon glyphicon-ok active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-days-left">5</span>
+                        <span class="my-reading-hours-left">23</span>
+                    </div>
+                    <div class="my-reading-renew text-center">
+                        <span class="glyphicon glyphicon-time active-readings-title-icon pull-left" aria-hidden="true"></span>
+                        <span class="my-reading-expiration-date"></span>
+                    </div>
+                    <div class="btn-notes flex flex-center-justify">
+                        <a href="" title="Mis apuntes">
+                            <img src="public/images/icons/svg/my-notes-dark-icon.svg"/>
+                        </a>
+                    </div>
+                    <div class="rent-btn flex flex-center-justify">
+                        <a href="#" data-toggle="modal" data-target="#modal-confirm-lecture-adquisition">
+                            <div class="btn btn-default">
+                                <span></span>         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </li>
+              
+              <li href="#" class="list-group-item flex flex-center-align space-between flex-center-justify list-more-readings">
+                    &darr; Ver más lecturas de este libro
+              </li>
+            </div>
+
+        </div>
         <!-- END Body -->
         <!-- START Modals -->
         <!-- FAQ -->
@@ -418,6 +808,43 @@
             </div>
         </div>
         <!-- END: Sugerir lectura -->
+        <!-- START: Confirmar adquisicion de lectura con hojitas -->
+        <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="reportproblem">Alquilar Lectura</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Vas a usar <strong><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para alquilar esta lectura durante <strong>7 días</strong>.</p>
+                    </div>
+                    <div class="modal-footer flex flex-center-justify">
+                        <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                        <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Confirmar adquisicion de lectura con hojitas -->
+        <!-- START: Renovar lectura -->
+        <div class="modal fade" id="modal-renew-reading" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="reportproblem">¡Buenas noticias!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Renovar una lectura cuesta solo <strong>la mitad</strong> que alquilarla por primera vez.</p>
+                        <p>Vas a usar <strong><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para renovar esta lectura durante <strong>7 días</strong>.</p>
+                    </div>
+                    <div class="modal-footer flex flex-center-justify">
+                        <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                        <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Renovar lectura -->
         <!-- END Modals -->
         <nav class="navbar navbar-inverse navbar-fixed-bottom">
             <div class="container">
@@ -477,6 +904,15 @@
                             }
                     });
             }
+</script>
+<script type="text/javascript">
+    // Al hacer click en el botón "Ver más lecturas de este libro"
+    // muestra el resto de secciones y desaparece este boton.
+    $('.list-more-readings').click(function() {
+        $(this).parent('.my-readings-list').children('.rent-reading').removeClass('hidden');
+        $(this).parent('.my-readings-list').children('.free-reading').removeClass('hidden');
+        $(this).css("display", "none");
+    });
 </script>
 
 

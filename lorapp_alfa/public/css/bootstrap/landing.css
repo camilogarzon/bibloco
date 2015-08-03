@@ -2,6 +2,13 @@
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }*/
+.antialiased {
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+.not-antialiased {
+    -webkit-font-smoothing: auto;    
+}
 *:focus {
     outline: 0;
 }
@@ -13,17 +20,13 @@ body {
     font-family: 'Lato';
     /*font-size: 16px;*/
     margin: 0;
-    padding: 0 0 70px;
+    padding: 50px 0 70px;
 }
 
-/*Lo que tenga texto light aquí*/
-/*h1,
-h2,
-.title3,
-.title4,
-.landing-p {
+.light-text {
     font-weight: 300;
-}*/
+    -webkit-font-smoothing: auto;
+}
 
 h1 {
     color: rgba(0,0,0,.5);
@@ -315,12 +318,12 @@ section {
     max-height: 80px;
     padding-right: 10px;
 }
+.section-7-text p {
+    font-size: 2.6em;
+}
 .section-7-text {
     -webkit-flex-direction: column;
     flex-direction: column;
-}
-.section-7-text p {
-    font-size: 2.6em;
 }
 .section-8 {
     border-bottom: 1px solid #CCC;
@@ -520,6 +523,9 @@ footer span {
 .hidden {
     display: none;
 }
+.invisible {
+    visibility: hidden;
+}
 
 .slide_wrap {
     /*    background: #B7E8D4;
@@ -562,6 +568,575 @@ footer span {
 .form-login input:last-child {
     margin-bottom: 0;
 }
+
+
+
+
+
+
+
+
+
+.hidden {
+    display: none;
+}
+
+/* === Nav styles === */
+
+.nav-logged-in {
+    /*display: none;*/
+}
+/*.nav-not-logged-in {
+        display: none;
+}*/
+.navbar-inverse {
+    background-color: #24334C;
+    background-image: none;
+    border-radius: 0;
+}
+.navbar {
+    margin-bottom: 0;
+}
+.nav-logo {
+    height: 44px;
+    position: relative;
+    bottom: 8px;
+}
+.nav-search {
+    padding: 0 2%;
+}
+.navbar-inverse .nav-hojitas {
+    padding: 6px 15px;
+    margin: 8px 15px;
+}
+.navbar-inverse .nav-login {
+    padding: 6px 35px;
+    margin: 8px 15px;
+}
+/*.navbar-default {
+        background-image: linear-gradient(to bottom,#ECFFF8 0,#ECFFF8 100%);
+}*/
+.navbar-form .input-group .form-control {
+    width: 250px;
+}
+.btn-login {
+    padding: 6px 30px;
+}
+.dropdown-login {
+    padding: 15px;
+}
+.form-login input {
+    margin-bottom: 15px;
+    width: 200px;
+}
+/*.form-login label {
+    font-size: 1em;
+    text-align: center;
+}*/
+.login-forgotten-label {
+    position: absolute;
+    top: 145px;
+    right: 25px;
+}
+#password:focus ~ .login-forgotten-label {
+    display: none;
+}
+/* === END: Nav styles === */
+
+
+/*=== START: Modal styles ===*/
+.panel-title {
+}
+.modal-body {
+    font-size: 1.1em;
+}
+.modal-footer-note {
+    padding: 0 10px;
+}
+.modal-body h5 {
+    padding-top: 10px;
+}
+#modal-reading-not-found p {
+    margin-bottom: 20px;
+}
+.modal p + form {
+    padding-top: .5em;
+}
+/*=== END: Modal styles ===*/
+
+/*=== START: Form styles ===*/
+textarea {
+    resize: vertical;
+    overflow: auto;
+}
+form {
+}
+.registration-radio {
+    margin-bottom: 15px;
+}
+/*=== END: Form styles ===*/
+
+.img-main-logo {
+    height: 180px;
+}
+.jumbotron-main {
+    background-color: rgb(234, 255, 246);
+    border: 1px #EEE solid;
+    padding: 30px 48px 20px;
+}
+.btn-lorapp-start {
+    padding: 12px 80px;
+    margin: 10px;
+}
+.table-lorapp-info table {
+    table-layout: fixed;
+    width: 100%;
+}
+.table-lorapp-info {
+    font-size: 1.2em;
+}
+.table-lorapp-info th,
+.table-lorapp-info td {
+    overflow: hidden;
+    width: 50%;
+}
+.readings-lorapp {
+    margin: 10px auto 30px;
+}
+.readings-lorapp h3 {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-top: 5px;
+}
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+.dinamic-message {
+    font-size: 2.6em;
+    padding: 1.8em 1em .5em;
+}
+#changing-message {
+    color: rgb(14, 206, 204);
+    font-weight: 400;
+}
+.thumbnail {
+    min-height: 260px;
+    padding-top: 15px;
+}
+.thumbnail:hover {
+    background-color: rgba(0,0,0,.03);
+}
+.thumbnail img {
+    max-height: 120px;
+    text-align: center;
+}
+.thumbnail .thumbnail_title {
+    font-size: 1em;
+    font-weight: 700;
+    padding: .6em 0;
+    text-align: center;
+}
+.thumbnail p {
+    font-size: 1em;
+}
+.caption p strong {
+    padding-right: 5px;
+}
+.btn-read {
+    margin: 1.4em 0 0 0;
+}
+.social-logo {
+    height: 30px;
+}
+.navbar-nav>li> .social-logo-link {
+    padding: 10px 15px;
+}
+
+
+
+
+/*=== START: Search.html styles ===*/
+.body-search {
+    padding-top: 30px;
+}
+.search-filters,
+.search-right-info {
+    position: fixed;
+}
+.search-filters .list-group {
+    margin: 0 20px 20px;
+}
+/*.list-group-item {
+    font-size: 1em;
+}*/
+.search-result {
+    font-size: 1em;
+    padding: 20px 0;
+    border-top: 1px #eee solid;
+}
+.search-result:last-of-type {
+    border-bottom: 1px #eee solid;
+}
+.search-result .row {
+    margin-right: 0;
+}
+.book-thumbnail {
+    height: 90px;
+    margin-bottom: 0;
+    min-height: initial;
+}
+.search.dl-horizontal {
+    margin: 0;
+}
+.search.dl-horizontal dt {
+    width: 80px;
+}
+.search.dl-horizontal dd {
+    margin-left: 100px;
+}
+.dl-horizontal.search div {
+    padding-bottom: 5px;
+}
+.btn-purchase:nth-child(2) {
+    margin-top: 14px;
+}
+.btn-purchase img {
+    height: 20px;
+    padding-right: 12px;
+    border-right: 1px #aaa solid;
+}
+.purchase-type-info {
+    font-size: 1em;
+    margin-bottom: 30px;
+}
+.btn-purchase-group {
+    margin: 9px 0;
+}
+.search-right-info .thumbnail {
+    min-height: initial;
+    padding: 20px 30px;
+}
+.search-question-icon {
+    background-color: #EEE;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 7px;
+    padding: 7px;
+    width: 40px;
+}
+.search-leaf-info .btn,
+.search-suggest-reading .btn {
+    margin: 15px 0 10px;
+}
+.search-suggest-reading h3 {
+    margin-top: 8px;
+}
+/*=== END: Search.html styles ===*/
+
+/*=== START: lecturegallery.html styles ===*/
+.content_container {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding-bottom: 40px;
+}
+/*=== END: lecturegallery.html styles ===*/
+
+
+/*=== START: lecturedetail.html styles ===*/
+.lecturedetail {
+    font-size: 1em;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+}
+.lecturedetail_info {
+    display: block;
+    padding-bottom: 30px;
+}
+.book_cover {
+    display: inline-block;
+    margin-right: 20px;
+    max-width: 13%;
+    min-width: 120px;
+    vertical-align: text-top;
+}
+.lecturedetail table tr td {
+    padding: 5px 10px 5px 0px;
+    vertical-align: text-top;
+}
+.lecturedetail table tr td:first-child {
+    font-weight: 700;
+}
+.lecturedetail_data {
+    display: inline-block;
+    vertical-align: text-top;
+    width: 80%;
+}
+.lecturedetail_chapters {
+    font-size: 1.1em;
+}
+.btn_preview {
+    color: rgb(200,200,200);
+    margin-right: 10px;
+}
+.btn_preview:hover {
+    color: rgb(0, 187, 40);
+}
+.lecturedetail_chapters ul li div .btn-horizontal { /*mala práctica para forzar estilos en botones de compra, corregir*/
+    margin: 0px;
+    min-width: 140px;
+    position: relative;
+    top: -6px;
+}
+.lecturedetail_chapters ul li div .btn-horizontal:first-child {
+    margin-right: 4px;
+}
+.lecturedetail_chapters ul li div .btn-horizontal img {
+    margin-right: 13px;
+}
+.lecturedetail_chapters .list-group-item {
+    padding-right: 4px;
+}
+/*=== END: lecturedetail.html styles ===*/
+
+/*=== START: welcome.html styles ===*/
+.welcome-page.container {
+    font-size: 1.1em;
+}
+.welcome-page.container h1 {
+    padding: .5em 0;
+}
+.welcome-page.container h1 sup {
+    font-size: .4em;
+    font-weight: 700;
+    top: -1.2em;
+}
+.lorapp-description {
+    padding: .5em;
+}
+.lorapp-description p:first-child {
+    font-size: 1.7em;
+}
+.welcome-process-container,
+.help-lorapp-container {
+    padding: .7em 0;
+}
+.welcome-process-items div {
+    margin: 0 20px;
+    width: 100%;
+}
+.welcome-process-items img {
+    height: 45px;
+    margin: 1em auto;
+}
+.welcome-process-items .lead {
+    color: black;
+    font-weight: 700;
+}
+.welcome-process-tip {
+    font-size: 1em;
+    opacity: .7;
+}
+.welcome-process-container strong {
+    color: black;
+}
+.lorapp-is-in-beta-alert {
+    display: inline-block;
+}
+.how-to-help-container {
+    padding: .4em 1.5em;
+}
+.how-to-help-container strong {
+    color: #000;
+    font-size: 1.05em;
+    font-weight: 700;
+}
+.report-explanation-div {
+    color: #999;
+    font-size: .9em;
+    padding: 0 20px 0 50px;
+    width: 250px;
+}
+.report-explanation-div img {
+    margin: .5em auto;
+    max-height: 45px;
+}
+.start-now-btns .btn-block + .btn-block {
+    margin-top: 0.5em;
+}
+.start-now-btns .btn-block {
+    margin: .5em;
+}
+/*=== END: welcome.html styles ===*/
+
+/*=== START: mylecturesection.html styles ===*/
+.my-readings-list {
+    font-size: 1.1em;
+}
+/*.my-readings-list .list-group-item:hover {
+    background-color: #f5f5f5;
+}*/
+.my-readings-list .list-group-item {
+    /*overflow: auto;*/ /*This makes the div not collapse while having only floated items*/
+    min-height: 42px;
+    padding: 3px 3px 3px 6px;
+}
+.my-readings-list .list-group-item.active {
+    padding-left: 15px;
+}
+.my-reading-preview-btn {
+    cursor: pointer;
+    opacity: .5;
+    margin-top: -2px;
+    padding: 9px;
+}
+.my-reading-preview-btn:hover {
+    /*color: #00BB28;*/
+    color: #333;
+    opacity: 1;
+}
+.my-readings-list .my-reading-title em {
+    opacity: .8;
+}
+.my-readings-list .my-reading-title em:before {
+    content: "(";
+}
+.my-readings-list .my-reading-title em:after {
+    content: ")";
+}
+.list-book-title,
+.list-chapter-title {
+    padding: 6px 0;
+}
+.list-chapter-title em {
+    font-size: .9em;
+    opacity: .5;
+    padding-left: 10px;
+}
+.btn-notes {
+    padding: 0;
+}
+.btn-notes a {
+    padding: 6px 10px;
+    opacity: .7;
+}
+.btn-notes a:hover {
+    opacity: 1;
+}
+.btn-notes img {
+    height: 20px;
+    margin-top: -4px;
+}
+.my-reading-free,
+.my-reading-price,
+.my-reading-time-left,
+.my-reading-renew,
+.my-reading-time-left-title {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 4px 0px;
+    width: 65px;
+}
+.my-reading-time-left-title,
+.my-reading-notes-title,
+.my-reading-action-title {
+    font-size: .9em;
+}
+.my-reading-notes-title,
+.btn-notes {
+    width: 70px;
+}
+.my-reading-free,
+.my-reading-price,
+.my-reading-time-left,
+.my-reading-renew {
+    display: none;
+    font-size: .9em;
+}
+.my-reading-price {
+    opacity: .75;
+}
+.my-reading-time-left {
+    color: #2ecc71;
+}
+.my-reading-renew {   
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+.free-reading .my-reading-free,
+.rent-reading .my-reading-price,
+.active-reading .my-reading-time-left,
+.expired-reading .my-reading-renew {
+    display: inline;
+}
+.my-reading-free span:after {
+    content: "Gratis";
+    opacity: .75;
+    font-weight: 700;
+}
+.my-reading-price-number {
+    font-weight: 700;
+}
+.my-reading-days-left:after {
+    content: "d ";
+}
+.my-reading-hours-left:after {
+    content: "h";
+}
+.my-reading-expiration-date:after {
+    content: "Expiró";
+}
+.active-readings-title-icon {
+    margin-top: 1px;
+}
+li.list-more-readings {
+    color: #0094FF;
+    font-size: .9em;
+    cursor: pointer;
+}
+li.list-group-item.list-more-readings:hover {
+    color: #0094FF;
+    text-decoration: underline;
+}
+.free-reading .btn-notes,
+.rent-reading .btn-notes {
+    visibility: hidden;
+}
+.rent-btn .btn,
+.read-btn .btn,
+.renew-btn .btn,
+.my-reading-action-title {
+    width: 80px;
+}
+.rent-btn,
+.read-btn,
+.renew-btn,
+.my-reading-action-title {
+    margin-left: 5px;
+}
+.rent-btn .btn,
+.read-btn .btn,
+.renew-btn .btn {
+    font-size: .9em;
+}
+.rent-btn span:after {
+    content: "Alquilar";
+}
+.read-btn span:after {
+    content: "Leer";
+}
+.renew-btn span:after {
+    content: "Renovar";
+}
+/*=== END: mylecturesection.html styles ===*/
+
+
+
+
+
+
+
 
 
 
@@ -1023,383 +1598,3 @@ footer span {
 
 
 
-.hidden {
-    display: none;
-}
-
-/* === Nav styles === */
-
-.nav-logged-in {
-    /*display: none;*/
-}
-/*.nav-not-logged-in {
-        display: none;
-}*/
-.navbar-inverse {
-    background-color: #24334C;
-    background-image: none;
-    border-radius: 0;
-}
-.navbar {
-    margin-bottom: 0;
-}
-.nav-logo {
-    height: 44px;
-    position: relative;
-    bottom: 8px;
-}
-.nav-search {
-    padding: 0 2%;
-}
-.navbar-inverse .nav-hojitas {
-    padding: 6px 15px;
-    margin: 8px 15px;
-}
-.navbar-inverse .nav-login {
-    padding: 6px 35px;
-    margin: 8px 15px;
-}
-/*.navbar-default {
-        background-image: linear-gradient(to bottom,#ECFFF8 0,#ECFFF8 100%);
-}*/
-.navbar-form .input-group .form-control {
-    width: 250px;
-}
-.btn-login {
-    padding: 6px 30px;
-}
-.dropdown-login {
-    padding: 15px;
-}
-.form-login input {
-    margin-bottom: 15px;
-    width: 200px;
-}
-/*.form-login label {
-    font-size: 1em;
-    text-align: center;
-}*/
-.login-forgotten-label {
-    position: absolute;
-    top: 145px;
-    right: 25px;
-}
-#password:focus ~ .login-forgotten-label {
-    display: none;
-}
-/* === END: Nav styles === */
-
-
-/*=== START: Modal styles ===*/
-.panel-title {
-}
-.modal-body {
-}
-.modal-footer-note {
-    padding: 0 10px;
-}
-.modal-body h5 {
-    padding-top: 10px;
-}
-#modal-reading-not-found p {
-    margin-bottom: 20px;
-}
-/*=== END: Modal styles ===*/
-
-/*=== START: Form styles ===*/
-textarea {
-    resize: vertical;
-    overflow: auto;
-}
-form {
-}
-.registration-radio {
-    margin-bottom: 15px;
-}
-/*=== END: Form styles ===*/
-
-.img-main-logo {
-    height: 180px;
-}
-.jumbotron-main {
-    background-color: rgb(234, 255, 246);
-    /*	background-image: url("assets/main-background.png");
-            background-size: cover;
-            background-repeat: no-repeat;*/
-    border: 1px #EEE solid;
-    padding: 80px 48px 20px;
-}
-.btn-lorapp-start {
-    padding: 12px 80px;
-    margin: 10px;
-}
-.table-lorapp-info table {
-    table-layout: fixed;
-    width: 100%;
-}
-.table-lorapp-info {
-    font-size: 1.2em;
-}
-.table-lorapp-info th,
-.table-lorapp-info td {
-    overflow: hidden;
-    width: 50%;
-}
-.readings-lorapp {
-    margin: 10px auto 30px;
-}
-.readings-lorapp h3 {
-    font-size: 1.1em;
-    font-weight: 700;
-    margin-top: 5px;
-}
-.container-full {
-    margin: 0 auto;
-    width: 100%;
-}
-.dinamic-message {
-    font-size: 2.6em;
-    padding: 1.8em 1em .5em;
-}
-#changing-message {
-    color: rgb(14, 206, 204);
-}
-.thumbnail {
-    min-height: 260px;
-    padding-top: 15px;
-}
-.thumbnail:hover {
-    background-color: rgba(0,0,0,.03);
-}
-.thumbnail img {
-    max-height: 120px;
-    text-align: center;
-}
-.thumbnail .thumbnail_title {
-    font-size: 1em;
-    font-weight: 700;
-    padding: .6em 0;
-    text-align: center;
-}
-.thumbnail p {
-    font-size: 1em;
-}
-.caption p strong {
-    padding-right: 5px;
-}
-.btn-read {
-    margin: 1.4em 0 0 0;
-}
-.social-logo {
-    height: 30px;
-}
-.navbar-nav>li> .social-logo-link {
-    padding: 10px 15px;
-}
-
-
-
-
-/*=== START: Search.html styles ===*/
-.body-search {
-    padding-top: 30px;
-}
-.search-filters,
-.search-right-info {
-    position: fixed;
-}
-.search-filters .list-group {
-    margin: 0 20px 20px;
-}
-/*.list-group-item {
-    font-size: 1em;
-}*/
-.search-result {
-    font-size: 1em;
-    padding: 20px 0;
-    border-top: 1px #eee solid;
-}
-.search-result:last-of-type {
-    border-bottom: 1px #eee solid;
-}
-.search-result .row {
-    margin-right: 0;
-}
-.book-thumbnail {
-    height: 90px;
-    margin-bottom: 0;
-    min-height: initial;
-}
-.search.dl-horizontal {
-    margin: 0;
-}
-.search.dl-horizontal dt {
-    width: 80px;
-}
-.search.dl-horizontal dd {
-    margin-left: 100px;
-}
-.dl-horizontal.search div {
-    padding-bottom: 5px;
-}
-.btn-purchase:nth-child(2) {
-    margin-top: 14px;
-}
-.btn-purchase img {
-    height: 20px;
-    padding-right: 12px;
-    border-right: 1px #aaa solid;
-}
-.purchase-type-info {
-    font-size: 1em;
-    margin-bottom: 30px;
-}
-.btn-purchase-group {
-    margin: 9px 0;
-}
-.search-right-info .thumbnail {
-    min-height: initial;
-    padding: 20px 30px;
-}
-.search-question-icon {
-    background-color: #EEE;
-    border-radius: 50%;
-    display: inline-block;
-    margin-bottom: 7px;
-    padding: 7px;
-    width: 40px;
-}
-.search-leaf-info .btn,
-.search-suggest-reading .btn {
-    margin: 15px 0 10px;
-}
-.search-suggest-reading h3 {
-    margin-top: 8px;
-}
-/*=== END: Search.html styles ===*/
-
-/*=== START: lecturegallery.html styles ===*/
-.content_container {
-    margin: 0 auto;
-    max-width: 1000px;
-    padding-bottom: 40px;
-}
-/*=== END: lecturegallery.html styles ===*/
-
-
-/*=== START: lecturedetail.html styles ===*/
-.lecturedetail {
-    font-size: 1em;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    position: relative;
-}
-.lecturedetail_info {
-    display: block;
-    padding-bottom: 30px;
-}
-.book_cover {
-    display: inline-block;
-    margin-right: 20px;
-    max-width: 13%;
-    min-width: 120px;
-    vertical-align: text-top;
-}
-.lecturedetail table tr td {
-    padding: 5px 10px 5px 0px;
-    vertical-align: text-top;
-}
-.lecturedetail table tr td:first-child {
-    font-weight: 700;
-}
-.lecturedetail_data {
-    display: inline-block;
-    vertical-align: text-top;
-    width: 80%;
-}
-.lecturedetail_chapters {
-
-}
-.btn_preview {
-    color: rgb(200,200,200);
-    margin-right: 10px;
-}
-.btn_preview:hover {
-    color: rgb(0, 187, 40);
-}
-.lecturedetail_chapters ul li div .btn-horizontal { /*mala práctica para forzar estilos en botones de compra, corregir*/
-    margin: 0px;
-    min-width: 140px;
-    position: relative;
-    top: -6px;
-}
-.lecturedetail_chapters ul li div .btn-horizontal:first-child {
-    margin-right: 4px;
-}
-.lecturedetail_chapters ul li div .btn-horizontal img {
-    margin-right: 13px;
-}
-.list-group-item {
-    padding-right: 4px;
-}
-/*=== END: lecturedetail.html styles ===*/
-
-/*=== START: welcome.html styles ===*/
-.welcome-page.container {
-    padding-top: 70px;
-}
-.welcome-page.container h1 {
-    padding-bottom: .5em;
-}
-.welcome-page.container h1 sup {
-    font-size: .4em;
-    font-weight: 700;
-    top: -1.2em;
-}
-.lorapp-description {
-    padding: .5em;
-}
-.lorapp-description p:first-child {
-    font-size: 1.7em;
-}
-.welcome-process-container,
-.help-lorapp-container {
-    padding: .7em 0;
-}
-.welcome-process-items div {
-    margin: 0 20px;
-    width: 350px;
-}
-.welcome-process-items img {
-    height: 45px;
-    margin: 1em auto;
-}
-.welcome-process-tip {
-    font-size: 1em;
-    opacity: .7;
-}
-.welcome-process-tip strong {
-    color: black;
-}
-.lorapp-is-in-beta-alert {
-    display: inline-block;
-}
-.how-to-help-container {
-    padding: .4em 1.5em;
-}
-.how-to-help-container strong {
-    color: #000;
-    font-size: 1.05em;
-    font-weight: 700;
-}
-.report-explanation-div {
-    color: #999;
-    font-size: .9em;
-    padding: 0 20px 0 50px;
-    width: 250px;
-}
-.report-explanation-div img {
-    margin: .5em auto;
-    max-height: 45px;
-}
-/*=== END: welcome.html styles ===*/
