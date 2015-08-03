@@ -1200,8 +1200,8 @@ body .reading-wrapper .bodyText .highlight {
 }
 .show-my-readings-btn,
 .show-my-notes-btn {
-	background-color: #000;
-	border: 1px solid #333;
+	background-color: rgba(60,60,60,.8);
+	border: 1px solid transparent;
 	cursor: pointer;
 	display: inline-block;
 	position: fixed;

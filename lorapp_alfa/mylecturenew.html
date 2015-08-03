@@ -683,23 +683,15 @@
 
         <!-- START: Confirmar adquisicion de lectura con hojitas -->
         <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                         <h4 class="modal-title" id="reportproblem">Alquilar Lectura</h4>
                     </div>
                     <div class="modal-body">
-                        <!-- <div class="form-horizontal">
-                            <div class="form-group">
-                                <label class="sr-only"></label>
-                                <div> -->
-                                    <p>Vas a usar <strong><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para alquilar esta lectura durante <strong>7 días</strong>.</p>
-                                <!-- </div>
-                            </div>
-                        </div> -->
+                        <p>Vas a usar <strong><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para alquilar esta lectura durante <strong>7 días</strong>.</p>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer flex flex-center-justify">
                         <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
                         <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
                     </div>
