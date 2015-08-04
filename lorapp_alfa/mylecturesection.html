@@ -846,7 +846,7 @@
         </div>
         <!-- END: Renovar lectura -->
         <!-- END Modals -->
-        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <nav id="footer_content_wrapper" class="navbar navbar-inverse footer_content_wrapper">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- <div class="navbar-header">
@@ -860,8 +860,8 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="public/images/logo-facebook.svg"></a></li>
-                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="public/images/logo-twitter.svg"></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="http://beta.lorapp.com/alfa/lorapp/public/images/logo-facebook.svg"></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="http://beta.lorapp.com/alfa/lorapp/public/images/logo-twitter.svg"></a></li>
                 </ul>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -879,11 +879,11 @@
         <script type="text/javascript" src="public/js/global.js"></script>
         <script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="public/js/util.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
         <script type="text/javascript">global.url = "main.html?";</script>
         <script type="text/javascript" src="public/js/util.js"></script>
+        <script type="text/javascript" src="public/js/LectureDetail.js"></script>
                 <script type="text/javascript">
             function removeLectureSection(id){
             var d = {};
@@ -909,11 +909,16 @@
     // Al hacer click en el botón "Ver más lecturas de este libro"
     // muestra el resto de secciones y desaparece este boton.
     $('.list-more-readings').click(function() {
-        $(this).parent('.my-readings-list').children('.rent-reading').removeClass('hidden');
-        $(this).parent('.my-readings-list').children('.free-reading').removeClass('hidden');
-        $(this).css("display", "none");
+            $(this).parent('.my-readings-list').children('.rent-reading').removeClass('hidden');
+            $(this).parent('.my-readings-list').children('.free-reading').removeClass('hidden');
+            $(this).hide();
+            $(this).next().show();
+    });
+    $('.list-less-readings').click(function() {
+            $(this).parent('.my-readings-list').children('.rent-reading').addClass('hidden');
+            $(this).parent('.my-readings-list').children('.free-reading').addClass('hidden');
+            $(this).hide();
+            $(this).prev().show();
     });
 </script>
-
-
 </body></html>
