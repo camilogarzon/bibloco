@@ -122,6 +122,10 @@ section {
         -ms-flex-pack: start;
             justify-content: flex-start;
 }
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
 
 
 
@@ -805,6 +809,7 @@ form {
 }
 .thumbnail p {
     font-size: 1em;
+    margin-bottom: 5px;
 }
 .caption p strong {
     padding-right: 5px;
@@ -900,12 +905,9 @@ form {
 }
 /*=== END: Search.html styles ===*/
 
+
 /*=== START: lecturegallery.html styles ===*/
-.content_container {
-    margin: 0 auto;
-    max-width: 1000px;
-    padding-bottom: 40px;
-}
+
 /*=== END: lecturegallery.html styles ===*/
 
 
