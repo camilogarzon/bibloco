@@ -12,9 +12,9 @@
         <link href="public/css/jquery-ui/jquery-ui.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="public/js/fancybox/source/jquery.fancybox.css" media="screen">
     </head>
-    <body>
 
-                <!-- START: navbar logged-in -->
+    <body>
+        <!-- START: navbar logged-in -->
         <nav class="navbar navbar-inverse navbar-fixed-top nav-logged-in">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -42,17 +42,14 @@
                             </ul>
                         </li>
                     </ul>
-
-
-
                     <div class="nav-search navbar-form navbar-right">
                         <div class="input-group">
                             <form method="GET" action="lecturesearch.html?" accept-charset="UTF-8" id="search_form">
-                            <input id="search" placeholder="¿Cuál lectura buscas?" class="form-control" required="true" name="search" type="text" value="">
-                            <input name="render" type="hidden" value="lecturesearch">
-                            <span class="input-group-btn">
-                                <button class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                            </span>
+                                <input id="search" placeholder="¿Cuál lectura buscas?" class="form-control" required="true" name="search" type="text" value="">
+                                <input name="render" type="hidden" value="lecturesearch">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </span>
                             </form>
                         </div>
                     </div>
@@ -61,534 +58,447 @@
             </div>
         </nav>
         <!-- END: navbar logged-in -->
-                <!-- START Body -->
 
-<div class="container-fluid body-search row">
+        <!-- START Body -->
+        <div id="body_content_wrapper" style="overflow: auto">
 
-    <div class="col-sm-3 search-filters"><!-- left column -->
-        <div class="list-group hidden-xs">
-            <div class="list-group-item active">
-                UNIVERSIDAD
-            </div>
-            <a href="#" class="list-group-item">Universidad Externado<span class="badge">15</span></a>
-            <a href="#" class="list-group-item">Universidad de los Andes<span class="badge">9</span></a>
-            <a href="#" class="list-group-item">Otras<span class="badge">18</span></a>
-        </div>
-        <div class="list-group hidden-xs">
-            <div class="list-group-item active">
-                CARRERA
-            </div>
-            <a href="#" class="list-group-item">Administración<span class="badge">31</span></a>
-            <a href="#" class="list-group-item">Derecho<span class="badge">7</span></a>
-            <a href="#" class="list-group-item">Otras <span class="badge">4</span></a>
-        </div>
-        <div class="list-group hidden-xs">
-            <div class="list-group-item active">
-                MATERIA
-            </div>
-            <a href="#" class="list-group-item">Gerencia internacional<span class="badge">28</span></a>
-            <a href="#" class="list-group-item">Introducción al derecho<span class="badge">5</span></a>
-            <a href="#" class="list-group-item">Otras<span class="badge">9</span></a>
-        </div>
-    </div>
+            <div class="container-fluid body-search row">
 
-    <div class="col-md-9 col-sm-offset-3 col-lg-6 container"><!-- center column -->
-
-
-
-        <!-- Información escrito en arena y piedra -->
-        <!-- <div class="purchase-type-info">
-            <div class="media">
-                <div class="media-left">
-                    <img class="media-object" src="public/images//sand.svg" alt="...">
-                </div>
-                <div class="media-body">
-                    <strong>Escrito en arena</strong> te da acceso a la lectura durante 24 horas desde que la abres por primera vez. Puedes subrayar hasta un 15% de la lectura. Tus apuntes y subrayados nunca se borran.
-                </div>
-            </div>
-            <div class="media">
-                <div class="media-left">
-                    <img class="media-object" src="public/images//rock.svg" alt="...">
-                </div>
-                <div class="media-body">
-                    <strong>Escrito en piedra</strong> te da acceso a la lectura por siempre. Puedes imprimirla con facilidad y subrayar cuanto quieras. Tus apuntes y subrayados nunca se borran.
-                </div>
-            </div>
-        </div> --><!-- /Información escrito en arena y piedra -->
-        <div class="alert alert-info" role="alert">También puedes buscar por el <strong>nombre de tus clases</strong> y encontrar las lecturas que te piden tus profesores.</div>
-
-        <h4>9 resultados para "a"</h4>
-
-
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Deserunt molestiae ullam eius repudiandae autem quo." title="Deserunt molestiae ullam eius repudiandae autem quo." src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"></a>
-
-                </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Deserunt molestiae ullam eius repudiandae autem quo.</dd>
+                <!--    <div class="col-sm-3 search-filters">
+                        <div class="list-group hidden-xs">
+                            <div class="list-group-item active">
+                                UNIVERSIDAD
+                            </div>
+                            <a href="#" class="list-group-item">Universidad Externado<span class="badge">15</span></a>
+                            <a href="#" class="list-group-item">Universidad de los Andes<span class="badge">9</span></a>
+                            <a href="#" class="list-group-item">Otras<span class="badge">18</span></a>
                         </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>Lucio Donnelly</dd>
+                        <div class="list-group hidden-xs">
+                            <div class="list-group-item active">
+                                CARRERA
+                            </div>
+                            <a href="#" class="list-group-item">Administración<span class="badge">31</span></a>
+                            <a href="#" class="list-group-item">Derecho<span class="badge">7</span></a>
+                            <a href="#" class="list-group-item">Otras <span class="badge">4</span></a>
                         </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Dolorem sunt vero molestiae.</dd>
+                        <div class="list-group hidden-xs">
+                            <div class="list-group-item active">
+                                MATERIA
+                            </div>
+                            <a href="#" class="list-group-item">Gerencia internacional<span class="badge">28</span></a>
+                            <a href="#" class="list-group-item">Introducción al derecho<span class="badge">5</span></a>
+                            <a href="#" class="list-group-item">Otras<span class="badge">9</span></a>
                         </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Economia</span> </dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free1"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="1">
-                <input name="type" type="hidden" value="free">
-                <a onclick="operation.addLectureSection('free1')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                </form>
-                                            </div>
+                    </div>-->
 
-        </div><!-- search result -->
+                <div class="col-md-9 col-sm-offset-3 col-lg-6 container"><!-- center column -->
 
 
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Deserunt molestiae ullam eius repudiandae autem quo." title="Deserunt molestiae ullam eius repudiandae autem quo." src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"></a>
 
-                </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Deserunt molestiae ullam eius repudiandae autem quo.</dd>
+                    <!-- Información escrito en arena y piedra -->
+                    <div class="purchase-type-info">
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="http://beta.lorapp.com/alfa/lorapp/public/images//sand.svg" alt="...">
+                            </div>
+                            <div class="media-body">
+                                <strong>Escrito en arena</strong> te da acceso a la lectura durante 24 horas desde que la abres por primera vez. Puedes subrayar hasta un 15% de la lectura. Tus apuntes y subrayados nunca se borran.
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>Lucio Donnelly</dd>
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="http://beta.lorapp.com/alfa/lorapp/public/images//rock.svg" alt="...">
+                            </div>
+                            <div class="media-body">
+                                <strong>Escrito en piedra</strong> te da acceso a la lectura por siempre. Puedes imprimirla con facilidad y subrayar cuanto quieras. Tus apuntes y subrayados nunca se borran.
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Quae velit impedit omnis neque excepturi sed placeat.</dd>
+                    </div><!-- /Información escrito en arena y piedra -->
+                    <h4>29 resultados para "pe"</h4>
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?14"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Reading from paper versus screens: a critical review of the empirical literature" title="Reading from paper versus screens: a critical review of the empirical literature" src="http://beta.lorapp.com/alfa/lorapp/public/images/default_cover.png"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>Reading from paper versus screens: a critical review of the empirical literature</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=&amp;render=lecturesearch"></a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>Paper</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Economia</span> </dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition77">
+                            <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="rent_limited77"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                <input name="lsid" type="hidden" value="77">
+                                <input name="type" type="hidden" value="rent_limited">
+                                <!--                            <a onclick="operation.addLectureSection('rent_limited77',77)" class="btn btn-default btn-block btn-purchase">0 <span class="glyphicon glyphicon-leaf"></span></a>-->
+                                <a onclick="operation.addLectureSectionValues('rent_limited77', '77', '0')" data-toggle="modal" data-target="#modal-confirm-lecture-adquisition" class="btn btn-default btn-purchase btn-horizontal" style="margin-right: 8px;">0 <span class="glyphicon glyphicon-leaf"></span></a>
+                            </form>
+                            <!--                            <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand77"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                                        <input name="lsid" type="hidden" value="77">
+                                                        <input name="type" type="hidden" value="sand">
+                                                        <a onclick="operation.addLectureSection('sand77',77)" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="http://beta.lorapp.com/alfa/lorapp/public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 1</a>
+                                                        </form>
+                                                        <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone77"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                                        <input name="lsid" type="hidden" value="77">
+                                                        <input name="type" type="hidden" value="stone">
+                                                        <a onclick="operation.addLectureSection('stone77',77)" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="http://beta.lorapp.com/alfa/lorapp/public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 2</a>
+                                                        </form>-->
                         </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand2">
-                    <input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                    <input name="lsid" type="hidden" value="2">
-                    <input name="type" type="hidden" value="sand">
-                    <a onclick="operation.addLectureSection('sand2')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 20</a>
-                </form>
-                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone2">
-                    <input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                    <input name="lsid" type="hidden" value="2">
-                    <input name="type" type="hidden" value="stone">
-                    <a onclick="operation.addLectureSection('stone2')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 3</a>
-                </form>
-            </div>
 
-        </div><!-- search result -->
-
-
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Deserunt molestiae ullam eius repudiandae autem quo." title="Deserunt molestiae ullam eius repudiandae autem quo." src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02"></a>
-
-                </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Deserunt molestiae ullam eius repudiandae autem quo.</dd>
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?9"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Los caminos para el éxito" title="Los caminos para el éxito" src="http://beta.lorapp.com/alfa/lorapp/public/images/default_cover.png"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>Los caminos para el éxito</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Aureliano Abenza y Rodríguez&amp;render=lecturesearch">Aureliano Abenza y Rodríguez</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>2. Papel de la voluntad</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Se lee en</dt>
+                                        <dd> <span class="label label-info">Administracion</span>  <span class="label label-info">Psicología</span> </dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>Lucio Donnelly</dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition49">
+                            <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free49"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                <input name="lsid" type="hidden" value="49">
+                                <input name="type" type="hidden" value="free">
+                                <a onclick="operation.addLectureSection('free49', 49)" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                            </form>
                         </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Blanditiis rerum voluptate sequi id dolorem rerum.</dd>
+
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?9"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Los caminos para el éxito" title="Los caminos para el éxito" src="http://beta.lorapp.com/alfa/lorapp/public/images/default_cover.png"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>Los caminos para el éxito</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Aureliano Abenza y Rodríguez&amp;render=lecturesearch">Aureliano Abenza y Rodríguez</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>3. El papel de la inteligencia</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Se lee en</dt>
+                                        <dd> <span class="label label-info">Administracion</span>  <span class="label label-info">Psicología</span> </dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Economia</span> </dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition51">
+                            <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free51"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                <input name="lsid" type="hidden" value="51">
+                                <input name="type" type="hidden" value="free">
+                                <a onclick="operation.addLectureSection('free51', 51)" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                            </form>
                         </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free3"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="3">
-                <input name="type" type="hidden" value="free">
-                <a onclick="operation.addLectureSection('free3')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                </form>
-                                            </div>
 
-        </div><!-- search result -->
-
-
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?4"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Eos sed cum qui praesentium tempore reprehenderit hic." title="Eos sed cum qui praesentium tempore reprehenderit hic." src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7"></a>
-
-                </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Eos sed cum qui praesentium tempore reprehenderit hic.</dd>
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?9"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Los caminos para el éxito" title="Los caminos para el éxito" src="http://beta.lorapp.com/alfa/lorapp/public/images/default_cover.png"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>Los caminos para el éxito</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Aureliano Abenza y Rodríguez&amp;render=lecturesearch">Aureliano Abenza y Rodríguez</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>4. Papel de la sensibilidad</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Se lee en</dt>
+                                        <dd> <span class="label label-info">Administracion</span>  <span class="label label-info">Psicología</span> </dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>Monserrat Romaguera</dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition52">
+                            <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free52"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                <input name="lsid" type="hidden" value="52">
+                                <input name="type" type="hidden" value="free">
+                                <a onclick="operation.addLectureSection('free52', 52)" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                            </form>
                         </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Dolorem incidunt labore fuga enim quis et.</dd>
+
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="El origen de las especies" title="El origen de las especies" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/49/975b03f11468ec59604b10021c6a29d3"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>El origen de las especies</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Charles Darwin&amp;render=lecturesearch">Charles Darwin</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>Prólogo</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Derecho</span> </dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition1">
+                            <a href="http://beta.lorapp.com/alfa/lorapp/public/mylecture/1" class="btn btn-info btn-block ">LEER</a>
                         </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free10"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="10">
-                <input name="type" type="hidden" value="free">
-                <a onclick="operation.addLectureSection('free10')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                </form>
-                                            </div>
 
-        </div><!-- search result -->
-
-
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?4"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Eos sed cum qui praesentium tempore reprehenderit hic." title="Eos sed cum qui praesentium tempore reprehenderit hic." src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7"></a>
-
-                </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Eos sed cum qui praesentium tempore reprehenderit hic.</dd>
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="El origen de las especies" title="El origen de las especies" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/49/975b03f11468ec59604b10021c6a29d3"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>El origen de las especies</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Charles Darwin&amp;render=lecturesearch">Charles Darwin</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>Introducción</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>Monserrat Romaguera</dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition2">
+                            <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free2"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                <input name="lsid" type="hidden" value="2">
+                                <input name="type" type="hidden" value="free">
+                                <a onclick="operation.addLectureSection('free2', 2)" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                            </form>
                         </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Esse porro fugit cumque.</dd>
+
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="El origen de las especies" title="El origen de las especies" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/49/975b03f11468ec59604b10021c6a29d3"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>El origen de las especies</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Charles Darwin&amp;render=lecturesearch">Charles Darwin</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>1.&nbsp;La variacion en estado domestico</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Derecho</span> </dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition3">
+                            <a href="http://beta.lorapp.com/alfa/lorapp/public/mylecture/3" class="btn btn-info btn-block ">LEER</a>
                         </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand11"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="11">
-                <input name="type" type="hidden" value="sand">
-                <a onclick="operation.addLectureSection('sand11')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 13</a>
-                </form>
-                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone11"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="11">
-                <input name="type" type="hidden" value="stone">
-                <a onclick="operation.addLectureSection('stone11')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 19</a>
-                </form>
-                                            </div>
 
-        </div><!-- search result -->
-
-
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?4"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Eos sed cum qui praesentium tempore reprehenderit hic." title="Eos sed cum qui praesentium tempore reprehenderit hic." src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7"></a>
-
-                </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Eos sed cum qui praesentium tempore reprehenderit hic.</dd>
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="El origen de las especies" title="El origen de las especies" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/49/975b03f11468ec59604b10021c6a29d3"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>El origen de las especies</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Charles Darwin&amp;render=lecturesearch">Charles Darwin</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>2. La variacion en la naturaleza</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>Monserrat Romaguera</dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition5">
+                            <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free5"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                <input name="lsid" type="hidden" value="5">
+                                <input name="type" type="hidden" value="free">
+                                <a onclick="operation.addLectureSection('free5', 5)" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                            </form>
                         </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Fugit aliquam quidem nisi est numquam qui.</dd>
+
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="El origen de las especies" title="El origen de las especies" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/49/975b03f11468ec59604b10021c6a29d3"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>El origen de las especies</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Charles Darwin&amp;render=lecturesearch">Charles Darwin</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>3.&nbsp;La lucha por la existencia</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Derecho</span> </dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition4">
+                            <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free4"><input name="_token" type="hidden" value="fh3JmcVfP8z8iT9Oj98Wy17WJOR9KGSihhdJwfPt">
+                                <input name="lsid" type="hidden" value="4">
+                                <input name="type" type="hidden" value="free">
+                                <a onclick="operation.addLectureSection('free4', 4)" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
+                            </form>
                         </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand12"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="12">
-                <input name="type" type="hidden" value="sand">
-                <a onclick="operation.addLectureSection('sand12')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 5</a>
-                </form>
-                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone12"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="12">
-                <input name="type" type="hidden" value="stone">
-                <a onclick="operation.addLectureSection('stone12')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 19</a>
-                </form>
-                                            </div>
 
-        </div><!-- search result -->
-
-
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?5"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Nulla inventore optio amet laudantium enim illo et." title="Nulla inventore optio amet laudantium enim illo et." src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269"></a>
-
-                </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Nulla inventore optio amet laudantium enim illo et.</dd>
+                    </div><!-- search result -->            
+                    <div class="search-result row">
+                        <div class="media col-sm-9">
+                            <div class="media-left media-middle">
+                                <a href="lecturedetail.html?1"><img class="media-object book-thumbnail" style="max-height: 100px" alt="El origen de las especies" title="El origen de las especies" src="http://beta.lorapp.com/alfa/lorapp/public/attachment/get/view/49/975b03f11468ec59604b10021c6a29d3"></a>
+                            </div>
+                            <div class="media-body">
+                                <dl class="dl-horizontal search">
+                                    <div class="row">
+                                        <dt>Título</dt>
+                                        <dd>El origen de las especies</dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Autor</dt>
+                                        <dd><a href="lecturesearch.html??search=Charles Darwin&amp;render=lecturesearch">Charles Darwin</a></dd>
+                                    </div>
+                                    <div class="row">
+                                        <dt>Sección</dt>
+                                        <dd>4.&nbsp;La seleccion natural o la supervivencia de los mas aptos</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>John Luettgen</dd>
+                        <div class="col-sm-3 btn-purchase-group" id="lecture_adquisition7">
+                            <a href="http://beta.lorapp.com/alfa/lorapp/public/mylecture/7" class="btn btn-info btn-block ">LEER</a>
                         </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Explicabo labore et culpa iure laboriosam laudantium.</dd>
-                        </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Economia</span> </dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free13"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="13">
-                <input name="type" type="hidden" value="free">
-                <a onclick="operation.addLectureSection('free13')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                </form>
-                                            </div>
 
-        </div><!-- search result -->
+                    </div><!-- search result -->            
+                    <nav class="text-center">
+                        <ul class="pagination">
+                            <li class="disabled"><span>«</span></li><li class="active"><span>1</span></li><li><a href="lecturesearch.html??search=pe&amp;render=lecturesearch&amp;page=2">2</a></li><li><a href="lecturesearch.html??search=pe&amp;render=lecturesearch&amp;page=3">3</a></li><li><a href="lecturesearch.html??search=pe&amp;render=lecturesearch&amp;page=2" rel="next">»</a></li>	</ul>
 
-
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?5"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Nulla inventore optio amet laudantium enim illo et." title="Nulla inventore optio amet laudantium enim illo et." src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269"></a>
-
-                </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Nulla inventore optio amet laudantium enim illo et.</dd>
-                        </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>John Luettgen</dd>
-                        </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Porro nihil nesciunt et beatae deserunt.</dd>
-                        </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Economia</span> </dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="sand14"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="14">
-                <input name="type" type="hidden" value="sand">
-                <a onclick="operation.addLectureSection('sand14')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/sand.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 6</a>
-                </form>
-                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="stone14"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="14">
-                <input name="type" type="hidden" value="stone">
-                <a onclick="operation.addLectureSection('stone14')" class="btn btn-default btn-block btn-purchase"><img class="pull-left" src="public/images/rock.svg" alt="..."><span class="glyphicon glyphicon-leaf"></span> x 16</a>
-                </form>
-                                            </div>
-
-        </div><!-- search result -->
-
-
-        <div class="search-result row">
-            <div class="media col-sm-9">
-                <div class="media-left media-middle">
-                                        <a href="lecturedetail.html?5"><img class="media-object book-thumbnail" style="max-height: 100px" alt="Nulla inventore optio amet laudantium enim illo et." title="Nulla inventore optio amet laudantium enim illo et." src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269"></a>
+                    </nav>
 
                 </div>
-                <div class="media-body">
-                    <dl class="dl-horizontal search">
-                        <div class="row">
-                            <dt>Título</dt>
-                            <dd>Nulla inventore optio amet laudantium enim illo et.</dd>
-                        </div>
-                        <div class="row">
-                            <dt>Autor</dt>
-                            <dd>John Luettgen</dd>
-                        </div>
-                        <div class="row">
-                            <dt>Sección</dt>
-                            <dd>Ad dolor aliquid quam at labore ut rerum placeat.</dd>
-                        </div>
-                        <div class="row">
-                            <dt>Se lee en</dt>
-                            <dd> <span class="label label-info">Economia</span> </dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-3 btn-purchase-group">
-                                                <form method="POST" action="lecturesearch.html?" accept-charset="UTF-8" id="free15"><input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
-                <input name="lsid" type="hidden" value="15">
-                <input name="type" type="hidden" value="free">
-                <a onclick="operation.addLectureSection('free15')" class="btn btn-success btn-block btn-purchase">¡GRATIS!</a>
-                </form>
-                                            </div>
-
-        </div><!-- search result -->
-
-                        <nav class="text-center">
-            <ul class="pagination">
-			<li class="disabled"><span>«</span></li><li class="active"><span>1</span></li><li><a href="lecturesearch.html??search=a&amp;render=lecturesearch&amp;page=2">2</a></li><li><a href="lecturesearch.html??search=a&amp;render=lecturesearch&amp;page=2" rel="next">»</a></li>	</ul>
-
-        </nav>
-
-
-
-
-
-    </div>
-
-    <div class="col-sm-3 col-sm-offset-9 search-right-info hidden-md hidden-sm"><!-- right column -->
-        <div class="thumbnail text-center hidden-xs search-leaf-info">
-            <h4><span class="glyphicon glyphicon-leaf"></span> x 100</h4>
-            <p><strong>Las hojitas se cambian por lecturas.</strong></p>
-            <p>Cada vez que alquilas una lectura con hojitas apoyas la legalidad y ayudas al medio ambiente. Además, las lecturas en Lorapp muchas veces valen menos que las fotocopias.</p>
-            <a class="btn btn-success" href="">Consigue hojitas</a>
-        </div>
-
-        <div class="thumbnail text-center hidden-xs search-suggest-reading">
-            <h3><span class="search-question-icon">?</span></h3>
-            <h4>¿No encuentras tu lectura?</h4>
-            <p>Háznoslo saber y ayúdanos a mejorar Lorapp.</p>
-            <a class="btn btn-primary" href="" data-toggle="modal" data-target="#modal-lecturesuggested">Sugerir lectura</a>
-        </div>
-    </div>
-
-
-
-</div>
-
-<!--
-<div class="container">
-    <h1 class="page-header">LECTURAS</h1>
-    <h2 class="sub-header">
-        <table width="100%">
-            <tr>
-                <td width="30%">&nbsp;</td>
-                <td width="30%">&nbsp;</td>
-                <td>
-                    <form method="GET" action="lecturesearch.html?" accept-charset="UTF-8" id="search_form">
-                    <div class="input-group" >
-                        <input id="search" placeholder="Buscar..." class="form-control" required="true" name="search" type="text" value="a">
-                        <input name="render" type="hidden" value="lecturesearch">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default">&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;</button>
-                        </span>
+                <div class="col-sm-3 col-sm-offset-9 search-right-info hidden-md hidden-sm"><!-- right column -->
+                    <div class="thumbnail text-center hidden-xs search-leaf-info">
+                        <h4><span class="glyphicon glyphicon-leaf"></span> x 100</h4>
+                        <p><strong>Las hojitas se cambian por lecturas.</strong></p>
+                        <p>Cada vez que adquieres una lectura con hojitas apoyas la legalidad y ayudas al medio ambiente. Además, las lecturas en Lorapp muchas veces valen menos que las fotocopias. :)</p>
+                        <a class="btn btn-success" href="">Consigue hojitas</a>
                     </div>
-                    </form>
-                </td>
-            </tr>
-        </table>
-    </h2>
-    <div class="table-responsive">
-                <ul class="pagination">
-			<li class="disabled"><span>&laquo;</span></li><li class="active"><span>1</span></li><li><a href="lecturesearch.html??search=a&render=lecturesearch&page=2">2</a></li><li><a href="lecturesearch.html??search=a&render=lecturesearch&page=2" rel="next">&raquo;</a></li>	</ul>
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Titulo</th>
-                    <th>Autor</th>
-                    <th>Editorial</th>
-                    <th>Secciones</th>
-                </tr>
-            </thead>
-            <tbody id="tbody_result">
-                                <tr>
-                    <td><a href="lecturedetail.html?1">Deserunt molestiae ullam eius repudiandae autem quo.</a></td>
-                    <td>Lucio Donnelly</td>
-                    <td>Editorial Stehr, Jenkins and Koepp</td>
-                    <td>
-                                                <a class="btn btn-xs btn-success">Dolorem sunt vero molestiae.</a>
-                                                <a class="btn btn-xs btn-success">Quae velit impedit omnis neque excepturi sed placeat.</a>
-                                                <a class="btn btn-xs btn-success">Blanditiis rerum voluptate sequi id dolorem rerum.</a>
-                                            </td>
-                </tr>
-                                <tr>
-                    <td><a href="lecturedetail.html?4">Eos sed cum qui praesentium tempore reprehenderit hic.</a></td>
-                    <td>Monserrat Romaguera</td>
-                    <td>Editorial Gerlach, Bauch and Rutherford</td>
-                    <td>
-                                                <a class="btn btn-xs btn-success">Dolorem incidunt labore fuga enim quis et.</a>
-                                                <a class="btn btn-xs btn-success">Esse porro fugit cumque.</a>
-                                                <a class="btn btn-xs btn-success">Fugit aliquam quidem nisi est numquam qui.</a>
-                                            </td>
-                </tr>
-                                <tr>
-                    <td><a href="lecturedetail.html?5">Nulla inventore optio amet laudantium enim illo et.</a></td>
-                    <td>John Luettgen</td>
-                    <td>Editorial Fisher and Sons</td>
-                    <td>
-                                                <a class="btn btn-xs btn-success">Explicabo labore et culpa iure laboriosam laudantium.</a>
-                                                <a class="btn btn-xs btn-success">Porro nihil nesciunt et beatae deserunt.</a>
-                                                <a class="btn btn-xs btn-success">Ad dolor aliquid quam at labore ut rerum placeat.</a>
-                                            </td>
-                </tr>
-                            </tbody>
-        </table>
-        <ul class="pagination">
-			<li class="disabled"><span>&laquo;</span></li><li class="active"><span>1</span></li><li><a href="lecturesearch.html??search=a&render=lecturesearch&page=2">2</a></li><li><a href="lecturesearch.html??search=a&render=lecturesearch&page=2" rel="next">&raquo;</a></li>	</ul>
-
+                    <div class="thumbnail text-center hidden-xs search-suggest-reading">
+                        <h3><span class="search-question-icon">?</span></h3>
+                        <h4>¿No encuentras tu lectura?</h4>
+                        <p><strong>Háznoslo saber y ayúdanos a mejorar Lorapp.</strong> Cada semana sorteamos hojitas entre los usuarios que nos reportan lecturas faltantes.</p>
+                        <a class="btn btn-primary" href="" data-toggle="modal" data-target="#modal-reading-not-found">Sugerir lectura</a>
+                    </div>
+                </div>
             </div>
-</div>-->
+
+        </div>
         <!-- END Body -->
+
+        <!-- Boton feedback -->
+        <div class="feedback-btn-container dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- feedback-icon: inline SVG -->
+                <svg width="18px" height="18px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+                    <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                    <feGaussianBlur stdDeviation="0" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                    <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+                    <feMerge>
+                        <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                </filter>
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <g id="Artboard-8-Copy" sketch:type="MSArtboardGroup" transform="translate(-27.000000, -43.000000)" filter="url(#filter-1)" fill="#333333">
+                <g id="Path-+-Shape-Copy" sketch:type="MSLayerGroup" transform="translate(27.000000, 43.000000)">
+                <path d="M23.5,0 C36.4778366,0 47,9.2060866 47,20.5625 C47,27.0529542 43.5557908,32.8309592 38.1875,36.5997908 L38.1875,47 L27.8930408,40.7533775 C26.4682958,40.9884542 25.0025408,41.125 23.5,41.125 C10.5206275,41.125 0,31.9189134 0,20.5625 C0,9.2060866 10.5206275,0 23.5,0 Z M31.09375,24 C31.9045,24 32.5625,25.12 32.5625,26.5 C32.5625,27.88 31.9045,29 31.09375,29 L16.40625,29 C15.5955,29 14.9375,27.88 14.9375,26.5 C14.9375,25.12 15.5955,24 16.40625,24 L31.09375,24 Z M13.46875,14 L34.03125,14 C34.842,14 35.5,15.12 35.5,16.5 C35.5,17.88 34.842,19 34.03125,19 L13.46875,19 C12.658,19 12,17.88 12,16.5 C12,15.12 12.658,14 13.46875,14 Z" id="Path" sketch:type="MSShapeGroup" transform="translate(23.500000, 23.500000) scale(-1, 1) translate(-23.500000, -23.500000) "></path>
+                </g>
+                </g>
+                </g>
+                </svg>
+                <!-- /feedback-icon: inline SVG -->
+                Feedback?
+            </button>
+
+            <ul class="feedback-list dropdown-menu" aria-labelledby="feedback-dropup-menu">
+                <li><a href="#" data-toggle="modal" data-target="#modal-report-problem">Informa de un error o problema</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modal-reading-not-found">No encuentras la lectura que necesitas</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modal-feedback-questions">Consejos, comentarios o preguntas</a></li>
+            </ul>
+        </div>
+        <!-- /Boton feedback -->        
+
+
         <!-- START Modals -->
         <!-- FAQ -->
         <div class="modal fade" id="modal-FAQ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -687,79 +597,230 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Términos de uso</h4>
+                        <h4 class="modal-title text-center" id="myModalLabel"><strong>Contrato de licencia de uso de software y política<br>de protección de datos personales</strong></h4>
                     </div>
-                    <div class="modal-body">
-                        <h5>Effective date: July 9, 2013</h5>
+                    <div class="modal-body terms-body-text">
+                        <style type="text/css">
+                            .terms-body-text {
+                                padding: 30px;
+                                text-align: justify;
+                            }
+                            .terms-body-text .term-number-p {
+                                margin: 0 40px 10px;
+                                text-indent: -40px;
+                            }
+                            .terms-body-text .term-number-p2 {
+                                margin: 0 84px 10px;
+                                text-indent: -36px;
+                            }
+                            .term-number,
+                            .term-number2,
+                            .terms-body-text h3 {
+                                color: #999CA5;
+                            }
+                            .term-number {
+                                float: left;
+                                padding-right: 39px;
+                            }
+                            .term-number2 {
+                                float: left;
+                                margin-left: -7px; 
+                                padding-right: 40px;
+                            }
+                        </style>
 
-                        <p>Hi there, and welcome to Oyster’s Terms of Service. These are important and influence your legal rights, so please set aside a few minutes to thoroughly and carefully read through them, along with our Privacy Policy. If you have any questions or concerns, you can always contact us at hello@oysterbooks.com. Let’s get started.</p>
+                        <p>Gracias por utilizar nuestros productos y servicios de Lorapp (en adelante “los Servicios”).</p>
 
-                        <h5>Introductions</h5>
-                        <p>Please read these Terms of Service (collectively with Oyster’s Privacy Policy and DMCA Copyright Policy, the “Terms of Service”) fully and carefully before using www.oysterbooks.com (the “Site”) and the services, features, content or applications, including the Oyster mobile application (the “Application”), offered by Studio SBV, Inc. d/b/a Oyster (“Oyster”, “we”, “us” or “our”) (together with the Site and the Application, the “Services”). These Terms of Service set forth the legally binding terms and conditions for your use of the Site and the Services.</p>
+                        <p>Al hacer clic en el campo “<strong>He leído y acepto los Términos y Condiciones y la Política de Privacidad</strong>”, el Usuario está manifestando su total y definitiva aceptación a todos los términos y condiciones contenidos en el presente Contrato de Licencia de Uso de Software, así como la política de tratamiento de datos personales contenida en dicho documento. Por lo tanto, le sugerimos que, antes de expresar su aceptación, lea los términos y condiciones del Contrato de Licencia de uso de Software y la Política de Protección de Datos Personales contenidos en las cláusulas que se indican a continuación:</p>
 
-                        <p>We’re excited to have you with us at Oyster, and we’re pleased to make our Services available to you.</p>
+                        <ol>
+                            <a href="#term-1"><li>De las partes</li></a>
+                            <a href="#term-2"><li>Del uso de nuestros servicios</li></a>
+                            <a href="#term-3"><li>Del registro de la cuenta de usuario</li></a>
+                            <a href="#term-4"><li>De la interrupción del servicio</li></a>
+                            <a href="#term-5"><li>De la suspensión definitiva de los servicios</li></a>
+                            <a href="#term-6"><li>De los medios de pago</li></a>
+                            <a href="#term-7"><li>De la devolución de valores</li></a>
+                            <a href="#term-8"><li>Asistencia online</li></a>
+                            <a href="#term-9"><li>Propiedad intelectual</li></a>
+                            <a href="#term-10"><li>Terminación del contrato</li></a>
+                            <a href="#term-11"><li>De la política de protección de datos personales</li></a>
+                        </ol>
 
-                        <p>In order to use the Services, you must be 13 years of age or older. If you are under age 13, you may not use the Services under any circumstances or for any reason.  These Terms of Service apply to all users of the Services, including, without limitation, users who are contributors of content, information, and other materials or services, registered or otherwise. If you don’t agree with these terms, please do not use the Services.</p>
+                        <hr>
+                        <h3 id="term-1">Primera</h3>
+                        <h4><strong>DE LAS PARTES</strong></h4>
+                        <p>Son Partes del presente Contrato de Licencia de Uso del presente Software (en adelante el “Contrato” o la “Licencia”), Inntouch Solutions SAS, sociedad comercial domiciliada en la ciudad de Bogotá D.C., identificada con el NIT 900.674.205–1 (en adelante, “Inntouch”); y el Usuario de Lorapp (en adelante el “Usuario”) que es la persona identificada en razón de haber diligenciado el formulario de Registro disponible en el Sitio Web <a href="http://www.lorapp.com">www.lorapp.com</a> (en adelante el “Sitio” o “Lorapp”). Los datos diligenciados por el Usuario en el formulario de Registro se presumen verdaderos para todos los efectos jurídicos y, por tratarse de datos de carácter personal, el Usuario será responsable exclusiva y directamente por cualquier inconsistencia o falta de veracidad de los mismos.</p>
 
-                        <h5>Acceptance of Terms of Service</h5>
-                        <p>By registering for and/or using the Services in any manner -- including but not limited to visiting or browsing the Site or downloading our Application -- you agree to these Terms of Service and all other operating rules, policies, and procedures published on the Site by us, each of which is incorporated by reference and each of which may be updated from time to time without notice to you. When we make changes that we consider significant, we will post a notice on the Services.</p>
+                        <hr>
+                        <h3 id="term-2">Segunda</h3>
+                        <h4><strong>DEL USO DE NUESTROS SERVICIOS</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">2.1.</strong>    A partir de la aceptación por parte del Usuario de los términos y condiciones contenidos en el presente Contrato, Inntouch otorgará al Usuario, de conformidad con las normas legales, una licencia de uso gratuita o remunerada, con carácter no exclusivo e intransferible, sobre las lecturas o fragmentos de lecturas contenidos en Lorapp (en adelante la “Lectura” o las “Lecturas”) en el territorio donde se encuentre localizado el Usuario, en los plazos y condiciones que más adelante se describen.</p>
 
-                        <p>From time to time part of the Services may be subject to additional terms and conditions specified by us. When we make changes that we consider significant, we will post a notice on the Services. By continuing to use such Services after these changes are made, you are expressing your acceptance of these additional terms and conditions, which are incorporated into these Terms of Service by this reference.</p>
+                        <p class="term-number-p"><strong class="term-number">2.2.</strong>    Inntouch otorgará la licencia de uso sobre la Lectura solicitada por el Usuario mediante el sistema de alquiler de Lecturas (en adelante el “Alquiler”) por el plazo máximo de siete (7) días calendario contados a partir de la primera vez en que el Usuario inicie la visualización de la Lectura alquilada. En todo caso, los términos de duración del Alquiler se computarán en días calendario a partir del primer día de visualización de la Lectura, excluyéndose todo cómputo derivado del tiempo efectivo de lectura por parte del Usuario.</p>
 
-                        <h5>Eligibility</h5>
-                        <p>You represent and warrant that you are at least 13 years of age. If you are under age 13, you may not, under any circumstances or for any reason, use the Services. We may, in our sole discretion, refuse to offer the Services to any person or entity and change its eligibility criteria at any time. You are solely responsible for ensuring that these Terms of Service are in compliance with all laws, rules and regulations applicable to you and the right to access the Services is revoked where these Terms of Service or use of the Services is prohibited or to the extent offering, sale or provision of the Services conflicts with any applicable law, rule or regulation. Further, the Services are offered only for your use, and not for the use or benefit of any third party.</p>
+                        <p class="term-number-p"><strong class="term-number">2.3.</strong>    Durante el Alquiler de la Lectura, Lorapp tendrá habilitadas las herramientas de Resaltado, Notas y Tus apuntes, de tal manera que el Usuario pueda resaltar contenidos importantes dentro de la Lectura alquilada y hacer comentarios a la misma. El uso de las herramientas antes mencionadas estará sometido a las condiciones que se indican a continuación:</p>
 
-                        <h5>Registration</h5>
-                        <p>To sign up for the Services, you must register for an account on the Services (an “Account”).  You must provide accurate and complete information and keep your Account information updated. Please respect Oyster and the other users of the Services. Some examples of what this means: it is not permitted to (i) select or use as a username a name of another person with the intent to impersonate that person; (ii) use as a username a name subject to any rights of a person other than you without appropriate authorization; or (iii) use, as a username, a name that is otherwise offensive, vulgar or obscene. You are solely responsible for the activity that occurs on your Account, and for keeping your Account password secure. You may never use another person’s user account or registration information for the Services. You must notify us immediately of any change in your eligibility to use the Services, breach of security or unauthorized use of your Account. You should never publish, distribute or post login information for your Account. You shall have the ability to cancel your subscription, either directly or through a request made to one of our employees or affiliates; provided we may retain copies of information and Content associated with your account.</p>
+                        <p class="term-number-p2"><strong class="term-number2">2.3.1.</strong>  Durante el Alquiler el Usuario podrá resaltar fragmentos, párrafos o frases de la Lectura alquilada, a través de la herramienta de Resaltado, hasta el porcentaje máximo permitido por la legislación vigente.</p>
 
-                        <p>By registering for, or otherwise connecting to the Services with a third-party service (e.g., Facebook), you give us permission to access and use information, content and/or material you have supplied to that service as permitted by that service.</p>
+                        <p class="term-number-p2"><strong class="term-number2">2.3.2.</strong>  Una vez finalizado el tiempo de Alquiler la herramienta de Resaltado se desactivará, quedando disponible para el Usuario únicamente los fragmentos, párrafos o frases resaltados por el Usuario y los comentarios del Usuario a la Lectura en la sección Tus Apuntes.</p>
 
-                        <h5>Content</h5>
-                        <h5>Definition</h5>
-                        <p>For purposes of these Terms of Service, the term “Content” includes, without limitation, information, data, text, photographs, videos, audio clips, written posts and comments, software, scripts, graphics, and interactive features generated, provided, or otherwise made accessible on or through the Services. For the purposes of this Agreement, “Content” also includes all User Content (as defined below).</p>
+                        <p class="term-number-p2"><strong class="term-number2">2.3.3.</strong>  Las Notas y Apuntes del Usuario se guardarán indefinidamente en la cuenta del Usuario. En todo caso Inntouch discrecionalmente podrá disponer de los Apuntes, cuando durante un tiempo razonable la cuenta del Usuario se haya mantenido inactiva.</p>
 
-                        <h5>User content</h5>
-                        <p>Users of the Services may add, create, upload, post and/or contribute Content to the Services. All such Content (collectively “User Content”), whether publicly posted or privately transmitted, is the sole responsibility of the person who originated such User Content. You represent that all User Content provided by you is accurate, complete, up-to-date, and in compliance with all applicable laws, rules and regulations. You acknowledge that all Content, including User Content, accessed by you using the Services is at your own risk and you will be solely responsible for any damage or loss to you or any other party resulting therefrom. We do not guarantee that any Content you access on or through the Services is or will continue to be accurate.</p>
+                        <p class="term-number-p"><strong class="term-number">2.4.</strong>    En el evento de que el Alquiler sobre las Lecturas sea remunerado, el valor del alquiler se pagará de acuerdo con el sistema de pago de Hojitas dispuesto en la cláusula [*] de la presente Licencia.</p>
 
-                        <p>Please be conscientious about what information you make public on the Services. As a default, information about all e-books that you access or read will be shared with your followers on the Services. The Services include social and interactive features; you may be able to share content, post User Content, and make certain information public at your discretion. It’s important to remember that shared and publicly available information, including your User Content, may be used and re-shared by other users of the Services or across the Internet. We ask that you be careful and manage your account settings regularly. Oyster has no responsibility for your choices to make actions, material, or content public on the Services.</p>
+                        <p class="term-number-p"><strong class="term-number">2.5.</strong>    Las Lecturas estarán disponibles para el Usuario en la sitio web de Lorapp, el cual podrá ser consultado en los principales navegadores de internet, siempre y cuando el Usuario cuente con conexión a la red. Para aquellos Usuarios que deseen acceder a los Servicios de Lorapp mediante el navegador Internet Explorer, deberá contar con una versión equivalente o posterior a Internet Explorer 11.</p>
 
-                        <h5>Notices and restrictions</h5>
-                        <p>The Services may contain Content specifically provided by us, our partners or our users and such Content is protected by copyrights, trademarks, service marks, patents, trade secrets or other proprietary rights and laws. You shall abide by and maintain all copyright notices, information, and restrictions contained in any Content accessed through the Services.</p>
+                        <p class="term-number-p"><strong class="term-number">2.6.</strong>    Las Lecturas alquiladas, las Notas y los Apuntes del Usuario sólo podrán ser consultadas cuando el Usuario tenga acceso a Internet. El Usuario reconoce y acepta que Inntouch no es proveedor de servicios de Internet, por lo cual no será responsable por ninguna falla, temporal o permanente, en la conexión a la red.</p>
 
-                        <h5>Use license</h5>
-                        <p>Subject to these Terms of Service (including payment of all applicable fees and charges), we grant each registered user of the Services a worldwide, non-exclusive, non-sublicensable, revocable,and non-transferable license to access and use the Services in the manner set forth herein, and to access e-book Content we make available via the Services solely for such user’s personal, non-commercial purposes during an applicable subscription or free-trial period, and subject to any further usage restrictions we may indicate on the Services with respect to such Content. Use, reproduction, modification, distribution or storage of any Content for other than purposes of using the Services is expressly prohibited without prior written permission from us. You shall not sell, license, rent, or otherwise use or exploit any Content for commercial use or in any way that violates any third party right.</p>
+                        <p class="term-number-p"><strong class="term-number">2.7.</strong>    El Usuario reconoce y acepta que los contenidos proveídos en Lorapp se encuentran amparados por el régimen de protección a los Derechos de Autor, por lo cual las Lecturas alquiladas por un Usuario no podrán ser compartidas con otro Usuario, ni podrá efectuarse una copia privada de la misma en el dispositivo electrónico del Usuario. Así mismo, se encuentra prohibido cualquier acto que desconozca los derechos de los titulares de derechos morales o patrimoniales de autor de cualquiera de las Lecturas contenidas en Lorapp.</p>
 
-                        <p>We may, as part of the Services, allow you to store cached content on up to six (6) smartphone, mobile handset or other relevant compatible internet-connected device (collectively “Devices”). You shall not transfer copies of cached content to any other Device by any means. You shall not provide your password to any other person or use any other person’s user name and password. You grant us the right to use the processor, bandwidth and storage hardware on your Device in order to facilitate the operation of the Services.</p>
+                        <p class="term-number-p"><strong class="term-number">2.8.</strong>    La licencia de uso de Lorapp será revocable en cualquier momento por decisión unilateral y sin  justa causa por parte de Inntouch o por incumplimiento por parte del Usuario de los términos y condiciones aquí previstas.</p>
 
-                        <h5>License grant</h5>
-                        <p>By submitting User Content through the Services, you hereby do and shall grant us a worldwide, non-exclusive, perpetual, royalty-free, fully paid, sublicensable and transferable license to use, edit, modify, truncate, aggregate, reproduce, distribute, prepare derivative works of, display, perform, and otherwise fully exploit the User Content in connection with the Services and our (and our successors’ and assigns’) businesses, including without limitation for promoting and redistributing part or all of the Site or the Services (and derivative works thereof) in any media formats and through any media channels (including, without limitation, third party websites and feeds), and including after termination of your Account or the Services. You also hereby do and shall grant each user of the Site and/or the Services a non-exclusive, perpetual license to access your User Content through the Site and/or the Services, and to use, edit, modify, reproduce, distribute, prepare derivative works of, display and perform such User Content, including after your termination of your Account or the Services, as permitted through the functionality of the Services.  For clarity, the foregoing license grants to us and our users does not affect your other ownership or license rights in your User Content, including the right to grant additional licenses to your User Content, unless otherwise agreed in writing. You represent and warrant that you have all rights to grant such licenses to us without infringement or violation of any third party rights, including without limitation, any privacy rights, publicity rights, copyrights, trademarks, contract rights, or any other intellectual property or proprietary rights.</p>
+                        <hr>
+                        <h3 id="term-3">Tercera</h3>
+                        <h4><strong>DEL REGISTRO DE LA CUENTA DE USUARIO</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">3.1.</strong>    Para acceder a los servicios de Lorapp, el Usuario deberá registrar una Cuenta de Usuario (en adelante la “Cuenta de Usuario”) siempre asociada a un correo electrónico válido.</p>
 
-                        <h5>Intellectual property</h5>
-                        <p>Oyster takes intellectual property rights seriously and expects you to follow suit. This means, for example, that copying, reproducing, or making available to the public any part of the Services or Content is forbidden unless you have received express written permission from the underlying rights holder. You will not use the Services or Content to reverse-engineer, disassemble, decompile, modify or create derivative works based on the Services or Content (other than User Content that another user of the Services has expressly authorized you to modify in connection with your use of the Services) or any part thereof. You will not circumvent any technology used by Oyster, its licensors, or any third party to protect Content accessible through the Services. You will not rent or lease your Account (nor any of the Content thereof). Lastly, and this should go without saying: it is not permitted to remove or alter any copyright, trademark, or other intellectual property notices contained or provided through the Services.</p>
+                        <p class="term-number-p"><strong class="term-number">3.2.</strong>    Para el registro de la Cuenta de Usuario, el Usuario deberá suministrar nombre y apellido, e-mail válido, contraseña, lugar de estudio, carrera y semestre. Es deber del Usuario suministrar información verdadera, exacta y correcta en el momento del registro, así como mantenerlas actualizadas mientras la Cuenta de Usuario se mantenga activa.</p>
 
-                        <h5>Availability of content</h5>
-                        <p>The Services include an online subscription service that provides members with access to e-books on internet-connected Devices. Our library of e-books is ever-changing, and we reserve the right to alter the titles available without notice. We do not guarantee that any Content (including any e-books) will be made available (or continue to be available) on the Site or through the Services. For example, the availability of Content may vary from Device to Device, and may be affected by a number of factors. These factors include (but are not limited to) your location, the bandwidth available through and/or speed of your Internet connection. We cannot guarantee that the same Content will be available in all countries. You acknowledge that certain e-books will only be available in select territories. We hope that when you travel, you’ll take the Application with you, but please be aware that you are solely responsible for all Internet access charges. We reserve the right to, but do not have any obligation to, (i) remove, edit or modify any Content in our sole discretion, at any time, without notice to you and for any reason (including, but not limited to, upon receipt of claims or allegations from third parties or authorities relating to such Content or if we are concerned that you may have violated these Terms of Service), or for no reason at all and (ii) to remove or block any Content from the Services.</p>
+                        <p class="term-number-p"><strong class="term-number">3.3.</strong>    En consonancia con la cláusula novena de este Contrato, el Usuario reconoce que la Cuenta de Usuario es sólo un medio de acceso al Software, y que la licencia de uso otorgada con la suscripción del presente documento es para acceso a las Lecturas y no concede la facultad de transmitir la propiedad ni el uso de Lorapp, los cuales siguen siendo de propiedad de Inntouch, sus asociados y/o licenciadores.</p>
 
-                        <h5>Privacy policy</h5>
-                        <p>For details about our information practices, please read our privacy policy. This policy explains how we treat your personal information, and how we protect your privacy when you use the Services. You agree to the use of your data in accordance with our privacy policy.</p>
+                        <p class="term-number-p"><strong class="term-number">3.4.</strong>    El Usuario reconoce y acepta que la Cuenta de Usuario no genera derecho de propiedad alguno sobre las Lecturas alquiladas y que, en todo caso, el uso que se haga de las mismas durante el tiempo de Alquiler está sometido al cumplimiento de la legislación de propiedad intelectual vigente.</p>
 
-                        <h5>Rules of Conduct</h5>
-                        <p>As a condition of use, you promise not to use the Services for any purpose that is prohibited by these Terms of Use. You are responsible for all of your activity in connection with the Services.</p>
+                        <p class="term-number-p"><strong class="term-number">3.5.</strong>    En el registro de la Cuenta de Usuario, el Usuario no podrá escoger un nombre (en adelante el “Nombre de Usuario”) que: (i) ya esté en uso; (ii) que pueda ser ilegal conforme a la legislación aplicable; (iii) que esté protegido por derechos de propiedad intelectual o que corresponda a una marca notoria; (iv) que sea considerado inadecuado por parte de Inntouch; (v) y/o que viole leyes aplicables o derechos de terceros. En el evento en que Inntouch identifique un Nombre de Usuario que incurra en cualquiera de las anteriores condiciones, no se permitirá el registro de la Cuenta de Usuario o, en caso de que la Cuenta ya haya sido registrada, suspenderá el uso de la cuenta hasta tanto el Nombre de Usuario no sea modificado.</p>
 
-                        <p>You shall not (and shall not permit any third party to) either (a) take any action or (b) upload, download, post, submit or otherwise distribute or facilitate distribution of any Content on or through the Service, including without limitation any User Content, that:</p>
+                        <p class="term-number-p"><strong class="term-number">3.6.</strong>    El Usuario deberá mantener su clave confidencial. En caso que el Usuario tenga motivos para creer que su clave ha sido conocida por terceros, deberá modificarla inmediatamente en Lorapp. El Usuario expresamente autoriza a Inntouch a divulgar su Nombre de Usuario en los eventos en que en Lorapp se realicen concursos, promociones o eventos relacionados con los Servicios ofrecidos. No obstante lo anterior, Inntouch garantiza que la información personal del Usuario estará protegida en todo momento y no será divulgada, salvo por: (i) orden judicial o administrativa competente y/o (ii) las situaciones previstas en el numeral 11.5 de la cláusula once del presente Contrato.</p>
 
-                        <p>infringes any patent, trademark, trade secret, copyright, right of publicity or other right of any other person or entity or violates any law or contractual duty (see our DMCA Copyright Policy);
-                            you know is false, misleading, untruthful or inaccurate;</p>
-                        <p>is unlawful, threatening, abusive, harassing, defamatory, libelous, deceptive, fraudulent, invasive of another's privacy, tortious, obscene, vulgar, pornographic, offensive, profane, contains or depicts nudity, contains or depicts sexual activity, or is otherwise inappropriate as determined by us in our sole discretion;
-                            constitutes unauthorized or unsolicited advertising, junk or bulk e-mail (“spamming”);</p>
-                        <p>contains software viruses or any other computer codes, files, or programs that are designed or intended to disrupt, damage, limit or interfere with the proper function of any software, hardware, or telecommunications equipment or to damage or obtain unauthorized access to any system, data, password or other information of ours or of any third party;</p>
-                        <p>impersonates any person or entity, including any of our employees or representatives; or
-                            includes anyone’s identification documents or sensitive financial information.</p>
-                        <p>You shall not: (i) take any action that imposes or may impose (as determined by us in our sole discretion) an unreasonable or disproportionately large load on our (or our third party providers’) infrastructure; (ii) interfere or attempt to interfere with the proper working of the Services or any activities conducted on the Services; (iii) bypass, circumvent or attempt to bypass or circumvent any measures we may use to prevent or restrict access to the Services (or other accounts, computer systems or networks connected to the Services); (iv) run any form of auto-responder or “spam” on the Services; (v) use manual or automated software, devices, or other processes to “crawl” or “spider” any page of the Site; (vi) harvest or scrape any Content from the Services; or (vii) otherwise take any action in violation of our guidelines and policies.</p>
+                        <p class="term-number-p"><strong class="term-number">3.7.</strong>    El Usuario acepta que es responsable por todos los actos realizados a través de su Cuenta de Usuario y, por tanto, será el responsable exclusivo de todos los usos no autorizados de su Cuenta.</p>
 
-                        <p>You shall not (directly or indirectly): (i) decipher, decompile, disassemble, reverse engineer or otherwise attempt to derive any source code or underlying ideas or algorithms of any part of the Services (including without limitation any application), except to the limited extent applicable laws specifically prohibit such restriction, (ii) modify, translate, or otherwise create derivative works of any part of the Services, or (iii) copy, rent, lease, distribute, or otherwise transfer any of the rights that you receive hereunder. You shall abide by all applicable local, state, national and international laws and regulations.</p>
+                        <hr>
+                        <h3 id="term-4">Cuarta</h3>
+                        <h4><strong>DE LA INTERRUPCIÓN DEL SERVICIO</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">4.1.</strong>    Inntouch se reserva el derecho de interrumpir alguno o varios de los Servicios de Lorapp de forma periódica, con aviso previo a los Usuarios, con el fin de llevar cualquier mantenimiento preventivo necesario para la adecuada prestación de los Servicios.</p>
 
-                        <p>We also reserve the right to access, read, preserve, and disclose any information as we reasonably believe is necessary to (i) satisfy any applicable law, regulation, legal process or governmental request, (ii) enforce these Terms of Service, including investigation of potential violations hereof, (iii) detect, prevent, or otherwise address fraud, security or technical issues, (iv) respond to user support requests, or (v) protect the rights, property or safety of us, our users and the public.</p>
+                        <p class="term-number-p"><strong class="term-number">4.2.</strong>    Inntouch podrá interrumpir el acceso a los Servicios de Lorapp, sin necesidad de ningún aviso previo a los Usuarios, siempre que, como medida de urgencia, se haga necesaria una intervención de naturaleza correctiva.</p>
+
+                        <p class="term-number-p"><strong class="term-number">4.3.</strong>    El Usuario acepta que, además de las hipótesis de mantenimiento antes descritas, el acceso al Sitio o a los servicios de Lorapp podrá ser interrumpido por hechos de fuerza mayor, caso por fortuito, hecho de tercero, orden judicial o administrativa de una autoridad competente, o cualquier otro motivo ajeno a Inntouch.</p>
+
+                        <p class="term-number-p"><strong class="term-number">4.4.</strong>    En los eventos en que la licencia de uso tenga carácter remuneratorio, Inntouch no podrá interrumpir los Servicios ni revocar la Licencia de Uso de manera discrecional, salvo que el Usuario viole cualquiera de las obligaciones o prohibiciones contenidas en el presente Contrato.</p>
+
+                        <hr>
+                        <h3 id="term-5">Quinta</h3>
+                        <h4><strong>DE LA SUSPENSIÓN DEFINITIVA DE LOS SERVICIOS</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">5.1.</strong>    Inntouch se reserva el derecho de suspender definitivamente los Servicios de Lorapp o del cierre de operaciones del Sitio, por decisión de una autoridad judicial o administrativa competente y/o por motivos de fuerza mayor o caso fortuito, ajenos a la voluntad de Inntouch.</p>
+
+                        <p class="term-number-p"><strong class="term-number">5.2.</strong>    Inntouch se reserva el derecho de suspender definitivamente la disponibilidad de una o varias Lecturas en el Sitio, en el evento en que el contrato de licencia de uso que Inntouch tiene con el titular de los derechos patrimoniales de autor de la Lectura o con el respectivo órgano de gestión colectiva haya finalizado, o por decisión propia. En este caso, Inntouch comunicará previamente a los Usuarios con treinta (30) días calendario de anticipación a la fecha efectiva en la cual se va a suspender la disponibilidad de la(s) Lectura(s) en Lorapp.</p>
+
+                        <p class="term-number-p"><strong class="term-number">5.3.</strong>    En el evento de suspensión definitiva de los Servicios de Lorapp previsto en el numeral 5.1. anterior, Inntouch garantizará al Usuario el derecho de consumir los créditos o moneda remanentes durante el periodo previo del cierre de operaciones de Lorapp y, en el evento en que el Usuario no consuma dichos créditos o moneda, Inntouch devolverá únicamente las sumas correspondientes a la moneda no usada.</p>
+
+                        <p class="term-number-p"><strong class="term-number">5.4.</strong>    En el caso previsto en el numeral 5.2. anterior, Inntouch le garantiza al Usuario el acceso a la Lectura cuando ésta ha sido previamente alquilada al aviso de no disponibilidad de la Lectura. En todo caso, la visualización de la Lectura deberá iniciarse antes del vencimiento del término de los treinta (30) días de preaviso y, en el evento en que la visualización de la Lectura no sea iniciada en dicho término, Inntouch no está obligada a devolver la moneda o créditos empleados para el Alquiler de la misma.</p>
+
+                        <hr>
+                        <h3 id="term-6">Sexta</h3>
+                        <h4><strong>DE LOS MEDIOS DE PAGO</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">6.1.</strong>    En el evento en que la licencia de uso otorgada al Usuario sea de carácter remuneratorio, el Usuario deberá adquirir la moneda de referencia de Lorapp (en adelante las “Hojitas”), para efectuar el pago del Alquiler de la Lectura requerida.</p>
+
+                        <p class="term-number-p"><strong class="term-number">6.2.</strong>    El pago de cada Hojita adquirida on-line podrá ser efectuado a través de los medios de pago disponibles en el Sitio. Al efectuar el pago, el Usuario estará expresando  su decisión de adquirir la moneda en la forma definida por este Contrato. Inntouch se reserva el derecho de modificar los medios de pago, divulgando tal información en el Sitio.</p>
+
+                        <p class="term-number-p"><strong class="term-number">6.3.</strong>    Las Hojitas adquiridas por el Usuario solamente serán validadas y puestas a disposición del Usuario después de que Inntouch haya confirmado su respectivo pago.</p>
+
+                        <p class="term-number-p"><strong class="term-number">6.4.</strong>    Inntouch se reserva el derecho de determinar el valor de cada Hojita en la moneda de curso legal. En todo caso, Inntouch se obliga a informar a los Usuarios con quince (15) días de anticipación, por escrito, de todo aumento en el valor de cada Hojita.</p>
+
+                        <p class="term-number-p"><strong class="term-number">6.5.</strong>    El Usuario declara y acepta que no es permitido el intercambio y/o comercialización de Hojitas entre Usuarios involucrando moneda legal o valores de libre circulación. La inobservancia de esta cláusula será considerada una violación grave al presente Contrato e implicará el bloqueo permanente de las Cuentas de Usuario que hagan parte de la transacción.</p>
+
+                        <p class="term-number-p"><strong class="term-number">6.6.</strong>    Cualquier problema con la forma de pago escogida por el Usuario deberá ser inmediatamente comunicada a Inntouch a través de una comunicación por escrito al correo electrónico [*]. Inntouch deberá dar respuesta de fondo a dicha comunicación dentro de los cinco (5) días hábiles siguientes al recibo de la misma.</p>
+
+                        <p class="term-number-p"><strong class="term-number">6.7.</strong>    La adquisición de Hojitas, así como el uso de las mismas para el Alquiler de las Lecturas es irreversible, y por lo tanto no habrá lugar a la devolución de ninguna suma o valor. No obstante lo anterior, el Usuario de Lorapp podrá ejercer el derecho de retracto en los términos establecidos en el Estatuto del Consumidor, siempre y cuando el Usuario no haya iniciado la visualización de la Lectura alquilada.</p>
+
+                        <hr>
+                        <h3 id="term-7">Séptima</h3>
+                        <h4><strong>DE LA DEVOLUCIÓN DE VALORES</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">7.1.</strong>      Los valores invertidos en la adquisición de las Hojitas o en el Alquiler de las Lecturas no serán devueltos por Inntouch, salvo cuando: (i) el Usuario haya ejercido el derecho de retracto en los términos establecidos en el Estatuto del Consumidor; (ii) el Usuario no haya consumido la totalidad de las Hojitas antes de la fecha del cierre efectivo de operaciones de Lorapp; (iii) por hechos atribuibles a Inntouch, el Usuario no pueda acceder a Lorapp o la Lectura alquilada sea ilegible.</p>
+
+                        <p class="term-number-p"><strong class="term-number">7.2.</strong>    Inntouch no efectuará devolución de ningún valor, cuando la causa de terminación del presente Contrato se imputable al Usuario o cuando dicha terminación surja con ocasión de la violación de cualquiera de las obligaciones contenidas en el presente Contrato por parte del Usuario.</p>
+
+                        <p class="term-number-p"><strong class="term-number">7.3.</strong>    En los eventos en que el Usuario solicite la devolución de valores por los motivos señalados en el numeral 7.1. anterior,  Inntouch se obliga a efectuar la devolución del dinero dentro de los treinta (30) días siguientes a la fecha de presentación de la solicitud, previa verificación por parte de Inntouch de los valores u Hojitas efectivamente no consumidas por el Usuario.</p>
+
+                        <hr>
+                        <h3 id="term-8">Octava</h3>
+                        <h4><strong>ASISTENCIA ONLINE</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">8.1.</strong>    Inntouch garantiza al Usuario la prestación de un servicio de soporte técnico y asistencia online mediante el cual se atenderán todas las peticiones, quejas y reclamos que los Usuarios tengan con relación a los Servicios de Lorapp.</p>
+
+                        <p class="term-number-p"><strong class="term-number">8.2.</strong>    Todas las peticiones, quejas, reclamos y requerimientos de los Usuarios deberán efectuarse a través de una comunicación escrita al correo electrónico [*]. Una vez recibida la solicitud del Usuario, Inntouch deberá darle una respuesta de fondo dentro de las veinticuatro (24) horas hábiles siguientes a la fecha de recibo.</p>
+
+                        <p class="term-number-p"><strong class="term-number">8.3.</strong>    Cuando dentro del término antes descrito no pueda dársele una solución efectiva de la petición o requerimiento del Usuario, Inntouch se obliga a informar al Usuario de tal situación y a señalarle el término en el que efectivamente le será atendida su solicitud.</p>
+
+                        <hr>
+                        <h3 id="term-9">Novena</h3>
+                        <h4><strong>PROPIEDAD INTELECTUAL</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">9.1.</strong>    El Usuario reconoce expresamente que Lorapp, en conjunto con los contenidos, logotipos, marcas, insignias, símbolos, señales distintivas y cualquier otro material asociado al Sitio web constituyen, conforme al caso, derechos de autor, secretos empresariales, derechos de propiedad industrial de propiedad de Inntouch o de sus licenciadores, siendo dichos derechos protegidos por la legislación nacional e internacional aplicable a la propiedad intelectual y a los secretos empresariales. En ninguna hipótesis, dichos derechos serán transferidos al Usuario, bien sea en consecuencia de la suscripción del presente Contrato o de la utilización del Sitio web.</p>
+
+                        <p class="term-number-p"><strong class="term-number">9.2.</strong>    El Usuario acepta que a través de Lorapp se garantiza el acceso a contenidos protegidos por el régimen de protección de Derechos de Autor. En consecuencia, el Usuario se obliga a no realizar ninguna conducta que atente contra la titularidad de Lorapp o de cualquiera de los contenidos alojados en el Sitio, y propiedad de los licenciadores.</p>
+
+                        <p class="term-number-p"><strong class="term-number">9.3.</strong>    Queda expresamente vedado al Usuario y a terceros, so pena de aplicar las sanciones legales, vender, alquilar, arrendar, ceder, donar, prestar, reproducir, adaptar, traducir, dar en garantía, permitir la prenda, ofrecer en comodato, sublicenciar, transferir, transmitir, permitir el uso compartido, poner a disposición para acceso o utilización por terceros sea vía online o de cualquier otra forma las Lecturas o los elementos de propiedad intelectual de Lorapp.</p>
+
+                        <p class="term-number-p"><strong class="term-number">9.4.</strong>    El Usuario no podrá realizar ningún tipo de copia de Lorapp, ni de cualquiera de los contenidos alojados en el Sitio, ni tampoco podrá distribuir, vender, arrendar, dar en comodato, realizar cualquier actividad comercial, modificar, crear obras derivadas, adaptar, traducir, sublicenciar, reproducir y/o recrear públicamente la totalidad o parte de Lorapp, desarrollar o proporcionar servicios de enlace para Lorapp, o crear o mantener conexiones no autorizadas con Lorapp.</p>
+
+                        <p class="term-number-p"><strong class="term-number">9.5.</strong>    Inntouch declara que Lorapp contiene derechos de propiedad intelectual de terceros, incluyendo pero no limitado a licenciatarios de Inntouch, encontrándose éste facultado, en su calidad de sublicenciatario para hacer valer los derechos de propiedad intelectual sobre estos.</p>
+
+                        <p class="term-number-p"><strong class="term-number">9.6.</strong>    El Usuario acepta que, bajo ninguna circunstancia:</p>
+                        <p class="term-number-p2"><strong class="term-number2">9.6.1.</strong>  Eliminará o manipulará los avisos de Copyright u otros derechos de propiedad intelectual.</p>
+
+                        <p class="term-number-p2"><strong class="term-number2">9.6.2.</strong>  Utilizará ninguna herramienta o contenidos de terceros no autorizados para modificar el Sitio o cualquiera de las Lecturas disponibles en Lorapp.</p>
+
+                        <p class="term-number-p2"><strong class="term-number2">9.6.3.</strong>  Facilitará, creará o mantendrá conexiones no autorizadas al Software, incluidas, entre otras (i) la conexión a un servidor no autorizado que emule, o intente emular los nombres de dominio o la infraestructura de Lorapp o (ii) la conexión mediante programas o herramientas no aprobados expresamente por Lorapp por escrito para cada ocasión.</p>
+
+                        <p class="term-number-p2"><strong class="term-number2">9.6.4.</strong>  Creará o solicitará nombres de dominio que se confundan con los de Lorapp.</p>
+
+                        <p class="term-number-p2"><strong class="term-number2">9.6.5.</strong>  Creará ningún otro software ni contenido que incorpore los elementos de Lorapp.</p>
+
+                        <p class="term-number-p2"><strong class="term-number2">9.6.6.</strong>  Realizará ningún acto de disposición sobre las Lecturas disponibles en Lorapp.</p>
+
+                        <hr>
+                        <h3 id="term-10">Décima</h3>
+                        <h4><strong>TERMINACIÓN DEL CONTRATO</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">10.1.</strong>   La terminación contractual con cancelación de Cuenta de Usuario antes de consumidas las Hojitas adquiridas se dará en las siguientes hipótesis, y no generará ningún tipo de sanción o penalidad para Inntouch:</p>
+
+                        <p class="term-number-p2"><strong class="term-number2">a)</strong>  El desistimiento del Usuario: cuando éste, en cualquier momento, solicite la terminación del Contrato de Licencia.</p>
+
+                        <p class="term-number-p2"><strong class="term-number2">b)</strong>  Por la práctica de una conducta violatoria de las obligaciones del Usuario o al régimen de propiedad intelectual.</p>
+
+                        <p class="term-number-p"><strong class="term-number">10.2.</strong>   A la terminación por cualquier causa, la Licencia de uso otorgada cesará y el Usuario no podrá tener acceso a ninguna Lectura o apuntes tomados en Lorapp.</p>
+
+                        <hr>
+                        <h3 id="term-11">Décimoprimera</h3>
+                        <h4><strong>DE LA POLÍTICA DE PROTECCIÓN DE DATOS PERSONALES</strong></h4>
+                        <p class="term-number-p"><strong class="term-number">11.1.</strong>   La presente Política de Protección de Datos Personales e Información (en adelante la “Política”) se aplica al Sitio y a los Servicios en línea proporcionados por Lorapp. Para todos los efectos Inntouch será el responsable del tratamiento de la base de datos recopilados a través del Sitio (en adelante el “Responsable del Tratamiento”).</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.2.</strong>   El Responsable del Tratamiento, previa autorización de los titulares de la información, podrá recopilar información personal de los Usuarios de diferentes fuentes tales como comercios vinculados, entidades financieras, entidades proveedoras del sistema de pago, proveedores de servicios de telecomunicaciones, fuentes propias, entre otros.</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.3.</strong>   Como consecuencia de la prestación de los Servicios de Lorapp, el Responsable del Tratamiento recopilará datos públicos y datos semiprivados de los Usuarios, previa autorización otorgada por los Usuarios, para las finalidades descritas en el numeral 11.5. de la presente Cláusula.</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.4.</strong>   También podrán ser recopilados información no personal (en adelante “Datos no personales”), es decir, aquellos datos que por su naturaleza no sirven para identificar a los Usuarios. Tendrán la calidad de Datos no personales, entre otros, la información técnica, tal como la dirección IP, tipo de navegador utilizado, los sitios web visitados antes y después de Lorapp, etc.</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.5.</strong>   La información personal recopilada por el Responsable del Tratamiento será utilizada para las siguientes finalidades: (i) para la adecuada prestación de los Servicios de Lorapp; (ii) para identificar tendencias, generar estadísticas, desarrollar estudios comerciales o de mercadeo; (iii) como herramienta para el ofrecimiento de productos propios o de terceros; (iv) para nuestras herramientas e iniciativas de promoción; (v) para prevenir o detectar el fraude o el abuso en Lorapp y nuestros Servicios y (vi) para el desarrollo de tareas técnicas y logísiticas de Lorapp, bien sea para que estas sean desarrolladas directamente por el Responsable del Tratamiento o a través de un tercero</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.6.</strong>   Salvo que se especifique lo contrario en esta Política, el Responsable del Tratamiento no compartirá los datos personales de los Usuarios a terceros, sin autorización expresa de los titulares de la información personal. No obstante lo anterior, los Usuarios expresamente autorizan al Responsable del Tratamiento a compartir sus datos personales a los titulares de los derechos de autor sobre las Lecturas disponibles en Lorapp, siempre y cuando los datos personales sean compartidos de manera ponderada.</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.7.</strong>   El Responsable del Tratamiento podrá divulgar los Datos no personales de los Usuarios, tales como los datos demográficos y análisis estadísticos a terceros para que puedan ejercer sus funciones técnicas, analíticas, logísticas o de otro tipo a nuestro nombre.</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.8.</strong>   Los Usuarios tendrán los derechos previstos en la Ley de Habeas Data, y especialmente tendrán derecho a conocer, actualizar, rectificar y suprimir la información brindada al Responsable del Tratamiento, y a revocar la autorización siempre que no exista una obligación contractual a cargo del Usuario que le impida solicitar la revocación o eliminación de sus datos.</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.9.</strong>   Los Usuarios podrán ejercer los derechos antes mencionados y los previstos en la Ley 1581 de 2012, mediante el envío de una comunicación a la dirección de notificación indicada en el numeral 11.11 de la presente cláusula. Dicha comunicación deberá contener, por lo menos, la siguiente información:</p>
+                        <p class="term-number-p2"><strong class="term-number2">a)</strong>  El nombre, domicilio del titular y medio de contacto  para recibir respuesta.</p>
+                        <p class="term-number-p2"><strong class="term-number2">b)</strong>  Los documentos que acreditan la identidad del solicitante, o el poder que acredite la calidad de apoderado especial de su representante.</p>
+                        <p class="term-number-p2"><strong class="term-number2">c)</strong>  La descripción clara y precisa de los datos personales respecto de los cuales el titular busca ejercer alguno de sus derechos.</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.10.</strong>  Toda solicitud relacionada con la protección de los datos personales deberá ser respondida por el Responsable del Tratamiento dentro de los términos establecidos en la legislación aplicable.</p>
+
+                        <p class="term-number-p"><strong class="term-number">11.11.</strong>  Las solicitudes de protección de datos personales deberán ser dirigidas a Inntouch, como Responsable del Tratamiento, a los siguientes datos de notificación:</p>
+
+                        <ul>
+                            <li><strong>Dirección:</strong> [*]</li>
+                            <li><strong>Telefono:</strong> [*]</li>
+                            <li><strong>E-mail:</strong> [*]</li>
+                        </ul>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -769,69 +830,173 @@
         </div>
         <!-- END: Términos y condiciones -->
 
-        <!-- Política de privacidad -->
-        <div class="modal fade" id="modal-privacy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <!-- START: Reportar problema -->
+        <div class="modal fade" id="modal-report-problem" tabindex="-1" role="dialog" aria-labelledby="reportproblem">
+            <div class="modal-dialog" role="document">
+                <form action="http://beta.lorapp.com/alfa/lorapp/public/reportproblem" method="POST">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Informa de un problema</h4>
+                        </div>
+                        <div class="modal-body row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <input type="hidden" name="email" value="demo@demo.com">
+                                <div class="form-group">
+                                    <label for="report-problem-message" class="control-label">Cuéntanos qué pasó</label>
+                                    <textarea class="form-control" id="report-problem-message" required="true" name="reportproblem"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END: Reportar problema -->
+
+
+        <!-- START: Reportar lectura faltante -->
+        <div class="modal fade" id="modal-reading-not-found" tabindex="-1" role="dialog" aria-labelledby="reading-not-found">
+            <div class="modal-dialog" role="document">
+                <form action="http://beta.lorapp.com/alfa/lorapp/public/lecturesuggested" method="POST" class="form-horizontal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">¿Cuál lectura necesitas?</h4>
+                        </div>
+                        <div class="modal-body row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <p>Para nosotros es de gran ayuda que nos digas las lecturas que no tenemos. A veces tardamos menos de 24 horas en tener la lectura disponible.
+                                    <br>
+                                    <strong>No es obligatorio llenar todos los campos.</strong>
+                                </p>
+                                <input type="hidden" name="email" value="demo@demo.com">
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="content_type" id="reading-not-found-radio-book" value="Libro"> Libro
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="content_type" id="reading-not-found-radio-other" value="Otro"> Otro (artículo, ensayo, capítulo, etc.)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reading-not-found-title" class="col-sm-2 control-label">Título</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="title" name="title">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reading-not-found-author" class="col-sm-2 control-label">Autor</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="author" name="author">
+                                    </div>
+                                    <label for="reading-not-found-publisher" class="col-sm-2 control-label">Editorial</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="publisher" name="publisher">
+                                        <input type="hidden" name="year" value="">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="reading-not-found-university" class="col-sm-2 control-label">Universidad</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control tooltip-active" id="university" name="university" data-toggle="tooltip" data-placement="top" data-trigger="focus" title="¿En qué universidad piden esta lectura?">
+                                    </div>
+                                    <label for="reading-not-found-class" class="col-sm-2 control-label">Clase</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control tooltip-active" id="classe" name="classe" data-toggle="tooltip" data-placement="top" data-trigger="focus" title="¿En qué clase piden esta lectura?">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="notify" checked=""> Notificarme cuando la lectura esté disponible
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END: Reportar lectura faltante -->
+
+        <!-- START: Reportar pregunta, consejo o comentario -->
+        <div class="modal fade" id="modal-feedback-questions" tabindex="-1" role="dialog" aria-labelledby="report-question">
+            <div class="modal-dialog" role="document">
+                <form action="http://beta.lorapp.com/alfa/lorapp/public/feedbackquestion" method="POST" class="form-horizontal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Consejos, comentarios y preguntas</h4>
+                        </div>
+                        <div class="modal-body row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <p>¿Cómo podríamos ser mejores? ¿Qué piensas de Lorapp? ¿Tienes una pregunta? ¡Queremos escucharte!</p>
+                                <input type="hidden" name="email" value="demo@demo.com">
+                                <div class="form-group">
+                                    <label for="report-question-message" class="control-label">Tu mensaje</label>
+                                    <textarea class="form-control" id="report-question-message" required="true" name="message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END: Reportar pregunta, consejo o comentario -->
+
+        <!-- START: Confirmar adquisicion de lectura con hojitas -->
+        <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Política de privacidad</h4>
+                        <h4 class="modal-title" id="reportproblem">Alquilar Lectura</h4>
                     </div>
                     <div class="modal-body">
-                        <h5>1.0 Our Privacy Pledge</h5>
-
-                        <p>EDUCA TECHNOLOGY AND CONTENTS GROUP, LLC ("ETC") provides certain services including a mobile application called CrowdBook (the "Application"). We want you to know that your trust is key to the success of our business. We take privacy and confidentiality very seriously and we safeguard the personal information of our users in accordance with this Policy. In this Policy "personal information" means personal information about an identifiable individual, but excludes business contact information; and "Services" means services provided by ETC through the Application or desktop interface.</p>
-
-                        <h5>1.1 Consent</h5>
-
-                        <p>By using our Services and supplying information to us, or by using the ETC Application, you consent to the collection, use and disclosure of your personal information by us for the purpose of providing Services to you via the ETC Application, and administering your account in accordance with: (a) this Policy, (b) any other agreement you may have entered into with us, and (c) applicable laws and regulations. It is your responsibility to ensure that we are kept informed of the correct and current contact information for you.</p>
-
-                        <h5>1.2 Collection of User Information</h5>
-
-                        <p>ETC collects limited personal information from its users (educational institution students or teachers or anyone who wishes to use the application, only as needed for the operation and management of the Services provided by ETC.</p>
-
-                        <h5>1.3 Collection of Student Information</h5>
-
-                        <p>ETC may collect limited personal information from students, only as needed for the operation and management of the Services provided by ETC, and only where that student's school board, educational institution or teacher has contracted with ETC to do so. We first require the school board, educational institution or teacher to obtain the consent of parents/legal guardians prior to collecting such information. If you are a minor student, do not send any personal information about yourself or other students to ETC, other than what is requested upon signing up for the Services. In the event that we discover we have the personal information of a student without consent of a parent/legal guardian, or information in excess of what we request upon sign-up, we will permanently destroy that information as quickly as possible. If you believe a student may have provided us personal information without consent of a parent/legal guardian, or information in excess of what we request upon sign-up, please contact us at info@educatablet.com.</p>
-
-                        <p>Students who have signed up with an access code provided by a school or teacher should be aware that their parent/legal guardian has access to all information within or associated with their ETC account, including, but not limited to, messages between other students, teachers, and assignment grades.</p>
-
-                        <p>All students and teachers within a single course group in the password-protected portion of the Application or ETC site have the ability to view one another's profiles, but visibility is limited to such information as their names, photographs, and biographies. Students are unable to see the grades of other students, irrespective of whether or not they are members of the same course group on the site</p>
-
-                        <h5>1.4 Information of Others</h5>
-
-                        <p>By inputting any personal information into the Application (including the personal information of others), you consent to the use of that personal information within the Application, and you represent and warrant that you have obtained any permissions or authorizations for any personal information of others that you input or send through the Application. We do not use, collect or retain any of that information.</p>
-
-                        <h5>1.5 Communication</h5>
-
-                        <p>You authorize us to communicate with you regarding our services and your account. You authorize us to communicate with you via the Internet and via the email address you have provided. You understand and accept the risk that data and information transmitted over the Internet is susceptible to error or security breaches.</p>
-
-                        <h5>1.6 Information Use &amp; Sharing</h5>
-
-                        <p>We do not share, trade, sell or in any way disclose your personal information without your consent unless such a disclosure is: (a) required by law; (b) mandated by search warrant or court order; or (c) warranted during investigation of the commission of an offence, a breach of a contract, or breach of a law or regulation. We may collect, aggregate and anonymize data for system monitoring, quality control and product improvement purposes, provided it does not collect, use or disclose any personal information</p>
-
-                        <h5>1.7 Dispute Resolution</h5>
-
-                        <p>In the event you have a question, complaint or dispute regarding your personal information or our personal information handling practices, contact us at the number(s) or email address(es) as displayed in the “Contact Us” section of our Site.</p>
-
-                        <h5>1.8 Business Transfers</h5>
-
-                        <p>As a corporate entity, ETC may elect to buy or sell assets. These transactions normally entail the transferring of user information as a business asset. In such an event any acquirer of ETC may continue to use personal information as set forth in this Privacy Policy.</p>
-
-                        <h5>1.9 Changes</h5>
-
-                        <p>Changes to this Policy may be made from time to time by us, and the modified form of the Policy will take effect 15 days after posting on this page.</p>
-
-                        <h5>Last updated September 25, 2014</h5>
+                        <p>Vas a usar <strong><span class="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para alquilar esta lectura durante <strong>7 días</strong>.</p>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <div class="modal-footer flex flex-center-justify">
+                        <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                        <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- END: Política de privacidad -->
-
+        <!-- END: Confirmar adquisicion de lectura con hojitas -->
+        <!-- START: Renovar lectura -->
+        <div class="modal fade" id="modal-renew-reading" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="reportproblem">¡Buenas noticias!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Renovar una lectura cuesta solo <strong>la mitad</strong> que alquilarla por primera vez.</p>
+                        <p>Vas a usar <strong><span class="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para renovar esta lectura durante <strong>7 días</strong>.</p>
+                    </div>
+                    <div class="modal-footer flex flex-center-justify">
+                        <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                        <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Renovar lectura -->
         <!-- Contacto -->
         <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -840,7 +1005,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                         <h4 class="modal-title" id="myModalLabel">Contacto</h4>
                     </div>
-                    <form action="main.html?contact/send" method="POST">
+                    <form action="http://beta.lorapp.com/alfa/lorapp/public/contact/send" method="POST">
                         <div class="modal-body">
                             <div class="form-horizontal text-center">
                                 <div class="form-group">
@@ -873,11 +1038,11 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                         <h4 class="modal-title" id="myModalLabel">Sugerir Lectura</h4>
                     </div>
-                    <form action="main.html?lecturesuggested" method="POST">
+                    <form action="http://beta.lorapp.com/alfa/lorapp/public/lecturesuggested" method="POST">
                         <div class="modal-body">
                             <div class="form-horizontal text-center">
-                                                                <input type="hidden" name="email" value="camilogc2@gmail.com">
-                                                                <div class="form-group">
+                                <input type="hidden" name="email" value="demo@demo.com">
+                                <div class="form-group">
                                     <label class="sr-only">Título</label>
                                     <div class="col-sm-10 col-md-offset-1">
                                         <input type="text" class="form-control" name="title" placeholder="Título" required="true">
@@ -912,7 +1077,7 @@
         </div>
         <!-- END: Sugerir lectura -->
         <!-- END Modals -->
-        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <nav id="footer_content_wrapper" class="navbar navbar-inverse footer_content_wrapper">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- <div class="navbar-header">
@@ -926,8 +1091,8 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="public/images/logo-facebook.svg"></a></li>
-                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="public/images/logo-twitter.svg"></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="http://beta.lorapp.com/alfa/lorapp/public/images/logo-facebook.svg"></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="http://beta.lorapp.com/alfa/lorapp/public/images/logo-twitter.svg"></a></li>
                 </ul>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -935,7 +1100,6 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="#" data-toggle="modal" data-target="#modal-FAQ">Preguntas frecuentes</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#modal-terms">Términos de uso</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#modal-privacy">Política de privacidad</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#modal-contact">Contacto</a></li>
                 </ul>
                 <!-- </div> -->
@@ -943,14 +1107,12 @@
         </nav>
         <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/javascript" src="public/js/global.js"></script>
-        <script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
-        <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="public/js/util.min.js"></script>
+        <script type="text/javascript" src="public/js/jquery/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="public/js/bootstrap/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript">global.url = "main.html?";</script>
         <script type="text/javascript" src="public/js/util.js"></script>
-                <script type="text/javascript" src="public/js/operation.js"></script>
+        <script type="text/javascript" src="public/js/operation.js"></script>
 
-
-</body></html>
+    </body>    
+</html>
