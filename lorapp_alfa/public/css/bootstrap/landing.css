@@ -122,6 +122,12 @@ section {
         -ms-flex-pack: start;
             justify-content: flex-start;
 }
+.flex-end {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+}
 .flex-wrap {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -807,6 +813,9 @@ form {
     padding: .6em 0;
     text-align: center;
 }
+.thumbnail .caption {
+    min-height: 130px;
+}
 .thumbnail p {
     font-size: 1em;
     margin-bottom: 5px;
@@ -814,8 +823,8 @@ form {
 .caption p strong {
     padding-right: 5px;
 }
-.btn-read {
-    margin: 1.4em 0 0 0;
+.thumbnail .btn-read {
+    margin: 9px;
 }
 .social-logo {
     height: 30px;
@@ -914,8 +923,6 @@ form {
 /*=== START: lecturedetail.html styles ===*/
 .lecturedetail {
     font-size: 1em;
-    padding-top: 50px;
-    padding-bottom: 50px;
     position: relative;
 }
 .lecturedetail_info {
