@@ -311,6 +311,8 @@ blockquote p,
 
 
 * {
+	-webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
 	box-sizing: content-box; /*to override bootstrap's default border-box*/
 }
 .unselectable {
@@ -1676,10 +1678,17 @@ body .reading-wrapper .bodyText .highlight {
 /*Modal alquilar lectura*/
 .modal {
 	color: #605E6B;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+.modal-content div {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .modal-body {
 	font-size: 16px;
-	text-align: center;
 }
 
 

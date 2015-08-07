@@ -18,11 +18,22 @@ html, body {
 body {
     color: #605E6B;
     font-family: 'Lato';
-    /*font-size: 16px;*/
+    font-size: 16px;
     margin: 0;
     padding: 50px 0;
 }
 
+.hidden {
+    display: none;
+}
+.invisible {
+    visibility: hidden;
+}
+.hide-text {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
 .light-text {
     font-weight: 300;
     -webkit-font-smoothing: auto;
@@ -532,13 +543,6 @@ footer span {
     justify-content: space-around;
     padding: 0 0 .5em;
 }
-.hidden {
-    display: none;
-}
-.invisible {
-    visibility: hidden;
-}
-
 .slide_wrap {
     /*    background: #B7E8D4;
         color: #605E6B;*/
@@ -724,7 +728,7 @@ footer span {
 .panel-title {
 }
 .modal-body {
-    font-size: 1.1em;
+    /*font-size: 1.1em;*/
 }
 .modal-footer-note {
     padding: 0 10px;
@@ -949,7 +953,7 @@ form {
     width: 80%;
 }
 .lecturedetail_chapters {
-    font-size: 1.1em;
+    /*font-size: 1.1em;*/
 }
 .btn_preview {
     color: rgb(200,200,200);
@@ -1047,7 +1051,7 @@ form {
 
 /*=== START: mylecturesection.html styles ===*/
 .my-readings-list {
-    font-size: 1.1em;
+    /*font-size: 1.1em;*/
 }
 .my-readings-list .list-group-item {
     /*overflow: auto;*/ /*This makes the div not collapse while having only floated items*/
@@ -1107,7 +1111,7 @@ form {
     margin-left: 5px;
     margin-right: 5px;
     padding: 4px 0px;
-    width: 70px;
+    width: 75px;
 }
 .my-reading-time-left-title,
 .my-reading-notes-title,
