@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lorapp - No más fotocopias</title>
         <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png">
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
         <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/landing.css" rel="stylesheet">
@@ -314,8 +314,8 @@
 <div class="container-fluid jumbotron jumbotron-main">
     <div class="container text-center">
         <img src="public/images/logo-main.png" class="img-main-logo">
-        <h1>No más fotocopias</h1>
-        <p class="lead landing-p">Lee ahorrando dinero y tiempo, sin tala de árboles</p>
+        <h1 class="light-text">No más fotocopias</h1>
+        <p class="lead landing-p not-antialiased">Lee ahorrando dinero y tiempo, sin tala de árboles</p>
         <input class="signin-bottom-button" href="#" type="submit" value="Empieza" data-toggle="modal" data-target="#modal-registration-1">
     </div>
 </div>
@@ -564,7 +564,7 @@
         </div>
     </div>
 </section>
-<section class="section-5 flex">
+<section class="section-5 flex not-antialiased">
     <div class="features-text">
         <div>
             <h4>Subraya y toma notas</h4>
@@ -606,7 +606,7 @@
             <img class="leaf-img" src="public/images/leaf.png">
             <span>x 100</span>
         </div>
-        <p class="landing-p">Compra hojitas y cámbialas por tus lecturas. <span>¡Muchas veces es más barato que las fotocopias!</span></p>
+        <p class="landing-p light-text">Compra hojitas y cámbialas por tus lecturas. <span>¡Muchas veces es más barato que las fotocopias!</span></p>
     </div>
 </section>
 <section class="section-8">
@@ -621,7 +621,7 @@
     </div>
 </section>
 <section class="section-9 flex">
-    <h2 class="dinamic-message">Menos fotocopias = <span id="changing-message" style="display: inline; opacity: 0.751996;">Menos piratería</span></h2>
+    <h2 class="dinamic-message light-text">Menos fotocopias = <span id="changing-message">Menos piratería</span></h2>
     <input class="signin-bottom-button" type="submit" value="Regístrate" data-toggle="modal" data-target="#modal-registration-1">
 </section>
 
@@ -656,7 +656,7 @@
     <ul class="feedback-list dropdown-menu" aria-labelledby="feedback-dropup-menu">
         <li><a href="#" data-toggle="modal" data-target="#modal-report-problem">Informa de un error o problema</a></li>
         <li><a href="#" data-toggle="modal" data-target="#modal-reading-not-found">No encuentras la lectura que necesitas</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#modal-feedback-questions">Consejos, comentarios o preguntas</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#modal-feedback-questions">Sugerencias, comentarios o preguntas</a></li>
     </ul>
 </div>
 <!-- /Boton feedback -->
@@ -748,8 +748,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <label>¿Tienes otra pregunta?</label>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-contact">Contáctanos</button>
+                        <label class="modal-footer-note">¿Tienes otra pregunta?</label>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal-feedback-questions">Contáctanos</button>
                     </div>
                 </div>
             </div>
@@ -767,7 +767,7 @@
                     <div class="modal-body terms-body-text">
                         <style type="text/css">
                         .terms-body-text {
-                            padding: 30px;
+                            padding: 30px 40px;
                             text-align: justify;
                         }
                         .terms-body-text .term-number-p {
@@ -1012,7 +1012,7 @@
                       </div>
                       <div class="form-group">
                         <label for="report-problem-message" class="control-label">Cuéntanos qué pasó</label>
-                        <textarea class="form-control" id="report-problem-message" required="true" name="reportproblem"></textarea>
+                        <textarea class="form-control" id="report-problem-message" required="true" name="reportproblem" rows="3"></textarea>
                       </div>
                     </form>
                 </div>
@@ -1034,8 +1034,8 @@
                 <h4 class="modal-title">¿Cuál lectura necesitas?</h4>
               </div>
               <div class="modal-body row">
-                <div class="col-md-10 col-md-offset-1">
-                    <p>Para nosotros es de gran ayuda que nos digas las lecturas que no tenemos. A veces tardamos menos de 24 horas en tener la lectura disponible.
+                <div class="col-md-12">
+                    <p class="col-md-12">Para nosotros es de gran ayuda que nos digas las lecturas que no tenemos. A veces tardamos menos de 24 horas en tener la lectura disponible.
                     <br>
                     <strong>No es obligatorio llenar todos los campos.</strong></p>
                     
@@ -1105,13 +1105,13 @@
         </div>
         <!-- END: Reportar lectura faltante -->
 
-        <!-- START: Reportar pregunta, consejo o comentario -->
+        <!-- START: Reportar pregunta, sugerencia o comentario -->
         <div class="modal fade" id="modal-feedback-questions" tabindex="-1" role="dialog" aria-labelledby="report-question">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Consejos, comentarios y preguntas</h4>
+                <h4 class="modal-title">Sugerencias, comentarios y preguntas</h4>
               </div>
               <div class="modal-body row">
                 <div class="col-md-10 col-md-offset-1">
@@ -1123,7 +1123,7 @@
                       </div>
                       <div class="form-group">
                         <label for="report-question-message" class="control-label">Tu mensaje</label>
-                        <textarea class="form-control" id="report-question-message" required="true" name="report-question-message"></textarea>
+                        <textarea class="form-control" id="report-question-message" required="true" name="report-question-message" rows="3"></textarea>
                       </div>
                     </form>
                 </div>
@@ -1134,7 +1134,7 @@
             </div>
           </div>
         </div>
-        <!-- END: Reportar pregunta, consejo o comentario -->
+        <!-- END: Reportar pregunta, sugerencia o comentario -->
 
         <!-- START: Confirmar adquisicion de lectura con hojitas -->
         <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
@@ -1163,91 +1163,6 @@
             </div>
         </div>
         <!-- END: Confirmar adquisicion de lectura con hojitas -->
-
-        <!-- Contacto -->
-        <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Contacto</h4>
-                    </div>
-                    <form action="main.html?contact/send" method="POST">
-                        <div class="modal-body">
-                            <div class="form-horizontal text-center">
-                                <div class="form-group">
-                                    <label class="sr-only" for="email">Email</label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <input type="email" class="form-control" id="contact-email" placeholder="Email" name="email" required="true">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="email">Mensaje</label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <textarea class="form-control" rows="5" id="contact-message" placeholder="Mensaje" name="message"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- END: Contacto -->
-        <!-- Sugerir lectura -->
-        <div class="modal fade" id="modal-lecturesuggested" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Sugerir Lectura</h4>
-                    </div>
-                    <form action="main.html?lecturesuggested" method="POST">
-                        <div class="modal-body">
-                            <div class="form-horizontal text-center">
-                                                                <div class="form-group">
-                                    <label class="sr-only" for="email">Email</label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <input type="email" class="form-control" name="email" placeholder="Tu Email" required="true">
-                                    </div>
-                                </div>
-                                                                <div class="form-group">
-                                    <label class="sr-only">Título</label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <input type="text" class="form-control" name="title" placeholder="Título" required="true">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only">Autor</label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <input type="text" class="form-control" name="author" placeholder="Autor" required="true">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only">Año</label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <input type="text" class="form-control" name="year" placeholder="Año">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only">Editorial</label>
-                                    <div class="col-sm-10 col-md-offset-1">
-                                        <input type="text" class="form-control" name="publisher" placeholder="Editorial">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- END: Sugerir lectura -->
         <!-- END Modals -->
         <nav class="navbar navbar-inverse">
             <div class="container">
@@ -1272,7 +1187,7 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="#" data-toggle="modal" data-target="#modal-FAQ">Preguntas frecuentes</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#modal-terms">Términos de uso</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#modal-contact">Contacto</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal-feedback-questions">Contacto</a></li>
                 </ul>
                 <!-- </div> -->
             </div><!-- /.container-fluid -->
