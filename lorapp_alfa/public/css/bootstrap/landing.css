@@ -1053,6 +1053,9 @@ form {
 .my-readings-list {
     /*font-size: 1.1em;*/
 }
+.my-readings-list:empty {
+    
+}
 .my-readings-list .list-group-item {
     /*overflow: auto;*/ /*This makes the div not collapse while having only floated items*/
     min-height: 42px;
@@ -1234,7 +1237,7 @@ li.list-group-item.list-more-readings:hover {
 
     /*Search-bar se hace más corta*/
     .navbar-form .input-group .form-control {
-        width: 170px;
+        width: 156px;
     }
 
     .landing-p,
