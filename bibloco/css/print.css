@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-family: verdana;
+    font-size: 16px;
+    color: #4A4A4A;
+    vertical-align: baseline;
+}
+hr{
+    color: #CACACA;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;    
+}
+img {
+    max-height: 200px;
+}
+
+p {
+    text-align: justify;
+}

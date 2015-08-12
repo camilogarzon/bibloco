@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lorapp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="css/app.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+        <link href='http://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div style="display: table-row; width: 100%;">
+            <div class="left_menu" style="display: table-cell">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="position: fixed; top: 20px; width: 60px;">
+                    <div id="label_my_lecture" class="float_label" style="position: fixed; left: 70px; top: 45px; display: none;" >Mis Lecturas</div>
+                    <div id="label_font_down" class="float_label" style="position: fixed; left: 70px; top: 115px; display: none;">Disminuir Fuente</div>
+                    <div id="label_font_up" class="float_label" style="position: fixed; left: 70px; top: 180px; display: none;">Aumentar Fuente</div>
+                    <div id="label_note" class="float_label" style="position: fixed; left: 70px; top: 250px; display: none;" >Mis Apuntes</div>
+                    <a href="milectura.html"><img src="images/icons/svg/back-icon.svg" onmouseover="showHideLabel('label_my_lecture', true)" onmouseout="showHideLabel('label_my_lecture', false)"/></a>
+                    <img src="images/icons/svg/Aminus-icon.svg" onmouseover="showHideLabel('label_font_down', true)" onmouseout="showHideLabel('label_font_down', false)" onclick="fontSizeChange('.lecture','-')"/> 
+                    <img src="images/icons/svg/Aplus-icon.svg" onmouseover="showHideLabel('label_font_up', true)" onmouseout="showHideLabel('label_font_up', false)" onclick="fontSizeChange('.lecture','+')"/> 
+                    <a href="misapuntes.html"><img src="images/icons/svg/notes-icon.svg" onmouseover="showHideLabel('label_note', true)" onmouseout="showHideLabel('label_note', false)"/></a>
+                </div>
+                <div style="position: fixed; bottom: 10px; width: 60px;">
+                    <div id="label_print" class="float_label" style="position: fixed; left: 70px; bottom: 120px; display: none;" >Imprimir</div>
+                    <div id="label_info" class="float_label" style="position: fixed; left: 70px; bottom: 40px; display: none;" >Más Información</div>
+                    <img src="images/icons/svg/print-icon.svg" onmouseover="showHideLabel('label_print', true)" onmouseout="showHideLabel('label_print', false)" onclick="printLecture()"/> 
+                    <!--<img src="images/icons/png/help-icon.png" onmouseover="showHideLabel('label_info', true)" onmouseout="showHideLabel('label_info', false)"/>--> 
+                </div>
+            </div>
+            <div align="center" style="display: table-cell; width: 100%;">
+                <div style="display: table-row">
+                    <div style="display: table-cell">
+                        <div  class="notes">
+                            <div>
+                                <div align="left" class="notes_title">Mis apuntes</div>
+                                <div id="note_loader"></div>
+<!--                                <hr>
+                                <div id="rn0" class="notes_container notes_expandable" onmousemove="changeHeight(this, 400)" onmouseout="changeHeight(this, 100)">
+                                    <p><q class="notes_fromtext"> Generalmente se cree que tal divisi6n es mucho mayor en ciertas actividades económicas de poca importancia, no porque efectivamente esa división se extreme mas que en otras actividades de importancia mayor, sino porque en aquellas manufacturas que se destinan a ofrecer satisfacciones para las pequeñas necesidades de un reducido numero de personas, el numero de operarios ha de ser pequeño, y los empleados en los diversos pasos o etapas de la producción se pueden reunir generalmente en el mismo taller y a la vista del espectador. Por el contrario, en aquellas manufacturas destinadas a satisfacer los pedidos de un gran numero de personas, cada uno de los diferentes ramos de la obra emplea un numero tan considerable de obreros, que es imposible juntarlos en el mismo taller. Difícilmente podemos abarcar de una vez, con la mirada, sino los obreros empleados en un ramo de la producción. Aun cuando en las grandes manufacturas la tarea se puede dividir realmente en un numero de operaciones mucho mayor que en otras manufactures más pequeñas, la divisi6n del trabajo no es tan obvia y, por consiguiente, ha sido menos observada Generalmente se cree que tal divisi6n es mucho mayor en ciertas actividades económicas de poca importancia, no porque efectivamente esa división se extreme mas que en otras actividades de importancia mayor, sino porque en aquellas manufacturas que se destinan a ofrecer satisfacciones para las pequeñas necesidades de un reducido numero de personas, el numero de operarios ha de ser pequeño, y los empleados en los diversos pasos o etapas de la producción se pueden reunir generalmente en el mismo taller y a la vista del espectador. Por el contrario, en aquellas manufacturas destinadas a satisfacer los pedidos de un gran numero de personas, cada uno de los diferentes ramos de la obra emplea un numero tan considerable de obreros, que es imposible juntarlos en el mismo taller. Difícilmente podemos abarcar de una vez, con la mirada, sino los obreros empleados en un ramo de la producción. Aun cuando en las grandes manufacturas la tarea se puede dividir realmente en un numero de operaciones mucho mayor que en otras manufactures más pequeñas, </q></p>
+                                    <p class="notes_title_nota">NOTA:</p>
+                                    <p class="notes_title_nota_txt" id="note_text0">El trigo de Polonia, en las mismas condiciones de calidad, es tan barato como el de Francia, a pesar de la opulencia y adelantos de esta ultima nación. </p>
+                                    <p><textarea id="note_text_edit0" rows="5" style="width: 96%; display: none">El trigo de Polonia, en las mismas condiciones de calidad, es tan barato como el de Francia, a pesar de la opulencia y adelantos de esta ultima nación.  El trigo de Polonia, en las mismas condiciones de calidad, es tan barato como el de Francia, a pesar de la opulencia y adelantos de esta ultima nación.  El trigo de Polonia, en las mismas condiciones de calidad, es tan barato como el de Francia, a pesar de la opulencia y adelantos de esta ultima nación.  El trigo de Polonia, en las mismas condiciones de calidad, es tan barato como el de Francia, a pesar de la opulencia y adelantos de esta ultima nación.  El trigo de Polonia, en las mismas condiciones de calidad, es tan barato como el de Francia, a pesar de la opulencia y adelantos de esta ultima nación. </textarea></p>
+                                    <div align="right" class="note_option">
+                                        <span id="btn_note_edit0" onclick="editNoteShow(0, 1)">Editar</span>
+                                        <span id="btn_note_save0" onclick="saveNote2(2, 0)" style="display: none">Guardar</span>
+                                        <span id="btn_note_cancel0" onclick="editNoteShow(0, 0)" style="display: none">Cancelar</span>
+                                        <span id="btn_note_delete0" onclick="deleteNote(2, 0)">Eliminar</span>
+                                    </div>
+                                </div>-->
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript" src="js/jquery.highlight.js"></script>
+        <script type="text/javascript" src="js/util.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>    
+    </body>
+</html>

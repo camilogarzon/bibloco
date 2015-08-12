@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Share Selected Text to Social Media</title>
+        <style>
+            #share-button {
+                background-color:white;
+                border:1px solid black;
+                padding:10px;
+                position:absolute;
+                top:-9999px;
+                left:-9999px;
+                z-index:9999;
+                box-shadow:0 1px 3px rgba(0,0,0,.4);
+            }
+        </style>
+    </head>
+    <body>
+
+
+        <h2>Lorem Ipsum</h2><p>Lorem ipsum dolor sit amet, consectetuer <em>adipiscing elit</em>, sed diam nonummy nibh euismod tincidunt ut <strong>laoreet dolore magna</strong> aliquam erat volutpat. Ut wisi <strong><em>enim ad minim</em></strong> veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis <ins>autem</ins> vel eum iriure dolor in hendrerit in vulputate velit <del>esse</del> molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+
+
+        <!-- HTML Markup for Share Button -->
+        <div id="share-button"><button>Share!</button></div>
+
+
+        <script>
+
+            var savedText = null; // Variable to save the text
+
+            function saveSelection() {
+                if (window.getSelection) {
+                    var sel = window.getSelection();
+                    if (sel.getRangeAt && sel.rangeCount) {
+                        return sel.getRangeAt(0);
+                    }
+                } else if (document.selection && document.selection.createRange) {
+                    return document.selection.createRange();
+                }
+                return null;
+            }
+
+            function restoreSelection(range) {
+                if (range) {
+                    if (window.getSelection) {
+                        var sel = window.getSelection();
+                        sel.removeAllRanges();
+                        sel.addRange(range);
+                    } else if (ddocument.selection && range.select) {
+                        range.select();
+                    }
+                }
+            }
+
+            var btnWrap = document.getElementById('share-button');
+            var btnShare = btnWrap.children[0];
+
+            document.onmouseup = function(e) {
+
+                savedText = saveSelection(); // Save selection on mouse-up
+
+                setTimeout(function() {
+
+                    var isEmpty = savedText.toString().length === 0; // Check selection text length
+
+                    // set sharing button position
+                    btnWrap.style.top = (isEmpty ? -9999 : e.pageY) + 'px';
+                    btnWrap.style.left = (isEmpty ? -9999 : e.pageX) + 'px';
+
+                }, 10);
+
+            };
+
+            btnShare.onmousedown = function(e) {
+
+                if (!savedText)
+                    return;
+
+                window.open('https://twitter.com/intent/tweet?text=' + savedText, 'shareWindow', 'width=300,height=150,top=50,left=50'); // Insert the selected text into sharing URL
+                restoreSelection(savedText); // select back the old selected text
+
+                // hide if we are done
+                setTimeout(function() {
+                    btnWrap.style.top = '-9999px';
+                    btnWrap.style.left = '-9999px';
+                }, 1000);
+
+                return false;
+
+            };
+
+        </script>
+    </body>
+</html>
