@@ -65,11 +65,10 @@ var ReadingLorapp = {};
                 }, 500);
             });
 
-
-            $(".show-my-notes-btn").click(function(event) {
-                /**
-                 * click en botón apuntes hace slide de apuntes
-                 */
+            /**
+            * click en botón apuntes hace slide de apuntes
+            */
+            $(".show-my-notes-btn").on('click touchend', function(event) {
                 event.preventDefault();
                 // $('.notesMainWrapper').css('left', 'auto');
                 $(".notesMainWrapper").animate({
@@ -81,6 +80,8 @@ var ReadingLorapp = {};
                 $('.closer-box').fadeIn(500);
                 $('.left-close-icon').fadeIn(500);
             });
+
+
 
             /**
              * click en botón .show-my-readings-btn hace slide de menú lateral
