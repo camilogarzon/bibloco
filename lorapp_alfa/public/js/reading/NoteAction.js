@@ -48,18 +48,18 @@ var NoteAction = {};
      */
     NoteAction.saveNoteSuccess = function(data) {
         if (data.valid) {
-            Util.alertBootstrap('Guardaste una nota', 'info');
+            Util.alertBootstrap('Información guardada correctamente!', 'info');
         } else {
-            Util.alertBootstrap('No se pudo guardar la nota. Error: ' + data.error, 'error');
+            Util.alertBootstrap('No se guardó la información! Error: ' + data.error, 'error');
         }
-        TextHighlight.NoteContainer.openClose('close');
+        Highlight.NoteContainer.openClose('close');
     };
 
     /** 
      * Metodo muestra el mensaje cuando no hay notas para mostrar
      */
     NoteAction.saveNoteError = function(jqXHR, textStatus) {
-        TextHighlight.NoteContainer.openClose('close');
+        Highlight.NoteContainer.openClose('close');
         Util.alertBootstrap('No se guardó la información!', 'error');
     };
 
@@ -128,6 +128,7 @@ var NoteAction = {};
      */
     NoteAction.getNoteRender = function(data) {
         if (data.valid) {
+            global.preloadHighlights = [];
             var res = data.response;
             var notes = '';
             var m = 0;
@@ -140,14 +141,21 @@ var NoteAction = {};
                         var selectedtext_display = '';
                         //se da prioridad a la visualizacion de HTML
                         selectedtext_display = notte[k].selectedtext_html;
+                        //se limpian los elementos de busqueda
+                        var p=notte[k].selectedtext.replace(/(\r\n|\n|\r)/gm,'#;#');
+                        for (var i=0; i<10;i++){
+                            p = p.replace('#;##;##;#','#;#').replace('#;##;#','#;#').replace('#;#','\n');
+                        }
+                        global.preloadHighlights.push(p);
                         if (selectedtext_display.length == 0) {
                             selectedtext_display = notte[k].selectedtext;
                         }
                         notes += '<div id=rn' + m + ' class="notesGroup">';
                         notes += '<a onclick="NoteAction.deleteNote(' + notte[k].id + ',' + m + ')" class="delete-note-icon" title="Borrar apunte"><img src="' + global.url + '/images/icons/svg/delete-icon.svg"></a>';
                         //notes += '<span onclick="NoteAction.deleteNote(' + notte[k].id + ',' + m + ')" class="delete-note-icon" title="Borrar apunte"><img src="' + global.url + '/images/icons/svg/delete-icon.svg"></span>';
-                        //notes += '<div style="cursor:pointer" id="load_selectedtexthtml' + m + '" title="Clic para ver en la lectura..." onclick="NoteAction.loadNoteIntoReading(' + m + ')"  class="notesHighlight">' + selectedtext_display + '</div>';
-                        notes += '<div id="load_selectedtexthtml' + m + '" class="notesHighlight">' + selectedtext_display + '</div>';
+                        //notes += '<div id="load_selectedtexthtml' + m + '" style="cursor:pointer" title="Clic para ver en la lectura..." onclick="NoteAction.loadNoteIntoReading(' + m + ')"  class="notesHighlight">' + selectedtext_display + '</div>';
+                        notes += '<div id="load_selectedtexthtml' + m + '" style="cursor:pointer" title="Clic para ver en la lectura..." onclick="Highlight.loadHighlights( global.preloadHighlights,' + m + ')"  class="notesHighlight">' + selectedtext_display + '</div>';
+                        //notes += '<div id="load_selectedtexthtml' + m + '" class="notesHighlight">' + selectedtext_display + '</div>';
                         notes += '<div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(' + m + ', true)"><div id="note_text' + m + '" >' + notte[k].note + '</div>';
                         notes += '<input type="hidden" id="load_scroll_top' + m + '" value="' + notte[k].scroll_top + '"/>';
                         notes += '<input type="hidden" id="load_font_size' + m + '" value="' + notte[k].font_size + '"/>';
@@ -165,6 +173,7 @@ var NoteAction = {};
             if (m == 0) {
                 notes = '<h2 class="readingTitle">No has tomado ninguna nota de esta Lectura.</h2>';
             }
+            Highlight.preloadHighlights(global.preloadHighlights);
             $(NoteAction.noteLoader).html(notes);
         } else {
             alert('Error: ' + data.error);
@@ -249,6 +258,7 @@ var NoteAction = {};
      */
     NoteAction.initialize = function() {
         $('#btn_guardar').click(NoteAction.saveNote);
+//        NoteAction.getNote(global.lecturesection_id);
     };
 
 })();

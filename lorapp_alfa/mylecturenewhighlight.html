@@ -1,0 +1,722 @@
+
+
+
+
+<!--*************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+
+
+
+
+
+    ¡LEE ESTO!
+
+
+    El contenido de las lecturas está protegido por derechos de autor.
+
+    Por favor evita extraerlo. Además de estar prohibido, nos perjudica 
+    a todos al obligar a los dueños del contenido a implementar medidas 
+    proteccionistas y a evitar alternativas como Lorapp.
+
+    Solo podemos funcionar gracias al apoyo de nuestros usuarios. Nos 
+    esforzamos mucho para poder traerte contenidos legales a precios 
+    justos, ayúdanos a que siga siendo así.
+
+
+    ¡Buena lectura!
+    Att. El equipo de Lorapp
+
+
+
+
+
+
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+/**************************************************************************-->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Designing for Emotion - Lorapp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png" />
+        <!-- <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'> <!-- Para prueba de fuentes se usan todos los pesos. Eliminar innecesarios para mejor tiempo de carga -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css"><!-- Custom: Solo tool-tips y popovers -->
+        <link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap-theme.min.css"><!-- Custom: Solo tool-tips y popovers -->
+        <link rel="stylesheet" type="text/css" href="public/css/reading/myLectureStyles.css">
+        <script type="text/javascript" src="public/js/prefixfree.min.js"></script>
+
+        <!-- Cargar fuentes de TypeKit -->
+        <!-- <script src="//use.typekit.net/bmz3ihs.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script> -->
+
+        <noscript>
+        <meta http-equiv="refresh" content="0; url=http://beta.lorapp.com/alfa/lorapp/public" />
+        </noscript>
+
+        <!--<script type="text/javascript">
+        // Bloquea el click derecho
+            function clickIE4() {
+                if (event.button == 2) {
+                    return false;
+                }
+            }
+            function clickNS4(e) {
+                if (document.layers || document.getElementById && !document.all) {
+                    if (e.which == 2 || e.which == 3) {
+                        return false;
+                    }
+                }
+            }
+            if (document.layers) {
+                document.captureEvents(Event.MOUSEDOWN);
+                document.onmousedown = clickNS4;
+            } else if (document.all && !document.getElementById) {
+                document.onmousedown = clickIE4;
+            }
+            document.oncontextmenu = new Function("return false");
+            document.ondragstart = new Function("return false");
+            document.oncopy = new Function("return false");
+        </script>-->
+        <!-- START: alert -->
+        <style>
+            .alert {
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                font-size: 0.75em;
+            }
+            .alert-dismissable, .alert-dismissible {
+                padding-right: 35px;
+            }
+
+            .alert-info {
+                color: #31708f;
+                background-color: #d9edf7;
+                border-color: #bce8f1;
+            }
+
+            .alert {
+                text-shadow: 0 1px 0 rgba(255,255,255,.2);
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.05);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.05);
+            }
+            .alert-info {
+                background-image: -webkit-linear-gradient(top,#d9edf7 0,#b9def0 100%);
+                background-image: -o-linear-gradient(top,#d9edf7 0,#b9def0 100%);
+                background-image: -webkit-gradient(linear,left top,left bottom,from(#d9edf7),to(#b9def0));
+                background-image: linear-gradient(to bottom,#d9edf7 0,#b9def0 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9edf7', endColorstr='#ffb9def0', GradientType=0);
+                background-repeat: repeat-x;
+                border-color: #9acfea;
+            }
+            .alert-danger {
+                background-image: -webkit-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+                background-image: -o-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+                background-image: -webkit-gradient(linear,left top,left bottom,from(#f2dede),to(#e7c3c3));
+                background-image: linear-gradient(to bottom,#f2dede 0,#e7c3c3 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+                background-repeat: repeat-x;
+                border-color: #dca7a7;
+            }
+            .alert-danger {
+                color: #a94442;
+                background-color: #f2dede;
+                border-color: #ebccd1;
+            }
+            .alert-success {
+                background-image: -webkit-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
+                background-image: -o-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
+                background-image: -webkit-gradient(linear,left top,left bottom,from(#dff0d8),to(#c8e5bc));
+                background-image: linear-gradient(to bottom,#dff0d8 0,#c8e5bc 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffc8e5bc', GradientType=0);
+                background-repeat: repeat-x;
+                border-color: #b2dba1;
+            }
+            .alert-success {
+                color: #3c763d;
+                background-color: #dff0d8;
+                border-color: #d6e9c6;
+            }
+            .alert-dismissable .close, .alert-dismissible .close {
+                position: relative;
+                top: -2px;
+                right: -21px;
+                color: inherit;
+            }
+
+            button.close {
+                -webkit-appearance: none;
+                padding: 0;
+                cursor: pointer;
+                background: 0 0;
+                border: 0;
+            }
+
+            .close {
+                float: right;
+                font-size: 21px;
+                font-weight: 700;
+                line-height: 1;
+                color: #000;
+                text-shadow: 0 1px 0 #fff;
+                filter: alpha(opacity=20);
+                opacity: .2;
+            }
+            .add-note-highlight img{
+                max-width: 300px !important;
+            }
+        </style>
+    </head>
+    <body class=""><!-- Al body se le agregan las clases "sepia" o "night" para cambiar su estilo.
+        Se le agrega la clase "blurred" cuando una lectura expira, esto pone el texto borroso. -->
+
+        <!-- Este div es un overlay negro que puede ajustar el brillo de la pantalla al modificar su opacidad -->
+        <div class="brightness">
+        </div>
+        <div class="selectionSharer" id="selectionSharerPopover" style="position: absolute; top: 377px; left: 385px; display: block;">
+            <div id="selectionSharerPopover-inner" style="    height: 36px;">
+                <ul>
+                    <li><a class="action highlight-btn active" title="Resaltado" target="_blank"><span class="glyphicon glyphicon-ok highlight-ok-icon"></span><span id="removeHighlight" class="glyphicon glyphicon-remove highlight-cancel-icon"></span><span class="glyphicon glyphicon-font highlight-icon"></span></a></li>
+                    <li><a class="action add-note-btn" title="Agregar nota"><span id="takeHighlight" class="glyphicon glyphicon-pencil add-note-icon"></span></a></li>
+                </ul>
+            </div>
+            <div class="selectionSharerPopover-clip"><span class="selectionSharerPopover-arrow"></span></div>
+        </div>
+        <div class="body-wrapper">
+            <!-- Título y autor -->
+            <div class="heading-wrapper">
+                <div class="titleWrapper unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                    <h2 class="readingTitle">El arte de la guerra  BETA</h2>
+                    <span class="readingAuthor">Sun Tzu BETA</span>
+                </div> <!-- titleWrapper -->
+
+
+                <!-- Capítulo anterior/siguiente para pantallas pequeñas-->
+                <div class="chapter-control-wrapper top-chapter-control flex space-around">
+                    <a href="#14" class="prev-chapter flex flex-center-align flex-center-justify prev-chapter-mobile">
+                        <span>2. Sobre la iniciacion de las acciones</span>
+                    </a>
+                    <a href="#16" class="next-chapter flex flex-center-align flex-right next-chapter-mobile">
+                        <span>4. Sobre la medida en la disposición de los medios </span>
+                    </a>
+                </div>
+
+
+                <!-- Capítulo anterior/actual/siguiente -->
+                <div class="chapter-control-wrapper top-chapter-control flex space-around">
+                    <a href="#14" class="prev-chapter flex flex-center-align">
+                        <span>2. Sobre la iniciacion de las acciones</span>
+                    </a>
+                    <div class="current-chapter flex flex-column flex-center-justify">
+                        <span class="pre-chapter-title">Estás leyendo</span>
+                        <div><h3 class="chapterTitle">3. Sobre las posiciones de la victoria y la derrota</h3></div>
+                    </div>
+                    <a href="#16" class="next-chapter flex flex-right flex-center-align">
+                        <span>4. Sobre la medida en la disposición de los medios </span>
+                    </a>
+                </div>
+
+
+                <!-- Botones para mostrar mis lecturas y mis apuntes -->
+                <div class="show-my-readings-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="right" title="" data-original-title="Mis lecturas">
+                    <div class="flex flex-center-justify">
+                        <img src="http://beta.lorapp.com/public/images/icons/svg/library-icon.svg">
+                    </div>
+                </div>
+                <div class="show-my-notes-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="left" title="" data-original-title="Mis apuntes">
+                    <div class="flex flex-center-justify">
+                        <img id="icon_note" src="http://beta.lorapp.com/public/images/icons/svg/my-notes-icon.svg">
+                    </div>
+                </div>
+
+
+                <!-- Sección lateras de mis lecturas -->
+                <div class="my-readings-wrapper" style="left: -450px;">
+                    <img class="right-close-icon" src="http://beta.lorapp.com/public/images/icons/png/close-icon.png">
+                    <div class="my-readings-header flex space-between">
+                        <span>Tabla de contenido</span>
+                        <span class="my-readings-leaves"> Tienes: <span id="user_credit_actual">873</span> <img src="http://beta.lorapp.com/public/images/icons/svg/leaf-icon.svg"></span>
+                    </div>
+                    <div class="my-readings-list">
+                        <div class="list-book-container">
+                            <div class="list-book-title">
+                                <span>El arte de la guerra  BETA<em> – Sun Tzu BETA</em></span>
+                            </div>
+                            <div onclick="operation.addLectureSectionRedirect('#12')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">Introduccion</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                            </div>
+                            <div onclick="operation.addLectureSectionRedirect('#13')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">1. Sobre la evaluacion</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                            </div>
+                            <div onclick="operation.addLectureSectionRedirect('#14')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">2. Sobre la iniciacion de las acciones</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                            </div>
+                            <div onclick="operation.addLectureSectionRedirect('#15')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">3. Sobre las posiciones de la victoria y la derrota</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">6 días, 23 horas</span>
+                            </div>
+                            <div onclick="operation.addLectureSection('free16', '16')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">4. Sobre la medida en la disposición de los medios </span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition16">
+                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free16"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                        <input name="lsid" type="hidden" value="16">
+                                        <input name="type" type="hidden" value="free">
+                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                    </form>
+                                </span>
+                            </div>
+                            <div onclick="operation.addLectureSectionRedirect('#17')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">5. Sobre la firmeza</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                            </div>
+                            <div onclick="operation.addLectureSection('free18', '18')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">6. Sobre lo lleno y lo vacio</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition18">
+                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free18"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                        <input name="lsid" type="hidden" value="18">
+                                        <input name="type" type="hidden" value="free">
+                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                    </form>
+                                </span>
+                            </div>
+                            <div onclick="operation.addLectureSection('free19', '19')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">7. Sobre el enfrentamiento directo e indirecto</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition19">
+                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free19"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                        <input name="lsid" type="hidden" value="19">
+                                        <input name="type" type="hidden" value="free">
+                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                    </form>
+                                </span>
+                            </div>
+                            <div onclick="operation.addLectureSection('free20', '20')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">8. Sobre los nueve cambios</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition20">
+                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free20"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                        <input name="lsid" type="hidden" value="20">
+                                        <input name="type" type="hidden" value="free">
+                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                    </form>
+                                </span>
+                            </div>
+                            <div onclick="operation.addLectureSectionRedirect('#21')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">9. Sobre la distribucion de los medios</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                            </div>
+                            <div onclick="operation.addLectureSection('free22', '22')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">10. Sobre la topologia</span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition22">
+                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free22"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                        <input name="lsid" type="hidden" value="22">
+                                        <input name="type" type="hidden" value="free">
+                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                    </form>
+                                </span>
+                            </div>
+                            <div onclick="operation.addLectureSection('free23', '23')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">11. Sobre las nueve clases de terreno </span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition23">
+                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free23"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                        <input name="lsid" type="hidden" value="23">
+                                        <input name="type" type="hidden" value="free">
+                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                    </form>
+                                </span>
+                            </div>
+                            <div onclick="operation.addLectureSection('free24', '24')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">12. Sobre el arte de atacar por el fuego </span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition24">
+                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free24"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                        <input name="lsid" type="hidden" value="24">
+                                        <input name="type" type="hidden" value="free">
+                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                    </form>
+                                </span>
+                            </div>
+                            <div onclick="operation.addLectureSection('free25', '25')" class="list-book-chapter flex space-between">
+                                <span class="list-book-chapter-titles flex flex-column">
+                                    <span class="list-book-chapter-title">13. Sobre la concordia y la discordia </span>
+                                    <span class="list-book-chapter-subtitle"></span>
+                                </span>
+                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition25">
+                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free25"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                        <input name="lsid" type="hidden" value="25">
+                                        <input name="type" type="hidden" value="free">
+                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                    </form>
+                                </span>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="my-readings-footer flex space-between flex-center-align">
+                        <img class="footer-logo" src="http://beta.lorapp.com/public/images/lorapp-footer-logo.svg">
+                        <div>
+                            <a href="#"><img src="http://beta.lorapp.com/public/images/icons/svg/home-icon.svg">Mis lecturas</a>
+                            <a href="" data-toggle="modal" data-target="#modal-feedback-questions"><img src="http://beta.lorapp.com/public/images/icons/svg/feedback-icon.svg">Feedback?</a>
+                        </div>
+                    </div>
+                    <div class="closer-box" style="display: none;">
+                    </div>
+                </div>
+            </div><!-- heading-wrapper -->
+
+
+
+            <div class="mainWrapper">
+                <!-- Menu inferior -->
+                <div class="nav-menu flex space-between" unselectable="on" onselectstart="return false;">
+                    <div class="reading-options flex">
+                        <div class="full-screen-btn flex flex-center-align">
+                            <img src="http://beta.lorapp.com/public/images/icons/svg/full-screen-icon2.svg">
+                        </div>
+                        <div class="wideness-btn-div flex flex-center-align">
+                            <div class="narrow-btn-div active flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/reading-narrow-icon.svg"></div>
+                            <div class="wide-btn-div flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/reading-wide-icon.svg"></div>
+                        </div>
+                        <div class="brightness-btn-div2 flex flex-center-align">
+                            <img src="http://beta.lorapp.com/public/images/icons/svg/brightness-high-icon2.svg" class="decrease-brightness-btn">
+                            <div class="brightness-bar2 full-bar"></div>
+                            <div class="brightness-bar2 full-bar"></div>
+                            <div class="brightness-bar2 full-bar"></div>
+                            <div class="brightness-bar2 full-bar"></div>
+                            <div class="brightness-bar2 full-bar"></div>
+                            <img src="http://beta.lorapp.com/public/images/icons/svg/brightness-high-icon2.svg" class="increase-brightness-btn">
+                        </div>
+                        <div class="sizes-btn-div2 flex flex-center-align">
+                            <div class="size-small-div flex flex-center-align flex-center-justify" title="Tamaño pequeño"><img src="http://beta.lorapp.com/public/images/icons/svg/size-icon.svg"></div>
+                            <div class="size-medium-div active flex flex-center-align flex-center-justify" title="Tamaño mediano"><img src="http://beta.lorapp.com/public/images/icons/svg/size-icon.svg"></div>
+                            <div class="size-large-div flex flex-center-align flex-center-justify" title="Tamaño grande"><img src="http://beta.lorapp.com/public/images/icons/svg/size-icon.svg"></div>
+                        </div>
+                        <div class="flex flex-center-align">
+                            <div class="color-btn-container flex">
+                                <div class="color-light-btn active flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
+                                <div class="color-sepia-btn flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
+                                <div class="color-night-btn flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reading-info flex flex-center-align">
+                        <div title="Expiración de la lectura">tiempo disponible: <strong>6 días, 23 horas</strong></div>
+                        <div title="Tiempo de lectura"><strong><span class="minutes-left-data">3</span> mins</strong> de lectura</div>
+                        <div title="Porcentaje de lectura"><strong><span class="reading-percentage-data">0</span>%</strong> leído</div>
+                    </div>
+                </div><!-- Menu inferior -->
+
+
+
+                <!-- Contenido lectura -->
+                <!--                <style>
+                                    #scrollWrapper {
+                                        height: 600px;
+                                        overflow: auto;
+                                    }
+                                </style>-->
+                <!--<div id="scrollWrapper">-->
+                <div class="reading-wrapper">
+
+                    <!-- Texto cuerpo lectura -->
+                    <!--<div class="bodyText unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>-->
+                    <div class="bodyText highlighter-context selectionShareable" id="bodyText">
+                        <p><span class="highlighted" data-timestamp="1440481955419" id="1440481955419" style="background-color: rgba(255, 239, 80, 0.4);" data-highlighted="true">Como regla general, </span><strong><span class="highlighted" data-timestamp="1440481955419" id="1440481955419" style="background-color: rgba(255, 239, 80, 0.4);" data-highlighted="true">es mejor conservar a un enemigo intacto que destruirlo</span></strong><span class="highlighted" data-timestamp="1440481955419" id="1440481955419" style="background-color: rgba(255, 239, 80, 0.4);" data-highlighted="true">. Capturar a sus soldados para conquistarlos y dominas a sus jefes.</span></p>
+
+                        <p><span class="highlighted" data-timestamp="1440481955419" id="1440481955419" style="background-color: rgba(255, 239, 80, 0.4);" data-highlighted="true">Un General decía: "Practica las artes marciales, calcula la fuerza de tus adversarios, haz que pierdan su ánimo y dirección, de manera que aunque el ejército enemigo esté intacto sea inservible: esto es ganar sin violencia. Si destruyes al ejército enemigo y matas a sus generales, asaltas sus defensas disparando, reúnes a una muchedumbre y usurpas un territorio, todo esto es ganar por la fuerza."</span></p>
+
+                        <p>Por esto, los que ganan todas las batallas no son realmente profesionales; los que consiguen que se rindan impotentes los ejércitos ajenos sin luchar son los mejores maestros del Arte de la Guerra.</p>
+
+                        <p>Los guerreros superiores atacan mientras los enemigos están proyectando sus planes.</p>
+
+                        <p>Luego deshacen sus alianzas.</p>
+
+                        <p>Por eso, un gran emperador decía: "El que lucha por la victoria frente a espadas desnudas no es un buen general." La peor táctica es atacar a una ciudad. Asediar, acorralar a una ciudad sólo se lleva a cabo co mo último recurso.</p>
+
+                        <p>Emplea no menos de tres meses en preparar tus artefactos y otros tres para coordinar los recursos para tu asedio. Nunca se debe atacar por cólera y con prisas. Es aconsejable tomarse tiempo en la planificación y coordinación del plan.</p>
+
+                        <p>Por lo tanto, un verdadero maestro de las artes marciales vence a otras fuerzas enemigas sin batalla, conquista otras ciudades sin asediarlas y destruye a otros ejércitos sin emplear mucho tiempo.</p>
+
+                        <p>Un maestro experto en las artes marciales deshace los planes de los enemigos, estropea sus relaciones y alianzas, le corta los suministros o bloquea su camino, venciendo mediante estas tácticas sin necesidad de luchar.</p>
+
+                        <p>Es imprescindible luchar contra todas las facciones enemigas para obtener una victoria completa, de manera que su ejército no quede acuartelado y el beneficio sea total. Esta es la ley del asedio estratégico.</p>
+
+                        <p><strong>La victoria completa se produce cuando el ejército no lucha, la ciudad no es</strong> <strong>asediada, la destrucción no se prolonga durante mucho tiempo, y en cada caso el</strong> <strong>enemigo es vencido por el empleo de la estrategia. </strong>&nbsp;</p>
+
+                        <p>Así pues, la regla de la utilización de la fuerza es la siguiente: si tus fuerzas son diez veces superiores a las del adversario, rodéalo; si son cinco veces superiores, atácalo; si son dos veces superiores, divídelo.</p>
+
+                        <p>Si tus fuerzas son iguales en número, lucha si te es posible. Si tus fuerzas son inferiores, manténte continuamente en guardia, pues el más pequeño fallo te acarrearía las peores consecuencias. Trata de mantenerte al abrigo y evita en lo posible un enfrentamiento abierto con él; la prudencia y la firmeza de un pequeño número de personas pueden llegar a cansar y a dominar incluso a numerosos ejércitos.</p>
+
+                        <p>Este consejo se aplica en los casos en que todos los factores son equivalentes. Si tus fuerzas están en orden mientras que las suyas están inmersas en el caos, si tú y tus fuerzas están con ánimo y ellos desmoralizados, entonces, aunque sean más numerosos, puedes entrar en batalla. Si tus soldados, tus fuerzas, tu estrategia y tu valor son menores que las de tu adversario, entonces debes retirarte y buscar una salida.</p>
+
+                        <p>En consecuencia, si el bando más pequeño es obstinado, cae prisionero del bando más grande.</p>
+
+                        <p>Esto quiere decir que si un pequeño ejército no hace una valoración adecuada de su poder y se atreve a enemistarse con una gran potencia, por mucho que su defensa sea firme, inevitablemente se convertirá en conquistado. "Si no puedes ser fuerte, pero tampoco sabes ser débil, serás derrotado." Los generales son servidores del Pueblo. Cuando su servicio es completo, el Pueblo es fuerte. Cuando su servicio es defectuoso, el Pueblo es débil.</p>
+
+                        <p>Así pues, existen tres maneras en las que un Príncipe lleva al ejército al desastre. Cuando un Príncipe, ignorando los hechos, ordena avanzar a sus ejércitos o retirarse cuando no deben hacerlo; a esto se le llama inmovilizar al ejército. Cuando un Príncipe ignora los asuntos militares, pero comparte en pie de igualdad el mando del ejército, los soldados acaban confusos. Cuando el Príncipe ignora cómo llevar a cabo las maniobras militares, pero comparte por igual su dirección, los soldados están vacilantes. Una vez que los ejércitos están confusos y vacilantes, empiezan los problemas procedentes de los adversarios. A esto se le llama perder la victoria por trastornar el aspecto militar.</p>
+
+                        <p>Si intentas utilizar los métodos de un gobierno civil para dirigir una operación militar, la operación será confusa.</p>
+
+                        <p>Triunfan aquellos que:</p>
+
+                        <p>Saben cuándo luchar y cuándo no</p>
+
+                        <p>Saben discernir cuándo utilizar muchas o pocas tropas.</p>
+
+                        <p>Tienen tropas cuyos rangos superiores e inferiores tienen el mismo objetivo.</p>
+
+                        <p>Se enfrentan con preparativos a enemigos desprevenidos.</p>
+
+                        <p>Tienen generales competentes y no limitados por sus gobiernos civiles.</p>
+
+                        <p>Estas cinco son las maneras de conocer al futuro vencedor.</p>
+
+                        <p>Hablar de que el Príncipe sea el que da las órdenes en todo es como el General solicitarle permiso al Príncipe para poder apagar un fuego: para cuando sea autorizado, ya no quedan sino cenizas.</p>
+
+                        <p><strong>Si conoces a los demás y te conoces a ti mismo, ni en cien batallas correrás peligro; si</strong> <strong>no conoces a los demás, pero te conoces a ti mismo, perderás una batalla y ganarás</strong> <strong>otra; si no conoces a los demás ni te conoces a ti mismo, correrás peligro en cada</strong> <strong>batalla.&nbsp;</strong></p>
+
+                    </div>
+                </div> <!-- reading-wrapper -->
+                <!--                </div>-->
+
+                <!-- Capítulo anterior/actual/siguiente -->
+                <div class="chapter-control-wrapper bottom-chapter-control flex space-around">
+                    <a href="#14" class="prev-chapter flex flex-center-align">
+                        <span>2. Sobre la iniciacion de las acciones</span>
+                    </a>
+                    <div class="current-chapter flex flex-column flex-center-justify">
+                        <span class="pre-chapter-title">Leíste</span>
+                        <div><h3 class="chapterTitle">3. Sobre las posiciones de la victoria y la derrota</h3></div>
+                    </div>
+                    <a href="#16" class="next-chapter flex flex-center-align flex-right">
+                        <span>4. Sobre la medida en la disposición de los medios </span>
+                    </a>
+                </div>
+
+                <!-- Capítulo anterior/siguiente para pantallas pequeñas-->
+                <div class="chapter-control-wrapper bottom-chapter-control flex space-around">
+                    <a href="#14" class="prev-chapter flex flex-center-align flex-center-justify prev-chapter-mobile">
+                        <span>2. Sobre la iniciacion de las acciones</span>
+                    </a>
+                    <a href="#16" class="next-chapter flex flex-center-align flex-right next-chapter-mobile">
+                        <span>4. Sobre la medida en la disposición de los medios </span>
+                    </a>
+                </div>
+
+                <!-- Campo para agregar nota -->
+                <style>
+                    .add-note-highlight img{
+                        max-width: 300px !important;
+                    }
+                </style>
+                <div class="add-note-wrapper">
+                    <div>
+                        <input name="load_scroll_top" type="hidden" id="load_scroll_top">
+                        <input name="load_font_size" type="hidden" id="load_font_size">
+                        <form method="POST" action="#15" accept-charset="UTF-8" id="form_note_create"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                            <input name="lecture_id" type="hidden" value="2">
+                            <input name="lecturesection_id" type="hidden" value="15">
+                            <input name="user_id" type="hidden" value="1">
+
+                            <input name="scroll_top" type="hidden" id="scroll_top">
+                            <input name="scroll_height" type="hidden" id="scroll_height">
+                            <input name="scroll_width" type="hidden" id="scroll_width">
+                            <input name="count_words" type="hidden" id="count_words">
+                            <input name="font_size" type="hidden" id="font_size">
+                            <input name="selectedtext" type="hidden" id="selectedtext">
+                            <input name="selectedtext_html" type="hidden" id="selectedtext_html">
+                            <div id="selectedtext_hidden" style="display: none"></div>
+                            <p id="selectedtext_display" class="add-note-highlight unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">El progreso más importante en las facultades productivas del trabajo, y gran parte de la aptitud, destreza y sensatez con que diste se aplica o dirige, por doquier, parecen ser consecuencia de la división del trabajo.</p>
+                            <textarea id="note" name="note" class="note-input" type="text" placeholder="Escribe tu nota…" style="overflow: hidden; resize: none; height: 48px;"></textarea>
+                            <div class="add-note-buttons unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                                <a id="btn_cancelar_note" class="btn-discard-note">Cancelar</a>
+                                <button id="btn_guardar" class="btn-save-note unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">¡Listo!</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- mainWrapper -->
+        </div> <!-- body-wrapper -->
+
+        <!-- Apuntes -->
+        <div class="notesMainWrapper" style="right: -650px;">
+            <img class="left-close-icon" src="http://beta.lorapp.com/public/images/icons/png/close-icon.png" style="display: none;">
+            <div class="reading-wrapper">
+                <!-- Título y autor -->
+                <div class="titleWrapper unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                    <h2 class="readingTitle">Apuntes</h2>
+                    <p class="readingAuthor">El arte de la guerra  BETA</p>
+                </div> <!-- titleWrapper -->
+
+                <!-- Texto cuerpo lectura -->
+                <div class="bodyText" id="note_loader"><h4 class="chapterTitle">3. Sobre las posiciones de la victoria y la derrota</h4><div id="rn0" class="notesGroup"><a onclick="NoteAction.deleteNote(144, 0)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/public//images/icons/svg/delete-icon.svg"></a><div id="load_selectedtexthtml0" style="cursor:pointer" title="Clic para ver en la lectura..." onclick="Highlight.loadHighlights(global.preloadHighlights, 0)" class="notesHighlight"><p>Como regla general, <strong>es mejor conservar a un enemigo intacto que destruirlo</strong>. Capturar a sus soldados para conquistarlos y dominas a sus jefes.</p>
+
+                            <p>Un General decía: "Practica las artes marciales, calcula la fuerza de tus adversarios, haz que pierdan su ánimo y dirección, de manera que aunque el ejército enemigo esté intacto sea inservible: esto es ganar sin violencia. Si destruyes al ejército enemigo y matas a sus generales, asaltas sus defensas disparando, reúnes a una muchedumbre y usurpas un territorio, todo esto es ganar por la fuerza."</p></div><div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(0, true)"><div id="note_text0">una nota</div><input type="hidden" id="load_scroll_top0" value="0"><input type="hidden" id="load_font_size0" value="0"><textarea id="note_text_edit0" rows="5" style="width: 96%; display: none">una nota</textarea></div><div align="right" class="note_option"><span id="btn_note_save0" onclick="NoteAction.updateNote(144, 0)" class="btn-save-note unselectable" style="display: none">Guardar</span><span id="btn_note_cancel0" onclick="NoteAction.editNoteShow(0, false)" class="btn-save-note unselectable" style="display: none">Cancelar</span></div></div></div> <!-- bodyText -->
+            </div> <!-- reading-wrapper -->
+        </div><!-- notesMainWrapper -->
+
+        <!-- START: Confirmar adquisicion de lectura con hojitas -->
+        <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="reportproblem">Alquilar Lectura</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Vas a usar <strong><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para alquilar esta lectura durante <strong>7 días</strong>.</p>
+                    </div>
+                    <div class="modal-footer flex flex-center-justify">
+                        <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                        <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Confirmar adquisicion de lectura con hojitas -->
+
+
+        <!-- START: Reportar pregunta, consejo o comentario -->
+        <div class="modal fade" id="modal-feedback-questions" tabindex="-1" role="dialog" aria-labelledby="report-question">
+            <div class="modal-dialog" role="document">
+                <form action="http://beta.lorapp.com/public/feedbackquestion" method="POST" class="form-horizontal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Consejos, comentarios y preguntas</h4>
+                        </div>
+                        <div class="modal-body row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <p>¿Cómo podríamos ser mejores? ¿Qué piensas de Lorapp? ¿Tienes una pregunta? ¡Queremos escucharte!</p>
+                                <input type="hidden" name="email" value="demo@demo.com">
+                                <div class="form-group">
+                                    <label for="report-question-message" class="control-label">Tu mensaje</label>
+                                    <textarea class="form-control" id="report-question-message" required="true" name="message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END: Reportar pregunta, consejo o comentario -->
+
+        <!-- Contacto -->
+        <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Contacto</h4>
+                    </div>
+                    <form action="http://beta.lorapp.com/public/contact/send" method="POST">
+                        <div class="modal-body">
+                            <div class="form-horizontal text-center">
+                                <div class="form-group">
+                                    <label class="sr-only" for="email">Email</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="email" class="form-control" id="contact-email" placeholder="Email" name="email" required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="email">Mensaje</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <textarea class="form-control" rows="5" id="contact-message" placeholder="Mensaje" name="message"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END: Contacto -->
+
+
+        <script type="text/javascript" src="public/js/jquery/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="public/js/bootstrap/bootstrap.min.js"></script>
+        <!--<script type="text/javascript" src="http://beta.lorapp.com/public/bootstrap-full/js/bootstrap.min.js"></script> Custom bootstrap: Solo tool-tips y popovers -->                
+        <script type="text/javascript" src="public/js/jquery/jquery.selection.js"></script>
+        <script type="text/javascript" src="public/js/jquery/TextHighlighter.js"></script>
+        <script type="text/javascript" src="public/js/global.js"></script>
+        <script type="text/javascript">
+                            global.url = "http://beta.lorapp.com/publ";
+                            global.session = {m: "e7fdb5769f211f3cd1ec01e8ac4630e4", n: "149323650d7f35dd77c7063f115894ca6c8fa3d4"};
+                            global.lecturesection_id = "15";
+                            global.preloadHighlights = [];</script>
+        <script type="text/javascript" src="public/js/util.js"></script>
+        <script type="text/javascript" src="public/js/mylecture.js"></script>
+        <script type="text/javascript" src="public/js/reading/ReadUX.js"></script>
+        <script type="text/javascript" src="public/js/reading/NoteAction.js"></script>
+        <script type="text/javascript" src="public/js/reading/Highlight.js"></script>
+        <!--<script type="text/javascript" src="public/js/reading/TextHighlight.js"></script>-->
+        <script type="text/javascript" src="public/js/reading/ReadingLorapp.js"></script>
+        <script type="text/javascript" src="public/js/operation.js"></script>
+
+
+        <!-- Add fancyBox -->
+        <link rel="stylesheet" type="text/css" href="public/js/fancybox/source/jquery.fancybox.css?v=2.1.5">
+        <script type="text/javascript" src="public/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    </body>
+</html>
