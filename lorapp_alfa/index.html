@@ -4,17 +4,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lorapp - No más fotocopias</title>
-        <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png">
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+        <title>No más fotocopias - Lorapp</title>
+        <meta property="og:title" content="¡No más fotocopias!">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://lorapp.com/">
+        <meta property="og:image" content="http://lorapp.com/images/fbimage.png">
+        <meta property="og:description" content="¿Aún sacas fotocopias? ¡Tienes huevo! Este es el trato: No tumbes mi casa y te ahorraré dinero. Entra a Lorapp y encuentra todas las lecturas de tu universidad.">
+        <meta property="og:site_name" content="Lorapp">
+        <link rel="shortcut icon" type="image/x-icon" href="http://andes.lorapp.com/favicon.png">
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
         <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
         <link href="public/css/bootstrap/landing.css" rel="stylesheet">
         <link href="public/css/jquery-ui/jquery-ui.css" rel="stylesheet">
     </head>
     <body>
-
-                <!-- START: navbar not logged-in -->
+        <!-- START: navbar not logged-in -->
         <nav class="navbar navbar-inverse navbar-fixed-top nav-not-logged-in">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,17 +30,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img class="nav-logo img-responsive" alt="Lorapp" src="public/images/logo-vertical-dark.png" data-toggle="tooltip" data-placement="right" title="¡CRAAAR!"></a>
+                    <a class="navbar-brand" href="http://andes.lorapp.com"><img class="nav-logo img-responsive" alt="Lorapp" src="http://andes.lorapp.com/images/logo-vertical-dark.png" data-toggle="tooltip" data-placement="right" title="¡CRAAAR!"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <div class="nav navbar-right dropdown">
                         <button class="btn btn-success dropdown-toggle nav-login" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Entrar
                         </button>
                         <div class="dropdown-menu form-group dropdown-login" role="menu" aria-labelledby="dropdownMenu1">
-                            <form method="POST" action="main.html?" accept-charset="UTF-8" onsubmit="return landing.login(&quot;login_form&quot;);" id="login_form" class="form-login text-center">
-                                <input name="_token" type="hidden" value="z9gQuCRIhixeASphfA6hmDzvhYHf0piAq4x35Wdh">
+                            <a href="http://andes.lorapp.com/loginfacebook" style="background-color:rgb(74, 110, 169); color: white !important; padding: 8px 20px 11px 15px;"><img style="max-height: 34px;" src="http://andes.lorapp.com/images/facebook_logo.png"> Entrar con Facebook</a>
+                            <hr>
+                            <form method="POST" action="http://andes.lorapp.com/login" accept-charset="UTF-8" onsubmit="return landing.login( & quot; login_form & quot; );" id="login_form" class="form-login text-center"><input name="_token" type="hidden" value="9rVyEwwa1666ZdHxoQNQdY0hGpArlwqTEkBn6F0H">
                                 <input id="email" placeholder="Usuario" class="form-control" name="email" type="email">
                                 <input id="password" placeholder="Contraseña" class="form-control" name="password" type="password" value="">
                                 <span class="pull-right login-forgotten-label"><a href="#" data-toggle="modal" data-target="#modal-forgot">¿Olvidado?</a></span>
@@ -45,7 +52,7 @@
                                     <span id="message_login">Revisa el email que ingresaste.</span>
                                 </div>
                                 <br>
-                                <button type="submit" class="btn btn-primary btn-block" onclick="landing.login('login_form')">Ingresar</button><br>
+                                <input type="submit" class="btn btn-primary btn-block" value="Ingresar">
                                 <span>¿Nuevo en Lorapp? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</span>
                             </form>
                         </div>
@@ -53,13 +60,16 @@
                     <div class="nav-search navbar-form navbar-right">
                         <div class="input-group">
                             <form method="GET" action="lecturesearch.html?" accept-charset="UTF-8" id="search_form">
-                            <input id="search" placeholder="¿Cuál lectura buscas?" class="form-control" required="true" name="search" type="text" value="">
-                            <input name="render" type="hidden" value="lecturesearch">
-                            <span class="input-group-btn">
-                                <button class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                            </span>
+                                <input id="search" placeholder="¿Cuál lectura buscas?" class="form-control" required="true" name="search" type="text" value="">
+                                <input name="render" type="hidden" value="lecturesearch">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </span>
                             </form>
                         </div>
+                    </div>
+                    <div class="nav-search navbar-form navbar-right hidden">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-report-problem"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp;&nbsp;Reportar Problema</button>
                     </div>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -74,7 +84,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                         <h4 class="modal-title" id="title-forgot">¿Olvidaste tu contraseña?</h4>
                     </div>
-                    <form action="main.html?password/remind" method="POST">
+                    <form action="http://andes.lorapp.com/password/remind" method="POST">
                         <div class="modal-body">
                             <label class="text-center col-sm-10 col-md-offset-1"><strong>Enviaremos un correo para recuperar tu contraseña.</strong></label>
                             <div class="row">
@@ -85,8 +95,8 @@
                                     </div>
                                     <div id="error_remember" class="alert-success" style="display: none">
                                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                        <span class="sr-only">Error:</span>
-                                        <span id="message_remember">Este no parece un email.</span>
+                                        <span class="sr-only">Ups!</span>
+                                        <span id="message_login">Revisa el email que ingresaste.</span>
                                     </div>
                                     <br>
                                 </div>
@@ -103,567 +113,715 @@
 
         <!-- Registro -->
 
-        <form method="GET" action="http://beta.lorapp.com/alfa/lorapp/public" accept-charset="UTF-8" id="form_register" class="form-horizontal" autocomplete="off">
-        <div class="modal fade" id="modal-registration-1" tabindex="-1" role="dialog" aria-labelledby="modal-registration-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                        <h4 class="modal-title" id="modal-registration-1-label">Bienvenido a Lorapp</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-center col-sm-12">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</p>
-                        <div class="form-horizontal form-registration-1">
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-name">Nombre</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="firstname" placeholder="Nombre" class="form-control" name="firstname" type="text" value="">
+        <form method="GET" action="http://andes.lorapp.com" accept-charset="UTF-8" id="form_register" class="form-horizontal" autocomplete="off">
+            <div class="modal fade" id="modal-registration-1" tabindex="-1" role="dialog" aria-labelledby="modal-registration-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                            <h4 class="modal-title" id="modal-registration-1-label">Bienvenido a Lorapp</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-center col-sm-12">Encuentra tu lectura, estudia en Lorapp y olvídate de las fotocopias.<br>Llena los siguientes datos para <strong>crear tu cuenta</strong>:</p>
+                            <div class="form-horizontal form-registration-1">
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-name">Nombre y Apellido</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="firstname" placeholder="Nombre y Apellido" class="form-control" name="firstname" type="text" value="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group hidden">
-                                <label class="sr-only" for="registration-lastname">Apellido</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="lastname" placeholder="Apellido" class="form-control" name="lastname" type="text" value="">
+                                <div class="form-group hidden">
+                                    <label class="sr-only" for="registration-lastname">Apellido</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="lastname" placeholder="Apellido" class="form-control" name="lastname" type="text" value="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-email">Email</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="email_register" placeholder="Email" class="form-control" onfocusout="landing.emailExist(&quot;email_register&quot;)" onmousemove="landing.emailExist(&quot;email_register&quot;)" name="email" type="email" value="">
-                                    <div id="message_alert" class="alert-danger" style="display: none; padding: 2px 10px;">
-                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                        <span class="sr-only">Error:</span>
-                                        <span id="message_reg">Este no parece un email</span>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-email">Email</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="email_register" placeholder="Email" class="form-control" onfocusout="landing.emailExist(&quot;email_register&quot;)" onmousemove="landing.emailExist( & quot; email_register & quot; )" name="email" type="email" value="">
+                                        <div id="message_alert" class="alert-danger" style="display: none; padding: 2px 10px;">
+                                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                            <span class="sr-only">Error:</span>
+                                            <span id="message_reg">Este no parece un email.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-contraseña">Contraseña</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="password_register" placeholder="Contraseña" class="form-control" name="password" type="password" value="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-contraseña">Contraseña</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="password_register" placeholder="Contraseña" class="form-control" name="password" type="password" value="">
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="modal-footer">
-                        <span class="modal-footer-note">Al registrarte aceptas nuestros <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal-terms">Términos de uso</a>.</span>
-                        <button disabled="true" id="btn_registro_1" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_1', 1)">Continuar</button>
+                        </div>
+                        <div class="modal-footer">
+                            <span class="modal-footer-note">Al registrarte aceptas nuestros <a href="#" data-toggle="modal" data-target="#modal-terms">Términos de uso</a>.</span>
+                            <button disabled="true" id="btn_registro_1" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_1', 1)">Continuar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- END: Registro-1 -->
+            <!-- END: Registro-1 -->
 
-        <!-- Registro-2 -->
-        <div class="modal fade" id="modal-registration-2" tabindex="-1" role="dialog" aria-labelledby="modal-registration-2" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                        <h4 class="modal-title" id="modal-registration-2-label">Paso 2 de 3</h4>
-                    </div>
-                    <div class="modal-body" id="radio-form">
-                        <label class="text-center col-sm-10 col-md-offset-1"><strong>¿Dónde estudias?</strong></label>
-                        <!-- START: Radio options -->
-                        <div class="row registration-radio">
-                            <div class="col-lg-6 col-md-offset-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <input id="colegio-radio-btn" type="radio" name="education" value="school" onchange="landing.educationSelected('radio-form')">
-                                    </span>
-                                    <label type="text" class="form-control" aria-label="colegio" for="registration-colegio-radio">Colegio</label>
-                                </div><!-- /input-group -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                        <div class="row registration-radio">
-                            <div class="col-lg-6 col-md-offset-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <input id="universidad-radio-btn" type="radio" name="education" value="university" aria-label="universidad" onchange="landing.educationSelected('radio-form')">
-                                    </span>
-                                    <label type="text" class="form-control" aria-label="universidad" for="registration-universidad-radio">Universidad</label>
-                                </div><!-- /input-group -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                        <div class="row registration-radio">
-                            <div class="col-lg-6 col-md-offset-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <input id="egresado-radio-btn" type="radio" name="education" value="egresado" aria-label="egresado" onchange="landing.educationSelected('radio-form')">
-                                    </span>
-                                    <label type="text" class="form-control" aria-label="egresado" for="registration-egresado-radio">Egresado</label>
-                                </div><!-- /input-group -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                        <!-- END: Radio options -->
+            <!-- Registro-2 -->
+            <div class="modal fade" id="modal-registration-2" tabindex="-1" role="dialog" aria-labelledby="modal-registration-2" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                            <h4 class="modal-title" id="modal-registration-2-label">Paso 2 de 3</h4>
+                        </div>
+                        <div class="modal-body" id="radio-form">
+                            <label class="text-center col-sm-10 col-md-offset-1"><strong>¿Dónde estudias?</strong></label>
+                            <!-- START: Radio options -->
+                            <div class="row registration-radio">
+                                <div class="col-lg-6 col-md-offset-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input id="colegio-radio-btn" type="radio" name="education" value="school" onchange="landing.educationSelected('radio-form')">
+                                        </span>
+                                        <label type="text" class="form-control" aria-label="colegio" for="registration-colegio-radio">Colegio</label>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                            <div class="row registration-radio">
+                                <div class="col-lg-6 col-md-offset-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input id="universidad-radio-btn" type="radio" name="education" value="university" aria-label="universidad" onchange="landing.educationSelected('radio-form')">
+                                        </span>
+                                        <label type="text" class="form-control" aria-label="universidad" for="registration-universidad-radio">Universidad</label>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                            <div class="row registration-radio">
+                                <div class="col-lg-6 col-md-offset-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input id="egresado-radio-btn" type="radio" name="education" value="egresado" aria-label="egresado" onchange="landing.educationSelected('radio-form')">
+                                        </span>
+                                        <label type="text" class="form-control" aria-label="egresado" for="registration-egresado-radio">Egresado</label>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                            <!-- END: Radio options -->
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-1">Volver</button>
-                        <button id="btn_registro_2" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_2', 2)">Continuar</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-1">Volver</button>
+                            <button id="btn_registro_2" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_2', 2)">Continuar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- END: Registro-2 -->
+            <!-- END: Registro-2 -->
 
-        <!-- Registro-3 -->
-        <div class="modal fade" id="modal-registration-3" tabindex="-1" role="dialog" aria-labelledby="modal-registration-3" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                        <h4 class="modal-title" id="modal-registration-3-label">Paso 3 de 3</h4>
-                    </div>
-                    <div class="modal-body">
-                        <label class="text-center col-sm-10 col-md-offset-1"><strong>Déjanos saber un poco más de ti.</strong></label>
-
-                        <div class="school-fields">
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-colegio">Colegio</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="school_register" placeholder="Colegio" class="form-control ui-autocomplete-input" autocomplete="off" name="school_name" type="text" value="">
-                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-edad">Edad</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input type="number" class="form-control" id="school_age" name="school_age" placeholder="Edad">
-                                </div>
-                            </div>
+            <!-- Registro-3 -->
+            <div class="modal fade" id="modal-registration-3" tabindex="-1" role="dialog" aria-labelledby="modal-registration-3" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                            <h4 class="modal-title" id="modal-registration-3-label">Paso 3 de 3</h4>
                         </div>
+                        <div class="modal-body">
+                            <label class="text-center col-sm-10 col-md-offset-1"><strong>Déjanos saber un poco más de ti.</strong></label>
 
-                        <div class="university-fields">
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-universidad">Universidad</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="university_register" placeholder="Universidad" class="form-control ui-autocomplete-input" autocomplete="off" name="university" type="text" value="">
-                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul>
+                            <div class="school-fields">
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-colegio">Colegio</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="school_register" placeholder="Colegio" class="form-control ui-autocomplete-input" autocomplete="off" name="school_name" type="text" value="">
+                                        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-edad">Edad</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input type="number" class="form-control" id="school_age" name="school_age" placeholder="Edad">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-carrera">Carrera</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input id="career_register" placeholder="Carrera" class="form-control ui-autocomplete-input" autocomplete="off" name="career" type="text" value="">
-                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul>
+
+                            <div class="university-fields">
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-universidad">Universidad</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="university_register" placeholder="Universidad" class="form-control ui-autocomplete-input" autocomplete="off" name="university" type="text" value="">
+                                        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-carrera">Carrera</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input id="career_register" placeholder="Carrera" class="form-control ui-autocomplete-input" autocomplete="off" name="career" type="text" value="">
+                                        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-semestre">Semestre</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <select id="semester" name="semester" class="form-control">
+                                            <option value="0">- Selecciona tu Semestre -</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="Egresado">Egresado</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-semestre">Semestre</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <select id="semester" name="semester" class="form-control">
-                                        <option value="0">- Selecciona tu Semestre -</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="Egresado">Egresado</option>
-                                    </select>
+
+                            <div class="form-horizontal form-registration-egresado-universidad hidden">
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-egresado-universidad">Universidad</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input type="text" class="form-control" id="registration-universidad" placeholder="Universidad">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-egresado-carrera">Carrera</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input type="text" class="form-control" id="registration-egresado-carrera" placeholder="Carrera">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="registration-egresado-año">Año de graduación</label>
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <input type="text" class="form-control" id="registration-año" placeholder="Año de graduación">
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
-
-                        <div class="form-horizontal form-registration-egresado-universidad hidden">
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-egresado-universidad">Universidad</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input type="text" class="form-control" id="registration-universidad" placeholder="Universidad">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-egresado-carrera">Carrera</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input type="text" class="form-control" id="registration-egresado-carrera" placeholder="Carrera">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="registration-egresado-año">Año de graduación</label>
-                                <div class="col-sm-6 col-md-offset-3">
-                                    <input type="text" class="form-control" id="registration-año" placeholder="Año de graduación">
-                                </div>
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-2">Volver</button>
+                            <button id="btn_registro_3" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_3', 3)">Terminar</button>
                         </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration-2">Volver</button>
-                        <button id="btn_registro_3" type="button" class="btn btn-primary" data-toggle="modal" onclick="landing.registrationValidate('btn_registro_3', 3)">Terminar</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- END: Registro-3 -->
+            <!-- END: Registro-3 -->
         </form>
 
 
         <!-- END: Modals -->
-                <!-- START Body -->
-        <!-- START Modals -->
 
+        <!-- START Body -->
+        <div id="body_content_wrapper" style="overflow: auto; min-height: 100%">
+            <!--<div class="container-fluid body-search">-->
+            <!-- START Modals -->
 
-<div class="container-fluid jumbotron jumbotron-main">
-    <div class="container text-center">
-        <img src="public/images/logo-main.png" class="img-main-logo">
-        <h1 class="light-text">No más fotocopias</h1>
-        <p class="lead landing-p not-antialiased">Lee ahorrando dinero y tiempo, sin tala de árboles</p>
-        <input class="signin-bottom-button" href="#" type="submit" value="Empieza" data-toggle="modal" data-target="#modal-registration-1">
-    </div>
-</div>
+            <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_http" src="http://static.ak.facebook.com/connect/xd_arbiter/44OwK74u0Ie.js?version=41#channel=f1a3aef924&amp;origin=http%3A%2F%2Fandes.lorapp.com" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_https" src="https://s-static.ak.facebook.com/connect/xd_arbiter/44OwK74u0Ie.js?version=41#channel=f1a3aef924&amp;origin=http%3A%2F%2Fandes.lorapp.com" style="border: none;"></iframe></div></div></div>
+            <script id="facebook-jssdk" src="//connect.facebook.net/es_LA/sdk.js#xfbml=1&amp;appId=1562161117399883&amp;version=v2.0"></script><script>(function(d, s, id) {
+                                        var js, fjs = d.getElementsByTagName(s)[0];
+                                                if (d.getElementById(id))
+                                                return;
+                                                js = d.createElement(s);
+                                                js.id = id;
+                                                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1562161117399883&version=v2.0";
+                                                fjs.parentNode.insertBefore(js, fjs);
+                                        }(document, 'script', 'facebook-jssdk'));</script>	
 
-<h3 class="text-center title3">Pruébalo</h3>
-<div class="readings-lorapp">
-    <div class="slide_wrap">
-        <div class="slide_frame" id="slide_frame" style="overflow: hidden;">
-            <ul class="clearfix" style="transform: translateZ(0px) translateX(-540px); width: 3400px;">
-                                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269">
-                                                <div class="caption">
-                            <h3>Nulla inventore optio amet laudantium enim illo et.</h3>
-                            <p>John Luettgen</p>
-                            <p class="btn-read"><a href="lecturedetail.html?5" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
+            <div class="container-fluid jumbotron jumbotron-main">
+                <div class="container text-center">
+                    <img src="http://andes.lorapp.com/images/logo-main.png" class="img-main-logo">
+                    <h1 class="light-text">No más fotocopias</h1>
+                    <p class="lead landing-p not-antialiased">Lee ahorrando dinero y tiempo, sin tala de árboles</p>
+                    <input class="signin-bottom-button" href="#" type="submit" value="Empieza" data-toggle="modal" data-target="#modal-registration-1">
                 </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?6/069f40bd310de9b7ff923112bda98cec">
-                                                <div class="caption">
-                            <h3>Qui atque nesciunt dolorum inventore unde repudiandae molestiae.</h3>
-                            <p>Adrianna Gulgowski</p>
-                            <p class="btn-read"><a href="lecturedetail.html?2" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?6/069f40bd310de9b7ff923112bda98cec">
-                                                <div class="caption">
-                            <h3>Qui atque nesciunt dolorum inventore unde repudiandae molestiae.</h3>
-                            <p>Adrianna Gulgowski</p>
-                            <p class="btn-read"><a href="lecturedetail.html?2" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02">
-                                                <div class="caption">
-                            <h3>Deserunt molestiae ullam eius repudiandae autem quo.</h3>
-                            <p>Lucio Donnelly</p>
-                            <p class="btn-read"><a href="lecturedetail.html?1" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item active">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?6/069f40bd310de9b7ff923112bda98cec">
-                                                <div class="caption">
-                            <h3>Qui atque nesciunt dolorum inventore unde repudiandae molestiae.</h3>
-                            <p>Adrianna Gulgowski</p>
-                            <p class="btn-read"><a href="lecturedetail.html?2" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7">
-                                                <div class="caption">
-                            <h3>Eos sed cum qui praesentium tempore reprehenderit hic.</h3>
-                            <p>Monserrat Romaguera</p>
-                            <p class="btn-read"><a href="lecturedetail.html?4" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02">
-                                                <div class="caption">
-                            <h3>Deserunt molestiae ullam eius repudiandae autem quo.</h3>
-                            <p>Lucio Donnelly</p>
-                            <p class="btn-read"><a href="lecturedetail.html?1" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7">
-                                                <div class="caption">
-                            <h3>Eos sed cum qui praesentium tempore reprehenderit hic.</h3>
-                            <p>Monserrat Romaguera</p>
-                            <p class="btn-read"><a href="lecturedetail.html?4" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269">
-                                                <div class="caption">
-                            <h3>Nulla inventore optio amet laudantium enim illo et.</h3>
-                            <p>John Luettgen</p>
-                            <p class="btn-read"><a href="lecturedetail.html?5" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?8/0085d482371e8f65b97841cdc2f38ce7">
-                                                <div class="caption">
-                            <h3>Eos sed cum qui praesentium tempore reprehenderit hic.</h3>
-                            <p>Monserrat Romaguera</p>
-                            <p class="btn-read"><a href="lecturedetail.html?4" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?7/302006542b94b6bd47d685375c2c906e">
-                                                <div class="caption">
-                            <h3>Sapiente perspiciatis id aut vero cum perferendis adipisci.</h3>
-                            <p>Giovanni Roberts</p>
-                            <p class="btn-read"><a href="lecturedetail.html?3" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?9/e1dae6046744330aef39e2a89dd24269">
-                                                <div class="caption">
-                            <h3>Nulla inventore optio amet laudantium enim illo et.</h3>
-                            <p>John Luettgen</p>
-                            <p class="btn-read"><a href="lecturedetail.html?5" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?5/3e5e2dff53cb56feb570f3fc80ca8e02">
-                                                <div class="caption">
-                            <h3>Deserunt molestiae ullam eius repudiandae autem quo.</h3>
-                            <p>Lucio Donnelly</p>
-                            <p class="btn-read"><a href="lecturedetail.html?1" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/landing/book.png">
-                                                <div class="caption">
-                            <h3>Test</h3>
-                            <p>Test</p>
-                            <p class="btn-read"><a href="lecturedetail.html?6" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/landing/book.png">
-                                                <div class="caption">
-                            <h3>Test</h3>
-                            <p>Test</p>
-                            <p class="btn-read"><a href="lecturedetail.html?6" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?7/302006542b94b6bd47d685375c2c906e">
-                                                <div class="caption">
-                            <h3>Sapiente perspiciatis id aut vero cum perferendis adipisci.</h3>
-                            <p>Giovanni Roberts</p>
-                            <p class="btn-read"><a href="lecturedetail.html?3" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
-                                <div class="col-sm-6 col-md-2 slide_item">
-                    <div class="thumbnail">
-                                                <img style="max-height: 100px" src="public/images/book.png?7/302006542b94b6bd47d685375c2c906e">
-                                                <div class="caption">
-                            <h3>Sapiente perspiciatis id aut vero cum perferendis adipisci.</h3>
-                            <p>Giovanni Roberts</p>
-                            <p class="btn-read"><a href="lecturedetail.html?3" class="btn btn-primary container-full" role="button">Leer</a>
-                        </p></div>
-                    </div>
-                </div>
+            </div>
 
+            <h3 class="text-center title3">Pruébalo</h3>
+            <div class="readings-lorapp">
+                <div class="slide_wrap">
+                    <div class="slide_frame" id="slide_frame" style="overflow: hidden;">
+                        <ul class="clearfix" style="transform: translateZ(0px) translateX(-581.163px); width: 6000px;">
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/74/7b4b0acb545f01c3a3926cc2daf3353b">
+                                    <div class="caption">
+                                        <h3>Ante el dolor de los demás</h3>
+                                        <p>Susan Sontag</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?19" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Cálculo de una variable</h3>
+                                        <p>James Stewart</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?39" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/75/6f7abba04f47eb4e14389ae2f2df2112">
+                                    <div class="caption">
+                                        <h3>Comunidad, inmunidad y biopolítica</h3>
+                                        <p>Roberto Esposito</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?21" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Constitución Política</h3>
+                                        <p>República de Colombia</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?7" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Designing for Emotion</h3>
+                                        <p>Aarron Walter</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?13" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/76/1bcb604530f9c344f4e1fcc07a3ddd5a">
+                                    <div class="caption">
+                                        <h3>Didáctica de la puntuación en castellano</h3>
+                                        <p>Carlos Bastidas Padilla</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?23" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item active">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/48/94030732b488efc1bf69c2bcf84de6b2">
+                                    <div class="caption">
+                                        <h3>El arte de la guerra</h3>
+                                        <p>Sun Tzu</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?2" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>El genoma humano. Aspectos eticos y juridicos</h3>
+                                        <p>Luis Moisset de Espanés</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?24" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/49/975b03f11468ec59604b10021c6a29d3">
+                                    <div class="caption">
+                                        <h3>El origen de las especies</h3>
+                                        <p>Charles Darwin</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?1" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Ensayo - Temas y problemas de los jóvenes colombianos al comenzar el siglo XXI</h3>
+                                        <p>Germán Muñoz González</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?37" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Guía lengua castellana</h3>
+                                        <p>Colegio Prueba</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?8" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/77/b7dd85230b3f5186433d5a7019a6a5a9">
+                                    <div class="caption">
+                                        <h3>Homo Sacer</h3>
+                                        <p>Giorgio Agamben</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?26" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>La ciudad en cuarentena</h3>
+                                        <p>Óscar Iván Calvo Isaza, Marta Saade Granados</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?27" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/78/536987ca705ac69f6674e5a5b36188d1">
+                                    <div class="caption">
+                                        <h3>La cocina de la escritura</h3>
+                                        <p>Daniel Cassany</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?28" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/79/63522dd37041f71db4055aa84137624c">
+                                    <div class="caption">
+                                        <h3>La globalización imaginada</h3>
+                                        <p>Néstor García Canclini</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?30" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/80/56a5d4c2d57d58e52e920ac987064f6e">
+                                    <div class="caption">
+                                        <h3>Las claves de la argumentación</h3>
+                                        <p>Anthony Weston</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?29" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Los caminos para el éxito</h3>
+                                        <p>Aureliano Abenza y Rodríguez</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?9" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Los valores de la familia contra el sexo seguro</h3>
+                                        <p>Alfonso López Trujillo</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?34" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Oliver Twist</h3>
+                                        <p>Charles Dickens</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?12" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista Análisis Político</h3>
+                                        <p></p>
+                                        <p class="btn-read"><a href="lecturedetail.html?31" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista Científica de Comunicación y Educación</h3>
+                                        <p>Comunicar</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?17" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista Científica de Comunicación y Educación</h3>
+                                        <p>Comunicar</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?33" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista Cuadernos de vivienda y urbanismo</h3>
+                                        <p>Instituto Javeriano de vivienda y urbanismo</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?38" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista de Estudios Sociales</h3>
+                                        <p>Facultad de Ciencias Sociales, Universidad de los Andes</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?22" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista Documentación de las Ciencias de la Información</h3>
+                                        <p>Universidad Complutense de Madrid</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?36" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista El Malpensante</h3>
+                                        <p></p>
+                                        <p class="btn-read"><a href="lecturedetail.html?32" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista Finanzas y Desarrollo</h3>
+                                        <p>Fondo Monetario Internacional</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?25" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista Signos. Teoría y práctica de la educación</h3>
+                                        <p>Centro del Profesorado y Recursos de Gijón</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?35" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/images/default_cover.png">
+                                    <div class="caption">
+                                        <h3>Revista Universitas Humanística</h3>
+                                        <p>Facultad de Ciencias Sociales, Pontificia Universidad Javeriana</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?20" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 slide_item">
+                                <div class="thumbnail">
+                                    <img style="max-height: 100px" src="http://andes.lorapp.com/attachment/get/view/72/d9d56d6473a20008da5ef11e1b63a9d3">
+                                    <div class="caption">
+                                        <h3>Ventaja competitiva</h3>
+                                        <p>Michael Porter</p>
+                                        <p class="btn-read"><a href="lecturedetail.html?10" class="btn btn-primary container-full" role="button">Leer</a>
+                                        </p></div>
+                                </div>
+                            </div>
+
+                        </ul>
+                    </div>
+                    <div class="slide_controls center">
+                        <div class="btn prev"><img src="http://andes.lorapp.com/images/thin_left_arrow_333.png"></div>
+                        &nbsp;&nbsp;
+                        <div class="btn next"><img src="http://andes.lorapp.com/images/thin_right_arrow_333.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-lorapp-info">
+                    <caption class="text-center">Actualmente contamos con lecturas que se leen en:</caption>
+                    <tbody><tr>
+                            <th class="text-center">Universidades</th>
+                            <th class="text-center">Carreras</th>
+                        </tr>
+                        <tr>
+                            <td class="universidades-labels text-center">
+                                <span class="label label-info">Universidad de Antioquia</span>
+                                <span class="label label-info">Universidad de los Andes</span>
+                                <span class="label label-info">Universidad Externado</span>
+                            </td>
+                            <td class="carreras-labels text-center">
+                                <span class="label label-info">Administracion</span>
+                                <span class="label label-info">Derecho</span>
+                                <span class="label label-info">Economia</span>
+                                <span class="label label-info">Psicología</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+
+            </div>
+
+            <section class="section-2 flex" id="section-2">
+                <div class="section-2-text">
+                    <h3 class="title3">¿Aún sigues fotocopiando?</h3>
+                    <p class="landing-p">Con Lorapp tienes acceso a tus lecturas para estudiar de manera económica, ecológica y legal.</p>
+                </div>
+                <img class="lora-front-img" src="http://andes.lorapp.com/images/lora-front.png">
+            </section>
+            <section class="section-3 flex">
+                <div class="section-text flex">
+                    <div>
+                        <h3 class="title3">Lo sabemos</h3>
+                        <p class="landing-p">Los libros son caros, pesados y solo necesitas una parte.</p>
+                        <p class="landing-p">¡Por eso desarrollamos Lorapp!</p>
+                    </div>
+                </div>
+                <div class="weight-img-wrapper flex">
+                    <img class="weight-img" src="http://andes.lorapp.com/images//weight.png">
+                </div>
+            </section>
+            <section class="section-4">
+                <h3 class="title3">Cómo funciona</h3>
+                <div class="process-items flex">
+                    <div>
+                        <img src="http://andes.lorapp.com/images/magnifying-glass.png">
+                        <p class="landing-p">Busca</p>
+                    </div>
+                    <div>
+                        <img src="http://andes.lorapp.com/images/hourglass.png">
+                        <p class="landing-p">Alquila</p>
+                    </div>
+                    <div>
+                        <img src="http://andes.lorapp.com/images/flat-demo.png">
+                        <p class="landing-p">Lee</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section-5 flex not-antialiased">
+                <div class="features-text">
+                    <div>
+                        <h4>Subraya y toma notas</h4>
+                        <p class="landing-p">¡Más fácil aun que en el papel! Tus apuntes se guardan para que puedas revisarlos en cualquier momento.</p>
+                    </div>
+                    <div>
+                        <h4>Busca palabras</h4>
+                        <p class="landing-p">¿Necesitas investigar un término en tu lectura? Utiliza el buscador y encuéntralo en segundos.</p>
+                    </div>
+                </div>
+                <img class="features-img" src="http://andes.lorapp.com/images/computer-features.png">
+                <div class="features-text">
+                    <div>
+                        <h4>Cambia el tamaño</h4>
+                        <p class="landing-p">Las fotocopias suelen tener un tamaño de letra que cansa tu vista. Con Lorapp lees en el tamaño que prefieras.
+                        </p>
+                    </div>
+                    <div>
+                        <h4>Marca páginas</h4>
+                        <p class="landing-p">No olvides dónde te quedaste. Lorapp te permite marcar páginas importantes o el punto donde dejaste tu lectura.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section-6 flex">
+                <img class="book-img" src="http://andes.lorapp.com/images/book.png">
+                <div class="section-text flex">
+                    <div>
+                        <h3 class="title3">Reconocemos el trabajo</h3>
+                        <p class="landing-p">Pagamos a las editoriales y autores por cada lectura leída en Lorapp. Queremos desmotivar la piratería en textos académicos y necesitamos tu apoyo para lograrlo.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section-7 flex">
+                <div class="branch-wrapper">
+                    <img class="branch-img" src="http://andes.lorapp.com/images/tree-branch.png">
+                </div>
+                <div class="section-7-text flex">
+                    <div class="leaf-x100 flex">
+                        <img class="leaf-img" src="http://andes.lorapp.com/images/leaf.png">
+                        <span>x 100</span>
+                    </div>
+                    <p class="landing-p light-text">Compra hojitas y cámbialas por tus lecturas. <span>¡Muchas veces es más barato que las fotocopias!</span></p>
+                </div>
+            </section>
+            <section class="section-8">
+                <img class="phone-img" src="http://andes.lorapp.com/images/iphone-demo.png">
+                <div class="section-8-text flex">
+                    <h3 class="title3">También en tu teléfono</h3>
+                    <ul>
+                        <li class="landing-p">Accede a tus lecturas en cualquier momento y lugar.</li>
+                        <li class="landing-p">Tus notas y subrayados se sincronizan en todos tus dispositivos.</li>
+                        <li class="landing-p">Agrega recordatorios y recibe notificaciones con lo que tienes que leer.</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section-9 flex">
+                <h2 class="dinamic-message light-text">Menos fotocopias = <span id="changing-message" style="display: inline; opacity: 0.512656;">Menos desorden</span></h2>
+                <input class="signin-bottom-button" type="submit" value="Regístrate" data-toggle="modal" data-target="#modal-registration-1">
+                <div align="center" style="height: 30px; margin-bottom: 20px">
+                    <div class="fb-like fb_iframe_widget" data-href="http://lorapp.com" data-layout="standard" data-action="like" data-show-faces="false" data-share="true" data-width="310" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=1562161117399883&amp;container_width=0&amp;href=http%3A%2F%2Florapp.com%2F&amp;layout=standard&amp;locale=es_LA&amp;sdk=joey&amp;share=true&amp;show_faces=false&amp;width=310"><span style="vertical-align: bottom; width: 310px; height: 42px;"><iframe name="fdde42788" width="310px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="http://www.facebook.com/v2.0/plugins/like.php?action=like&amp;app_id=1562161117399883&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F44OwK74u0Ie.js%3Fversion%3D41%23cb%3Df3c4bbb8ac%26domain%3Dandes.lorapp.com%26origin%3Dhttp%253A%252F%252Fandes.lorapp.com%252Ff1a3aef924%26relation%3Dparent.parent&amp;container_width=0&amp;href=http%3A%2F%2Florapp.com%2F&amp;layout=standard&amp;locale=es_LA&amp;sdk=joey&amp;share=true&amp;show_faces=false&amp;width=310" style="border: none; visibility: visible; width: 310px; height: 42px;" class=""></iframe></span></div>
+                </div>
+            </section>
+
+        </div>
+        <!-- END Body -->
+
+        <!-- Boton feedback -->
+        <div class="feedback-btn-container dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- feedback-icon: inline SVG -->
+                <svg width="18px" height="18px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+                    <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                    <feGaussianBlur stdDeviation="0" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                    <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+                    <feMerge>
+                        <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                </filter>
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <g id="Artboard-8-Copy" sketch:type="MSArtboardGroup" transform="translate(-27.000000, -43.000000)" filter="url(#filter-1)" fill="#333333">
+                <g id="Path-+-Shape-Copy" sketch:type="MSLayerGroup" transform="translate(27.000000, 43.000000)">
+                <path d="M23.5,0 C36.4778366,0 47,9.2060866 47,20.5625 C47,27.0529542 43.5557908,32.8309592 38.1875,36.5997908 L38.1875,47 L27.8930408,40.7533775 C26.4682958,40.9884542 25.0025408,41.125 23.5,41.125 C10.5206275,41.125 0,31.9189134 0,20.5625 C0,9.2060866 10.5206275,0 23.5,0 Z M31.09375,24 C31.9045,24 32.5625,25.12 32.5625,26.5 C32.5625,27.88 31.9045,29 31.09375,29 L16.40625,29 C15.5955,29 14.9375,27.88 14.9375,26.5 C14.9375,25.12 15.5955,24 16.40625,24 L31.09375,24 Z M13.46875,14 L34.03125,14 C34.842,14 35.5,15.12 35.5,16.5 C35.5,17.88 34.842,19 34.03125,19 L13.46875,19 C12.658,19 12,17.88 12,16.5 C12,15.12 12.658,14 13.46875,14 Z" id="Path" sketch:type="MSShapeGroup" transform="translate(23.500000, 23.500000) scale(-1, 1) translate(-23.500000, -23.500000) "></path>
+                </g>
+                </g>
+                </g>
+                </svg>
+                <!-- /feedback-icon: inline SVG -->
+                Feedback?
+            </button>
+
+            <ul class="feedback-list dropdown-menu" aria-labelledby="feedback-dropup-menu">
+                <li><a href="#" data-toggle="modal" data-target="#modal-report-problem">Informa de un error o problema</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modal-reading-not-found">No encuentras la lectura que necesitas</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modal-feedback-questions">Sugerencias, comentarios o preguntas</a></li>
             </ul>
         </div>
-        <div class="slide_controls center">
-            <div class="btn prev"><img src="public/images/thin_left_arrow_333.png"></div>
-            &nbsp;&nbsp;
-            <div class="btn next"><img src="public/images/thin_right_arrow_333.png"></div>
-        </div>
-    </div>
-</div>
-<div class="table-responsive">
-    <table class="table table-striped table-lorapp-info">
-        <caption class="text-center">Actualmente contamos con lecturas que se leen en:</caption>
-        <tbody><tr>
-            <th class="text-center">Universidades</th>
-            <th class="text-center">Carreras</th>
-        </tr>
-        <tr>
-            <td class="universidades-labels text-center">
-                <span class="label label-info">Universidad de Antioquia</span>
-                <span class="label label-info">Universidad de los Andes</span>
-                <span class="label label-info">Universidad Externado</span>
-            </td>
-            <td class="carreras-labels text-center">
-                <span class="label label-info">Administracion</span>
-                <span class="label label-info">Derecho</span>
-                <span class="label label-info">Economia</span>
-            </td>
-        </tr>
-    </tbody></table>
-
-</div>
-
-<section class="section-2 flex" id="section-2">
-    <div class="section-2-text">
-        <h3 class="title3">¿Aún sigues fotocopiando?</h3>
-        <p class="landing-p">Con Lorapp tienes acceso a tus lecturas para estudiar de manera económica, ecológica y legal.</p>
-    </div>
-    <img class="lora-front-img" src="public/images/lora-front.png">
-</section>
-<section class="section-3 flex">
-    <div class="section-text flex">
-        <div>
-            <h3 class="title3">Lo sabemos</h3>
-            <p class="landing-p">Los libros son caros, pesados y solo necesitas una parte.</p>
-            <p class="landing-p">¡Por eso desarrollamos Lorapp!</p>
-        </div>
-    </div>
-    <div class="weight-img-wrapper flex">
-        <img class="weight-img" src="public/images//weight.png">
-    </div>
-</section>
-<section class="section-4">
-    <h3 class="title3">Cómo funciona</h3>
-    <div class="process-items flex">
-        <div>
-            <img src="public/images/magnifying-glass.png">
-            <p class="landing-p">Busca</p>
-        </div>
-        <div>
-            <img src="public/images/hourglass.png">
-            <p class="landing-p">Alquila</p>
-        </div>
-        <div>
-            <img src="public/images/flat-demo.png">
-            <p class="landing-p">Lee</p>
-        </div>
-    </div>
-</section>
-<section class="section-5 flex not-antialiased">
-    <div class="features-text">
-        <div>
-            <h4>Subraya y toma notas</h4>
-            <p class="landing-p">¡Más fácil aun que en el papel! Tus apuntes se guardan para que puedas revisarlos en cualquier momento.</p>
-        </div>
-        <div>
-            <h4>Busca palabras</h4>
-            <p class="landing-p">¿Necesitas investigar un término en tu lectura? Utiliza el buscador y encuéntralo en segundos.</p>
-        </div>
-    </div>
-    <img class="features-img" src="public/images/computer-features.png">
-    <div class="features-text">
-        <div>
-            <h4>Cambia el tamaño</h4>
-            <p class="landing-p">Las fotocopias suelen tener un tamaño de letra que cansa tu vista. Con Lorapp lees en el tamaño que prefieras.
-            </p>
-        </div>
-        <div>
-            <h4>Marca páginas</h4>
-            <p class="landing-p">No olvides dónde te quedaste. Lorapp te permite marcar páginas importantes o el punto donde dejaste tu lectura.</p>
-        </div>
-    </div>
-</section>
-<section class="section-6 flex">
-    <img class="book-img" src="public/images/book.png">
-    <div class="section-text flex">
-        <div>
-            <h3 class="title3">Reconocemos el trabajo</h3>
-            <p class="landing-p">Pagamos a las editoriales y autores por cada lectura leída en Lorapp. Queremos desmotivar la piratería en textos académicos y necesitamos tu apoyo para lograrlo.</p>
-        </div>
-    </div>
-</section>
-<section class="section-7 flex">
-    <div class="branch-wrapper">
-        <img class="branch-img" src="public/images/tree-branch.png">
-    </div>
-    <div class="section-7-text flex">
-        <div class="leaf-x100 flex">
-            <img class="leaf-img" src="public/images/leaf.png">
-            <span>x 100</span>
-        </div>
-        <p class="landing-p light-text">Compra hojitas y cámbialas por tus lecturas. <span>¡Muchas veces es más barato que las fotocopias!</span></p>
-    </div>
-</section>
-<section class="section-8">
-    <img class="phone-img" src="public/images/iphone-demo.png">
-    <div class="section-8-text flex">
-        <h3 class="title3">También en tu teléfono</h3>
-        <ul>
-            <li class="landing-p">Accede a tus lecturas en cualquier momento y lugar.</li>
-            <li class="landing-p">Tus notas y subrayados se sincronizan en todos tus dispositivos.</li>
-            <li class="landing-p">Agrega recordatorios y recibe notificaciones con lo que tienes que leer.</li>
-        </ul>
-    </div>
-</section>
-<section class="section-9 flex">
-    <h2 class="dinamic-message light-text">Menos fotocopias = <span id="changing-message">Menos piratería</span></h2>
-    <input class="signin-bottom-button" type="submit" value="Regístrate" data-toggle="modal" data-target="#modal-registration-1">
-</section>
-
-<!-- Boton feedback -->
-<div class="feedback-btn-container dropup">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <!-- feedback-icon: inline SVG -->
-        <svg width="18px" height="18px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <defs>
-            <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
-                <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                <feGaussianBlur stdDeviation="0" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-                <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
-                <feMerge>
-                    <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                    <feMergeNode in="SourceGraphic"></feMergeNode>
-                </feMerge>
-            </filter>
-        </defs>
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-            <g id="Artboard-8-Copy" sketch:type="MSArtboardGroup" transform="translate(-27.000000, -43.000000)" filter="url(#filter-1)" fill="#333333">
-                <g id="Path-+-Shape-Copy" sketch:type="MSLayerGroup" transform="translate(27.000000, 43.000000)">
-                    <path d="M23.5,0 C36.4778366,0 47,9.2060866 47,20.5625 C47,27.0529542 43.5557908,32.8309592 38.1875,36.5997908 L38.1875,47 L27.8930408,40.7533775 C26.4682958,40.9884542 25.0025408,41.125 23.5,41.125 C10.5206275,41.125 0,31.9189134 0,20.5625 C0,9.2060866 10.5206275,0 23.5,0 Z M31.09375,24 C31.9045,24 32.5625,25.12 32.5625,26.5 C32.5625,27.88 31.9045,29 31.09375,29 L16.40625,29 C15.5955,29 14.9375,27.88 14.9375,26.5 C14.9375,25.12 15.5955,24 16.40625,24 L31.09375,24 Z M13.46875,14 L34.03125,14 C34.842,14 35.5,15.12 35.5,16.5 C35.5,17.88 34.842,19 34.03125,19 L13.46875,19 C12.658,19 12,17.88 12,16.5 C12,15.12 12.658,14 13.46875,14 Z" id="Path" sketch:type="MSShapeGroup" transform="translate(23.500000, 23.500000) scale(-1, 1) translate(-23.500000, -23.500000) "></path>
-                    </g>
-                </g>
-            </g>
-        </svg>
-        <!-- /feedback-icon: inline SVG -->
-        Feedback?
-    </button>
-    
-    <ul class="feedback-list dropdown-menu" aria-labelledby="feedback-dropup-menu">
-        <li><a href="#" data-toggle="modal" data-target="#modal-report-problem">Informa de un error o problema</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#modal-reading-not-found">No encuentras la lectura que necesitas</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#modal-feedback-questions">Sugerencias, comentarios o preguntas</a></li>
-    </ul>
-</div>
-<!-- /Boton feedback -->
+        <!-- /Boton feedback -->        
 
 
-
-        <!-- END Body -->
         <!-- START Modals -->
         <!-- FAQ -->
         <div class="modal fade" id="modal-FAQ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -762,36 +920,36 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title text-center" id="myModalLabel"><strong>Contrato de licencia de uso de software y política</br>de protección de datos personales</strong></h4>
+                        <h4 class="modal-title text-center" id="myModalLabel"><strong>Contrato de licencia de uso de software y política<br>de protección de datos personales</strong></h4>
                     </div>
                     <div class="modal-body terms-body-text">
                         <style type="text/css">
-                        .terms-body-text {
-                            padding: 30px 40px;
-                            text-align: justify;
-                        }
-                        .terms-body-text .term-number-p {
-                            margin: 0 40px 10px;
-                            text-indent: -40px;
-                        }
-                        .terms-body-text .term-number-p2 {
-                            margin: 0 84px 10px;
-                            text-indent: -36px;
-                        }
-                        .term-number,
-                        .term-number2,
-                        .terms-body-text h3 {
-                            color: #999CA5;
-                        }
-                        .term-number {
-                            float: left;
-                            padding-right: 39px;
-                        }
-                        .term-number2 {
-                            float: left;
-                            margin-left: -7px; 
-                            padding-right: 40px;
-                        }
+                            .terms-body-text {
+                                padding: 30px 40px;
+                                text-align: justify;
+                            }
+                            .terms-body-text .term-number-p {
+                                margin: 0 40px 10px;
+                                text-indent: -40px;
+                            }
+                            .terms-body-text .term-number-p2 {
+                                margin: 0 84px 10px;
+                                text-indent: -36px;
+                            }
+                            .term-number,
+                            .term-number2,
+                            .terms-body-text h3 {
+                                color: #999CA5;
+                            }
+                            .term-number {
+                                float: left;
+                                padding-right: 39px;
+                            }
+                            .term-number2 {
+                                float: left;
+                                margin-left: -7px; 
+                                padding-right: 40px;
+                            }
                         </style>
 
                         <p>Gracias por utilizar nuestros productos y servicios de Lorapp (en adelante “los Servicios”).</p>
@@ -863,7 +1021,7 @@
                         <h3 id="term-4">Cuarta</h3>
                         <h4><strong>DE LA INTERRUPCIÓN DEL SERVICIO</strong></h4>
                         <p class="term-number-p"><strong class="term-number">4.1.</strong>    Inntouch se reserva el derecho de interrumpir alguno o varios de los Servicios de Lorapp de forma periódica, con aviso previo a los Usuarios, con el fin de llevar cualquier mantenimiento preventivo necesario para la adecuada prestación de los Servicios.</p>
-                          
+
                         <p class="term-number-p"><strong class="term-number">4.2.</strong>    Inntouch podrá interrumpir el acceso a los Servicios de Lorapp, sin necesidad de ningún aviso previo a los Usuarios, siempre que, como medida de urgencia, se haga necesaria una intervención de naturaleza correctiva.</p>
 
                         <p class="term-number-p"><strong class="term-number">4.3.</strong>    El Usuario acepta que, además de las hipótesis de mantenimiento antes descritas, el acceso al Sitio o a los servicios de Lorapp podrá ser interrumpido por hechos de fuerza mayor, caso por fortuito, hecho de tercero, orden judicial o administrativa de una autoridad competente, o cualquier otro motivo ajeno a Inntouch.</p>
@@ -995,176 +1153,238 @@
         </div>
         <!-- END: Términos y condiciones -->
 
-        <!-- START: Reportar error o problema -->
+        <!-- START: Reportar problema -->
         <div class="modal fade" id="modal-report-problem" tabindex="-1" role="dialog" aria-labelledby="reportproblem">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Informa de un problema</h4>
-              </div>
-              <div class="modal-body row">
-                <div class="col-md-10 col-md-offset-1">
-                    <form action="http://beta.lorapp.com/alfa/lorapp/public/reportproblem" method="POST">
-                      <div class="form-group">
-                        <label for="report-problem-email" class="control-label">Email</label>
-                        <input type="email" class="form-control" name="email" required="true" id="report-problem-email">
-                      </div>
-                      <div class="form-group">
-                        <label for="report-problem-message" class="control-label">Cuéntanos qué pasó</label>
-                        <textarea class="form-control" id="report-problem-message" required="true" name="reportproblem" rows="3"></textarea>
-                      </div>
-                    </form>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button  type="submit" class="btn btn-primary">Enviar</button>
-              </div>
+            <div class="modal-dialog" role="document">
+                <form action="http://andes.lorapp.com/reportproblem" method="POST">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Informa de un problema</h4>
+                        </div>
+                        <div class="modal-body row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label for="report-problem-email" class="control-label">Email</label>
+                                    <input type="email" class="form-control" name="email" required="true" id="report-problem-email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="report-problem-message" class="control-label">Cuéntanos qué pasó</label>
+                                    <textarea class="form-control" id="report-problem-message" required="true" name="reportproblem" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
         </div>
-        <!-- END: Reportar error o problema -->
+        <!-- END: Reportar problema -->
+
 
         <!-- START: Reportar lectura faltante -->
         <div class="modal fade" id="modal-reading-not-found" tabindex="-1" role="dialog" aria-labelledby="reading-not-found">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">¿Cuál lectura necesitas?</h4>
-              </div>
-              <div class="modal-body row">
-                <div class="col-md-12">
-                    <p class="col-md-12">Para nosotros es de gran ayuda que nos digas las lecturas que no tenemos. A veces tardamos menos de 24 horas en tener la lectura disponible.
-                    <br>
-                    <strong>No es obligatorio llenar todos los campos.</strong></p>
-                    
-
-                    <form class="form-horizontal">
-                      <div class="form-group">
-                        <label for="reading-not-found-email" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="reading-not-found-email">
+            <div class="modal-dialog" role="document">
+                <form action="http://andes.lorapp.com/lecturesuggested" method="POST" class="form-horizontal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">¿Cuál lectura necesitas?</h4>
                         </div>
-                      </div>
-                      <hr>
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <label class="radio-inline">
-                              <input type="radio" name="content-type-radio-option" id="reading-not-found-radio-book" value="Libro"> Libro
-                            </label>
-                            <label class="radio-inline">
-                              <input type="radio" name="content-type-radio-option" id="reading-not-found-radio-other" value="Otro"> Otro (artículo, ensayo, capítulo, etc.)
-                            </label>
+                        <div class="modal-body row">
+                            <div class="col-md-12">
+                                <p class="col-md-12">Para nosotros es de gran ayuda que nos digas las lecturas que no tenemos. A veces tardamos menos de 24 horas en tener la lectura disponible.
+                                    <br>
+                                    <strong>No es obligatorio llenar todos los campos.</strong>
+                                </p>
+                                <div class="form-group">
+                                    <label for="reading-not-found-email" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" name="email" id="reading-not-found-email">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="content_type" id="reading-not-found-radio-book" value="Libro"> Libro
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="content_type" id="reading-not-found-radio-other" value="Otro"> Otro (artículo, ensayo, capítulo, etc.)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reading-not-found-title" class="col-sm-2 control-label">Título</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="title" name="title">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reading-not-found-author" class="col-sm-2 control-label">Autor</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="author" name="author">
+                                    </div>
+                                    <label for="reading-not-found-publisher" class="col-sm-2 control-label">Editorial</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="publisher" name="publisher">
+                                        <input type="hidden" name="year" value="">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="reading-not-found-university" class="col-sm-2 control-label">Universidad</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control tooltip-active" id="university" name="university" data-toggle="tooltip" data-placement="top" data-trigger="focus" title="" data-original-title="¿En qué universidad piden esta lectura?">
+                                    </div>
+                                    <label for="reading-not-found-class" class="col-sm-2 control-label">Clase</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control tooltip-active" id="classe" name="classe" data-toggle="tooltip" data-placement="top" data-trigger="focus" title="" data-original-title="¿En qué clase piden esta lectura?">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="notify" checked=""> Notificarme cuando la lectura esté disponible
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="reading-not-found-title" class="col-sm-2 control-label">Título</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reading-not-found-title">
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="reading-not-found-author" class="col-sm-2 control-label">Autor</label>
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control" id="reading-not-found-author">
-                        </div>
-                        <label for="reading-not-found-publisher" class="col-sm-2 control-label">Editorial</label>
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control" id="reading-not-found-publisher">
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="form-group">
-                        <label for="reading-not-found-university" class="col-sm-2 control-label">Universidad</label>
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control tooltip-active" id="reading-not-found-university" data-toggle="tooltip" data-placement="top" data-trigger="focus" title="¿En qué universidad piden esta lectura?">
-                        </div>
-                        <label for="reading-not-found-class" class="col-sm-2 control-label">Clase</label>
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control tooltip-active" id="reading-not-found-class" data-toggle="tooltip" data-placement="top" data-trigger="focus" title="¿En qué clase piden esta lectura?">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox" checked> Notificarme cuando la lectura esté disponible
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button  type="submit" class="btn btn-primary">Enviar</button>
-              </div>
+                    </div>
+                </form>
             </div>
-          </div>
         </div>
         <!-- END: Reportar lectura faltante -->
 
         <!-- START: Reportar pregunta, sugerencia o comentario -->
         <div class="modal fade" id="modal-feedback-questions" tabindex="-1" role="dialog" aria-labelledby="report-question">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Sugerencias, comentarios y preguntas</h4>
-              </div>
-              <div class="modal-body row">
-                <div class="col-md-10 col-md-offset-1">
-                    <p>¿Cómo podríamos ser mejores? ¿Qué piensas de Lorapp? ¿Tienes una pregunta? ¡Queremos escucharte!</p>
-                    <form>
-                      <div class="form-group">
-                        <label for="report-question-email" class="control-label">Email</label>
-                        <input type="email" class="form-control" name="email" required="true" id="report-question-email">
-                      </div>
-                      <div class="form-group">
-                        <label for="report-question-message" class="control-label">Tu mensaje</label>
-                        <textarea class="form-control" id="report-question-message" required="true" name="report-question-message" rows="3"></textarea>
-                      </div>
-                    </form>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button  type="submit" class="btn btn-primary">Enviar</button>
-              </div>
+            <div class="modal-dialog" role="document">
+                <form action="http://andes.lorapp.com/feedbackquestion" method="POST" class="form-horizontal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Sugerencias, comentarios y preguntas</h4>
+                        </div>
+                        <div class="modal-body row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <p>¿Cómo podríamos ser mejores? ¿Qué piensas de Lorapp? ¿Tienes una pregunta? ¡Queremos escucharte!</p>
+                                <div class="form-group">
+                                    <label for="report-problem-email" class="control-label">Email</label>
+                                    <input type="email" class="form-control" name="email" required="true" id="report-problem-email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="report-question-message" class="control-label">Tu mensaje</label>
+                                    <textarea class="form-control" id="report-question-message" required="true" name="message" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
         </div>
         <!-- END: Reportar pregunta, sugerencia o comentario -->
 
         <!-- START: Confirmar adquisicion de lectura con hojitas -->
         <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="reportproblem">Adquirir Lectura</h4>
+                        <h4 class="modal-title" id="reportproblem">Alquilar Lectura</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="form-horizontal text-center">
-                            <div class="form-group">
-                                <label class="sr-only"></label>
-                                <div class="col-sm-10 col-md-offset-1">
-                                    <div>A continuación vas a utilizar <b><span id="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></b> para adquirir esta lectura.</div>
-                                    <div>¿Deseas continuar?</div>
-                                </div>
-                            </div>
-                        </div>
+                        <p>Vas a usar <strong><span class="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para alquilar esta lectura durante <strong>7 días</strong>.</p>
                     </div>
-                    <div class="modal-footer">
-                        <a class="btn btn-primary" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
+                    <div class="modal-footer flex flex-center-justify">
                         <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                        <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- END: Confirmar adquisicion de lectura con hojitas -->
+        <!-- START: Renovar lectura -->
+        <div class="modal fade" id="modal-renew-reading" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="reportproblem">¡Buenas noticias!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Renovar una lectura cuesta solo <strong>la mitad</strong> que alquilarla por primera vez.</p>
+                        <p>Vas a usar <strong><span class="lecturesection_leaf_span"></span><span class="glyphicon glyphicon-leaf"></span></strong> para renovar esta lectura durante <strong>7 días</strong>.</p>
+                    </div>
+                    <div class="modal-footer flex flex-center-justify">
+                        <a class="btn btn-default" onclick="operation.addLectureSectionConfirmationClose();">Cancelar</a>
+                        <a class="btn btn-success" onclick="operation.addLectureSectionConfirmation();">Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Renovar lectura -->
+        <!-- Sugerir lectura -->
+        <div class="modal fade" id="modal-lecturesuggested" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Sugerir Lectura</h4>
+                    </div>
+                    <form action="http://andes.lorapp.com/lecturesuggested" method="POST">
+                        <div class="modal-body">
+                            <div class="form-horizontal text-center">
+                                <div class="form-group">
+                                    <label class="sr-only" for="email">Email</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="email" class="form-control" name="email" placeholder="Tu Email" required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Título</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="text" class="form-control" name="title" placeholder="Título" required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Autor</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="text" class="form-control" name="author" placeholder="Autor" required="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Año</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="text" class="form-control" name="year" placeholder="Año">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Editorial</label>
+                                    <div class="col-sm-10 col-md-offset-1">
+                                        <input type="text" class="form-control" name="publisher" placeholder="Editorial">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END: Sugerir lectura -->
         <!-- END Modals -->
-        <nav class="navbar navbar-inverse">
+        <nav id="footer_content_wrapper" class="footer navbar navbar-inverse footer_content_wrapper">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <!-- <div class="navbar-header">
@@ -1178,8 +1398,8 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="public/images/logo-facebook.svg"></a></li>
-                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="public/images/logo-twitter.svg"></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://www.facebook.com/pages/Lorapp/1415652425396101"><img class="social-logo" src="http://andes.lorapp.com/images/logo-facebook.svg"></a></li>
+                    <li><a class="social-logo-link" target="_blank" href="https://twitter.com/LorappCo"><img class="social-logo" src="http://andes.lorapp.com/images/logo-twitter.svg"></a></li>
                 </ul>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -1194,99 +1414,208 @@
         </nav>
         <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/javascript" src="public/js/global.js"></script>
-        <script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
-        <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="public/js/util.min.js"></script>
+        <script type="text/javascript" src="public/js/jquery/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="public/js/bootstrap/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script type="text/javascript" src="public/js/ie10-viewport-bug-workaround.js"></script>
-        <script type="text/javascript">global.url = "main.html?";</script>
+        <script type="text/javascript">global.url = "http://andes.lorapp.com/";</script>
         <script type="text/javascript" src="public/js/util.js"></script>
-                <script type="text/javascript" src="public/js/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+                                    // START: Click en botón móvil Buscar despliega barra de búsqueda
+                                    $("#mobile-search-btn").click(function() {
+                            $(".mobile-search-bar").animate({
+                            top: "0"
+                            }, 200, function() {
+
+                            });
+                            });
+                                    // END: Click en botón móvil Buscar despliega barra de búsqueda
+                                    // START: Click en botón móvil Cancelar de la barra de búqueda la esconde
+                                    $("#mobile-search-cancel-btn").click(function() {
+                            $(".mobile-search-bar").animate({
+                            top: - ($(".mobile-nav-logged-in").height())
+                            }, 200, function() {
+
+                            });
+                            });
+                                    // END: Click en botón móvil Cancelar de la barra de búqueda la esconde
+                                    $('.tooltip-active').tooltip();        </script>        
+        <script type="text/javascript" src="public/js/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="public/js/landing.js"></script>
         <script type="text/javascript">
                                     $(document).ready(function() {
                             landing.loadAutocomplete('university_register', global.url + 'autocomplete/university');
                                     landing.loadAutocomplete('career_register', global.url + 'autocomplete/career');
                                     landing.loadAutocomplete('school_register', global.url + 'autocomplete/school');
+                            });        </script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54e581140ab1512b" async="async"></script>
+        <script type="text/javascript" src="public/js/sly/plugins.js"></script>
+        <script type="text/javascript" src="public/js/sly/sly.min.js"></script>
+        <script type="text/javascript"></script>
+        <script type="text/javascript">
+                                    function nextMsg() {
+                                    if (messages.length == 0) {
+                                    messages = [
+                                            "Menos piratería",
+                                            "Más ahorro",
+                                            "Menos peso",
+                                            "Menos árboles talados",
+                                            "Menos tiempo en filas",
+                                            "Menos desplazamientos",
+                                            "Menos preocupaciones",
+                                            "Menos desorden",
+                                            "Más modernidad",
+                                    ].reverse();
+                                            $('#changing-message').html(messages.pop()).fadeIn(500).delay(1000).fadeOut(500, nextMsg);
+                                    } else {
+                                    $('#changing-message').html(messages.pop()).fadeIn(500).delay(1000).fadeOut(500, nextMsg);
+                                    }
+                                    }
+                            ;
+                                    var messages = [
+                                            "Menos piratería",
+                                            "Más ahorro",
+                                            "Menos peso",
+                                            "Menos árboles talados",
+                                            "Menos tiempo en filas",
+                                            "Menos desplazamientos",
+                                            "Menos preocupaciones",
+                                            "Menos desorden",
+                                            "Más modernidad",
+                                    ].reverse();
+                                    // END: #changing-message va rotando
+
+                                    $(document).ready(function() {
+                            //se configura el slide
+                            var $slide_frame = $('#slide_frame');
+                                    //var $slidee = $slide_frame.children('ul').eq(0);
+                                    var $slide_wrap = $slide_frame.parent();
+                                    $slide_frame.sly({
+                                    horizontal: 1,
+                                            //itemNav: 'basic',
+                                            itemNav: 'forceCentered',
+                                            smart: 1,
+                                            activateOn: 'click',
+                                            mouseDragging: 1,
+                                            touchDragging: 1,
+                                            releaseSwing: 1,
+                                            startAt: 3,
+                                            activatePageOn: 'click',
+                                            speed: 300,
+                                            elasticBounds: 1,
+                                            easing: 'easeOutExpo',
+                                            dragHandle: 1,
+                                            dynamicHandle: 1,
+                                            clickBar: 1,
+                                            // Cycling
+                                            cycleBy: 'items',
+                                            cycleInterval: 1000,
+                                            pauseOnHover: 1,
+                                            // Buttons
+                                            prev: $slide_wrap.find('.prev'),
+                                            next: $slide_wrap.find('.next')
+                                    });
+                                    $('#changing-message').hide();
+                                    nextMsg();
                             });
 
         </script>
-                <script type="text/javascript" src="public/js/sly/plugins.js"></script>
-<script type="text/javascript" src="public/js/sly/sly.min.js"></script>
-<script type="text/javascript">
-    $('.tooltip-active').tooltip();
-</script>
-<script type="text/javascript">
-                            function nextMsg() {
-                                if (messages.length == 0) {
-                                    messages = [
-                                        "Menos piratería",
-                                        "Más ahorro",
-                                        "Menos peso",
-                                        "Menos árboles talados",
-                                        "Menos tiempo en filas",
-                                        "Menos desplazamientos",
-                                        "Menos preocupaciones",
-                                        "Menos desorden",
-                                        "Más modernidad",
-                                    ].reverse();
-                                    $('#changing-message').html(messages.pop()).fadeIn(500).delay(1000).fadeOut(500, nextMsg);
-                                } else {
-                                    $('#changing-message').html(messages.pop()).fadeIn(500).delay(1000).fadeOut(500, nextMsg);
-                                }
-                            }
-                    ;
-
-                    var messages = [
-                        "Menos piratería",
-                        "Más ahorro",
-                        "Menos peso",
-                        "Menos árboles talados",
-                        "Menos tiempo en filas",
-                        "Menos desplazamientos",
-                        "Menos preocupaciones",
-                        "Menos desorden",
-                        "Más modernidad",
-                    ].reverse();
-                    // END: #changing-message va rotando
-
-                    $(document).ready(function() {
-//se configura el slide
-                        var $slide_frame = $('#slide_frame');
-//var $slidee = $slide_frame.children('ul').eq(0);
-                        var $slide_wrap = $slide_frame.parent();
-                        $slide_frame.sly({
-                            horizontal: 1,
-//itemNav: 'basic',
-                            itemNav: 'forceCentered',
-                            smart: 1,
-                            activateOn: 'click',
-                            mouseDragging: 1,
-                            touchDragging: 1,
-                            releaseSwing: 1,
-                            startAt: 3,
-                            activatePageOn: 'click',
-                            speed: 300,
-                            elasticBounds: 1,
-                            easing: 'easeOutExpo',
-                            dragHandle: 1,
-                            dynamicHandle: 1,
-                            clickBar: 1,
-// Cycling
-                            cycleBy: 'items',
-                            cycleInterval: 1000,
-                            pauseOnHover: 1,
-// Buttons
-                            prev: $slide_wrap.find('.prev'),
-                            next: $slide_wrap.find('.next')
-                        });
-                        $('#changing-message').hide();
-                        nextMsg();
-
-                    });
-
-</script>
 
 
 
-<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span></body></html>
+
+        <!-- START: alert -->
+        <style>
+            .alert {
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+            }
+            .alert-dismissable, .alert-dismissible {
+                padding-right: 35px;
+            }
+
+            .alert-info {
+                color: #31708f;
+                background-color: #d9edf7;
+                border-color: #bce8f1;
+            }
+
+            .alert {
+                text-shadow: 0 1px 0 rgba(255,255,255,.2);
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.05);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.05);
+            }
+            .alert-info {
+                background-image: -webkit-linear-gradient(top,#d9edf7 0,#b9def0 100%);
+                background-image: -o-linear-gradient(top,#d9edf7 0,#b9def0 100%);
+                background-image: -webkit-gradient(linear,left top,left bottom,from(#d9edf7),to(#b9def0));
+                background-image: linear-gradient(to bottom,#d9edf7 0,#b9def0 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9edf7', endColorstr='#ffb9def0', GradientType=0);
+                background-repeat: repeat-x;
+                border-color: #9acfea;
+            }
+            .alert-danger {
+                background-image: -webkit-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+                background-image: -o-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+                background-image: -webkit-gradient(linear,left top,left bottom,from(#f2dede),to(#e7c3c3));
+                background-image: linear-gradient(to bottom,#f2dede 0,#e7c3c3 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+                background-repeat: repeat-x;
+                border-color: #dca7a7;
+            }
+            .alert-danger {
+                color: #a94442;
+                background-color: #f2dede;
+                border-color: #ebccd1;
+            }
+            .alert-success {
+                background-image: -webkit-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
+                background-image: -o-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
+                background-image: -webkit-gradient(linear,left top,left bottom,from(#dff0d8),to(#c8e5bc));
+                background-image: linear-gradient(to bottom,#dff0d8 0,#c8e5bc 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffc8e5bc', GradientType=0);
+                background-repeat: repeat-x;
+                border-color: #b2dba1;
+            }
+            .alert-success {
+                color: #3c763d;
+                background-color: #dff0d8;
+                border-color: #d6e9c6;
+            }
+            .alert-dismissable .close, .alert-dismissible .close {
+                position: relative;
+                top: -2px;
+                right: -21px;
+                color: inherit;
+            }
+
+            button.close {
+                -webkit-appearance: none;
+                padding: 0;
+                cursor: pointer;
+                background: 0 0;
+                border: 0;
+            }
+
+            .close {
+                float: right;
+                font-size: 21px;
+                font-weight: 700;
+                line-height: 1;
+                color: #000;
+                text-shadow: 0 1px 0 #fff;
+                filter: alpha(opacity=20);
+                opacity: .2;
+            }
+        </style>
+        <div id="alert_container" align="center" style="position: fixed; top: 50px;width: 100%; display:none; z-index: 10">
+            <div id="alert_general" class="alert alert-dismissible" role="alert" style="width: 400px">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <div id="alert_content"></div>
+            </div>
+        </div>
+        <!-- END: Alert -->
+        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh805" title="AddThis utility frame" src="http://s7.addthis.com/static/sh.c8eb21cb.html#rand=0.7133610809687525&amp;iit=1441053991479&amp;tmr=load%3D1441053990697%26core%3D1441053990772%26main%3D1441053991455%26ifr%3D1441053991486&amp;cb=0&amp;cdn=0&amp;kw=&amp;ab=per-3&amp;dh=andes.lorapp.com&amp;dr=&amp;du=http%3A%2F%2Fandes.lorapp.com%2F&amp;href=http%3A%2F%2Fandes.lorapp.com%2F&amp;dt=No%20m%C3%A1s%20fotocopias%20-%20Lorapp&amp;dbg=0&amp;cap=tc%3D0%26ab%3D0&amp;inst=1&amp;jsl=129&amp;prod=undefined&amp;lng=en-US&amp;ogt=site_name%2Cdescription%2Cimage%2Curl%2Ctype%3Dwebsite%2Ctitle&amp;pc=men&amp;pub=ra-54e581140ab1512b&amp;ssl=0&amp;sid=55e4bd26d871b53f&amp;srpl=1&amp;srcs=1&amp;srd=1&amp;srf=0.01&amp;srx=1&amp;ver=300&amp;xck=0&amp;xtr=0&amp;og=title%3D%25C2%25A1No%2520m%25C3%25A1s%2520fotocopias!%26type%3Dwebsite%26url%3Dhttp%253A%252F%252Florapp.com%252F%26image%3Dhttp%253A%252F%252Florapp.com%252Fimages%252Ffbimage.png%26description%3D%25C2%25BFA%25C3%25BAn%2520sacas%2520fotocopias%253F%2520%25C2%25A1Tienes%2520huevo!%2520Este%2520es%2520el%2520trato%253A%2520No%2520tumbes%2520mi%2520casa%2520y%2520te%2520ahorrar%25C3%25A9%2520dinero.%2520Entra%2520a%2520Lorapp%2520y%2520encuentra%2520todas%2520las%2520lecturas%2520de%2520tu%2520universidad.%26site_name%3DLorapp&amp;aa=0&amp;csi=undefined&amp;toLoJson=uvs%3D55e4bd2609139e7f000%26chr%3DUTF-8%26md%3D0%26vcl%3D1&amp;rev=v2.4.5-wp&amp;ct=1&amp;xld=1&amp;xd=1" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;"></iframe></div><div class="at4-share-outer addthis-smartlayers addthis-smartlayers-desktop" aria-labelledby="at4-share-label" role="region"><div id="at4-share-label">AddThis Sharing</div><div id="at4-share" class="addthis_32x32_style atss atss-left addthis-animated slideInLeft at4-show"><a class="at4-share-btn at-svc-facebook" href="#"><span class=" at4-icon aticon-facebook" title="Facebook">Facebook</span></a><a class="at4-share-btn at-svc-twitter" href="#"><span class=" at4-icon aticon-twitter" title="Twitter">Twitter</span></a><div id="at4-scc" class="at-share-close-control  at4-hide-content at4-show" title="Hide"><div class="at4-arrow at-left">Hide</div></div></div><div id="at4-soc" class="at-share-open-control-left  at4-hide" title="Show"><div class="at4-arrow at-right">Show</div></div></div><div id="at4-thankyou" class="at4-thankyou at4-thankyou-background at4-hide ats-transparent at4-thankyou-desktop addthis-smartlayers addthis-animated fadeIn at4-show" role="dialog" aria-labelledby="at-thankyou-label"><div class="at4lb-inner"><a class="at4x" href="#" title="Close"></a><a id="at4-palogo" class="at4-logo" href="//www.addthis.com/website-tools/overview?utm_source=AddThis%20Tools&amp;utm_medium=image&amp;utm_campaign=%5Bobject%20Object%5D" title="AddThis" target="_blank">AddThis</a><div class="at4-thankyou-inner"><div id="at-thankyou-label" class="thankyou-title"></div><div class="thankyou-description"></div><div class="at4-thankyou-layer"></div></div></div></div></body>
+</html>
