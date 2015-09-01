@@ -24,17 +24,17 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
+                    </button> -->
                     <a class="navbar-brand" href="http://andes.lorapp.com"><img class="nav-logo img-responsive" alt="Lorapp" src="http://andes.lorapp.com/images/logo-vertical-dark.png" data-toggle="tooltip" data-placement="right" title="¡CRAAAR!"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
                     <div class="nav navbar-right dropdown">
                         <button class="btn btn-success dropdown-toggle nav-login" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                             Entrar
@@ -43,26 +43,26 @@
                         <!-- Login floating blox -->
                         <div class="dropdown-menu form-group dropdown-login" role="menu" aria-labelledby="dropdownMenu1">
                             <div>
-                                <a href="http://andes.lorapp.com/loginfacebook" class="facebook-login-btn flat-btn"><img src="public/images/Facebook-logo.svg" class="facebook-logo left"> Entrar con Facebook</a>
+                                <a href="http://andes.lorapp.com/loginfacebook" class="facebook-login-btn flat-btn"><img src="public/images/Facebook-logo.svg" class="facebook-logo left"><span>Entra con Facebook</span></a>
                                 <div class="inline-children flex flex-center-align space-between">
                                     <div class="line-around"></div>
-                                    <span>O</span>
+                                    <span>O ingresa con tus datos</span>
                                     <div class="line-around"></div>
                                 </div>
-                                <form class="login-form" id="login_form" method="POST" action="http://andes.lorapp.com/login" accept-charset="UTF-8" onsubmit="return landing.login( & quot; login_form & quot; );">
+                                <form class="login-form" id="login_form" method="POST" action="http://andes.lorapp.com/login" accept-charset="UTF-8" onsubmit="return landing.login( & quot; login_form & quot; );"  autocomplete="on">
                                     <input name="_token" type="hidden" value="9rVyEwwa1666ZdHxoQNQdY0hGpArlwqTEkBn6F0H">
                                     <div>
                                         <label for="email">Email</label>
                                         <div class="inline-children input-with-icon">
                                             <div class="input-icon flex flex-center-align flex-center-justify"><span class="glyphicon glyphicon-user"></span></div>
-                                            <input type="email" id="email" name="email" placeholder="ejemplo@email.com" class="antialiased">
+                                            <input type="email" id="email" name="email" placeholder="ejemplo@email.com" class="antialiased" required>
                                         </div>
                                     </div>
                                     <div>
                                         <label for="password">Contraseña</label>
                                         <div class="inline-children input-with-icon">
                                             <div class="input-icon flex flex-center-align flex-center-justify"><span class="glyphicon glyphicon-lock"></span></div>
-                                            <input type="password" id="password"placeholder="contraseña" value="" class="antialiased">
+                                            <input type="password" id="password"placeholder="contraseña" value="" class="antialiased" autocomplete="off" required>
                                         </div>
                                     </div>
                                 </form>
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <!-- /Login floating blox -->
-                        
+
                     </div>
                     <div class="nav-search navbar-form navbar-right">
                         <div class="input-group">
@@ -91,10 +91,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="nav-search navbar-form navbar-right hidden">
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-report-problem"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp;&nbsp;Reportar Problema</button>
-                    </div>
-                </div><!-- /.navbar-collapse -->
+                <!-- </div> --><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <!-- END: navbar not logged-in -->
@@ -362,7 +359,7 @@
                     <img src="http://andes.lorapp.com/images/logo-main.png" class="img-main-logo">
                     <h1 class="light-text">No más fotocopias</h1>
                     <p class="lead landing-p not-antialiased">Lee ahorrando dinero y tiempo, sin tala de árboles</p>
-                    <input class="signin-bottom-button" href="#" type="submit" value="Empieza" data-toggle="modal" data-target="#modal-registration-1">
+                    <input class="signin-bottom-button" href="#" type="submit" value="Regístrate" data-toggle="modal" data-target="#modal-registration-1">
                 </div>
             </div>
 

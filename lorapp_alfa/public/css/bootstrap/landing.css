@@ -71,7 +71,7 @@ body {
 .line-around {
     background: #CCC;
     height: 1px;
-    width: 100%;
+    width: 19%;
 }
 .line-around:first-child {
     float: left;
@@ -644,6 +644,17 @@ footer span {
 
 /* === Nav styles === */
 
+
+.navbar-header {
+    float: left;
+}
+.navbar-right {
+    float: right;
+}
+.navbar-form {
+    border: none;
+}
+
 .nav-logged-in {
     /*display: none;*/
 }
@@ -717,6 +728,10 @@ footer span {
     height: 20px;
     padding-left: 10px;
 }
+.facebook-login-btn span {
+    position: relative;
+    left: -6px;
+}
 .input-with-icon {
     position: relative;
 }
@@ -781,15 +796,16 @@ a.forgotten-pass {
 .flat-btn {
     border: 1px solid rgba(0,0,0,.3);
     border-radius: 4px;
-    box-shadow: inset 0px -1px 0px rgba(0,0,0,.25), inset 0px 1px 0px rgba(255,255,255,.4);
+    box-shadow: inset 0px -1px 0px rgba(0,0,0,.25), 
+                inset 0px 1px 0px rgba(255,255,255,.4);
     color: #FFF;
     height: 40px;
+    text-shadow: 0px -1px 0 rgba(0,0,0,.3);
 }
 .signin-btn {
     background: #2ECC71;
-    font-size: 1.1em;
-    font-weight: 700;
-    letter-spacing: .05em;
+    font-size: 1.2em;
+    letter-spacing: .04em;
     margin-bottom: .8em;
     width: 100%;
 }
@@ -804,7 +820,7 @@ a.forgotten-pass {
     float: right;
     padding-right: 10px;
     position: relative;
-    top: 2px;
+    top: 3px;
 }
 
 
@@ -1394,7 +1410,8 @@ li.list-group-item.list-more-readings:hover {
         bottom: 8px;
     }
     .nav-search {
-        padding: 0 1%;
+        box-shadow: none;
+        padding: 0 3%;
     }
 
     /*Search-bar se hace más corta*/
@@ -1430,7 +1447,7 @@ li.list-group-item.list-more-readings:hover {
 }
 @media only screen and (max-width: 768px) {
     body {
-        padding-top: 0; 
+        padding-top: 50px; 
     }
     .navbar.nav-logged-in {
         height: 44px;
@@ -1449,6 +1466,9 @@ li.list-group-item.list-more-readings:hover {
     }
     .nav-logged-in .navbar-right {
         display: none;
+    }
+    .nav .nav-login {
+        margin-right: 0;
     }
     .mobile-nav-logged-in,
     .mobile-search-bar {
@@ -1674,6 +1694,13 @@ li.list-group-item.list-more-readings:hover {
     }
 }
 @media only screen and (max-width: 400px) {
+    .nav-search {
+        padding: 0 6%;
+    }
+    .nav .nav-login {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .mobile-nav-logged-in {
         font-size: 0.7em;
     }
