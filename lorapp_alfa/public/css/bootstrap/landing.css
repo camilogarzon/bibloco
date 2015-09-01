@@ -34,10 +34,54 @@ body {
     white-space: nowrap;
     overflow: hidden;
 }
+.span-center {
+    display: block;
+    text-align: center;
+}
+.span-right {
+    display: block;
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
 .light-text {
     font-weight: 300;
     -webkit-font-smoothing: auto;
 }
+.inline-children > * {
+    display: inline-block;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+/* Crea una línea a la izquiera y derecha del texto.
+   Usar con estructura emmet: 
+   div.inline-children.flex.flex-center-align.space-between>div.line-around+span{texto}+div.line-around*/
+.line-around {
+    background: #CCC;
+    height: 1px;
+    width: 100%;
+}
+.line-around:first-child {
+    float: left;
+    margin-right: 10px;
+}
+.line-around:last-child {
+    float: right;
+    margin-left: 10px;
+}
+
 
 h1 {
     color: rgba(0,0,0,.5);
@@ -64,7 +108,7 @@ h2,
     margin: 0;
 }
 .landing-p {
-    font-size: 1.5em;
+    font-size: 1.3em;
     padding-bottom: .5em;
 }
 .jumbotron-main .landing-p {
@@ -334,13 +378,14 @@ section {
     -webkit-justify-content: center;
     justify-content: center;
     padding: .5em;
+    z-index: 1;
 }
 .leaf-img {
     max-height: 80px;
     padding-right: 10px;
 }
 .section-7-text p {
-    font-size: 2.6em;
+    font-size: 2.2em;
 }
 .section-7-text {
     -webkit-flex-direction: column;
@@ -486,9 +531,9 @@ footer span {
     outline: 0;
     padding: 7px;
     width: 100%;
-    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    box-sizing: border-box;
     background-color: #e8eeef;
     color:#8a97a0;
     -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
@@ -642,8 +687,131 @@ footer span {
     padding: 6px 30px;
 }
 .dropdown-login {
+    padding: 0;
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow-x: scroll; 
+    width: 300px;
+}
+.dropdown-login > div {
     padding: 15px;
 }
+.login-form > div {
+    padding-top: 10px;
+}
+.facebook-login-btn {
+    background: #3b5998;
+    border-radius: 4px;
+    color: white;
+    display: block;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-align: center;
+}
+.facebook-login-btn:hover {
+    background: #2d4473;
+    color: white;
+    text-decoration: none;
+}
+.facebook-logo {
+    height: 20px;
+    padding-left: 10px;
+}
+.input-with-icon {
+    position: relative;
+}
+.input-with-icon > div,
+.input-with-icon > input {
+    position: absolute;
+    top: 0;
+}
+.input-with-icon > input {
+    left: 40px;
+}
+
+.input-with-icon > input:focus {
+    border-color: #24E073;
+}
+.input-icon {
+    background: #F0F0F0;
+    border-color: #C7C7C7;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-right: none;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.04), inset 0 1px 0 rgba(255,255,255,.5);
+    color: rgba(0, 0, 0, 0.23);
+    height: 40px;
+    font-size: 1.1em;
+    width: 40px;
+}
+.input-icon span {
+    position: relative;
+    left: 1px;
+}
+.dropdown-login form input {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 1.1em;
+    font-weight: 400;
+    height: 40px;
+    padding: 0 1em;
+    width: 225px;
+    position: relative;
+}
+.dropdown-login form:focus {
+    border-color: red;
+}
+a.forgotten-pass {
+    /*color: #A8A8A8;*/
+    margin-top: 5px;
+}
+#error_login {
+    padding: 10px 5px;
+    margin: 10px 0 0;
+}
+.login-bottom-div {
+    background: #F2F2F2;
+    border-top: 1px solid #E2E2E2;
+}
+.flat-btn {
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 4px;
+    box-shadow: inset 0px -1px 0px rgba(0,0,0,.25), inset 0px 1px 0px rgba(255,255,255,.4);
+    color: #FFF;
+    height: 40px;
+}
+.signin-btn {
+    background: #2ECC71;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: .05em;
+    margin-bottom: .8em;
+    width: 100%;
+}
+.signin-btn:hover {
+    background: #28b062;
+}
+.signin-btn-text {
+    position: relative;
+    left: 16px;
+}
+.signin-btn span.glyphicon-arrow-right  {
+    float: right;
+    padding-right: 10px;
+    position: relative;
+    top: 2px;
+}
+
+
+
+
+
+
 .form-login input {
     margin-bottom: 15px;
     width: 200px;
@@ -684,7 +852,7 @@ footer span {
     background-color: #24334C;
     color: #FFF;
     height: 100%;
-    padding-top: 5px;
+    padding-top: 3px;
     width: 100%;
 }
 .mobile-nav-logged-in label:first-child a {
@@ -931,7 +1099,7 @@ form {
 }
 .lecturedetail_info {
     display: block;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 .book_cover {
     display: inline-block;
@@ -940,42 +1108,38 @@ form {
     min-width: 120px;
     vertical-align: text-top;
 }
-.lecturedetail table tr td {
+/*.lecturedetail table tr td {
     padding: 5px 10px 5px 0px;
     vertical-align: text-top;
 }
 .lecturedetail table tr td:first-child {
     font-weight: 700;
+}*/
+.lecturedetail .list-group-item {
+    min-height: 42px;
+    padding: 3px 3px 3px 6px;
+}
+.lecturedetail .list-group-item .btn,
+.my-reading-action-title {
+    width: 120px;
 }
 .lecturedetail_data {
     display: inline-block;
     vertical-align: text-top;
     width: 80%;
 }
-.lecturedetail_chapters {
-    /*font-size: 1.1em;*/
+.lecturedetail_data dd {
+    margin-bottom: 10px;
 }
+    .lecturedetail_data .dl-horizontal dd {
+        margin-left: 90px;
+    }
+    .lecturedetail_data .dl-horizontal dt {
+        width: 70px;
+    }
 .btn_preview {
     color: rgb(200,200,200);
     margin-right: 10px;
-}
-.btn_preview:hover {
-    color: rgb(0, 187, 40);
-}
-.lecturedetail_chapters ul li div .btn-horizontal { /*mala práctica para forzar estilos en botones de compra, corregir*/
-    margin: 0px;
-    min-width: 140px;
-    position: relative;
-    top: -6px;
-}
-.lecturedetail_chapters ul li div .btn-horizontal:first-child {
-    margin-right: 4px;
-}
-.lecturedetail_chapters ul li div .btn-horizontal img {
-    margin-right: 13px;
-}
-.lecturedetail_chapters .list-group-item {
-    padding-right: 4px;
 }
 /*=== END: lecturedetail.html styles ===*/
 
@@ -1181,9 +1345,7 @@ li.list-group-item.list-more-readings:hover {
 .rent-reading .btn-notes {
     visibility: hidden;
 }
-.rent-btn .btn,
-.read-btn .btn,
-.renew-btn .btn,
+.my-readings-list .list-group-item .btn,
 .my-reading-action-title {
     width: 80px;
 }
@@ -1240,9 +1402,12 @@ li.list-group-item.list-more-readings:hover {
         width: 156px;
     }
 
+    .title3 {
+        font-size: 1.8em;
+    }
     .landing-p,
     .jumbotron-main .landing-p {
-        font-size: 1.4em;
+        font-size: 1.5em;
     }
     .branch-img {
         height: 150px;
@@ -1258,6 +1423,9 @@ li.list-group-item.list-more-readings:hover {
     }
     .section-8-text {
         padding: 20px 20px 0px 380px;
+    }
+    .dinamic-message {
+        font-size: 2.2em;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -1291,7 +1459,7 @@ li.list-group-item.list-more-readings:hover {
         display: flex;
     }
     .landing-p {
-        font-size: 1.25em;
+        font-size: 1.1em;
         font-weight: 400;
     }
     .main-wrapper {
@@ -1361,10 +1529,37 @@ li.list-group-item.list-more-readings:hover {
     .dinamic-message {
         font-size: 2.1em;
     }
+
+    /* lecturedetail.html */
+    .lecturedetail_info {
+        padding-bottom: 10px;
+    }
+    .lecturedetail_data .dl-horizontal {
+        margin-top: 10px;
+    }
+    .lecturedetail_data .dl-horizontal dd {
+        margin-left: 0px;
+    }
+
+
+
+    .lecturedetail {
+        font-size: .9em;
+    }
+    .lecturedetail .list-group-item .btn,
+    .my-reading-action-title {
+        width: 80px;
+    }
 }
+
+
+
+
+
+
 @media only screen and (max-width: 650px) {
     .landing-p {
-        font-size: 1.15em;
+        font-size: 1em;
     }
     .main-wrapper {
         padding: 1em;
@@ -1480,7 +1675,7 @@ li.list-group-item.list-more-readings:hover {
 }
 @media only screen and (max-width: 400px) {
     .mobile-nav-logged-in {
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
     .jumbotron .img-main-logo {
         height: 140px;
@@ -1503,6 +1698,10 @@ li.list-group-item.list-more-readings:hover {
         width: 100px;
     }
 }
+
+
+
+
 
 
 /*START: MAIN CONTAINER DOWN ARROW ANIMATION*/

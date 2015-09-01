@@ -39,23 +39,46 @@
                         <button class="btn btn-success dropdown-toggle nav-login" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                             Entrar
                         </button>
+
+                        <!-- Login floating blox -->
                         <div class="dropdown-menu form-group dropdown-login" role="menu" aria-labelledby="dropdownMenu1">
-                            <a href="http://andes.lorapp.com/loginfacebook" style="background-color:rgb(74, 110, 169); color: white !important; padding: 8px 20px 11px 15px;"><img style="max-height: 34px;" src="http://andes.lorapp.com/images/facebook_logo.png"> Entrar con Facebook</a>
-                            <hr>
-                            <form method="POST" action="http://andes.lorapp.com/login" accept-charset="UTF-8" onsubmit="return landing.login( & quot; login_form & quot; );" id="login_form" class="form-login text-center"><input name="_token" type="hidden" value="9rVyEwwa1666ZdHxoQNQdY0hGpArlwqTEkBn6F0H">
-                                <input id="email" placeholder="Usuario" class="form-control" name="email" type="email">
-                                <input id="password" placeholder="Contraseña" class="form-control" name="password" type="password" value="">
-                                <span class="pull-right login-forgotten-label"><a href="#" data-toggle="modal" data-target="#modal-forgot">¿Olvidado?</a></span>
-                                <div id="error_login" class="alert-danger" style="display: none">
-                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    <span class="sr-only">Ups!</span>
-                                    <span id="message_login">Revisa el email que ingresaste.</span>
+                            <div>
+                                <a href="http://andes.lorapp.com/loginfacebook" class="facebook-login-btn flat-btn"><img src="public/images/Facebook-logo.svg" class="facebook-logo left"> Entrar con Facebook</a>
+                                <div class="inline-children flex flex-center-align space-between">
+                                    <div class="line-around"></div>
+                                    <span>O</span>
+                                    <div class="line-around"></div>
                                 </div>
-                                <br>
-                                <input type="submit" class="btn btn-primary btn-block" value="Ingresar">
-                                <span>¿Nuevo en Lorapp? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</span>
-                            </form>
+                                <form class="login-form" id="login_form" method="POST" action="http://andes.lorapp.com/login" accept-charset="UTF-8" onsubmit="return landing.login( & quot; login_form & quot; );">
+                                    <input name="_token" type="hidden" value="9rVyEwwa1666ZdHxoQNQdY0hGpArlwqTEkBn6F0H">
+                                    <div>
+                                        <label for="email">Email</label>
+                                        <div class="inline-children input-with-icon">
+                                            <div class="input-icon flex flex-center-align flex-center-justify"><span class="glyphicon glyphicon-user"></span></div>
+                                            <input type="email" id="email" name="email" placeholder="ejemplo@email.com" class="antialiased">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="password">Contraseña</label>
+                                        <div class="inline-children input-with-icon">
+                                            <div class="input-icon flex flex-center-align flex-center-justify"><span class="glyphicon glyphicon-lock"></span></div>
+                                            <input type="password" id="password"placeholder="contraseña" value="" class="antialiased">
+                                        </div>
+                                    </div>
+                                </form>
+                                <a a href="#" data-toggle="modal" data-target="#modal-forgot" class="forgotten-pass antialiased span-center">¿Olvidaste tu contraseña?</a>
+                                <div id="error_login" class="alert alert-danger text-center" style="display: none">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span id="message_login">Usuario o contraseña incorrectos</span>
+                                </div>
+                            </div>
+                            <div class="login-bottom-div">
+                                <button class="signin-btn flat-btn" type="submit" value="Ingresar"><span class="signin-btn-text">Ingresar</span><span class="glyphicon glyphicon-arrow-right"></span></button>
+                                <span class="span-center">¿No tienes una cuenta? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</span>
+                            </div>
                         </div>
+                        <!-- /Login floating blox -->
+                        
                     </div>
                     <div class="nav-search navbar-form navbar-right">
                         <div class="input-group">
@@ -78,28 +101,28 @@
 
         <!-- START: Pass olvidado -->
         <div class="modal fade" id="modal-forgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="title-forgot">¿Olvidaste tu contraseña?</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="title-forgot">Recupera tu contraseña</h4>
                     </div>
                     <form action="http://andes.lorapp.com/password/remind" method="POST">
                         <div class="modal-body">
-                            <label class="text-center col-sm-10 col-md-offset-1"><strong>Enviaremos un correo para recuperar tu contraseña.</strong></label>
-                            <div class="row">
-                                <div class="form-horizontal col-sm-6 col-md-offset-3">
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                                        <input type="email" name="email" class="form-control" id="email_remember" placeholder="Email" onkeyup="landing.emailCorrect('email_remember')" onmouseout="landing.emailCorrect('email_remember')">
+                            <label>¿Cuál es tu email?</label>
+                            <div class="form-horizontal">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-envelope"></span>
                                     </div>
-                                    <div id="error_remember" class="alert-success" style="display: none">
-                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                        <span class="sr-only">Ups!</span>
-                                        <span id="message_login">Revisa el email que ingresaste.</span>
-                                    </div>
-                                    <br>
+                                    <input type="email" name="email" class="form-control" id="email_remember" placeholder="ejemplo@email.com" onkeyup="landing.emailCorrect('email_remember')" onmouseout="landing.emailCorrect('email_remember')">
                                 </div>
+                                <div id="error_remember" class="alert-success" style="display: none">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="sr-only">Ups!</span>
+                                    <span id="message_login">Revisa el email que ingresaste.</span>
+                                </div>
+                                <br>
                             </div>
                         </div>
                         <div class="modal-footer">
