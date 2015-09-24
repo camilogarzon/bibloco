@@ -712,12 +712,9 @@ footer span {
 }
 .facebook-login-btn {
     background: #3b5998;
-    border-radius: 4px;
-    color: white;
     display: block;
     margin-bottom: 15px;
     padding: 10px;
-    text-align: center;
 }
 .facebook-login-btn:hover {
     background: #2d4473;
@@ -800,6 +797,7 @@ a.forgotten-pass {
                 inset 0px 1px 0px rgba(255,255,255,.4);
     color: #FFF;
     height: 40px;
+    text-align: center;
     text-shadow: 0px -1px 0 rgba(0,0,0,.3);
 }
 .signin-btn {

@@ -485,8 +485,8 @@ ol {
 	border-right: 1px solid #FFF;
 	display: inline-block;
 	margin: 0;
-	width: 29em; /*reading width*/
-	padding: 0 6%;
+	width: 36.1em; /*reading width*/
+	/*padding: 0 6%;*/
 	position: relative;
 	-webkit-transition: background-color .5s;
 	        transition: background-color .5s;
@@ -779,10 +779,13 @@ ol {
 .current-chapter {
 	border-left: 1px solid rgba(255,255,255,.08);
 	border-right: 1px solid rgba(0,0,0,1);
-	max-width: 29em;
-	padding: .6em 6%;
+	max-width: 36.1em;
+	padding: .6em 0;
 	text-align: left;
 	width: 100000px;
+}
+.current-chapter > * {
+	padding: 0 10%;
 }
 .pre-chapter-title {
 	font-size: 0.55em;
@@ -810,6 +813,11 @@ ol {
 
 
 /* Body text properties */
+.current-chapter > *,
+.bodyText {
+	padding-left: 10%;
+	padding-right: 10%;
+}
 .bodyText {
 	   -moz-font-feature-settings: "kern", "liga";
 	   -moz-font-feature-settings: "kern=1", "liga=1";
@@ -823,7 +831,8 @@ ol {
   	font-size: .9em;
 	/*letter-spacing: 0.01em;*/ /*test for better legibility*/
 	margin-top: 2.2em;
-	padding: 0 0 1.8em;
+	padding-bottom: 1.8em;
+	padding-top: 0;
 	text-align: left;
 	text-rendering: optimizeLegibility; /* Some known bugs. If problems look here first */
 	/*text-shadow: 0px 1px 0px rgba(0,0,0,0.07);*/ /*test for better legibility*/
@@ -947,6 +956,20 @@ body .reading-wrapper .bodyText .highlight {
 .bodyText .sentence.highlight:hover {
 	border-bottom: 0.15em solid transparent;
 }
+
+body .reading-wrapper .bodyText .highlighted {
+	background: rgba(255,239,80,.4);
+	-webkit-transition: background-color .2s;
+	        transition: background-color .2s;
+	border-radius: 4px;
+	/*cursor: pointer;*/
+	padding: .2em 0;
+}
+.bodyText .sentence.highlighted:hover {
+	border-bottom: 0.15em solid transparent;
+}
+
+
 .keyword {
 	background: rgba(0, 237, 190,.1);
 	border: 1px solid rgba(0,0,0,.1); 
@@ -1255,18 +1278,23 @@ body .reading-wrapper .bodyText .highlight {
 }
 .my-readings-wrapper {
 	background: white;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 	box-sizing: border-box;
 	color: #546371;
 	font-size: 16px;
 	height: 100%;
 	left: -450px; /*same as .my-readings-wrapper width*/
 	top: 0;
+	max-width: 90%;
 	padding-bottom: 141px;
 	position: fixed;
 	width: 450px;
 	z-index: 1100;
 }
 .my-readings-wrapper div {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 .my-readings-list {
@@ -1387,6 +1415,7 @@ body .reading-wrapper .bodyText .highlight {
 	background: white;
 	font-size: 0.85em;
 	height: 100%;
+	max-width: 90%;
 	opacity: 1;
 	position: fixed;
 	right: -650px; /*same as .notesMainWrapper width*/
@@ -1569,7 +1598,9 @@ body .reading-wrapper .bodyText .highlight {
 .add-note-wrapper {
 	background: rgba(0,0,0,.9);
 	/*bottom: -14.06em;*/ /*.add-note-wrapper height*/
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 	margin-bottom: 25px;
 	overflow-y: auto;
 	padding: 1em 6% .3em;
@@ -1585,6 +1616,8 @@ body .reading-wrapper .bodyText .highlight {
 .add-note-wrapper .add-note-highlight,
 .add-note-wrapper .note-input,
 .add-note-wrapper .add-note-buttons {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 	box-sizing: border-box;
 	display: block;
 	width: 100%;
@@ -2008,6 +2041,7 @@ a.highlight-btn {
 	background: #FFF;
 	border: 1px solid #000;
 	border-radius: 4px;
+	cursor: pointer;
 	font-weight: bold;
 	padding: 2px 4px; 
 }
@@ -2049,6 +2083,7 @@ a.highlight-btn {
 .selectionSharer a.add-note-btn {
 	border-radius: 4px;
 	color: #CCC;
+	cursor: pointer;
 	font-size: 21px;
 	font-weight: bold;
 	margin: 0;
@@ -2167,13 +2202,19 @@ a.highlight-btn {
 	}
 	.bodyText {
 		text-rendering: auto;/* El text-rendering puede tener problemas en móvil. Aquí se desactiva para pantallas pequeñas. */
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.current-chapter > *,
+	.bodyText {
+		padding-left: 6%;
+		padding-right: 6%;
 	}
 	.reading-wrapper {
 		border: none;
-		padding-left: 3%;
-		padding-right: 3%;
 		-webkit-transition: background-color 0s;
 	        	transition: background-color 0s;
+	    width: 100%;
 	}
 	.sepia .mainWrapper {
 		background-color: #E6D6B0;
@@ -2207,7 +2248,7 @@ a.highlight-btn {
 
 
 @media (max-width : 900px) {
-	.nav-menu {
+	/*.nav-menu {
 		height: 54px;
 		-webkit-flex-direction: column;
 		-webkit-box-orient: vertical;
@@ -2222,7 +2263,7 @@ a.highlight-btn {
 		-webkit-box-align: center;
 		    -ms-flex-align: center;
 		        align-items: center;
-	}
+	}*/
 	.mainWrapper {
 		margin-bottom: 54px;
 	}
@@ -2230,10 +2271,10 @@ a.highlight-btn {
 		border-right: none;
 		box-shadow: none;
 	}
-	.reading-info div {
+	/*.reading-info div {
 		border-left: none;
 		box-shadow: none;
-	}
+	}*/
 	.show-my-readings-btn img {
 		padding: 10px;
 	}
@@ -2243,9 +2284,9 @@ a.highlight-btn {
 }
 
 @media (max-width : 730px) {
-	.reading-wrapper {
+	/*.reading-wrapper {
 		width: auto;
-	}
+	}*/
 }
 
 @media (max-width : 550px) {
@@ -2254,7 +2295,8 @@ a.highlight-btn {
 	}
 	.reading-wrapper {
 		margin: 0;
-		max-width: 95%;
+		padding-left: 3%;
+		padding-right: 3%;
 		width: auto;
 	}
 	.titleWrapper {
@@ -2294,6 +2336,14 @@ a.highlight-btn {
 	.btn-next-chapter-container {
 		margin-bottom: 2em;
 	}
+	.current-chapter > * {
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+	.bodyText {
+		padding-left: 0;
+		padding-right: 0;
+	}
 	blockquote {
 		margin-left: 0;
 	}
@@ -2311,6 +2361,9 @@ a.highlight-btn {
 	.show-my-notes-btn img {
 		height: 25px;
 		opacity: 1;
+	}
+	.left-close-icon {
+		left: -27px;
 	}
 }
 
