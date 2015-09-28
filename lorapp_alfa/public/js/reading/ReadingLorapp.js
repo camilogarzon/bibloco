@@ -47,6 +47,16 @@ var ReadingLorapp = {};
 
         $(document).ready(function() {
 
+            // START: Page smoothly scrolls until the #reading-container, to hide the previous chapter button.
+            // Condition so it doesn't happen when page is refreshed in the middle of the reading.
+            var scrollTop = $(document).scrollTop();
+            var readingBeginning = $('#reading-container').offset().top;
+
+            if (scrollTop < readingBeginning) {
+                $("html, body").animate({ scrollTop: $('#reading-container').offset().top }, 500);
+            };
+            // END: Page smoothly scrolls until the #reading-container, to hide the previous chapter button
+
             // START: If user is on a Mac, add class .mac to the body, else add class .pc
             if (navigator.userAgent.indexOf('Mac OS X') != -1) {
                 $("body").addClass("mac");
@@ -148,6 +158,7 @@ var ReadingLorapp = {};
 
             // START: CLICK EN #BUTTON-FULLSCREEN LLEVA A PANTALLA COMPLETA Y CLICK DE NUEVO SALE DE ELLA
             $('#icon_fullscreen, .full-screen-btn').click(function toggleFullScreen() {
+                var currentScrollPosition = $(document).scrollTop();
                 if (!document.fullscreenElement && // alternative standard method
                         !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
                     if (document.documentElement.requestFullscreen) {
@@ -170,6 +181,7 @@ var ReadingLorapp = {};
                         document.webkitExitFullscreen();
                     }
                 }
+                window.scrollTo(0, currentScrollPosition);
             });
 
 
@@ -182,11 +194,21 @@ var ReadingLorapp = {};
                         $(this).addClass('active');
 
                         // Rerun info calculations for correct % read and minutes left.
-                        height = $(document).height();
+                        height = $('#reading-container').height();
                         scrollTop = $(document).scrollTop();
-                        percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
-                        $('.reading-percentage-data').html(percentageRead);
-                        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
+                        percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+                        
+                        // reprint percentage read, keep 0 if < 0 and 100 if > 100
+                        if (percentageRead > 100) {
+                            $('.reading-percentage-data').html(100);
+                        } else if (percentageRead < 0) {
+                            $('.reading-percentage-data').html(0);
+                        } else {
+                            $('.reading-percentage-data').html(percentageRead);
+                        }
+
+                        var percentageShown = $('.reading-percentage-data').html();
+                        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
                         $('.minutes-left-data').html(minutesLeft);
                     });
 
@@ -198,11 +220,21 @@ var ReadingLorapp = {};
                         $(this).addClass('active');
 
                         // Rerun info calculations for correct % read and minutes left.
-                        height = $(document).height();
+                        height = $('#reading-container').height();
                         scrollTop = $(document).scrollTop();
-                        percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
-                        $('.reading-percentage-data').html(percentageRead);
-                        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
+                        percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+                        
+                        // reprint percentage read, keep 0 if < 0 and 100 if > 100
+                        if (percentageRead > 100) {
+                            $('.reading-percentage-data').html(100);
+                        } else if (percentageRead < 0) {
+                            $('.reading-percentage-data').html(0);
+                        } else {
+                            $('.reading-percentage-data').html(percentageRead);
+                        }
+
+                        var percentageShown = $('.reading-percentage-data').html();
+                        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
                         $('.minutes-left-data').html(minutesLeft);
                     });
             // END: Click en título de capítulo lleva a full-width
@@ -355,34 +387,52 @@ var ReadingLorapp = {};
 
 
 // START: Calculate percentage read
-        var height = $(document).height();
+        var height = $('#reading-container').height();
         var viewportHeight = $(window).height();
         var scrollTop = $(document).scrollTop();
-        var percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
-// print percentageRead in html
-        $('.reading-percentage-data').html(percentageRead);
+        var readingBeginning = $('#reading-container').offset().top;
+        var percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
 
+        // print percentageRead in html. Keep 0 if < 0 and 100 if > 100
+        if (percentageRead > 100) {
+            $('.reading-percentage-data').html(100);
+        }
+        else if (percentageRead < 0) {
+            $('.reading-percentage-data').html(0);
+        }
+        else {
+            $('.reading-percentage-data').html(percentageRead);
+        };
+
+        // recalculate when scrolling
         $(document).scroll(function() {
-            height = $(document).height();
+            height = $('#reading-container').height();
             viewportHeight = $(window).height();
             scrollTop = $(document).scrollTop();
-            percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
+            readingBeginning = $('#reading-container').offset().top;
+            percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
 
-            // update percentageRead in html on scroll
-            $('.reading-percentage-data').html(percentageRead);
+            // print updated percentageRead in html on scroll. Keep 0 if < 0 and 100 if > 100
+            if (percentageRead > 100) {
+                $('.reading-percentage-data').html(100);
+            } else if (percentageRead < 0) {
+                $('.reading-percentage-data').html(0);
+            } else {
+                $('.reading-percentage-data').html(percentageRead);
+            }
         });
 // END: Calculate percentage read
 
 //// START: Calculate percentage read
 //        var viewportHeight = $('#scrollWrapper').height();
-//        var height = $('.reading-wrapper').height();
+//        var height = $('#reading-container').height();
 //        var scrollTop = $('#scrollWrapper').scrollTop();
 //        var percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
 //// print percentageRead in html
 //        $('.reading-percentage-data').html(percentageRead);
 //
 //        $('#scrollWrapper').scroll(function() {
-//            height = $('.reading-wrapper').height();
+//            height = $('#reading-container').height();
 //            viewportHeight = $('#scrollWrapper').height();
 //            scrollTop = $('#scrollWrapper').scrollTop();
 //            percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
@@ -393,18 +443,20 @@ var ReadingLorapp = {};
 //// END: Calculate percentage read
 
 
-// START: Calculate reading minutes remaining
+        // START: Calculate reading minutes remaining
         var words = $('.bodyText').text()
                 , wordCount = words.replace(/[^\w ]/g, "").split(/\s+/).length;
         var averageWordsPerMin = 250;
-        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
-// print minutesLeft in html
+        var percentageShown = $('.reading-percentage-data').html();
+        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
+        // print minutesLeft in html
         $('.minutes-left-data').html(minutesLeft);
 
+        // recalculate on scroll
         $(document).scroll(function() {
-            //$('#scrollWrapper').scroll(function() {
-            var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
-            // update minutesLeft in html on scroll
+            var percentageShown = $('.reading-percentage-data').html();
+            var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
+            // print updated minutesLeft in html on scroll
             $('.minutes-left-data').html(minutesLeft);
         });
 // END: Calculate reading minutes remaining
@@ -421,8 +473,14 @@ var ReadingLorapp = {};
             // Rerun info calculations for correct % read and minutes left.
             height = $(document).height();
             scrollTop = $(document).scrollTop();
-            percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
-            $('.reading-percentage-data').html(percentageRead);
+            percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+            if (percentageRead > 100) {
+                $('.reading-percentage-data').html(100);
+            } else if (percentageRead < 0) {
+                $('.reading-percentage-data').html(0);
+            } else {
+                $('.reading-percentage-data').html(percentageRead);
+            };
             var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
             $('.minutes-left-data').html(minutesLeft);
         });
@@ -436,8 +494,14 @@ var ReadingLorapp = {};
             // Rerun info calculations for correct % read and minutes left.
             height = $(document).height();
             scrollTop = $(document).scrollTop();
-            percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
-            $('.reading-percentage-data').html(percentageRead);
+            percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+            if (percentageRead > 100) {
+                $('.reading-percentage-data').html(100);
+            } else if (percentageRead < 0) {
+                $('.reading-percentage-data').html(0);
+            } else {
+                $('.reading-percentage-data').html(percentageRead);
+            };
             var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
             $('.minutes-left-data').html(minutesLeft);
         });
@@ -451,8 +515,14 @@ var ReadingLorapp = {};
             // Rerun info calculations for correct % read and minutes left.
             height = $(document).height();
             scrollTop = $(document).scrollTop();
-            percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
-            $('.reading-percentage-data').html(percentageRead);
+            percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+            if (percentageRead > 100) {
+                $('.reading-percentage-data').html(100);
+            } else if (percentageRead < 0) {
+                $('.reading-percentage-data').html(0);
+            } else {
+                $('.reading-percentage-data').html(percentageRead);
+            };
             var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
             $('.minutes-left-data').html(minutesLeft);
         });

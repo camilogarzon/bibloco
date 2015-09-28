@@ -54,17 +54,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="shortcut icon" type="image/x-icon" href="main.html?favicon.png" />
-        <!-- <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'> <!-- Para prueba de fuentes se usan todos los pesos. Eliminar innecesarios para mejor tiempo de carga -->
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css"><!-- Custom: Solo tool-tips y popovers -->
         <link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap-theme.min.css"><!-- Custom: Solo tool-tips y popovers -->
         <link rel="stylesheet" type="text/css" href="public/css/reading/myLectureStyles.css">
         <script type="text/javascript" src="public/js/prefixfree.min.js"></script>
-
-        <!-- Cargar fuentes de TypeKit -->
-        <!-- <script src="//use.typekit.net/bmz3ihs.js"></script>
-        <script>try{Typekit.load();}catch(e){}</script> -->
 
         <noscript>
         <meta http-equiv="refresh" content="0; url=http://beta.lorapp.com/alfa/lorapp/public" />
@@ -94,105 +89,21 @@
             document.ondragstart = new Function("return false");
             document.oncopy = new Function("return false");
         </script>-->
-        <!-- START: alert -->
-        <style>
-            .alert {
-                padding: 10px;
-                margin-bottom: 20px;
-                border: 1px solid transparent;
-                border-radius: 4px;
-                font-size: 0.75em;
-            }
-            .alert-dismissable, .alert-dismissible {
-                padding-right: 35px;
-            }
-
-            .alert-info {
-                color: #31708f;
-                background-color: #d9edf7;
-                border-color: #bce8f1;
-            }
-
-            .alert {
-                text-shadow: 0 1px 0 rgba(255,255,255,.2);
-                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.05);
-                box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.05);
-            }
-            .alert-info {
-                background-image: -webkit-linear-gradient(top,#d9edf7 0,#b9def0 100%);
-                background-image: -o-linear-gradient(top,#d9edf7 0,#b9def0 100%);
-                background-image: -webkit-gradient(linear,left top,left bottom,from(#d9edf7),to(#b9def0));
-                background-image: linear-gradient(to bottom,#d9edf7 0,#b9def0 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9edf7', endColorstr='#ffb9def0', GradientType=0);
-                background-repeat: repeat-x;
-                border-color: #9acfea;
-            }
-            .alert-danger {
-                background-image: -webkit-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
-                background-image: -o-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
-                background-image: -webkit-gradient(linear,left top,left bottom,from(#f2dede),to(#e7c3c3));
-                background-image: linear-gradient(to bottom,#f2dede 0,#e7c3c3 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
-                background-repeat: repeat-x;
-                border-color: #dca7a7;
-            }
-            .alert-danger {
-                color: #a94442;
-                background-color: #f2dede;
-                border-color: #ebccd1;
-            }
-            .alert-success {
-                background-image: -webkit-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
-                background-image: -o-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
-                background-image: -webkit-gradient(linear,left top,left bottom,from(#dff0d8),to(#c8e5bc));
-                background-image: linear-gradient(to bottom,#dff0d8 0,#c8e5bc 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffc8e5bc', GradientType=0);
-                background-repeat: repeat-x;
-                border-color: #b2dba1;
-            }
-            .alert-success {
-                color: #3c763d;
-                background-color: #dff0d8;
-                border-color: #d6e9c6;
-            }
-            .alert-dismissable .close, .alert-dismissible .close {
-                position: relative;
-                top: -2px;
-                right: -21px;
-                color: inherit;
-            }
-
-            button.close {
-                -webkit-appearance: none;
-                padding: 0;
-                cursor: pointer;
-                background: 0 0;
-                border: 0;
-            }
-
-            .close {
-                float: right;
-                font-size: 21px;
-                font-weight: 700;
-                line-height: 1;
-                color: #000;
-                text-shadow: 0 1px 0 #fff;
-                filter: alpha(opacity=20);
-                opacity: .2;
-            }
-            .add-note-highlight img{
-                max-width: 300px !important;
-            }
-        </style>
     </head>
     <body class=""><!-- Al body se le agregan las clases "sepia" o "night" para cambiar su estilo.
         Se le agrega la clase "blurred" cuando una lectura expira, esto pone el texto borroso. -->
 
-        <!-- Este div es un overlay negro que puede ajustar el brillo de la pantalla al modificar su opacidad -->
+        <!-- .brightness es un overlay negro que puede ajustar el brillo de la pantalla al modificar su opacidad -->
         <div class="brightness">
         </div>
+
+        <!-- .closer-box es el fondo oscurecido que sale al desplegar uno de los menús laterales. Al hacer click en él se cierran estos menús -->
+        <div class="closer-box" style="display: none;">
+        </div>
+
+        <!-- Menú popover con opciones sobre el texto subrayado -->
         <div class="selectionSharer" id="selectionSharerPopover" style="position: absolute; top: 377px; left: 385px; display: block;">
-            <div id="selectionSharerPopover-inner" style="    height: 36px;">
+            <div id="selectionSharerPopover-inner" style="height: 36px;">
                 <ul>
                     <li><a class="action highlight-btn active" title="Resaltado" target="_blank"><span class="glyphicon glyphicon-ok highlight-ok-icon"></span><span id="removeHighlight" class="glyphicon glyphicon-remove highlight-cancel-icon"></span><span class="glyphicon glyphicon-font highlight-icon"></span></a></li>
                     <li><a class="action add-note-btn" title="Agregar nota"><span id="takeHighlight" class="glyphicon glyphicon-pencil add-note-icon"></span></a></li>
@@ -200,240 +111,282 @@
             </div>
             <div class="selectionSharerPopover-clip"><span class="selectionSharerPopover-arrow"></span></div>
         </div>
+
         <div class="body-wrapper">
-            <!-- Título y autor -->
-            <div class="heading-wrapper">
-                <div class="titleWrapper unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
-                    <h2 class="readingTitle">El arte de la guerra  BETA</h2>
-                    <span class="readingAuthor">Sun Tzu BETA</span>
-                </div> <!-- titleWrapper -->
+            <div class="heading-wrapper flex flex-center-align space-between">
+                <!-- Logo principal -->
+                <a href="" class="main-logo-wrapper flex flex-center-align">
+                    <!-- SVG code: Lorapp logo -->
+                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                    <svg class="main-logo" viewBox="0 0 1780 664" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>Lorapp text logo</title>
+                        <defs></defs>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                            <g id="Artboard-14-Copy" sketch:type="MSArtboardGroup" transform="translate(-244.000000, -228.000000)" fill="#FFFFFF">
+                                <g class="main-logo-svg" sketch:type="MSLayerGroup" transform="translate(243.931737, 227.674365)">
+                                    <path class="logo-leaf" d="M252.849039,123.516306 C300.294748,189.107526 276.797106,289.017332 233.410103,321.752023 C190.023099,354.469308 89.6121333,348.039235 42.1785978,282.448016 C-5.26467668,216.851823 1.20685281,0.690972417 1.20685281,0.690972417 C1.20685281,0.690972417 205.410634,57.9275729 252.849039,123.516306" id="Fill-2" opacity="0.6" sketch:type="MSShapeGroup"></path>
+                                    <path class="logo-leaf" d="M529.632313,373.356715 C461.919858,416.579437 366.205498,384.913938 337.611954,338.20018 C309.033017,291.491394 323.088751,189.754014 390.801206,146.541238 C458.516096,103.313544 669.040453,126.659234 669.040453,126.659234 C669.040453,126.659234 597.339899,330.138967 529.632313,373.356715" id="Fill-3" opacity="0.6" sketch:type="MSShapeGroup"></path>
+                                    <path class="logo-letter-lora" d="M153.79909,246.359045 L117.577516,246.359045 L117.577516,180.307824 L243.314611,180.307824 L243.314611,452.449596 C243.314611,478.348915 247.972262,487.327644 268.156227,487.327644 C271.77668,487.327644 273.843771,486.798021 275.913297,486.798021 L279.015151,486.798021 L279.015151,559.199747 L271.258081,560.251534 C265.563232,560.781157 259.870819,560.781157 252.111314,560.781157 C205.025945,560.781157 153.79909,549.156799 153.79909,457.738368 L153.79909,246.359045" id="Fill-4" sketch:type="MSShapeGroup"></path>
+                                    <path class="logo-letter-lora" d="M445.105568,279.65071 C529.447273,279.65071 596.716607,336.723202 596.716607,422.857833 C596.716607,507.938191 529.447273,564.483547 445.619297,564.483547 C361.796191,564.483547 294.529292,507.938191 294.529292,422.857833 C294.529292,336.723202 362.31479,279.65071 445.105568,279.65071 L445.105568,279.65071 Z M445.619297,488.386891 C478.222853,488.386891 506.161454,463.551791 506.161454,422.857833 C506.161454,382.171336 478.222853,355.752339 445.619297,355.752339 C413.020611,355.752339 385.084445,382.171336 385.084445,422.857833 C385.084445,463.551791 413.020611,488.386891 445.619297,488.386891 L445.619297,488.386891 Z" id="Fill-5" sketch:type="MSShapeGroup"></path>
+                                    <path class="logo-letter-lora" d="M616.878659,492.086793 L653.097799,492.086793 L653.097799,363.671822 C653.097799,355.752339 649.477346,352.04995 641.710536,352.04995 L616.878659,352.04995 L616.878659,285.993756 L701.220365,285.993756 C725.538512,285.993756 738.990431,296.031731 738.990431,320.871804 L738.990431,335.141792 C738.990431,339.895968 738.990431,343.590898 738.471832,345.179768 C737.953233,346.766151 737.953233,347.820424 737.953233,348.87967 L738.990431,348.87967 C750.375259,311.888102 784.008708,281.23958 823.850735,281.23958 C827.473623,281.23958 829.545584,281.23958 831.094076,281.766717 C832.647438,282.29634 833.682201,282.29634 834.198365,282.29634 L834.198365,372.13336 L829.026985,371.074114 C825.404097,370.544491 821.781209,370.544491 816.088796,370.544491 C766.415303,370.544491 742.615754,402.247286 742.615754,452.449596 L742.615754,492.086793 L778.837328,492.086793 L778.837328,558.140501 L616.878659,558.140501 L616.878659,492.086793" id="Fill-6" sketch:type="MSShapeGroup"></path>
+                                    <path class="logo-letter-lora" d="M984.246303,389.039031 L1000.28878,389.039031 L1000.28878,381.112089 C1000.28878,358.388023 982.692941,350.99319 962.513846,350.99319 C944.401841,350.99319 926.294706,357.336236 912.324189,363.671822 C904.04365,367.374211 896.284145,372.13336 889.035934,376.887536 L857.993045,315.058382 C867.305912,308.1882 877.655976,302.377264 889.035934,297.090978 C909.217465,288.109762 937.160935,279.65071 970.789515,279.65071 C1048.92508,279.65071 1089.8043,318.760771 1089.8043,390.625415 L1089.8043,480.459949 C1089.8043,488.386891 1093.42719,492.086793 1101.1867,492.086793 L1120.84963,492.086793 L1120.84963,558.140501 L1043.75126,558.140501 C1017.35872,558.140501 1008.04829,542.818726 1008.04829,529.603012 L1008.04829,528.019115 C1008.04829,525.378459 1008.04829,523.259966 1008.56689,522.208179 C1009.08548,521.148933 1009.08548,520.089687 1009.08548,519.560063 L1008.04829,519.560063 C1003.39307,528.019115 997.182058,535.416434 989.941152,541.75948 C977.519127,552.856702 958.374794,564.483547 929.398995,564.483547 C882.827356,564.483547 841.948131,535.416434 841.948131,480.459949 C841.948131,400.66339 942.853349,389.039031 984.246303,389.039031 L984.246303,389.039031 Z M955.786669,498.424866 C978.556324,498.424866 1001.32111,470.417 1001.32111,446.641147 L1001.32111,440.298101 L993.043006,440.298101 C963.551044,440.298101 931.984685,449.811426 931.984685,474.119389 C931.984685,488.386891 941.297552,498.424866 955.786669,498.424866 L955.786669,498.424866 Z" id="Fill-7" sketch:type="MSShapeGroup"></path>
+                                    <path class="logo-letter-p" d="M1673.44727,280.421523 C1668.87727,279.921738 1664.19771,279.65071 1659.40371,279.65071 C1630.94894,279.65071 1610.76741,288.109762 1597.83166,298.147738 C1590.06728,303.96116 1583.86114,310.299233 1578.68733,317.171902 L1577.65013,317.171902 C1578.16873,316.642278 1578.16873,316.117628 1578.16873,315.058382 L1578.16873,308.717823 C1578.16873,298.677361 1570.40435,285.993756 1544.01424,285.993756 L1461.7445,285.993756 L1461.7445,352.04995 L1486.58125,352.04995 C1494.34075,352.04995 1497.96364,355.752339 1497.96364,363.671822 L1497.96364,597.772725 L1464.33019,597.772725 L1464.33019,663.826433 L1621.11504,663.826433 L1621.11504,597.772725 L1587.48159,597.772725 L1587.48159,561.840404 C1587.48159,554.967735 1587.48159,549.156799 1586.963,544.929759 C1586.4444,542.289103 1586.4444,540.17061 1586.4444,538.586714 L1587.48159,538.586714 C1592.65298,543.343376 1598.34782,547.572902 1605.075,551.267832 C1616.97356,557.610878 1633.01604,564.483547 1655.26709,564.483547 C1726.15444,564.483547 1779.45083,508.467815 1779.45083,422.32821 C1779.45083,376.604076 1765.50222,338.630343 1741.25468,313.375026 C1720.31339,289.730956 1686.22708,282.271475 1673.44727,280.421523 Z M1637.15509,488.911541 C1601.96828,488.911541 1584.8959,456.149499 1584.8959,423.91708 C1584.8959,377.412187 1610.24882,356.806613 1637.15509,356.806613 C1668.20041,356.806613 1689.41427,383.225609 1689.41427,423.91708 C1689.41427,466.192447 1665.61472,488.911541 1637.15509,488.911541 L1637.15509,488.911541 Z" id="Fill-8-Copy" opacity="0.6" sketch:type="MSShapeGroup"></path>
+                                    <path class="logo-letter-p" d="M1341.34886,280.421523 C1336.77886,279.921738 1332.0993,279.65071 1327.3053,279.65071 C1298.85054,279.65071 1278.66901,288.109762 1265.73325,298.147738 C1257.96888,303.96116 1251.76273,310.299233 1246.58892,317.171902 L1245.55172,317.171902 C1246.07032,316.642278 1246.07032,316.117628 1246.07032,315.058382 L1246.07032,308.717823 C1246.07032,298.677361 1238.30594,285.993756 1211.91584,285.993756 L1129.64609,285.993756 L1129.64609,352.04995 L1154.48284,352.04995 C1162.24234,352.04995 1165.86523,355.752339 1165.86523,363.671822 L1165.86523,597.772725 L1132.23178,597.772725 L1132.23178,663.826433 L1289.01664,663.826433 L1289.01664,597.772725 L1255.38319,597.772725 L1255.38319,561.840404 C1255.38319,554.967735 1255.38319,549.156799 1254.86459,544.929759 C1254.34599,542.289103 1254.34599,540.17061 1254.34599,538.586714 L1255.38319,538.586714 C1260.55457,543.343376 1266.24942,547.572902 1272.97659,551.267832 C1284.87515,557.610878 1300.91763,564.483547 1323.16868,564.483547 C1394.05604,564.483547 1447.35242,508.467815 1447.35242,422.32821 C1447.35242,376.604076 1433.40381,338.630343 1409.15627,313.375026 C1388.21498,289.730956 1354.12867,282.271475 1341.34886,280.421523 Z M1305.05668,488.911541 C1269.86987,488.911541 1252.7975,456.149499 1252.7975,423.91708 C1252.7975,377.412187 1278.15041,356.806613 1305.05668,356.806613 C1336.102,356.806613 1357.31586,383.225609 1357.31586,423.91708 C1357.31586,466.192447 1333.51631,488.911541 1305.05668,488.911541 L1305.05668,488.911541 Z" id="Fill-8-Copy-2" opacity="0.6" sketch:type="MSShapeGroup"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
 
-
-                <!-- Capítulo anterior/siguiente para pantallas pequeñas-->
-                <div class="chapter-control-wrapper top-chapter-control flex space-around">
-                    <a href="#14" class="prev-chapter flex flex-center-align flex-center-justify prev-chapter-mobile">
-                        <span>2. Sobre la iniciacion de las acciones</span>
-                    </a>
-                    <a href="#16" class="next-chapter flex flex-center-align flex-right next-chapter-mobile">
-                        <span>4. Sobre la medida en la disposición de los medios </span>
-                    </a>
-                </div>
-
-
-                <!-- Capítulo anterior/actual/siguiente -->
-                <div class="chapter-control-wrapper top-chapter-control flex space-around">
-                    <a href="#14" class="prev-chapter flex flex-center-align">
-                        <span>2. Sobre la iniciacion de las acciones</span>
-                    </a>
-                    <div class="current-chapter flex flex-column flex-center-justify">
-                        <span class="pre-chapter-title">Estás leyendo</span>
-                        <div><h3 class="chapterTitle">3. Sobre las posiciones de la victoria y la derrota</h3></div>
-                    </div>
-                    <a href="#16" class="next-chapter flex flex-right flex-center-align">
-                        <span>4. Sobre la medida en la disposición de los medios </span>
-                    </a>
-                </div>
-
-
-                <!-- Botones para mostrar mis lecturas y mis apuntes -->
-                <div class="show-my-readings-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="right" title="" data-original-title="Mis lecturas">
-                    <div class="flex flex-center-justify">
-                        <img src="http://beta.lorapp.com/public/images/icons/svg/library-icon.svg">
-                    </div>
-                </div>
-                <div class="show-my-notes-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="left" title="" data-original-title="Mis apuntes">
-                    <div class="flex flex-center-justify">
-                        <img id="icon_note" src="http://beta.lorapp.com/public/images/icons/svg/my-notes-icon.svg">
-                    </div>
-                </div>
-
-
-                <!-- Sección lateras de mis lecturas -->
-                <div class="my-readings-wrapper" style="left: -450px;">
-                    <img class="right-close-icon" src="http://beta.lorapp.com/public/images/icons/png/close-icon.png">
-                    <div class="my-readings-header flex space-between">
-                        <span>Tabla de contenido</span>
-                        <span class="my-readings-leaves"> Tienes: <span id="user_credit_actual">873</span> <img src="http://beta.lorapp.com/public/images/icons/svg/leaf-icon.svg"></span>
-                    </div>
-                    <div class="my-readings-list">
-                        <div class="list-book-container">
-                            <div class="list-book-title">
-                                <span>El arte de la guerra  BETA<em> – Sun Tzu BETA</em></span>
-                            </div>
-                            <div onclick="operation.addLectureSectionRedirect('#12')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">Introduccion</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
-                            </div>
-                            <div onclick="operation.addLectureSectionRedirect('#13')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">1. Sobre la evaluacion</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
-                            </div>
-                            <div onclick="operation.addLectureSectionRedirect('#14')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">2. Sobre la iniciacion de las acciones</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
-                            </div>
-                            <div onclick="operation.addLectureSectionRedirect('#15')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">3. Sobre las posiciones de la victoria y la derrota</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">6 días, 23 horas</span>
-                            </div>
-                            <div onclick="operation.addLectureSection('free16', '16')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">4. Sobre la medida en la disposición de los medios </span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition16">
-                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free16"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
-                                        <input name="lsid" type="hidden" value="16">
-                                        <input name="type" type="hidden" value="free">
-                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
-                                    </form>
-                                </span>
-                            </div>
-                            <div onclick="operation.addLectureSectionRedirect('#17')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">5. Sobre la firmeza</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
-                            </div>
-                            <div onclick="operation.addLectureSection('free18', '18')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">6. Sobre lo lleno y lo vacio</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition18">
-                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free18"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
-                                        <input name="lsid" type="hidden" value="18">
-                                        <input name="type" type="hidden" value="free">
-                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
-                                    </form>
-                                </span>
-                            </div>
-                            <div onclick="operation.addLectureSection('free19', '19')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">7. Sobre el enfrentamiento directo e indirecto</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition19">
-                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free19"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
-                                        <input name="lsid" type="hidden" value="19">
-                                        <input name="type" type="hidden" value="free">
-                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
-                                    </form>
-                                </span>
-                            </div>
-                            <div onclick="operation.addLectureSection('free20', '20')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">8. Sobre los nueve cambios</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition20">
-                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free20"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
-                                        <input name="lsid" type="hidden" value="20">
-                                        <input name="type" type="hidden" value="free">
-                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
-                                    </form>
-                                </span>
-                            </div>
-                            <div onclick="operation.addLectureSectionRedirect('#21')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">9. Sobre la distribucion de los medios</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
-                            </div>
-                            <div onclick="operation.addLectureSection('free22', '22')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">10. Sobre la topologia</span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition22">
-                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free22"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
-                                        <input name="lsid" type="hidden" value="22">
-                                        <input name="type" type="hidden" value="free">
-                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
-                                    </form>
-                                </span>
-                            </div>
-                            <div onclick="operation.addLectureSection('free23', '23')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">11. Sobre las nueve clases de terreno </span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition23">
-                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free23"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
-                                        <input name="lsid" type="hidden" value="23">
-                                        <input name="type" type="hidden" value="free">
-                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
-                                    </form>
-                                </span>
-                            </div>
-                            <div onclick="operation.addLectureSection('free24', '24')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">12. Sobre el arte de atacar por el fuego </span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition24">
-                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free24"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
-                                        <input name="lsid" type="hidden" value="24">
-                                        <input name="type" type="hidden" value="free">
-                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
-                                    </form>
-                                </span>
-                            </div>
-                            <div onclick="operation.addLectureSection('free25', '25')" class="list-book-chapter flex space-between">
-                                <span class="list-book-chapter-titles flex flex-column">
-                                    <span class="list-book-chapter-title">13. Sobre la concordia y la discordia </span>
-                                    <span class="list-book-chapter-subtitle"></span>
-                                </span>
-                                <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition25">
-                                    <form method="POST" action="#15" accept-charset="UTF-8" id="free25"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
-                                        <input name="lsid" type="hidden" value="25">
-                                        <input name="type" type="hidden" value="free">
-                                        <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
-                                    </form>
-                                </span>
-                            </div>
-                        </div>     
-                    </div>
-                    <div class="my-readings-footer flex space-between flex-center-align">
-                        <img class="footer-logo" src="http://beta.lorapp.com/public/images/lorapp-footer-logo.svg">
-                        <div>
-                            <a href="#"><img src="http://beta.lorapp.com/public/images/icons/svg/home-icon.svg">Mis lecturas</a>
-                            <a href="" data-toggle="modal" data-target="#modal-feedback-questions"><img src="http://beta.lorapp.com/public/images/icons/svg/feedback-icon.svg">Feedback?</a>
+                <!-- Botones para mostrar tabla de contenido y mis apuntes -->
+                <div>
+                    <!-- Botón tabla de contenido -->
+                    <div class="show-my-readings-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tabla de contenido">
+                        <div class="flex flex-center-justify">
+                            <!-- SVG code of: public/images/icons/svg/table-of-contents-icon.svg  -->
+                            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                            <svg viewBox="0 0 30 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>table-of-contents-icon</title>
+                                <defs></defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                    <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-1220.000000, -30.000000)">
+                                        <g class="table-of-contents-icon" sketch:type="MSLayerGroup" transform="translate(1220.000000, 30.000000)">
+                                            <rect id="Rectangle-1" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0.681818182" width="4.09090909" height="4.09090909"></rect>
+                                            <rect id="Rectangle-1-Copy" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="11.5909091" width="4.09090909" height="4.09090909"></rect>
+                                            <rect id="Rectangle-1-Copy-2" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="22.5" width="4.09090909" height="4.09090909"></rect>
+                                            <path d="M9.48238342,2.72727273 L28.7616711,2.72727273" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
+                                            <path d="M9.48238342,13.6363636 L28.7616711,13.6363636" id="Line-Copy" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
+                                            <path d="M9.48238342,24.5454545 L28.7616711,24.5454545" id="Line-Copy-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
                         </div>
                     </div>
-                    <div class="closer-box" style="display: none;">
+                    <!-- Botón mis apuntes -->
+                    <div class="show-my-notes-btn flex flex-center-align flex-center-justify flex-column" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Mis apuntes">
+                        <div class="flex flex-center-justify">
+                            <!-- SVG code of: public/images/icons/svg/my-notes-icon2.svg  -->
+                            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                            <svg viewBox="0 0 32 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>my-notes-icon</title>
+                                <defs></defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                    <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-1219.000000, -86.000000)" stroke="#FFFFFF" stroke-width="2">
+                                        <g class="my-notes-icon" sketch:type="MSLayerGroup" transform="translate(1219.000000, 87.000000)">
+                                            <path d="M27.0994117,0.287456664 C26.9032621,0.0941631145 26.5999756,-1.168317e-09 26.2800293,0.288320546 L10.6999512,15.5999985 L10.6999512,20 L14.9300537,20 L30,5.24484228 C31.1999512,4.19999695 30.9044242,4.03627167 30.7073978,3.84211424 L27.0994117,0.287456664 Z" id="Shape-Copy-3" sketch:type="MSShapeGroup"></path>
+                                            <path d="M30,13.237 L30,15.1288504 L30,27.4250246 C30,28.4698647 29.1312074,29.316875 28.0728176,29.316875 L2.89777059,29.316875 C1.83341717,29.316875 0.970588235,28.4676302 0.970588235,27.4330542 L0.970588235,2.82444576 C0.970588235,1.78404028 1.83185064,0.940625 2.9059851,0.940625 L17.4205882,0.940625" id="Rectangle-1" sketch:type="MSShapeGroup"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div><!-- heading-wrapper -->
 
+            <!-- Tabla de contenido -->
+            <div class="my-readings-wrapper" style="left: -450px;">
+                <img class="right-close-icon" src="http://beta.lorapp.com/public/images/icons/png/close-icon.png">
+                <div class="my-readings-header flex space-between">
+                    <span>Tabla de contenido</span>
+                    <span class="my-readings-leaves"> Tienes: <span id="user_credit_actual">873</span> <img src="http://beta.lorapp.com/public/images/icons/svg/leaf-icon.svg"></span>
+                </div>
+                <div class="my-readings-list">
+                    <div class="list-book-container">
+                        <div class="list-book-title">
+                            <span>El arte de la guerra  BETA<em> – Sun Tzu BETA</em></span>
+                        </div>
+                        <div onclick="operation.addLectureSectionRedirect('#12')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">Introduccion</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                        </div>
+                        <div onclick="operation.addLectureSectionRedirect('#13')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">1. Sobre la evaluacion</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                        </div>
+                        <div onclick="operation.addLectureSectionRedirect('#14')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">2. Sobre la iniciacion de las acciones</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                        </div>
+                        <div onclick="operation.addLectureSectionRedirect('#15')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">3. Sobre las posiciones de la victoria y la derrota</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">6 días, 23 horas</span>
+                        </div>
+                        <div onclick="operation.addLectureSection('free16', '16')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">4. Sobre la medida en la disposición de los medios </span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition16">
+                                <form method="POST" action="#15" accept-charset="UTF-8" id="free16"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                    <input name="lsid" type="hidden" value="16">
+                                    <input name="type" type="hidden" value="free">
+                                    <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                </form>
+                            </span>
+                        </div>
+                        <div onclick="operation.addLectureSectionRedirect('#17')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">5. Sobre la firmeza</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                        </div>
+                        <div onclick="operation.addLectureSection('free18', '18')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">6. Sobre lo lleno y lo vacio</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition18">
+                                <form method="POST" action="#15" accept-charset="UTF-8" id="free18"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                    <input name="lsid" type="hidden" value="18">
+                                    <input name="type" type="hidden" value="free">
+                                    <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                </form>
+                            </span>
+                        </div>
+                        <div onclick="operation.addLectureSection('free19', '19')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">7. Sobre el enfrentamiento directo e indirecto</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition19">
+                                <form method="POST" action="#15" accept-charset="UTF-8" id="free19"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                    <input name="lsid" type="hidden" value="19">
+                                    <input name="type" type="hidden" value="free">
+                                    <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                </form>
+                            </span>
+                        </div>
+                        <div onclick="operation.addLectureSection('free20', '20')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">8. Sobre los nueve cambios</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition20">
+                                <form method="POST" action="#15" accept-charset="UTF-8" id="free20"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                    <input name="lsid" type="hidden" value="20">
+                                    <input name="type" type="hidden" value="free">
+                                    <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                </form>
+                            </span>
+                        </div>
+                        <div onclick="operation.addLectureSectionRedirect('#21')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">9. Sobre la distribucion de los medios</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status flex flex-center-align">Ilimitado</span>
+                        </div>
+                        <div onclick="operation.addLectureSection('free22', '22')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">10. Sobre la topologia</span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition22">
+                                <form method="POST" action="#15" accept-charset="UTF-8" id="free22"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                    <input name="lsid" type="hidden" value="22">
+                                    <input name="type" type="hidden" value="free">
+                                    <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                </form>
+                            </span>
+                        </div>
+                        <div onclick="operation.addLectureSection('free23', '23')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">11. Sobre las nueve clases de terreno </span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition23">
+                                <form method="POST" action="#15" accept-charset="UTF-8" id="free23"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                    <input name="lsid" type="hidden" value="23">
+                                    <input name="type" type="hidden" value="free">
+                                    <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                </form>
+                            </span>
+                        </div>
+                        <div onclick="operation.addLectureSection('free24', '24')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">12. Sobre el arte de atacar por el fuego </span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition24">
+                                <form method="POST" action="#15" accept-charset="UTF-8" id="free24"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                    <input name="lsid" type="hidden" value="24">
+                                    <input name="type" type="hidden" value="free">
+                                    <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                </form>
+                            </span>
+                        </div>
+                        <div onclick="operation.addLectureSection('free25', '25')" class="list-book-chapter flex space-between">
+                            <span class="list-book-chapter-titles flex flex-column">
+                                <span class="list-book-chapter-title">13. Sobre la concordia y la discordia </span>
+                                <span class="list-book-chapter-subtitle"></span>
+                            </span>
+                            <span style="cursor: pointer" class="list-book-chapter-status expired flex flex-center-align" id="lecture_adquisition25">
+                                <form method="POST" action="#15" accept-charset="UTF-8" id="free25"><input name="_token" type="hidden" value="rFy7cs2AFBA6npK8oF2nyWf0bv51vg6zeglOL6BW">
+                                    <input name="lsid" type="hidden" value="25">
+                                    <input name="type" type="hidden" value="free">
+                                    <span class="list-book-chapter-status expired flex flex-center-align"><span class="my-readings-leaves">¡GRATIS!</span></span>
+                                </form>
+                            </span>
+                        </div>
+                    </div>     
+                </div>
+                <div class="my-readings-footer flex space-between flex-center-align">
+                    <img class="footer-logo" src="http://beta.lorapp.com/public/images/lorapp-footer-logo.svg">
+                    <div>
+                        <!-- <a href="#"><img src="http://beta.lorapp.com/public/images/icons/svg/home-icon.svg">Mis lecturas</a> -->
+                        <a href="" data-toggle="modal" data-target="#modal-feedback-questions"><img src="http://beta.lorapp.com/public/images/icons/svg/feedback-icon.svg">Feedback?</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mis apuntes -->
+            <div class="notesMainWrapper" style="right: -650px;">
+                <img class="left-close-icon" src="http://beta.lorapp.com/public/images/icons/png/close-icon.png" style="display: none;">
+                <div class="reading-wrapper">
+                    <!-- Título y autor -->
+                    <div class="titleWrapper unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                        <h2 class="readingTitle">Apuntes</h2>
+                        <p class="readingAuthor">El arte de la guerra  BETA</p>
+                    </div> <!-- titleWrapper -->
+
+                    <!-- Texto cuerpo lectura -->
+                    <div class="bodyText" id="note_loader"><h4 class="chapterTitle">3. Sobre las posiciones de la victoria y la derrota</h4><div id="rn0" class="notesGroup"><a onclick="NoteAction.deleteNote(144, 0)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/public//images/icons/svg/delete-icon.svg"></a><div id="load_selectedtexthtml0" style="cursor:pointer" title="Clic para ver en la lectura..." onclick="Highlight.loadHighlights(global.preloadHighlights, 0)" class="notesHighlight"><p>Como regla general, <strong>es mejor conservar a un enemigo intacto que destruirlo</strong>. Capturar a sus soldados para conquistarlos y dominas a sus jefes.</p>
+
+                                <p>Un General decía: "Practica las artes marciales, calcula la fuerza de tus adversarios, haz que pierdan su ánimo y dirección, de manera que aunque el ejército enemigo esté intacto sea inservible: esto es ganar sin violencia. Si destruyes al ejército enemigo y matas a sus generales, asaltas sus defensas disparando, reúnes a una muchedumbre y usurpas un territorio, todo esto es ganar por la fuerza."</p></div><div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(0, true)"><div id="note_text0">una nota</div><input type="hidden" id="load_scroll_top0" value="0"><input type="hidden" id="load_font_size0" value="0"><textarea id="note_text_edit0" rows="5" style="width: 96%; display: none">una nota</textarea></div><div align="right" class="note_option"><span id="btn_note_save0" onclick="NoteAction.updateNote(144, 0)" class="btn-save-note unselectable" style="display: none">Guardar</span><span id="btn_note_cancel0" onclick="NoteAction.editNoteShow(0, false)" class="btn-save-note unselectable" style="display: none">Cancelar</span></div></div></div> <!-- bodyText -->
+                </div> <!-- reading-wrapper -->
+            </div><!-- notesMainWrapper -->
 
 
             <div class="mainWrapper">
-                <!-- Menu inferior -->
+                <!-- Menu inferior con opciones de estilos e información de la lectura-->
                 <div class="nav-menu flex space-between" unselectable="on" onselectstart="return false;">
+                    <!-- Opciones de estilos -->
                     <div class="reading-options flex">
-                        <div class="full-screen-btn flex flex-center-align">
+                        <!-- Botón pantalla completa -->
+                        <div class="full-screen-btn flex flex-center-align" title="Pantalla completa">
                             <img src="http://beta.lorapp.com/public/images/icons/svg/full-screen-icon2.svg">
                         </div>
+
                         <div class="wideness-btn-div flex flex-center-align">
-                            <div class="narrow-btn-div active flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/reading-narrow-icon.svg"></div>
-                            <div class="wide-btn-div flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/reading-wide-icon.svg"></div>
+                            <div class="narrow-btn-div active flex flex-center-align flex-center-justify" title="Modo normal"><img src="http://beta.lorapp.com/public/images/icons/svg/reading-narrow-icon.svg"></div>
+                            <div class="wide-btn-div flex flex-center-align flex-center-justify" title="Modo ancho"><img src="http://beta.lorapp.com/public/images/icons/svg/reading-wide-icon.svg"></div>
                         </div>
-                        <div class="brightness-btn-div2 flex flex-center-align">
+                        <div class="brightness-btn-div2 flex flex-center-align" title="Brillo">
                             <img src="http://beta.lorapp.com/public/images/icons/svg/brightness-high-icon2.svg" class="decrease-brightness-btn">
                             <div class="brightness-bar2 full-bar"></div>
                             <div class="brightness-bar2 full-bar"></div>
@@ -449,16 +402,17 @@
                         </div>
                         <div class="flex flex-center-align">
                             <div class="color-btn-container flex">
-                                <div class="color-light-btn active flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
-                                <div class="color-sepia-btn flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
-                                <div class="color-night-btn flex flex-center-align flex-center-justify"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
+                                <div class="color-light-btn active flex flex-center-align flex-center-justify" title="Normal"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
+                                <div class="color-sepia-btn flex flex-center-align flex-center-justify" title="Sepia"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
+                                <div class="color-night-btn flex flex-center-align flex-center-justify" title="Nocturno"><img src="http://beta.lorapp.com/public/images/icons/svg/checkmark-icon.svg"></div>
                             </div>
                         </div>
                     </div>
+                    <!-- Información de la lectura: Expiración, tiempo por leer, porcentaje de lectura -->
                     <div class="reading-info flex flex-center-align">
-                        <div title="Expiración de la lectura">tiempo disponible: <strong>6 días, 23 horas</strong></div>
-                        <div title="Tiempo de lectura"><strong><span class="minutes-left-data">3</span> mins</strong> de lectura</div>
-                        <div title="Porcentaje de lectura"><strong><span class="reading-percentage-data">0</span>%</strong> leído</div>
+                        <div class="time-before-expiring" title="Expiración de la lectura">expira en <strong>6 días, 23 horas</strong></div>
+                        <div class="reading-time-left" title="Tiempo de lectura">lo lees en <strong><span class="minutes-left-data">3</span> mins</strong></div>
+                        <div class="percentage-read" title="Porcentaje de lectura"><strong><span class="reading-percentage-data">0</span>%</strong> leído</div>
                     </div>
                 </div><!-- Menu inferior -->
 
@@ -472,11 +426,23 @@
                                     }
                                 </style>-->
                 <!--<div id="scrollWrapper">-->
-                <div class="reading-wrapper">
+                <a class="previous chapter-btn unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                    <img src="public/images/icons/svg/arrow-up-lg.svg" class="chapter-arrows">
+                    <p>Capítulo anterior</p>
+                    <p>[Título del capítulo anterior]</p>
+                </a>
+                <div class="reading-wrapper" id="reading-container">
+                    <div class="titleWrapper unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                        <h2 class="readingTitle">El arte de la guerra</h2>
+                        <span class="readingAuthor">Sun Tzu</span>
+                    </div>
 
                     <!-- Texto cuerpo lectura -->
-                    <!--<div class="bodyText unselectable" unselectable='on' onselectstart='return false;' onmousedown='return false;'>-->
+                    <div class="top-chapter-title-wrapper unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                        <h3 class="chapterTitle">3. Sobre las posiciones de la victoria y la derrota</h3>
+                    </div>
                     <div class="bodyText highlighter-context selectionShareable" id="bodyText">
+                        
                         <p><span class="highlighted" data-timestamp="1440481955419" id="1440481955419" style="background-color: rgba(255, 239, 80, 0.4);" data-highlighted="true">Como regla general, </span><strong><span class="highlighted" data-timestamp="1440481955419" id="1440481955419" style="background-color: rgba(255, 239, 80, 0.4);" data-highlighted="true">es mejor conservar a un enemigo intacto que destruirlo</span></strong><span class="highlighted" data-timestamp="1440481955419" id="1440481955419" style="background-color: rgba(255, 239, 80, 0.4);" data-highlighted="true">. Capturar a sus soldados para conquistarlos y dominas a sus jefes.</span></p>
 
                         <p><span class="highlighted" data-timestamp="1440481955419" id="1440481955419" style="background-color: rgba(255, 239, 80, 0.4);" data-highlighted="true">Un General decía: "Practica las artes marciales, calcula la fuerza de tus adversarios, haz que pierdan su ánimo y dirección, de manera que aunque el ejército enemigo esté intacto sea inservible: esto es ganar sin violencia. Si destruyes al ejército enemigo y matas a sus generales, asaltas sus defensas disparando, reúnes a una muchedumbre y usurpas un territorio, todo esto es ganar por la fuerza."</span></p>
@@ -533,31 +499,11 @@
 
                     </div>
                 </div> <!-- reading-wrapper -->
-                <!--                </div>-->
-
-                <!-- Capítulo anterior/actual/siguiente -->
-                <div class="chapter-control-wrapper bottom-chapter-control flex space-around">
-                    <a href="#14" class="prev-chapter flex flex-center-align">
-                        <span>2. Sobre la iniciacion de las acciones</span>
-                    </a>
-                    <div class="current-chapter flex flex-column flex-center-justify">
-                        <span class="pre-chapter-title">Leíste</span>
-                        <div><h3 class="chapterTitle">3. Sobre las posiciones de la victoria y la derrota</h3></div>
-                    </div>
-                    <a href="#16" class="next-chapter flex flex-center-align flex-right">
-                        <span>4. Sobre la medida en la disposición de los medios </span>
-                    </a>
-                </div>
-
-                <!-- Capítulo anterior/siguiente para pantallas pequeñas-->
-                <div class="chapter-control-wrapper bottom-chapter-control flex space-around">
-                    <a href="#14" class="prev-chapter flex flex-center-align flex-center-justify prev-chapter-mobile">
-                        <span>2. Sobre la iniciacion de las acciones</span>
-                    </a>
-                    <a href="#16" class="next-chapter flex flex-center-align flex-right next-chapter-mobile">
-                        <span>4. Sobre la medida en la disposición de los medios </span>
-                    </a>
-                </div>
+                <a class="next chapter-btn unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                    <p>Capítulo siguiente</p>
+                    <p>[Título del capítulo siguiente]</p>
+                    <img src="public/images/icons/svg/arrow-down-lg.svg" class="chapter-arrows">
+                </a>
 
                 <!-- Campo para agregar nota -->
                 <style>
@@ -593,23 +539,6 @@
                 </div>
             </div> <!-- mainWrapper -->
         </div> <!-- body-wrapper -->
-
-        <!-- Apuntes -->
-        <div class="notesMainWrapper" style="right: -650px;">
-            <img class="left-close-icon" src="http://beta.lorapp.com/public/images/icons/png/close-icon.png" style="display: none;">
-            <div class="reading-wrapper">
-                <!-- Título y autor -->
-                <div class="titleWrapper unselectable" unselectable="on" onselectstart="return false;" onmousedown="return false;">
-                    <h2 class="readingTitle">Apuntes</h2>
-                    <p class="readingAuthor">El arte de la guerra  BETA</p>
-                </div> <!-- titleWrapper -->
-
-                <!-- Texto cuerpo lectura -->
-                <div class="bodyText" id="note_loader"><h4 class="chapterTitle">3. Sobre las posiciones de la victoria y la derrota</h4><div id="rn0" class="notesGroup"><a onclick="NoteAction.deleteNote(144, 0)" class="delete-note-icon" title="Borrar apunte"><img src="http://beta.lorapp.com/public//images/icons/svg/delete-icon.svg"></a><div id="load_selectedtexthtml0" style="cursor:pointer" title="Clic para ver en la lectura..." onclick="Highlight.loadHighlights(global.preloadHighlights, 0)" class="notesHighlight"><p>Como regla general, <strong>es mejor conservar a un enemigo intacto que destruirlo</strong>. Capturar a sus soldados para conquistarlos y dominas a sus jefes.</p>
-
-                            <p>Un General decía: "Practica las artes marciales, calcula la fuerza de tus adversarios, haz que pierdan su ánimo y dirección, de manera que aunque el ejército enemigo esté intacto sea inservible: esto es ganar sin violencia. Si destruyes al ejército enemigo y matas a sus generales, asaltas sus defensas disparando, reúnes a una muchedumbre y usurpas un territorio, todo esto es ganar por la fuerza."</p></div><div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(0, true)"><div id="note_text0">una nota</div><input type="hidden" id="load_scroll_top0" value="0"><input type="hidden" id="load_font_size0" value="0"><textarea id="note_text_edit0" rows="5" style="width: 96%; display: none">una nota</textarea></div><div align="right" class="note_option"><span id="btn_note_save0" onclick="NoteAction.updateNote(144, 0)" class="btn-save-note unselectable" style="display: none">Guardar</span><span id="btn_note_cancel0" onclick="NoteAction.editNoteShow(0, false)" class="btn-save-note unselectable" style="display: none">Cancelar</span></div></div></div> <!-- bodyText -->
-            </div> <!-- reading-wrapper -->
-        </div><!-- notesMainWrapper -->
 
         <!-- START: Confirmar adquisicion de lectura con hojitas -->
         <div class="modal fade" id="modal-confirm-lecture-adquisition" tabindex="-1" role="dialog" aria-labelledby="reportproblem" aria-hidden="true">
