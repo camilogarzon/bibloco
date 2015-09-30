@@ -704,10 +704,10 @@ footer span {
     overflow-x: scroll; 
     width: 300px;
 }
-.dropdown-login > div {
+.dropdown-login form > div {
     padding: 15px;
 }
-.login-form > div {
+.login-form .form-input {
     padding-top: 10px;
 }
 .facebook-login-btn {

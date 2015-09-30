@@ -42,40 +42,40 @@
 
                         <!-- Login floating blox -->
                         <div class="dropdown-menu form-group dropdown-login" role="menu" aria-labelledby="dropdownMenu1">
-                            <div>
-                                <a href="http://andes.lorapp.com/loginfacebook" class="facebook-login-btn flat-btn"><img src="public/images/Facebook-logo.svg" class="facebook-logo left"><span>Entra con Facebook</span></a>
-                                <div class="inline-children flex flex-center-align space-between">
-                                    <div class="line-around"></div>
-                                    <span>O ingresa con tus datos</span>
-                                    <div class="line-around"></div>
-                                </div>
-                                <form class="login-form" id="login_form" method="POST" action="http://andes.lorapp.com/login" accept-charset="UTF-8" onsubmit="return landing.login( & quot; login_form & quot; );"  autocomplete="on">
+                            <form class="login-form" id="login_form" method="POST" action="http://andes.lorapp.com/login" accept-charset="UTF-8" onsubmit="return landing.login( & quot; login_form & quot; );"  autocomplete="on">
+                                <div>
+                                    <a href="http://andes.lorapp.com/loginfacebook" class="facebook-login-btn flat-btn"><img src="public/images/Facebook-logo.svg" class="facebook-logo left"><span>Entra con Facebook</span></a>
+                                    <div class="inline-children flex flex-center-align space-between">
+                                        <div class="line-around"></div>
+                                        <span>O ingresa con tus datos</span>
+                                        <div class="line-around"></div>
+                                    </div>
                                     <input name="_token" type="hidden" value="9rVyEwwa1666ZdHxoQNQdY0hGpArlwqTEkBn6F0H">
-                                    <div>
+                                    <div class="form-input">
                                         <label for="email">Email</label>
                                         <div class="inline-children input-with-icon">
                                             <div class="input-icon flex flex-center-align flex-center-justify"><span class="glyphicon glyphicon-user"></span></div>
                                             <input type="email" id="email" name="email" placeholder="ejemplo@email.com" class="antialiased" required>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div class="form-input">
                                         <label for="password">Contraseña</label>
                                         <div class="inline-children input-with-icon">
                                             <div class="input-icon flex flex-center-align flex-center-justify"><span class="glyphicon glyphicon-lock"></span></div>
                                             <input type="password" id="password"placeholder="contraseña" value="" class="antialiased" autocomplete="off" required>
                                         </div>
                                     </div>
-                                </form>
-                                <a a href="#" data-toggle="modal" data-target="#modal-forgot" class="forgotten-pass antialiased span-center">¿Olvidaste tu contraseña?</a>
-                                <div id="error_login" class="alert alert-danger text-center" style="display: none">
-                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    <span id="message_login">Usuario o contraseña incorrectos</span>
+                                    <a a href="#" data-toggle="modal" data-target="#modal-forgot" class="forgotten-pass antialiased span-center">¿Olvidaste tu contraseña?</a>
+                                    <div id="error_login" class="alert alert-danger text-center" style="display: none">
+                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        <span id="message_login">Usuario o contraseña incorrectos</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="login-bottom-div">
-                                <button class="signin-btn flat-btn" type="submit" value="Ingresar"><span class="signin-btn-text">Ingresar</span><span class="glyphicon glyphicon-arrow-right"></span></button>
-                                <span class="span-center">¿No tienes una cuenta? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</span>
-                            </div>
+                                <div class="login-bottom-div">
+                                    <button class="signin-btn flat-btn" type="submit" value="Ingresar"><span class="signin-btn-text">Ingresar</span><span class="glyphicon glyphicon-arrow-right"></span></button>
+                                    <span class="span-center">¿No tienes una cuenta? <a href="#" data-toggle="modal" data-target="#modal-registration-1">Regístrate</a>.</span>
+                                </div>
+                            </form>
                         </div>
                         <!-- /Login floating blox -->
 
