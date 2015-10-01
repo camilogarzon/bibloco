@@ -17,8 +17,8 @@ var Highlight = {};
     //////////////////////////////////////////////////////////////////////
     Highlight.actualHighlightID = '';
     Highlight.color = 'rgba(255,239,80,.4)';
-    Highlight.colorRemove = 'rgba(255,80,80,.4)';
-    Highlight.colorTake = 'rgba(80,255,80,.4)';
+    Highlight.colorRemove = 'rgba(211,211,211,.4)';
+    Highlight.colorTake = '';
     Highlight.highlightedHTML = [];
     Highlight.highlightedClassName = 'highlighted';
     Highlight.container = 'bodyText';
@@ -225,9 +225,14 @@ var Highlight = {};
 
     Highlight.NoteContainer.openClose = function(action) {
         if (action == 'open') {
-            $(Highlight.NoteContainer.container).animate({bottom: "0%"}, 500);
+            // Hace focus en el textarea
+            setTimeout(function() {
+              $('#note').focus();
+            }, 0);
+            $(Highlight.NoteContainer.container).addClass("show");
+            
         } else if (action == 'close') {
-            $(Highlight.NoteContainer.container).animate({bottom: "-18em"}, 10);
+            $(Highlight.NoteContainer.container).removeClass("show");
             $(Highlight.NoteContainer.note).val('');
             $('#' + Highlight.NoteContainer.selectedText + '_display').html('');
         }

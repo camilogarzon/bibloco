@@ -48,9 +48,9 @@ var NoteAction = {};
      */
     NoteAction.saveNoteSuccess = function(data) {
         if (data.valid) {
-            Util.alertBootstrap('Información guardada correctamente!', 'info');
+            Util.alertBootstrap('¡Nota guardada!', 'info');
         } else {
-            Util.alertBootstrap('No se guardó la información! Error: ' + data.error, 'error');
+            Util.alertBootstrap('Ocurrió un error. No se guardó la nota. Error: ' + data.error, 'error');
         }
         Highlight.NoteContainer.openClose('close');
     };
@@ -60,7 +60,7 @@ var NoteAction = {};
      */
     NoteAction.saveNoteError = function(jqXHR, textStatus) {
         Highlight.NoteContainer.openClose('close');
-        Util.alertBootstrap('No se guardó la información!', 'error');
+        Util.alertBootstrap('Ocurrió un error. No se guardó la nota.', 'error');
     };
 
 
@@ -102,17 +102,17 @@ var NoteAction = {};
 //        $("body p").highlight(load_selectedtext);
 
 ///seccion de codigo para ocultar las notas
-        $(".my-readings-wrapper").animate({
-            left: "-450px"
-        }, 500);
-        $(".notesMainWrapper").animate({
-            right: "-650px"
-        }, 500);
-        // Se desbloquea el scroll del body
-        $("body").removeClass("stop-scrolling");
-        $('.closer-box').fadeOut(500);
-        $('.right-close-icon').fadeOut(500);
-        $('.left-close-icon').fadeOut(500);
+        // $(".my-readings-wrapper").animate({
+        //     left: "-450px"
+        // }, 500);
+        // $(".notesMainWrapper").animate({
+        //     right: "-650px"
+        // }, 500);
+        // // Se desbloquea el scroll del body
+        // $("body").removeClass("stop-scrolling");
+        // $('.closer-box').fadeOut(500);
+        // $('.right-close-icon').fadeOut(500);
+        // $('.left-close-icon').fadeOut(500);
     };
     /**
      * Carga las notas de un usuario

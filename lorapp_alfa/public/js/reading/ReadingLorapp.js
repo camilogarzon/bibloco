@@ -68,11 +68,17 @@ var ReadingLorapp = {};
             /**
              * click en botón agregar apunte hace slide de casilla de apuntes
              */
-            $("#take-note").click(function(event) {
+            $("#takeHighlight").click(function(event) {
                 event.preventDefault();
-                $(".add-note-wrapper").animate({
-                    top: "auto"
-                }, 500);
+                $(".add-note-wrapper").addClass("show");
+            });
+
+            /**
+             * click en botón Cancelar apunte esconde casilla de apuntes y (limpia el campo de texto -por hacer-)
+             */
+            $("#btn_cancelar_note").click(function(event) {
+                event.preventDefault();
+                $(".add-note-wrapper").removeClass("show");
             });
 
             /**
@@ -80,10 +86,7 @@ var ReadingLorapp = {};
             */
             $(".show-my-notes-btn").on('click touchend', function(event) {
                 event.preventDefault();
-                // $('.notesMainWrapper').css('left', 'auto');
-                $(".notesMainWrapper").animate({
-                    right: "0"
-                }, 500);
+                $(".notesMainWrapper").addClass("show");
                 // Se bloquea el scroll del body mientras los apuntes se muestren
                 $("body").addClass("stop-scrolling");
 
@@ -91,35 +94,27 @@ var ReadingLorapp = {};
                 $('.left-close-icon').fadeIn(500);
             });
 
-
-
             /**
              * click en botón .show-my-readings-btn hace slide de menú lateral
              */
             $(".show-my-readings-btn").click(function(event) {
                 event.preventDefault();
-                $(".my-readings-wrapper").animate({
-                    left: "0"
-                }, 500);
+                $(".my-readings-wrapper").addClass("show");
                 // Se bloquea el scroll del body mientras el menú lateral se muestre
                 $("body").addClass("stop-scrolling");
                 $('.closer-box').fadeIn(500);
                 $('.right-close-icon').fadeIn(500);
             });
 
-
             /**
              * click en el botón X o en la sección oscurecida que sale en los menus laterales los cierra
              */
             $(".closer-box, .right-close-icon, .left-close-icon").click(function(event) {
                 event.preventDefault();
-                $(".my-readings-wrapper").animate({
-                    left: "-450px"
-                }, 500);
-                $(".notesMainWrapper").animate({
-                    right: "-650px"
-                }, 500);
+                $(".my-readings-wrapper").removeClass("show");
                 // Se desbloquea el scroll del body
+                $(".notesMainWrapper").removeClass("show");
+
                 $("body").removeClass("stop-scrolling");
                 $('.closer-box').fadeOut(500);
                 $('.right-close-icon').fadeOut(500);
@@ -546,6 +541,10 @@ var ReadingLorapp = {};
 // END: .nav-menu opacity is 1 if mouse moves. Then fades away.
 
 
+
+
+
+
 // START: Autogrow.js textareas enlarge as user keeps typing
         /* autogrow.js - Copyright (C) 2014, Jason Edelman <edelman.jason@gmail.com>
          Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -606,9 +605,10 @@ var ReadingLorapp = {};
 // END: Autogrow.js textareas enlarge as user keeps typing
 
 
-// START: Autogrow.js aplicado en .note-input
+// START: Autogrow.js aplicado en .note-input y en .edit-note-textarea
         $('.note-input').autogrow({onInitialize: true});
-// END: Autogrow.js aplicado en .note-input
+        $('.edit-note-textarea').autogrow({onInitialize: true});
+// END: Autogrow.js aplicado en .note-input y en .edit-note-textarea
 
 
 
@@ -1155,6 +1155,8 @@ var ReadingLorapp = {};
  * Funcion de inicializacion en el momento en que se completa el DOM llamada desde jquery
  * Esta funcion realiza los procesos de inicializacion de la aplicacion
  */
+
+
 $(function() {
     ReadingLorapp.initialize();
 });

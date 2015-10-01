@@ -111,16 +111,16 @@ var TextHighlight = {};
 
     };
 
-    TextHighlight.NoteContainer.openClose = function(action) {
-        if (action == 'open') {
-            $(TextHighlight.NoteContainer.container).animate({bottom: "0%"}, 500);
-        } else if (action == 'close') {
-            $(TextHighlight.NoteContainer.container).animate({bottom: "-18em"}, 10);
-            $(TextHighlight.NoteContainer.note).val('');
-            $(TextHighlight.NoteContainer.selectedText + '_display').html('');
-            TextHighlight.Selector.undoSelect();
-        }
-    };
+    // TextHighlight.NoteContainer.openClose = function(action) {
+    //     if (action == 'open') {
+    //         $(TextHighlight.NoteContainer.container).animate({bottom: "0%"}, 500);
+    //     } else if (action == 'close') {
+    //         $(TextHighlight.NoteContainer.container).animate({bottom: "-18em"}, 10);
+    //         $(TextHighlight.NoteContainer.note).val('');
+    //         $(TextHighlight.NoteContainer.selectedText + '_display').html('');
+    //         TextHighlight.Selector.undoSelect();
+    //     }
+    // };
 
     /** 
      * Metodo que inicializa el modulo
