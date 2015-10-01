@@ -1,3 +1,12 @@
+.antialiased {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.not-antialiased {
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;	
+}
+
 /* Import fonts */
 /*@font-face {
     font-family: 'Scala';
@@ -628,10 +637,14 @@ ol {
 
 /*Full-width mode */
 .body-wrapper.reading-full-width .reading-wrapper,
-.body-wrapper.reading-full-width .add-note-wrapper div {
+.body-wrapper.reading-full-width .add-note-wrapper > div {
 	padding-left: 10%;
 	padding-right: 10%;
 	width: auto;
+}
+.body-wrapper.reading-full-width .add-note-wrapper {
+	padding-left: 0;
+	padding-right: 0;
 }
 .body-wrapper.reading-full-width .chapter-btn {
 	box-sizing: border-box;
@@ -1136,7 +1149,6 @@ body .reading-wrapper .bodyText .highlighted {
 	background: rgba(255,239,80,.4);
 	-webkit-transition: background-color .2s;
 	        transition: background-color .2s;
-	/*border-radius: 4px;*/
 	cursor: pointer;
 	padding: .23em 0;
 }
@@ -1213,10 +1225,10 @@ body .reading-wrapper .bodyText .highlighted {
 .night .top-chapter-title-wrapper {
 	border-color: rgba(255,255,255,.15);
 }
-.night .bodyText p,
-.night .bodyText blockquote,
-.night .bodyText figcaption,
-.night .bodyText li {
+.night .reading-wrapper .bodyText p,
+.night .reading-wrapper .bodyText blockquote,
+.night .reading-wrapper .bodyText figcaption,
+.night .reading-wrapper .bodyText li {
 	color: #E4E4E4;
 }
 .night .popular-highlight {
@@ -1382,17 +1394,17 @@ body.sepia {
 .left-close-icon {
 	cursor: pointer;
 	display: none;
-	height: 20px;
-	opacity: .7;
+	height: 15px;
+	/*opacity: .7;*/
 	position: absolute;
-	top: 10px;
+	top: 15px;
 	z-index: 1000;
 }
 .right-close-icon {
 	left: 104%;
 }
 .left-close-icon {
-	left: -40px;
+	left: -30px;
 }
 .show-my-readings-btn,
 .show-my-notes-btn {
@@ -1433,7 +1445,7 @@ body.sepia {
 	padding: 20px 15px 0;
 }
 .closer-box {
-	background-color: rgba(53,58,61,.9);
+	background-color: rgba(0,0,0,.8);
 	display: none;
 	height: 100%;
 	opacity: 1;
@@ -1444,6 +1456,28 @@ body.sepia {
 	width: 100%;
 	z-index: 200;
 }
+
+.my-readings-wrapper,
+.notesMainWrapper,
+.add-note-wrapper {
+	/*In Chrome and Safari we might see a flickering effect when using CSS transforms or animations. 
+	The following declarations can be used to fix the issue:*/
+	-webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    /*animate transform*/
+    -webkit-transition: transform .7s;
+    -moz-transition: transform .7s;
+    -o-transition: transform .7s;
+    transition: transform .7s;
+}
+
 .my-readings-wrapper {
 	background: white;
 	-webkit-box-sizing: border-box;
@@ -1452,13 +1486,26 @@ body.sepia {
 	color: #546371;
 	font-size: 16px;
 	height: 100%;
-	left: -450px; /*same as .my-readings-wrapper width*/
+	/*left: -450px;*/ /*same as .my-readings-wrapper width*/
 	top: 0;
 	max-width: 90%;
 	padding-bottom: 141px;
 	position: fixed;
 	width: 450px;
 	z-index: 1100;
+	
+	/*hide on the left*/
+	-webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+
+}
+.my-readings-wrapper.show {
+	-webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 .my-readings-wrapper div {
 	-webkit-box-sizing: border-box;
@@ -1586,10 +1633,23 @@ body.sepia {
 	max-width: 90%;
 	opacity: 1;
 	position: fixed;
-	right: -650px; /*same as .notesMainWrapper width*/
+	right: 0; /*same as .notesMainWrapper width*/
 	top: 0;
 	width: 650px;
 	z-index: 1100;
+
+	/*hide on the right*/
+	-webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+
+}
+.notesMainWrapper.show {
+	-webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 .notesMainWrapper .notes-reading-wrapper {
 	background-color: white;
@@ -1641,7 +1701,7 @@ body.sepia {
 	padding: .8em 1.7em 0;
 }
 .notesMainWrapper .bodyText .notesNote {
-	padding: .8em 15px .8em 30px;
+	padding: .8em 20px .8em 30px;
 }
 .notesMainWrapper .bodyText {
 	margin-bottom: 3em;
@@ -1676,6 +1736,15 @@ body.sepia {
 	-webkit-transition: border .4s, background .4s, color .4s;
 	        transition: border .4s, background .4s, color .4s;
 }
+.bodyText .notesGroup .notesNote > textarea {
+	box-sizing: border-box;
+	border: 1px solid rgba(0,0,0,.2);
+    border-radius: 4px;
+    margin-bottom: .3em;
+    padding: .2em .5em;
+    resize: vertical;
+	width: 100%;
+}
 .bodyText .notesGroup .btn-discard-note,
 .bodyText .notesGroup .btn-save-note {
 	font-size: .85em;
@@ -1683,7 +1752,6 @@ body.sepia {
 .bodyText .notesGroup .btn-discard-note {
 	color: #777;
 	font-weight: 400;
-	margin: 0 1em;
 	text-decoration: none;
 }
 .bodyText .notesGroup .btn-discard-note:hover {
@@ -1771,17 +1839,36 @@ body.sepia {
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-	margin-bottom: 25px;
+    bottom: 0;
 	overflow-y: auto;
-	padding: 1em 6% .3em;
+	padding: 1em 6% 35px;
 	pointer-events: none;
 	position: fixed;
 	width: 100%;
 	z-index: 99;
+
+	/*hide on the bottom*/
+	-webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+
+}
+.add-note-wrapper.show {
+	-webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 .add-note-wrapper div {
 	margin: auto;
-	width: 32em; /*same as .reading-wrapper width*/
+	width: 30em; /*same as .reading-wrapper width*/
+}
+.add-note-wrapper .add-note-highlight p {
+	padding-bottom: .5em;
+}
+.add-note-wrapper .add-note-highlight p:last-child {
+	padding-bottom: 0;
 }
 .add-note-wrapper .add-note-highlight,
 .add-note-wrapper .note-input,
@@ -1847,26 +1934,36 @@ body.sepia {
 	font-size: .7em;
 	pointer-events: auto;
 }
+.flat-btn {
+	border: 1px solid rgba(0,0,0,.3);
+    border-radius: 4px;
+    box-shadow: inset 0px -1px 0px rgba(0,0,0,.25), inset 0px 1px 0px rgba(255,255,255,.4);
+    color: #FFF;
+    cursor: pointer;
+    height: 36px;
+    text-align: center;
+    text-shadow: 0px -1px 0 rgba(0,0,0,.3);
+}
 .btn-save-note {
-	background-color: #4aaaa5;
-	border: none;
-	border-bottom: 2px solid #3a9a95;
-	border-radius: 4px;
-	color: #FFF;
-	letter-spacing: 0.05em;
-	margin: 0 0 .5em;
-	padding: .65em 2em;
-	text-shadow: 1px 1px rgba(0,0,0,.3);
+    
+    /*width: 100%;*/
+}
+.btn-save-note {
+	background: #0095FF;
+    font-size: .7em;
+    letter-spacing: .04em;
+    padding: 0 2em;
 }
 .btn-save-note:hover {
-	background-color: #2a8a85;
+    background-color: #0087E8;
 }
 .btn-save-note:active {
-	background-color: #1B5A57;
+	background-color: #006FBE;
 }
 .btn-discard-note {
 	color: #DDD;
-	margin: 0 2em;
+	margin: 0 1em;
+	padding: 1em; 
 	text-decoration: none;
 }
 .btn-discard-note:hover {
@@ -2000,9 +2097,7 @@ body.sepia {
 .note_option {
     color: rgb(52, 195, 195);
     font-size: 1em;
-    font-family: 'Lato';    
-    margin-bottom: 20px;
-    margin-top: 10px;
+    font-family: 'Lato';
 }
 
 .note_option span {
@@ -2534,10 +2629,32 @@ a.highlight-btn {
 	}*/
 	body {
 		padding-top: 41px; /* same height as .heading-wrapper (defined by its child's height. Look in the inspector) */
+		padding-bottom: 0;
 	}
+
+	/* Header and footer hide on scroll down and show on scroll up, using headroom.js*/
+	.heading-wrapper,
+	.nav-menu  {
+    	transition: transform 200ms linear;
+	}
+	.heading-wrapper.slideDown {
+	    transform: translateY(0%);
+	}
+	.heading-wrapper.slideUp {
+	    transform: translateY(-100%);
+	}
+	.nav-menu.slideDown {
+	    transform: translateY(0%);
+	}
+	.nav-menu.slideUp {
+	    transform: translateY(100%);
+	}
+	/* /Header transition on scroll, using headroom. js*/
+
 	.heading-wrapper {
 		background-color: rgba(255,255,255,.92);
 		border-bottom: 1px solid rgba(0,0,0,.1);
+		height: 44px;
 	}
 	.sepia .heading-wrapper {
 		background-color: rgba(255, 245, 222, 0.9);
@@ -2550,7 +2667,7 @@ a.highlight-btn {
 	}
 	.show-my-readings-btn svg,
 	.show-my-notes-btn svg {
-		padding-top: 10px;
+		padding-top: 7px;
 	}
 	.reading-wrapper, .chapter-btn {
 		width: auto;
@@ -2559,7 +2676,13 @@ a.highlight-btn {
 		border-right: none;
 		box-shadow: none;
 	}
-
+	.body-wrapper .add-note-wrapper {
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+	.body-wrapper .add-note-wrapper > div {
+		width: auto;
+	}
 }
 
 @media (max-width : 750px) {
@@ -2585,6 +2708,7 @@ a.highlight-btn {
 		margin: 0;
 		padding-left: 3%;
 		padding-right: 3%;
+		padding-top: 2.5em;
 		width: auto;
 	}
 	.titleWrapper {
