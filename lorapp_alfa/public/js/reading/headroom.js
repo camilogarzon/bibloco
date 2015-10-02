@@ -53,7 +53,9 @@
     }, g.prototype = {
         constructor: g,
         init: function() {
-            return g.cutsTheMustard ? (this.elem.classList.add(this.classes.initial), setTimeout(this.attachEvent.bind(this), 100), this) : void 0
+            try {
+                return g.cutsTheMustard ? (this.elem.classList.add(this.classes.initial), setTimeout(this.attachEvent.bind(this), 100), this) : void 0
+            } catch(e) { console.log(e); return null;}
         },
         destroy: function() {
             var a = this.classes;
