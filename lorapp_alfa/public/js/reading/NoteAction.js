@@ -156,8 +156,10 @@ var NoteAction = {};
                         //Apunte subrayado
                         notes += '<div id="load_selectedtexthtml' + m + '" style="cursor:pointer" title="Clic para ver en la lectura..." onclick="Highlight.loadHighlights( global.preloadHighlights,' + m + ')"  class="notesHighlight">' + selectedtext_display + '</div>';
                         //Apunte tomado por el usuario
-                        notes += '<div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(' + m + ', true)">';
-                        notes += '<div id="note_text' + m + '" >' + notte[k].note + '</div>';
+                        //notes += '<div class="notesNote" title="Editar nota" onclick="NoteAction.editNoteShow(' + m + ', true)">';
+                        //notes += '<div id="note_text' + m + '" >' + notte[k].note + '</div>';
+                        notes += '<div class="notesNote">';
+                        notes += '<div id="note_text' + m + '"  title="Editar nota" onclick="NoteAction.editNoteShow(' + m + ', true)">' + notte[k].note + '</div>';
                         notes += '<input type="hidden" id="load_scroll_top' + m + '" value="' + notte[k].scroll_top + '"/>';
                         notes += '<input type="hidden" id="load_font_size' + m + '" value="' + notte[k].font_size + '"/>';
                         notes += '<textarea id="note_text_edit' + m + '" class="edit-note-textarea" style="display: none">' + notte[k].note + '</textarea>';
