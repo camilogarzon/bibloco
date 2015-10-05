@@ -1441,25 +1441,32 @@
         <script type="text/javascript">global.url = "http://andes.lorapp.com/";</script>
         <script type="text/javascript" src="public/js/util.js"></script>
         <script type="text/javascript">
-                                    // START: Click en botón móvil Buscar despliega barra de búsqueda
-                                    $("#mobile-search-btn").click(function() {
-                            $(".mobile-search-bar").animate({
-                            top: "0"
-                            }, 200, function() {
+            // Click en botón "Entrar" hace focus en el input del correo del usuario
+            $("#dropdownMenu1").click(function() {
+                setTimeout(function() {
+                  $('#email').focus();
+                }, 0);
+            });
 
-                            });
-                            });
-                                    // END: Click en botón móvil Buscar despliega barra de búsqueda
-                                    // START: Click en botón móvil Cancelar de la barra de búqueda la esconde
-                                    $("#mobile-search-cancel-btn").click(function() {
-                            $(".mobile-search-bar").animate({
-                            top: - ($(".mobile-nav-logged-in").height())
-                            }, 200, function() {
+            // Click en botón móvil Buscar despliega barra de búsqueda
+            $("#mobile-search-btn").click(function() {
+                $(".mobile-search-bar").animate({
+                    top: "0"
+                }, 200, function() {
+                });
+            });
 
-                            });
-                            });
-                                    // END: Click en botón móvil Cancelar de la barra de búqueda la esconde
-                                    $('.tooltip-active').tooltip();        </script>        
+            // Click en botón móvil Cancelar de la barra de búqueda la esconde
+            $("#mobile-search-cancel-btn").click(function() {
+                $(".mobile-search-bar").animate({
+                    top: - ($(".mobile-nav-logged-in").height())
+                }, 200, function() {
+                });
+            });
+
+            // Initialize bootstrap tooltips
+            $('.tooltip-active').tooltip();        
+        </script>        
         <script type="text/javascript" src="public/js/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="public/js/landing.js"></script>
         <script type="text/javascript">
