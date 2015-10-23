@@ -40,7 +40,7 @@ var NoteAction = {};
     NoteAction.saveNote = function(e) {
         e.preventDefault();
         var d = $('#form_note_create').serialize();
-        Util.callAjax(d, global.url + "/mynotes/savenote", "POST", NoteAction.saveNoteSuccess, NoteAction.saveNoteError);
+        Util.callAjax(d, global.url + "mynotes/savenote", "POST", NoteAction.saveNoteSuccess, NoteAction.saveNoteError);
     };
 
     /**
@@ -102,17 +102,17 @@ var NoteAction = {};
 //        $("body p").highlight(load_selectedtext);
 
 ///seccion de codigo para ocultar las notas
-        // $(".my-readings-wrapper").animate({
-        //     left: "-450px"
-        // }, 500);
-        // $(".notesMainWrapper").animate({
-        //     right: "-650px"
-        // }, 500);
-        // // Se desbloquea el scroll del body
-        // $("body").removeClass("stop-scrolling");
-        // $('.closer-box').fadeOut(500);
-        // $('.right-close-icon').fadeOut(500);
-        // $('.left-close-icon').fadeOut(500);
+//        $(".my-readings-wrapper").animate({
+//            left: "-450px"
+//        }, 500);
+//        $(".notesMainWrapper").animate({
+//            right: "-650px"
+//        }, 500);
+//        // Se desbloquea el scroll del body
+//        $("body").removeClass("stop-scrolling");
+//        $('.closer-box').fadeOut(500);
+//        $('.right-close-icon').fadeOut(500);
+//        $('.left-close-icon').fadeOut(500);
     };
     /**
      * Carga las notas de un usuario
@@ -175,7 +175,7 @@ var NoteAction = {};
                 }
             }
             if (m == 0) {
-                notes = '<h2 class="readingTitle">No has tomado ninguna nota de esta Lectura.</h2>';
+                notes = '<h4 class="chapterTitle">No has tomado ninguna nota de esta Lectura.</h4>';
             }
             Highlight.preloadHighlights(global.preloadHighlights);
             $(NoteAction.noteLoader).html(notes);

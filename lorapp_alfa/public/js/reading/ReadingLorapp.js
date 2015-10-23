@@ -34,7 +34,7 @@ var ReadingLorapp = {};
         NoteAction.btnNoteCancel = '#btn_note_cancel';
         NoteAction.btnNoteSave = '#btn_note_save';
         $("#icon_note").click(function(event) {
-            NoteAction.getNote(global.lecturesection_id);
+//            NoteAction.getNote(global.lecturesection_id);
         });
 
     };

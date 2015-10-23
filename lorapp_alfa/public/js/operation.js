@@ -19,30 +19,6 @@ var operation = {
         var d = $("#" + id).serialize();
         operation.lecturesection_id = id2;
         Util.callAjax(d, global.url + "/useraddlecturesection", "POST", operation.addLectureSectionSuccess, operation.addLectureSectionError);
-
-//        Util.cursorBusy();
-//        $.ajax({
-//            data: d,
-//            type: "POST",
-//            dataType: "json",
-//            url: global.url + "/useraddlecturesection",
-//            success: function(data) {
-//                Util.cursorNormal();
-//                if (data.valid) {
-//                    $("#user_credit_actual").empty();
-//                    $("#user_credit_actual").append(data.credit);
-//                    $("#lecture_adquisition" + id2).empty();
-//                    $("#lecture_adquisition" + id2).append('<a href="' + global.url + 'mylecture/' + lsid + '" class="btn btn-info btn-purchase btn-horizontal">LEER</a>');
-//                } else {
-//                    alert('Error: ' + data.error);
-//                }
-//            },
-//            error: function(jqXHR, textStatus, errorThrown) {
-//                console.log(jqXHR);
-//                console.log(textStatus);
-//                console.log(errorThrown);
-//            }
-//        });
     },
     addLectureSectionRedirect: function(url) {
         window.location.href =  url;
@@ -50,7 +26,7 @@ var operation = {
     addLectureSectionSuccess: function(data) {
         Util.cursorNormal();
         if (data.valid) {
-            $("#user_credit_actual").html(data.credit);
+            $(".user_credit_actual").html(data.credit);
             //$("#lecture_adquisition" + operation.lecturesection_id).html('<a href="' + global.url + 'mylecture/' + operation.lecturesection_id + '" class="btn btn-info btn-purchase btn-horizontal">LEER</a>');
             window.location.href =  global.url + 'mylecture/' + operation.lecturesection_id;
         } else {
@@ -67,7 +43,7 @@ var operation = {
         operation.lecturesection_id = lecturesection_id;
         operation.lecturesection_leaf = lecturesection_leaf;
         operation.lecturesection_type_id = lecturesection_type_id;
-        $('#lecturesection_leaf_span').html(operation.lecturesection_leaf);
+        $('.lecturesection_leaf_span').html(operation.lecturesection_leaf);
 
     },
     addLectureSectionConfirmation: function() {
@@ -78,6 +54,7 @@ var operation = {
     },
     addLectureSectionConfirmationClose: function() {
         $('#modal-confirm-lecture-adquisition').modal('hide');
+        $('#modal-renew-reading').modal('hide');
     },
     /**
      * Metodo para almacenar un Objeto en localStorage
@@ -216,7 +193,7 @@ var operation = {
         var leaf = operation.getLS('leaf');
         if (leaf === null || leaf === "null" || leaf === "") {
             //como no existe se crea el primer objeto
-            operation.start();
+//            operation.start();
         } else {
             leaf = operation.getLSO('leaf');
             try {
@@ -229,12 +206,12 @@ var operation = {
         }
         leaf = operation.getLSO('leaf');
         leaf[j] = {i: lsid, k: k, t: 0};
-        operation.setLSO('leaf', leaf);
+//        operation.setLSO('leaf', leaf);
         //modalidad prestamo Sand
-        //setInterval(operation.beat, 9800);
-        //setInterval(operation.track, 61000);
-        setInterval(operation.beat, (9800*6));
-        setInterval(operation.track, (61000*6));
+//        //setInterval(operation.beat, 9800);
+//        //setInterval(operation.track, 61000);
+//        setInterval(operation.beat, (9800*6));
+//        setInterval(operation.track, (61000*6));
     }
 
 }

@@ -31,7 +31,7 @@ var myLecture = {
         //estas lineas imprimen directamente, el timeout es para esperar el render de navegador
 //        setTimeout(function(){
 //            WinPrint.print();
-//            WinPrint.close();    
+//            WinPrint.close();
 //        },200);
     },
     /**
@@ -42,9 +42,11 @@ var myLecture = {
     changeFontSize: function(e, c) {
         var f = parseInt($(e).css("font-size"));
         if (c === '+') {
-            f = f + 1;
+            f = (f < 24) ? f + 1 : f;
         } else if (c === '-') {
-            f = f - 1;
+            f = (f > 12) ? f - 1 : f;
+        } else if (c === 'get') {
+            return f;
         }
         $(e).css({'font-size': f});
     },
@@ -93,6 +95,7 @@ var myLecture = {
                 //$("#float_note").css({top: e.pageY + 40});
                 $("#highlight-button").show();
             } else {
+                //$(".add-note-wrapper").animate({bottom: "-18em"}, 10);
                 $("#highlight-button").hide();
                 $("#float_note").hide();
             }
@@ -105,11 +108,25 @@ var myLecture = {
         if (!myLecture.savedText)
             return;
         var texto = myLecture.savedText + '';
+        //texto = texto.replace(/\n/gi,"<br>");
+//        texto = texto.replace(/\r?\n/g, "<br>");
+//        texto = texto.replace('"', '\"');
+        texto = texto.replace(/\n/gi, "<br>");
+        //texto = texto.replace(/\r/gi, "<br2>");
+        //console.log(texto);
+        $("#scroll_top").val($('#scrollWrapper').scrollTop());
+        $("#scroll_height").val($('#scrollWrapper').height());
+        $("#scroll_width").val($('#scrollWrapper').width());
+        $("#count_words").val(myLecture.wordCount(texto).words);
+        $("#font_size").val(myLecture.changeFontSize('.lecture', 'get'));
         $("#note").val('');
         $("#selected_text").empty();
-        $("#selected_text").append(texto);
+        //$("#selected_text").append(texto);
+        $("#selected_text").html(texto);
+        $("#selectedtext").val(texto);
         $("body p").highlight(texto);
         myLecture.restoreSelection(myLecture.savedText);
+        $(".add-note-wrapper").animate({bottom: "0%"}, 500);
         return false;
     },
     /**
@@ -119,35 +136,68 @@ var myLecture = {
         $("body p").unhighlight();
     },
     /**
+     * Metodo para contar palabras, caracteres y lineas
+     */
+    wordCount: function(val) {
+        return {
+            charactersNoSpaces: val.replace(/\s+/g, '').length,
+            characters: val.length,
+            words: val.match(/\S+/g).length,
+            lines: val.split(/\r*\n/).length
+        };
+    },
+    /**
      * Abre ventana flotante para crear una nota sobre un texto seleccionado
      * @param Event e
      */
-    addNote: function(e) {
-        if (!myLecture.savedText)
-            return;
-        var texto = myLecture.savedText + '';
-        $("#note").val('');
-        $("#selected_text").empty();
-        $("#selected_text").append(texto);
-        $("#selectedtext").val(texto);
-        $("#highlight-button").hide();
-        $("#highlight-button").css({position: 'fixed', top: -9999});
-        myLecture.restoreSelection(myLecture.savedText);
-        $("#float_note").show();
-        return false;
-    },
+//    addNote: function(e) {
+//        if (!myLecture.savedText)
+//            return;
+//        var texto = myLecture.savedText + '';
+//        //texto = texto.replace(/\r?\n/g, "<br>");
+//        $("#scroll_top").val($(window).scrollTop());
+//        $("#note").val('');
+//        $("#selected_text").empty();
+//        //$("#selected_text").append(texto);
+//        $("#selected_text").html(texto);
+//        $("#selectedtext").val(texto);
+//        $("#highlight-button").hide();
+//        $("#highlight-button").css({position: 'fixed', top: -9999});
+//        myLecture.restoreSelection(myLecture.savedText);
+//        $("#float_note").show();
+//        return false;
+//    },
     /**
      * Cierra ventana flotante para crear una nota
      */
     closeNote: function() {
         $("#highlight-button").hide();
         $("#float_note").hide();
+        $(".add-note-wrapper").animate({bottom: "-18em"}, 10);
+    },
+    closeSelectedTextNote: function(e) {
+        e.preventDefault();
+        myLecture.closeNote();
     },
     /**
      * Guarda la informacion de la nota
      */
-    saveNote: function() {
+    saveNote: function(e) {
+        e.preventDefault();
         var d = $('#form_note_create').serialize();
+//        var d = {};
+//        d.user_id = $("#user_id").val();
+//        d.lecturesection_id = $("#lecturesection_id").val();
+//        d.lecture_id = $("#lecture_id").val();
+//        d.scroll_top = $("#scroll_top").val();
+//        d.scroll_height = $("#scroll_height").val();
+//        d.scroll_width = $("#scroll_width").val();
+//        d.count_words = $("#count_words").val();
+//        d.font_size = $("#font_size").val();
+//        d.note = $("#note").val();
+//        var texto = myLecture.savedText + '';
+//        d.selectedtext = texto;//.toString();
+
         util.cursorBusy();
         $.ajax({
             data: d,
@@ -156,19 +206,47 @@ var myLecture = {
             url: global.url + "/mynotes/savenote",
             success: function(data) {
                 util.cursorNormal();
-                $("#highlight-button").hide();
-                $("#float_note").hide();
                 if (data.valid) {
-                    alert('Información guardada correctamente');
+                    myLecture.closeNote();
+                    util.alertBootstrap('Información guardada correctamente!','info');
                 } else {
                     alert('Error: ' + data.error);
                 }
+            }, error: function(data) {
+                util.cursorNormal();
+                myLecture.closeNote();
+                util.alertBootstrap('No se guardó la información!','error');
             }
         });
     },
-    openNoteLoader: function() {
-        myLecture.getNote();
+    openNoteLoader: function(id) {
+        myLecture.getNote(id);
         $('#note_loader_container').show();
+    },
+    loadHighlight: function(id) {
+        var d = {};
+        d.id = id;
+        $.ajax({
+            data: d,
+            type: "POST",
+            dataType: "json",
+            url: global.url + "/mynotes/lecturesection",
+            success: function(data) {
+                util.cursorNormal();
+                if (data.valid) {
+                    var res = data.response;
+                    for (var i in res) {
+                        var lecturesections = res[i].lecturesections;
+                        for (var j in lecturesections) {
+                            var notte = lecturesections[j].notes;
+                            for (var k in notte) {
+                                $("body p").highlight(notte[k].selectedtext);
+                            }
+                        }
+                    }
+                }
+            }
+        });
     },
     closeNoteLoader: function() {
         $('#note_loader_container').hide();
@@ -177,44 +255,106 @@ var myLecture = {
     /**
      * Carga las notas de un usuario
      */
-    getNote: function() {
+    getNote: function(id) {
         var d = {};
-        d.id = 0;
+        d.id = id;
         util.cursorBusy();
         $.ajax({
             data: d,
             type: "POST",
             dataType: "json",
-            url: global.url + "/mynotes",
+            url: global.url + "/mynotes/lecturesection",
             success: function(data) {
                 util.cursorNormal();
                 if (data.valid) {
                     var res = data.response;
                     var notes = '';
+                    var m = 0;
                     for (var i in res) {
-                        notes += '<div id=rn' + i + '>';
-                        notes += '<div class="notes_container notes_expandable">';
-                        notes += '<p><q class="notes_fromtext">' + res[i].selectedtext + '</q></p>';
-                        notes += '<p class="notes_title_nota">NOTA:</p>';
-                        notes += '<p class="notes_title_nota_txt" id="note_text' + i + '">' + res[i].note + '</p>';
-                        notes += '<p><textarea id="note_text_edit' + i + '" rows="5" style="width: 96%; display: none">' + res[i].note + '</textarea></p>';
-                        notes += '<div align="right" class="note_option">';
-                        notes += '<span id="btn_note_edit' + i + '" onclick="myLecture.editNoteShow(' + i + ', true)">Editar</span>';
-                        notes += '<span id="btn_note_save' + i + '" onclick="myLecture.updateNote(' + res[i].id + ', ' + i + ')" style="display: none">Guardar</span>';
-                        notes += '<span id="btn_note_cancel' + i + '" onclick="myLecture.editNoteShow(' + i + ', false)" style="display: none">Cancelar</span>';
-                        notes += '<span id="btn_note_delete' + i + '" onclick="myLecture.deleteNote(' + res[i].id + ',' + i + ')">Eliminar</span>';
-                        notes += '</div>';
-                        notes += '</div>';
-                        notes += '<hr>';
-                        notes += '</div>';
+//                        notes += '<div class="titleWrapper" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">';
+//                        notes += '<h2 class="readingTitle">' + res[i].title + '</h2>';
+//                        notes += '<p class="readingAuthor">' + res[i].author + '</p>';
+//                        notes += '</div>';
+//                        notes += '<div class="bodyText">';
+                        var lecturesections = res[i].lecturesections;
+                        for (var j in lecturesections) {
+                            var notte = lecturesections[j].notes;
+                            notes += '<h4 class="chapterTitle">' + lecturesections[j].name + '</h4>';
+                            
+                            for (var k in notte) {
+//                                notes += '<div id=rn' + m + '>';
+                                notes += '<div id=rn' + m + ' class="notesGroup">';
+                                notes += '<span onclick="myLecture.deleteNote(' + notte[k].id + ',' + m + ')" class="delete-note-icon" title="Borrar apunte"><img src="' + global.url + '/images/icons/svg/delete-icon.svg"></span>';
+//                                notes += '<div style="cursor:pointer" id="load_selectedtexthtml' + m + '" title="Clic para ver en la lectura..." onclick="myLecture.loadNoteIntoReading(' + m + ')"  class="notesHighlight">' + notte[k].selectedtext + '</div>';
+                                notes += '<div id="load_selectedtexthtml' + m + '" class="notesHighlight">' + notte[k].selectedtext + '</div>';
+                                notes += '<div class="notesNote" title="Editar nota" onclick="myLecture.editNoteShow(' + m + ', true)"><div id="note_text' + m + '" >' + notte[k].note + '</div>';
+                                notes += '<input type="hidden" id="load_scroll_top' + m + '" value="' + notte[k].scroll_top + '"/>';
+                                notes += '<input type="hidden" id="load_font_size' + m + '" value="' + notte[k].font_size + '"/>';
+                                notes += '<textarea id="note_text_edit' + m + '" rows="5" style="width: 96%; display: none">' + notte[k].note + '</textarea>';
+                                notes += '</div>';
+                                notes += '<div align="right" class="note_option">';
+                                notes += '<span id="btn_note_save' + m + '" onclick="myLecture.updateNote(' + notte[k].id + ', ' + m + ')" class="btn-save-note unselectable" style="display: none">Guardar</span>';
+                                notes += '<span id="btn_note_cancel' + m + '" onclick="myLecture.editNoteShow(' + m + ', false)" class="btn-save-note unselectable" style="display: none">Cancelar</span>';
+                                notes += '</div>';
+                                notes += '</div>';
+//                                notes += '</div>';
+                                m++;
+                            }
+                        }
+//                        notes += '</div>';
+                    }
+                    if (m == 0) {
+                        notes = '<h2 class="readingTitle">No has tomado ninguna nota de esta Lectura.</h2>';
                     }
                     $("#note_loader").empty();
                     $("#note_loader").append(notes);
                 } else {
                     alert('Error: ' + data.error);
                 }
+            }, error: function(data) {
+                util.cursorNormal();
+                var notes = '<h2 class="readingTitle">No has tomado ninguna nota de esta Lectura.</h2>';
+                $("#note_loader").empty();
+                $("#note_loader").append(notes);
             }
         });
+    },
+    /**
+     * Actualiza la informacion de la nota
+     * @param Number id
+     * @param Number idelem
+     */
+    loadNoteIntoReading: function(m) {
+        var load_scroll_top = parseInt($("#load_scroll_top" + m).val());
+        var load_font_size = parseInt($("#load_font_size" + m).val());
+        var load_selectedtext = $("#load_selectedtexthtml" + m).html();
+        //load_selectedtext = load_selectedtext.replace(/["]/g, '\\"');
+        //load_selectedtext = load_selectedtext.replace('<br>', ' ');
+        //load_selectedtext = load_selectedtext.replace('<br>', '\r');
+        console.log(load_selectedtext);
+        load_selectedtext = load_selectedtext.replace(/<br>/gi, '\n');
+        console.log(load_selectedtext);
+        $("#load_scroll_top").val(load_scroll_top);
+        $("#load_font_size").val(load_font_size);
+        var _this = $('.icon-notes-reading');
+        var current = _this.attr("src");
+        var swap = _this.attr("data-swap");
+        _this.attr('src', swap).attr("data-swap", current);
+        if ($("#icon_note").hasClass("isDown")) {
+            $(".notesMainWrapper").animate({left: "100%"}, 1000);
+        } else {
+            $(".notesMainWrapper").animate({left: "0%"}, 1000);
+        }
+        $("#icon_note").toggleClass("isDown");
+        if (load_font_size > 0) {
+            $('.lecture').css({'font-size': load_font_size + 'px'});
+        }
+        $('#scrollWrapper').scrollTop(load_scroll_top);
+        //@TODO: no se puede resaltar una zona ya resaltada
+        //pero que pertenece a otra nota,
+        //por lo tanto debe eliminarse lo ya resaltado
+        $("body p").unhighlight();
+        $("body p").highlight(load_selectedtext);
     },
     /**
      * Actualiza la informacion de la nota
@@ -243,11 +383,13 @@ var myLecture = {
                 } else {
                     alert('Error: ' + data.error);
                 }
+            }, error: function(data) {
+                util.cursorNormal();
             }
         });
     },
     /**
-     * 
+     *
      * @param Number id del elemento a intervenir
      * @param Bool s, show / hide=0
      */
@@ -291,74 +433,24 @@ var myLecture = {
                 } else {
                     alert('Error: ' + data.error);
                 }
+            }, error: function(data) {
+                util.cursorNormal();
             }
         });
     },
-    /**
-     * Metodo para almacenar un Objeto en localStorage
-     * @param String key
-     * @param Object value
-     */
-    setLSO: function(key, value) {
-        window.localStorage.setItem(key, JSON.stringify(value));
+    hideTooltip: function(event){
+      $('#general_tooltip').hide();
     },
-    /**
-     * Metodo para recuperar un Objeto de localStorage
-     * @param String key
-     * @returns Object 
-     */
-    getLSO: function(key) {
-        return JSON.parse(window.localStorage.getItem(key));
-    },
-    /**
-     * Metodo para almacenar un string en localStorage
-     * @param String key
-     * @param String value
-     */
-    setLS: function(key, value) {
-        window.localStorage.setItem(key, value);
-    },
-    /**
-     * Metodo para recuperar un string de localStorage
-     * @param String key
-     * @returns Object 
-     */
-    getLS: function(key) {
-        return window.localStorage.getItem(key);
-    },
-    /**
-     * Limpia localStorage
-     */
-    cleanLS: function() {
-        localStorage.clear();
-    },
-    /**
-     * Metodo para consrvar los valores de local storage
-     * @param StorageEvent e 
-     */
-    storageValue: function(e) {
-        myLecture.setLS(e.key, e.oldValue);
-    },
-    /**
-     * Verifica se localStorage est habilitado
-     * @returns Boolean 
-     */
-    checkLS: function() {
-        try {
-            localStorage.setItem('test', 'success');
-            localStorage.removeItem('test');
-            if (window.addEventListener) {
-                window.addEventListener('storage', myLecture.storageValue, false);
-            } else {
-                window.attachEvent('onstorage', myLecture.storageValue);
-            }
-            return true;
-        } catch (e) {
-            console.log(e);
-            alert('El navegador no es compatible con esta aplicación. \nPor favor habilite LocalStorage.\n\n' + e);
-            return false;
-        }
+    showTooltip: function(event){
+        var relatedTargetId = event && event.getAttribute && event.getAttribute("data-original-title");
+        var top = event.offsetTop + 10;
+        var left = event.offsetLeft + 70;
+        var general_tooltip = $('#general_tooltip');
+        general_tooltip.html(relatedTargetId);
+        general_tooltip.css({top: top+'px', left:left+'px'});
+        general_tooltip.show();
     }
+
 };
 
 var setTimer = function(cb, options) {

@@ -4,11 +4,11 @@
  * @author Camilo Garzon
  * @description Modulo para operaciones sobre la landingpage
  * @requires jquery
- * @requires util
+ * @requires Util
  */
 var landing = {
     emailCorrect: function(id_input) {
-        if (util.isEmail($("#" + id_input).val())) {
+        if (Util.isEmail($("#" + id_input).val())) {
             $("#" + id_input).addClass('alert-success').removeClass('alert-danger');
             $('#btn_reminder').removeAttr('disabled');
         } else {
@@ -48,14 +48,14 @@ var landing = {
             return false;
         d = {};
         d.email = $("#" + id_input).val();
-        util.cursorBusy();
+        Util.cursorBusy();
         $.ajax({
             data: d,
             type: "POST",
             dataType: "json",
             url: global.url + "emailexist",
             success: function(data) {
-                util.cursorNormal();
+                Util.cursorNormal();
                 $('#btn_registro_1').removeAttr('disabled');
                 if (data.valid) {
                     $("#" + id_input).addClass('alert-success').removeClass('alert-danger');
@@ -116,7 +116,7 @@ var landing = {
                 alert('Todos los campos son obligatorios');
                 return;
             }
-            if (!util.isEmail(e)) {
+            if (!Util.isEmail(e)) {
                 alert('El email ingresado no es correcto');
                 return;
             }
@@ -152,14 +152,14 @@ var landing = {
                 }
             }
             d = $("#form_register").serialize();
-            util.cursorBusy();
+            Util.cursorBusy();
             $.ajax({
                 data: d,
                 type: "POST",
                 dataType: "json",
                 url: global.url + "registration",
                 success: function(data) {
-                    util.cursorNormal();
+                    Util.cursorNormal();
                     console.log(data);
                     if (data.valid) {
                         window.location = data.redirect;
@@ -177,14 +177,14 @@ var landing = {
      */
     registrationCreate: function(id) {
         d = $('#' + id).serialize();
-        util.cursorBusy();
+        Util.cursorBusy();
         $.ajax({
             data: d,
             type: "POST",
             dataType: "json",
             url: global.url + "registration",
             success: function(data) {
-                util.cursorNormal();
+                Util.cursorNormal();
                 console.log(data);
                 if (data.valid) {
                     window.location = data.redirect;
@@ -197,14 +197,14 @@ var landing = {
     },
     registrationUpdate: function(id) {
         d = $('#' + id).serialize();
-        util.cursorBusy();
+        Util.cursorBusy();
         $.ajax({
             data: d,
             type: "POST",
             dataType: "json",
             url: global.url + "registrationupdate",
             success: function(data) {
-                util.cursorNormal();
+                Util.cursorNormal();
                 console.log(data);
                 if (data.valid) {
                     window.location = data.redirect;
@@ -224,14 +224,14 @@ var landing = {
             return false;
         }
         d = $('#' + id).serialize();
-        util.cursorBusy();
+        Util.cursorBusy();
         $.ajax({
             data: d,
             type: "POST",
             dataType: "json",
             url: global.url + "login",
             success: function(data) {
-                util.cursorNormal();
+                Util.cursorNormal();
                 console.log(data);
                 if (data.valid) {
                     window.location = data.redirect;
@@ -242,7 +242,7 @@ var landing = {
                     return false;
                 }
             }, error: function(data) {
-                util.cursorNormal();
+                Util.cursorNormal();
             }
         });
         return false;

@@ -49,7 +49,7 @@ var Highlight = {};
      */
     Highlight.onMouseOverHighlighted = function(event) {
         if (event.target.className == Highlight.highlightedClassName) {
-            $('#' + Highlight.optionContainer).css({top: event.pageY, left: event.pageX});
+            $('#' + Highlight.optionContainer).css({top: event.pageY - 50, left: event.pageX - 40});
             Highlight.actualHighlightID = event.target.dataset.timestamp;
 //            for (var i in Highlight.highlightedHTML) {
 //                if (Highlight.highlightedHTML[i].id == Highlight.actualHighlightID) {
@@ -117,27 +117,60 @@ var Highlight = {};
      */
     Highlight.highlightedHTMLSave = function(id, html, text, update) {
         var htmlSelected = {};
+        var add = true;
         htmlSelected.id = id;
         if (!update) {
             htmlSelected.html = html;
             htmlSelected.text = text;
-            Highlight.highlightedHTML.push(htmlSelected);
+            if (Highlight.highlightedHTML.length > 0){
+                for (var i in Highlight.highlightedHTML) {
+                    if (Highlight.highlightedHTML[i].text == htmlSelected.text){
+                        add = false;
+                    }
+                }
+                if (add){
+                    Highlight.highlightedHTML.push(htmlSelected);
+                }
+            } else {
+                Highlight.highlightedHTML.push(htmlSelected);
+            }
         } else {
-            htmlSelected.html = Highlight.highlightedHTML[Highlight.highlightedHTML.length - 1].html;
-            htmlSelected.text = Highlight.highlightedHTML[Highlight.highlightedHTML.length - 1].text;
-            Highlight.highlightedHTML.pop();
-            Highlight.highlightedHTML.push(htmlSelected);
+//            if (Highlight.highlightedHTML.length == 0){
+                htmlSelected.html = Highlight.highlightedHTML[Highlight.highlightedHTML.length - 1].html;
+                htmlSelected.text = Highlight.highlightedHTML[Highlight.highlightedHTML.length - 1].text;
+                Highlight.highlightedHTML.pop();
+                Highlight.highlightedHTML.push(htmlSelected);
+//            } else {
+//                htmlSelected.html = Highlight.highlightedHTML[Highlight.highlightedHTML.length - 1].html;
+//                htmlSelected.text = Highlight.highlightedHTML[Highlight.highlightedHTML.length - 1].text;
+//                Highlight.highlightedHTML.pop();
+//                Highlight.highlightedHTML.push(htmlSelected);
+//            }
         }
-
     };
+    
+    /**
+     * Metodo que calcula el porcentaje de texto resaltado
+     * @returns porcentaje de texto total resaltado
+     */
+    Highlight.calculatePercent = function() {
+        var bodyText = document.getElementById(Highlight.container);
+        var bodyTextPlainLength = bodyText.innerText.length;
+        var highlightedHTMLLength = 0;
+        for (var i in Highlight.highlightedHTML) {
+        	highlightedHTMLLength += Highlight.highlightedHTML[i].text.length;
+        }
+        var highlightedPercent = Math.round((highlightedHTMLLength * 100) / bodyTextPlainLength);
+    	return highlightedPercent;
+    }
     /**
      * Metodo que se ejecuta antes de realizar un Highlight
      * @param {Range} Contunto de elementos seleccionados
      * @returns {boolean} true | false, define si se hace el resaltado
      */
-    Highlight.onBeforeHighlight = function(range) {
-
-    };
+//    Highlight.onBeforeHighlight = function(range) {
+//        return window.confirm('Selected text: ' + range + '\nReally highlight?');
+//    };
 
     /**
      * Metodo que se ejecuta antes de realizar un Highlight
@@ -148,9 +181,18 @@ var Highlight = {};
 //        window.range = range;
         var rangeText = range + '';
         var t = document.createElement('pre');
-        t.appendChild(range.cloneContents());
-        Highlight.highlightedHTMLSave((new Date).getTime(), t.innerHTML, rangeText, false);
-        return true;
+        if (Highlight.calculatePercent() > 20 ){
+        	Util.alertBootstrap('Has resaltado más del 20% de esta lectura. <br>No puedes resaltar más texto.', 'error');
+        	return false;
+        }
+        if (rangeText.length < 500){
+            t.appendChild(range.cloneContents());
+            Highlight.highlightedHTMLSave((new Date).getTime(), t.innerHTML, rangeText, false);
+            return true;
+        } else {
+        	Util.alertBootstrap('No se puede resaltar más de 500 caracteres. <br>Intenta de nuevo, resaltando un texto más corto.', 'error');
+        	return false;
+        }
     };
 
     /**
@@ -181,6 +223,12 @@ var Highlight = {};
         $('#' + Highlight.optionContainer).hide();
         Highlight.NoteContainer.openClose('close');
         if (hl.dataset.timestamp == Highlight.actualHighlightID) {
+            for (var i in Highlight.highlightedHTML) {
+            	if (Highlight.highlightedHTML[i].id == hl.dataset.timestamp){
+                	Highlight.highlightedHTML.splice(i, 1);
+                	break;
+            	}
+            }
             //solo se elimina el elemento seleccionado en el evento del mouseOver
             return true;
         } else {
@@ -230,7 +278,6 @@ var Highlight = {};
               $('#note').focus();
             }, 0);
             $(Highlight.NoteContainer.container).addClass("show");
-            
         } else if (action == 'close') {
             $(Highlight.NoteContainer.container).removeClass("show");
             $(Highlight.NoteContainer.note).val('');
@@ -239,7 +286,7 @@ var Highlight = {};
     };
 
     Highlight.preloadHighlights = function(hls) {
-        Highlight.hltr2.removeHighlights();
+//        Highlight.hltr2.removeHighlights();
         if (hls instanceof Array) {
             for (var i in hls) {
                 Highlight.hltr.find(hls[i]);
@@ -249,7 +296,7 @@ var Highlight = {};
 
     Highlight.loadHighlights = function(hls, i) {
         if (hls instanceof Array) {
-            Highlight.hltr2.removeHighlights();
+//            Highlight.hltr2.removeHighlights();
             Highlight.hltr.find(hls[i]);
             $('.closer-box').trigger( 'click' );
         }
@@ -261,7 +308,8 @@ var Highlight = {};
     Highlight.initialize = function() {
         Highlight.hltr = new TextHighlighter(document.getElementById(Highlight.container), {onBeforeHighlight: Highlight.onBeforeHighlight, onAfterHighlight: Highlight.onAfterHighlight, onRemoveHighlight: Highlight.onRemoveHighlight});
         Highlight.hltr.setColor(Highlight.color);
-        document.getElementById(Highlight.container).addEventListener('mouseover', Highlight.onMouseOverHighlighted);
+        //document.getElementById(Highlight.container).addEventListener('mouseover', Highlight.onMouseOverHighlighted);
+        document.getElementById(Highlight.container).addEventListener('click', Highlight.onMouseOverHighlighted);
         document.getElementById(Highlight.optionRemove).addEventListener('mouseover', Highlight.onMouseOverHighlightedOnRemove);
         document.getElementById(Highlight.optionRemove).addEventListener('click', function(event) {
             Highlight.hltr.removeHighlights();
