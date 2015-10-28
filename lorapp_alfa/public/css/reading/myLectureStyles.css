@@ -1,3 +1,28 @@
+.reading-progress-bar-container {
+	height: 2px;
+	background: #404040;
+	opacity: 1;
+	position: relative;
+	bottom: 4px; /* same as height - .percentage-read {bottom} */
+	left: -1.2em; /*same as .percentage-read padding-left*/
+	width: 7.46em;
+	padding: 0;
+}
+.reading-progress-bar-full {
+	content: "";
+	display: block;
+	width: 0%;
+	height: 100%;
+	border-radius: inherit;
+	background-color: #21CA66;
+}
+.percentage-read {
+	position: relative;
+	bottom: -2px; /* same as .reading-progress-bar-container height */
+	text-align: center;
+	width: 5em; /* if changed, .reading-progress-bar-container width should change accordingly */
+}
+
 .antialiased {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -726,13 +751,13 @@ ol {
 	width: 100%;
 	z-index: 1200;
 }
-.reading-info div {
+.reading-info > div {
 	box-shadow: -1px 0px 1px rgba(0,0,0,0.8);
 	cursor: default;
 	text-shadow: 0 -1px 1px rgba(0,0,0,0.25), 0 -1px 1px #222, 0 1px 0px rgba(255,255,255,.1);
     border-left: 1px solid rgba(255,255,255,.2);
 	color: rgba(255,255,255,.7);
-	font-size: 0.7em;
+	font-size: 15px;
 	line-height: 1.8;
 	overflow: hidden;
 	padding: 0 18px;

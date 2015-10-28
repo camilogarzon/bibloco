@@ -42,10 +42,35 @@ var ReadingLorapp = {};
     /** 
      * Metodo que ejecuta snippets de codigo, pendiente por organizar en los respectivos modulos
      */
+
     ReadingLorapp.snippets = function() {
 
 
         $(document).ready(function() {
+
+            // Función que recalcula el porcentaje leído
+            function calculatePercentageRead() {
+                height = $('#reading-container').height();
+                viewportHeight = $(window).height();
+                scrollTop = $(document).scrollTop();
+                readingBeginning = $('#reading-container').offset().top;
+                percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
+                roundedPercentageRead = Math.round(percentageRead);
+            }
+
+            // Función que reimprime el porcentaje tanto en número como en la barra de progreso
+            function printPercentageRead() {
+                if (percentageRead > 100) {
+                    $('.reading-percentage-data').html(100);
+                    $('.reading-progress-bar-full').css({"width":100+"%"});
+                } else if (percentageRead < 0) {
+                    $('.reading-percentage-data').html(0);
+                    $('.reading-progress-bar-full').css({"width":0+"%"});
+                } else {
+                    $('.reading-percentage-data').html(roundedPercentageRead);
+                    $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
+                }
+            }
 
             // START: Page smoothly scrolls until the #reading-container, to hide the previous chapter button.
             // Condition so it doesn't happen when page is refreshed in the middle of the reading.
@@ -189,18 +214,10 @@ var ReadingLorapp = {};
                         $(this).addClass('active');
 
                         // Rerun info calculations for correct % read and minutes left.
-                        height = $('#reading-container').height();
-                        scrollTop = $(document).scrollTop();
-                        percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+                        calculatePercentageRead();
                         
                         // reprint percentage read, keep 0 if < 0 and 100 if > 100
-                        if (percentageRead > 100) {
-                            $('.reading-percentage-data').html(100);
-                        } else if (percentageRead < 0) {
-                            $('.reading-percentage-data').html(0);
-                        } else {
-                            $('.reading-percentage-data').html(percentageRead);
-                        }
+                        printPercentageRead();
 
                         var percentageShown = $('.reading-percentage-data').html();
                         var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
@@ -215,18 +232,10 @@ var ReadingLorapp = {};
                         $(this).addClass('active');
 
                         // Rerun info calculations for correct % read and minutes left.
-                        height = $('#reading-container').height();
-                        scrollTop = $(document).scrollTop();
-                        percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+                        calculatePercentageRead();
                         
                         // reprint percentage read, keep 0 if < 0 and 100 if > 100
-                        if (percentageRead > 100) {
-                            $('.reading-percentage-data').html(100);
-                        } else if (percentageRead < 0) {
-                            $('.reading-percentage-data').html(0);
-                        } else {
-                            $('.reading-percentage-data').html(percentageRead);
-                        }
+                        printPercentageRead();
 
                         var percentageShown = $('.reading-percentage-data').html();
                         var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
@@ -243,9 +252,7 @@ var ReadingLorapp = {};
                 if ($('body').hasClass('night')) {
                     $('body').removeClass('night');
                 }
-                $('.color-light-btn').removeClass('active');
-                $('.color-sepia-btn').removeClass('active');
-                $('.color-night-btn').removeClass('active');
+                $('.color-light-btn, .color-sepia-btn, .color-night-btn').removeClass('active');
                 $(this).addClass('active');
             });
 
@@ -257,9 +264,7 @@ var ReadingLorapp = {};
                 else {
                     $('body').addClass('sepia');
                 }
-                $('.color-light-btn').removeClass('active');
-                $('.color-sepia-btn').removeClass('active');
-                $('.color-night-btn').removeClass('active');
+                $('.color-light-btn, .color-sepia-btn, .color-night-btn').removeClass('active');
                 $(this).addClass('active');
             });
 
@@ -271,9 +276,7 @@ var ReadingLorapp = {};
                 else {
                     $('body').addClass('night');
                 }
-                $('.color-light-btn').removeClass('active');
-                $('.color-sepia-btn').removeClass('active');
-                $('.color-night-btn').removeClass('active');
+                $('.color-light-btn, .color-sepia-btn, .color-night-btn').removeClass('active');
                 $(this).addClass('active');
             });
             // END: Click en botones de color ajusta estilos
@@ -338,42 +341,26 @@ var ReadingLorapp = {};
         $('.brightness-bar2:nth-child(2)').click(function() {
             $('.brightness').css({opacity: 0.7});
             $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(3)').removeClass('full-bar');
-            $('.brightness-bar2:nth-child(4)').removeClass('full-bar');
-            $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
-            $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
+            $('.brightness-bar2:nth-child(3), .brightness-bar2:nth-child(4), .brightness-bar2:nth-child(5), .brightness-bar2:nth-child(6)').removeClass('full-bar');
         });
         $('.brightness-bar2:nth-child(3)').click(function() {
             $('.brightness').css({opacity: 0.525});
-            $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(3)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(4)').removeClass('full-bar');
-            $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
-            $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
+            $('.brightness-bar2:nth-child(2), .brightness-bar2:nth-child(3)').addClass('full-bar');
+            $('.brightness-bar2:nth-child(4), .brightness-bar2:nth-child(5), .brightness-bar2:nth-child(6)').removeClass('full-bar');
         });
         $('.brightness-bar2:nth-child(4)').click(function() {
             $('.brightness').css({opacity: 0.35});
-            $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(3)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(4)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(5)').removeClass('full-bar');
-            $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
+            $('.brightness-bar2:nth-child(2), .brightness-bar2:nth-child(3), .brightness-bar2:nth-child(4)').addClass('full-bar');
+            $('.brightness-bar2:nth-child(5), .brightness-bar2:nth-child(6)').removeClass('full-bar');
         });
         $('.brightness-bar2:nth-child(5)').click(function() {
             $('.brightness').css({opacity: 0.175});
-            $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(3)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(4)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(5)').addClass('full-bar');
+            $('.brightness-bar2:nth-child(2), .brightness-bar2:nth-child(3), .brightness-bar2:nth-child(4), .brightness-bar2:nth-child(5)').addClass('full-bar');
             $('.brightness-bar2:nth-child(6)').removeClass('full-bar');
         });
         $('.brightness-bar2:nth-child(6)').click(function() {
             $('.brightness').css({opacity: 0});
-            $('.brightness-bar2:nth-child(2)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(3)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(4)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(5)').addClass('full-bar');
-            $('.brightness-bar2:nth-child(6)').addClass('full-bar');
+            $('.brightness-bar2:nth-child(2), .brightness-bar2:nth-child(3), .brightness-bar2:nth-child(4), .brightness-bar2:nth-child(5), .brightness-bar2:nth-child(6)').addClass('full-bar');
         });
 // END: Click on brightness buttons changes .brightness opacity
 
@@ -386,17 +373,21 @@ var ReadingLorapp = {};
         var viewportHeight = $(window).height();
         var scrollTop = $(document).scrollTop();
         var readingBeginning = $('#reading-container').offset().top;
-        var percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+        var percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
+        var roundedPercentageRead = Math.round(percentageRead);
 
         // print percentageRead in html. Keep 0 if < 0 and 100 if > 100
         if (percentageRead > 100) {
             $('.reading-percentage-data').html(100);
+            $('.reading-progress-bar-full').css({"width":100+"%"});
         }
         else if (percentageRead < 0) {
             $('.reading-percentage-data').html(0);
+            $('.reading-progress-bar-full').css({"width":0+"%"});
         }
         else {
-            $('.reading-percentage-data').html(percentageRead);
+            $('.reading-percentage-data').html(roundedPercentageRead);
+            $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
         };
 
         // recalculate when scrolling
@@ -405,40 +396,25 @@ var ReadingLorapp = {};
             viewportHeight = $(window).height();
             scrollTop = $(document).scrollTop();
             readingBeginning = $('#reading-container').offset().top;
-            percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+            percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
+            roundedPercentageRead = Math.round(percentageRead);
+            
 
             // print updated percentageRead in html on scroll. Keep 0 if < 0 and 100 if > 100
             if (percentageRead > 100) {
                 $('.reading-percentage-data').html(100);
+                $('.reading-progress-bar-full').css({"width":100+"%"});
             } else if (percentageRead < 0) {
                 $('.reading-percentage-data').html(0);
+                $('.reading-progress-bar-full').css({"width":0+"%"});
             } else {
-                $('.reading-percentage-data').html(percentageRead);
+                $('.reading-percentage-data').html(roundedPercentageRead);
+                $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
             }
         });
 // END: Calculate percentage read
 
-//// START: Calculate percentage read
-//        var viewportHeight = $('#scrollWrapper').height();
-//        var height = $('#reading-container').height();
-//        var scrollTop = $('#scrollWrapper').scrollTop();
-//        var percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
-//// print percentageRead in html
-//        $('.reading-percentage-data').html(percentageRead);
-//
-//        $('#scrollWrapper').scroll(function() {
-//            height = $('#reading-container').height();
-//            viewportHeight = $('#scrollWrapper').height();
-//            scrollTop = $('#scrollWrapper').scrollTop();
-//            percentageRead = Math.round((scrollTop * 100) / (height - viewportHeight));
-//
-//            // update percentageRead in html on scroll
-//            $('.reading-percentage-data').html(percentageRead);
-//        });
-//// END: Calculate percentage read
-
-
-        // START: Calculate reading minutes remaining
+// START: Calculate reading minutes remaining
         var words = $('.bodyText').text()
                 , wordCount = words.replace(/[^\w ]/g, "").split(/\s+/).length;
         var averageWordsPerMin = 250;
@@ -460,63 +436,69 @@ var ReadingLorapp = {};
 // START: Click on size buttons changes body font-size
         $('.size-small-div').click(function() {
             $('body').css({'font-size': '1.125em'});
-            $('.size-small-div').removeClass('active');
-            $('.size-medium-div').removeClass('active');
-            $('.size-large-div').removeClass('active');
+            $('.size-small-div, .size-medium-div, .size-large-div').removeClass('active');
             $(this).addClass('active');
 
             // Rerun info calculations for correct % read and minutes left.
             height = $(document).height();
             scrollTop = $(document).scrollTop();
-            percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+            percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
+            roundedPercentageRead = Math.round(percentageRead);
             if (percentageRead > 100) {
                 $('.reading-percentage-data').html(100);
+                $('.reading-progress-bar-full').css({"width":100+"%"});
             } else if (percentageRead < 0) {
                 $('.reading-percentage-data').html(0);
+                $('.reading-progress-bar-full').css({"width":0+"%"});
             } else {
-                $('.reading-percentage-data').html(percentageRead);
+                $('.reading-percentage-data').html(roundedPercentageRead);
+                $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
             };
             var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
             $('.minutes-left-data').html(minutesLeft);
         });
         $('.size-medium-div').click(function() {
             $('body').css({'font-size': '1.35em'});
-            $('.size-small-div').removeClass('active');
-            $('.size-medium-div').removeClass('active');
-            $('.size-large-div').removeClass('active');
+            $('.size-small-div, .size-medium-div, .size-large-div').removeClass('active');
             $(this).addClass('active');
 
             // Rerun info calculations for correct % read and minutes left.
             height = $(document).height();
             scrollTop = $(document).scrollTop();
-            percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+            percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
+            roundedPercentageRead = Math.round(percentageRead);
             if (percentageRead > 100) {
                 $('.reading-percentage-data').html(100);
+                $('.reading-progress-bar-full').css({"width":100+"%"});
             } else if (percentageRead < 0) {
                 $('.reading-percentage-data').html(0);
+                $('.reading-progress-bar-full').css({"width":0+"%"});
             } else {
-                $('.reading-percentage-data').html(percentageRead);
+                $('.reading-percentage-data').html(roundedPercentageRead);
+                $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
             };
             var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
             $('.minutes-left-data').html(minutesLeft);
         });
         $('.size-large-div').click(function() {
             $('body').css({'font-size': '1.575em'});
-            $('.size-small-div').removeClass('active');
-            $('.size-medium-div').removeClass('active');
-            $('.size-large-div').removeClass('active');
+            $('.size-small-div, .size-medium-div, .size-large-div').removeClass('active');
             $(this).addClass('active');
 
             // Rerun info calculations for correct % read and minutes left.
             height = $(document).height();
             scrollTop = $(document).scrollTop();
-            percentageRead = Math.round(((scrollTop - readingBeginning) * 100) / (height - viewportHeight));
+            percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
+            roundedPercentageRead = Math.round(percentageRead);
             if (percentageRead > 100) {
                 $('.reading-percentage-data').html(100);
+                $('.reading-progress-bar-full').css({"width":100+"%"});
             } else if (percentageRead < 0) {
                 $('.reading-percentage-data').html(0);
+                $('.reading-progress-bar-full').css({"width":0+"%"});
             } else {
-                $('.reading-percentage-data').html(percentageRead);
+                $('.reading-percentage-data').html(roundedPercentageRead);
+                $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
             };
             var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
             $('.minutes-left-data').html(minutesLeft);
