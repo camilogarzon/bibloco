@@ -146,7 +146,7 @@
 // Personalize effect
 (function() {
     // For the header
-    var header = new Headroom(document.querySelector(".heading-wrapper"), {
+    var header = new Headroom(document.querySelector(".top-nav"), {
         tolerance: 5,
         offset : 205,
         classes: {

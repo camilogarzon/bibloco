@@ -107,9 +107,21 @@ var ReadingLorapp = {};
             });
 
             /**
+            * click en botón estilos hace slide de menú estilos o lo oculta si ya está abierto
+            // */
+            $('#mobile-styles-btn').on('click touchend', function() {
+                if ($('.nav-menu').hasClass('slideDown')) {
+                    $('.nav-menu').removeClass('slideDown');
+                }
+                else {
+                    $('.nav-menu').addClass('slideDown');
+                }
+            });
+
+            /**
             * click en botón apuntes hace slide de apuntes
             */
-            $(".show-my-notes-btn").on('click touchend', function(event) {
+            $("#my-notes-btn").on('click touchend', function(event) {
                 event.preventDefault();
                 $(".notesMainWrapper").addClass("show");
                 // Se bloquea el scroll del body mientras los apuntes se muestren
@@ -122,7 +134,7 @@ var ReadingLorapp = {};
             /**
              * click en botón .show-my-readings-btn hace slide de menú lateral
              */
-            $(".show-my-readings-btn").click(function(event) {
+            $("#table-of-contents-btn").on('click touchend', function(event) {
                 event.preventDefault();
                 $(".my-readings-wrapper").addClass("show");
                 // Se bloquea el scroll del body mientras el menú lateral se muestre

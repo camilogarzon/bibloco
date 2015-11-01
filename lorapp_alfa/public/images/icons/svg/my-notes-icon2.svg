@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="31px" viewBox="0 0 32 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>my-notes-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-1219.000000, -86.000000)" stroke="#FFFFFF" stroke-width="2">
+            <g id="my-notes-icon" sketch:type="MSLayerGroup" transform="translate(1219.000000, 87.000000)">
+                <path d="M27.0994117,0.287456664 C26.9032621,0.0941631145 26.5999756,-1.168317e-09 26.2800293,0.288320546 L10.6999512,15.5999985 L10.6999512,20 L14.9300537,20 L30,5.24484228 C31.1999512,4.19999695 30.9044242,4.03627167 30.7073978,3.84211424 L27.0994117,0.287456664 Z" id="Shape-Copy-3" sketch:type="MSShapeGroup"></path>
+                <path d="M30,13.237 L30,15.1288504 L30,27.4250246 C30,28.4698647 29.1312074,29.316875 28.0728176,29.316875 L2.89777059,29.316875 C1.83341717,29.316875 0.970588235,28.4676302 0.970588235,27.4330542 L0.970588235,2.82444576 C0.970588235,1.78404028 1.83185064,0.940625 2.9059851,0.940625 L17.4205882,0.940625" id="Rectangle-1" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
