@@ -129,6 +129,8 @@ var ReadingLorapp = {};
 
                 $('.closer-box').fadeIn(500);
                 $('.left-close-icon').fadeIn(500);
+                // Esconde el menú de estilos si está abierto
+                $('.nav-menu').addClass('slideDown');
             });
 
             /**
@@ -141,6 +143,8 @@ var ReadingLorapp = {};
                 $("body").addClass("stop-scrolling");
                 $('.closer-box').fadeIn(500);
                 $('.right-close-icon').fadeIn(500);
+                // Esconde el menú de estilos si está abierto
+                $('.nav-menu').addClass('slideDown');
             });
 
             /**
