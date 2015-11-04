@@ -422,6 +422,7 @@ section {
     align-items: center;
     -webkit-flex-direction: column;
     flex-direction: column;
+    padding: 2em;
 }
 .section-9 p {
     font-size: 1.3em;
@@ -943,7 +944,7 @@ form {
 }
 .jumbotron-main {
     background-color: rgb(234, 255, 246);
-    border: 1px #EEE solid;
+    border-bottom: 1px #EEE solid;
     padding: 30px 48px 20px;
 }
 .btn-lorapp-start {
@@ -976,7 +977,7 @@ form {
 }
 .dinamic-message {
     font-size: 2.6em;
-    padding: 1.8em 1em .5em;
+    padding: .5em 1em;
 }
 #changing-message {
     color: rgb(14, 206, 204);
@@ -1445,7 +1446,7 @@ li.list-group-item.list-more-readings:hover {
 }
 @media only screen and (max-width: 768px) {
     body {
-        padding-top: 50px; 
+        padding-top: 0; 
     }
     .navbar.nav-logged-in {
         height: 44px;
@@ -1672,9 +1673,6 @@ li.list-group-item.list-more-readings:hover {
     .phone-img {
         left: 50%;
         margin-left: -140px;
-    }
-    .section-9 {
-        padding: 2em;
     }
     .section-9 h2 {
         font-size: 2.3em;
