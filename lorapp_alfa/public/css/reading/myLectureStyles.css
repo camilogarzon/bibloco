@@ -9,7 +9,10 @@
 	fill: #000;
 	stroke:  #000;
 }
-
+.time-before-expiring,
+.reading-options .wideness-btn-div {
+	display: none;
+}
 
 
 
@@ -23,7 +26,7 @@
 	-moz-osx-font-smoothing: auto;	
 }
 
-/* Import fonts */
+/* Import font Scala */
 /*@font-face {
     font-family: 'Scala';
     font-style: normal;
@@ -66,15 +69,56 @@
 }*/
 
 
+/* Import font Literata */
+/*@font-face {
+    font-family: 'Literata';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Literata-font/literata-regular.otf');
+}
+@font-face {
+    font-family: 'Literata';
+    font-style: bold;
+    font-weight: 700;
+    src: url('../fonts/Literata-font/literata-bold.otf');
+}
+@font-face {
+    font-family: 'Literata';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/Literata-font/literata-italic.otf');
+}
+@font-face {
+    font-family: 'Literata';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../fonts/Literata-font/literata-bold-italic.otf');
+}
+.titleWrapper,
+.bodyText {
+	font-family: 'Literata', 'Droid Serif', 'Georgia', 'serif' !important;
+	word-spacing: 0 !important;
+}
+.bodyText p {
+	line-height: 1.6em !important;
+}
+body.mac .bodyText {
+    font-size: .9em !important;
+}
+body .reading-wrapper .bodyText .highlighted {
+    padding: 0.05em 0 !important;
+}*/
+
+
 
 /*Macs and PCs */
 /*For macs*/
 body.mac .bodyText {
-	font-size: 0.87em;
+	font-size: 0.85em;
 	/* Font smoothing */
-	-webkit-font-smoothing: antialiased;
+	/*-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);*/
 }
 body.mac .bodyText blockquote {
 	font-size: 1.1em;
@@ -96,7 +140,7 @@ body.pc .bodyText {
 	text-shadow: 0 0 0 rgba(0,0,0,.9); /*test for better font rendering in Windows*/
 }
 body.pc .bodyText p {
-	line-height: 1.8;
+	line-height: 1.7;
 }
 
 
@@ -108,7 +152,7 @@ body.pc .bodyText p {
 /* Font-family */
 .titleWrapper,
 .bodyText {
-	font-family: 'Merriweather', 'Georgia', 'serif';
+	font-family: 'Noto Serif', 'Georgia', 'serif';
 }
 body,
 blockquote,
@@ -146,7 +190,7 @@ blockquote p,
 .chapterTitle,
 .my-readings-wrapper,
 .notesMainWrapper .chapterTitle,
-.notesHighlight,
+/*.notesHighlight,*/
 .notesNote:hover,
 .add-note-wrapper .add-note-highlight,
 .bodyText h1,
@@ -543,10 +587,19 @@ p {
 	margin: .79em 0 .22em;
 	text-transform: uppercase;
 }
+.bodyText h4 {
+	font-size: 1em;
+	font-weight: bold;
+	letter-spacing: 0.03em;
+	line-height: 1.47;
+	margin: .79em 0 .22em;
+	text-transform: uppercase;
+}
 .bodyText ul,
 .bodyText ol {
 	/*margin-top: .12em;*/
 	padding-bottom: .27em;
+	padding-top: .27em;
 }
 .bodyText ul li,
 .bodyText ol li {
@@ -568,11 +621,11 @@ p {
 .bodyText h1,
 .bodyText h2,
 .bodyText h3,
-.bodyText h4,
+/*.bodyText h4,
 .bodyText h5,
-.bodyText h6,
+.bodyText h6,*/
 .sup {
-	color: #FF6E6E;
+	color: #0C7A6F;
 }
 /*ul,
 ol {
@@ -634,8 +687,8 @@ ol {
 	                                                  This number should be half the .bodyText line-height in px*/
 	display: block;
 	margin: 0 auto;
-	width: 30em; /*reading width*/
-	padding: 1em 7%;
+	width: 26.1em; /*reading width*/
+	padding: 1em 9%;
 	position: relative;
 	-webkit-transition: background-color .4s;
 	        transition: background-color .4s;
@@ -779,7 +832,8 @@ ol {
 	height: 4px;
 	left: 0;
 	position: fixed;
-	top: 0;
+	/*top: 0;*/
+	bottom: 0;
 	width: 100%;
 	z-index: 101;
 }
@@ -1078,13 +1132,15 @@ ol {
   	   -moz-font-kerning: normal;
   	        font-kerning: normal;
   	font-size: .9em;
-	letter-spacing: 0.005em;
+	/*letter-spacing: 0.005em;*/
 	margin-top: 2.2em;
 	padding-bottom: 3em;
 	padding-top: 0;
-	text-align: left;
+	text-align: justify;
 	text-rendering: optimizeLegibility; /* Some known bugs. If problems look here first */
-	/*text-shadow: 0px 1px 0px rgba(0,0,0,0.07);*/ /*test for better legibility*/
+
+	text-shadow: 0px 0px 0px rgba(0,0,0,.7); /*test for better legibility*/
+	text-shadow: 0px 0px 0px rgba(0,0,0,1); /*test for better legibility*/
 	/*-webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;*/
@@ -1108,11 +1164,11 @@ ol {
 	padding-top: .3em;
 }
 .bodyText p {
-	line-height: 1.75em;
+	line-height: 1.55em;
 	/*padding-bottom: 0.815em;*/
 }
 .bodyText p + p {
-	text-indent: 1.5em;
+	/*text-indent: 1.5em;*/
 }
 /*.bodyText p:first-letter {
 	font-size: 3.1em;
@@ -1211,7 +1267,7 @@ body .reading-wrapper .bodyText .highlighted {
 	-webkit-transition: background-color .2s;
 	        transition: background-color .2s;
 	cursor: pointer;
-	padding: .23em 0;
+	padding: .11em 0;
 }
 .bodyText .sentence.highlighted:hover {
 	border-bottom: 0.15em solid transparent;
@@ -1251,6 +1307,383 @@ body .reading-wrapper .bodyText .highlighted {
 	text-decoration: underline;
 }
 /* /Body text properties */
+
+
+/* Notas al pie */
+._idFootnotes {
+	font-size: .8em;
+	padding-top: 3em;
+	text-shadow: none;
+}
+._idFootnotes:before {
+	content: "NOTAS";
+	font-family: "Lato";
+	font-weight: bold;
+	letter-spacing: .05em;
+}
+._idFootnotes aside {
+	text-indent: 1.5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*@font-face {
+	font-family:Lato;
+	font-style:normal;
+	font-weight:bold;
+	src : url("../Fonts/Lato-Bold.ttf");
+}
+@font-face {
+	font-family:"Noto Serif";
+	font-style:normal;
+	font-weight:normal;
+	src : url("../Fonts/NotoSerif.ttf");
+}
+@font-face {
+	font-family:"Noto Serif";
+	font-style:normal;
+	font-weight:bold;
+	src : url("../Fonts/NotoSerif-Bold.ttf");
+}
+@font-face {
+	font-family:"Noto Serif";
+	font-style:italic;
+	font-weight:bold;
+	src : url("../Fonts/NotoSerif-BoldItalic.ttf");
+}
+@font-face {
+	font-family:"Noto Serif";
+	font-style:oblique;
+	font-weight:bold;
+	src : url("../Fonts/NotoSerif-BoldItalic.ttf");
+}
+@font-face {
+	font-family:"Noto Serif";
+	font-style:italic;
+	font-weight:normal;
+	src : url("../Fonts/NotoSerif-Italic.ttf");
+}
+@font-face {
+	font-family:"Noto Serif";
+	font-style:oblique;
+	font-weight:normal;
+	src : url("../Fonts/NotoSerif-Italic.ttf");
+}*/
+body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote {
+	margin:0;
+	padding:0;
+	border-width:0;
+}
+body {
+	-epub-hyphens:auto;
+}
+@page {
+	margin : 0px 0px 0px 0px;
+}
+a._idGenColorInherit {
+	color:inherit;
+}
+p.Lorapp-styles_Body-1 {
+	-epub-text-align-last:left;
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:1em;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.5;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:justify;
+	text-decoration:none;
+	text-indent:24px;
+	text-transform:none;
+	widows:1;
+}
+li.Lorapp-styles_Body-1-ul {
+	-epub-text-align-last:left;
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:1em;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.5;
+	list-style-position:outside;
+	list-style-type:disc;
+	margin-bottom:3px;
+	margin-left:18px;
+	margin-right:0;
+	margin-top:3px;
+	orphans:1;
+	page-break-after:avoid;
+	page-break-before:auto;
+	text-align:justify;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	widows:1;
+}
+p.Lorapp-styles_Body-2 {
+	-epub-text-align-last:left;
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:1em;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	line-height:1.583;
+	margin-bottom:9px;
+	margin-left:24px;
+	margin-right:0;
+	margin-top:0;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:justify;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	widows:1;
+}
+p.Lorapp-styles_Body-example {
+	-epub-text-align-last:left;
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:1em;
+	font-style:italic;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.5;
+	margin-bottom:11px;
+	margin-left:18px;
+	margin-right:0;
+	margin-top:11px;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:justify;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	widows:1;
+}
+li.Lorapp-styles_Body-ol {
+	-epub-text-align-last:left;
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:1em;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.583;
+	list-style-position:inside;
+	list-style-type:decimal;
+	margin-bottom:3px;
+	margin-left:18px;
+	margin-right:0;
+	margin-top:3px;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:justify;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	widows:1;
+}
+p.Lorapp-styles_Footnotes {
+	-epub-text-align-last:left;
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:0.833em;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.9;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:justify;
+	text-decoration:none;
+	text-indent:24px;
+	text-transform:none;
+	widows:1;
+}
+h1.Lorapp-styles_H1 {
+	color:#005d53;
+	font-family:Lato, sans-serif;
+	font-size:1.5em;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	line-height:1.056;
+	margin-bottom:28px;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:center;
+	text-decoration:none;
+	text-indent:24px;
+	text-transform:uppercase;
+	widows:1;
+}
+h2.Lorapp-styles_H2 {
+	color:#005d53;
+	font-family:Lato, sans-serif;
+	font-size:1.083em;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	line-height:1.846;
+	margin-bottom:6px;
+	margin-left:0;
+	margin-right:0;
+	margin-top:28px;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:center;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:uppercase;
+	widows:1;
+}
+h3.Lorapp-styles_H3 {
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:1.083em;
+	font-style:italic;
+	font-variant:normal;
+	font-weight:bold;
+	line-height:1.538;
+	margin-bottom:6px;
+	margin-left:0;
+	margin-right:0;
+	margin-top:28px;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:center;
+	text-decoration:none;
+	text-indent:18px;
+	text-transform:none;
+	widows:1;
+}
+h4.Lorapp-styles_H4 {
+	-epub-text-align-last:left;
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:1em;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	line-height:1.583;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:9px;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:justify;
+	text-decoration:none;
+	text-indent:24px;
+	text-transform:none;
+	widows:1;
+}
+span.Lorapp-styles_Footnote-Sup {
+	color:#0c7a6f;
+	font-family:"Lato Black", sans-serif;
+	font-size:1.167em;
+	font-style:normal;
+	font-weight:900;
+	vertical-align:super;
+}
+span.Lorapp-styles_Regular {
+	font-family:"Noto Serif", serif;
+	font-size:1em;
+	font-style:normal;
+	font-weight:normal;
+}
+span.Lorapp-styles_italic {
+	color:#000000;
+	font-family:"Noto Serif", serif;
+	font-size:1em;
+	font-style:italic;
+	font-weight:normal;
+	text-decoration:none;
+}
+.night span.Lorapp-styles_italic {
+	color:#E4E4E4;
+}
+span._idGenCharOverride-1 {
+	font-size:0.667em;
+}
+span._idGenCharOverride-2 {
+	font-size:0.68em;
+}
+span._idGenCharOverride-3 {
+	font-size:0.923em;
+}
+div._idGenObjectStyleOverride-1 {
+	border-width:0px;
+}
+
+
+
+
+
+
+
+.night span.Lorapp-styles_regular,
+.night span.Lorapp-styles_bold,
+.night span.Lorapp-styles_italic,
+.night h4.Lorapp-styles_H4,
+.night ._idFootnotes:before {
+	color:#E4E4E4;
+}
+.night h1.Lorapp-styles_H1,
+.night h2.Lorapp-styles_H2,
+.night h3.Lorapp-styles_H3 {
+	color: #00C8B8;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1335,11 +1768,8 @@ body.sepia {
 }
 .sepia .bodyText h1,
 .sepia .bodyText h2,
-.sepia .bodyText h3,
-.sepia .bodyText h4,
-.sepia .bodyText h5,
-.sepia .bodyText h6 {
-	color: #005499;
+.sepia .bodyText h3 {
+	color: #005d53;
 }
 .sepia .sup {
 	color: #0071CE;
@@ -1581,9 +2011,13 @@ body.sepia {
 	overflow-y: scroll;
 	width: 100%;
 }
-.my-readings-header {
+.my-readings-header,
+.my-notes-header {
 	background-color: #F8F9FA;
 	border-bottom: 1px solid #C7C6CB;
+	color: #546371;
+    font-size: 16px;
+	padding: 17px 15px;
 }
 .my-readings-header a {
 	font-weight: bold;
@@ -1594,9 +2028,6 @@ body.sepia {
 .my-readings-leaves img {
 	height: 19px;
 	margin-right: -3px;
-}
-.my-readings-header {
-	padding: 17px 15px;
 }
 .list-book-container div {
 	border-bottom: 1px solid #F4F4F6;
@@ -1664,12 +2095,14 @@ body.sepia {
 	color: tomato;
 	content: "expiró";
 }*/
-.my-readings-footer {
+.my-readings-footer,
+.my-notes-footer {
 	background-color: #F8F9FA;
 	border-top: 1px solid #C7C6CB;
 	bottom: 25px;
-	height: 60px;
-	padding: 0 15px;
+	box-sizing: border-box;
+	/*height: 60px;*/
+	padding: 13px 15px;
 	position: absolute;
 	width: 100%;
 }
@@ -1688,7 +2121,6 @@ body.sepia {
 
 
 
-
 /* Apuntes */
 .notesMainWrapper {
 	background: white;
@@ -1699,7 +2131,7 @@ body.sepia {
 	position: fixed;
 	right: 0; /*same as .notesMainWrapper width*/
 	top: 0;
-	width: 650px;
+	width: 400px;
 	z-index: 1100;
 
 	/*hide on the right*/
@@ -1717,13 +2149,13 @@ body.sepia {
 }
 .notesMainWrapper .notes-reading-wrapper {
 	background-color: white;
-	border: none;
+	border-left: 1px solid #EEE;
 	display: block;
-	font-size: 1.1em;
+	font-size: 18px;
 	height: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	padding: 0 5%;
+	padding: 0;
 	width: auto;
 }
 .notesMainWrapper .notes-reading-wrapper .bodyText p {
@@ -1731,7 +2163,7 @@ body.sepia {
 	word-spacing: 0;
 }
 .notesHighlight {
-	color: rgba(80, 73, 0, 0.9);
+	/*color: rgba(80, 73, 0, 0.9);*/
 }
 .notesMainWrapper .titleWrapper {
 	background-color: transparent;
@@ -1762,52 +2194,73 @@ body.sepia {
 	line-height: 1.5em;
 }
 .notesMainWrapper .bodyText .notesHighlight {
-	padding: .8em 1.7em 0;
+	font-size: .9em;
+	padding: 0 0 0 1em;
 }
-.notesMainWrapper .bodyText .notesNote {
-	padding: .8em 20px .8em 30px;
+.notesMainWrapper .bodyText .notesNote div:first-child {
+	border: 1px solid transparent;
+    padding: .2em .5em;
+    width: 100%;
+    position: relative;
+    top: -0.2em;
+    left: -0.5em;
 }
 .notesMainWrapper .bodyText {
 	margin-bottom: 3em;
 }
 .notesMainWrapper .bodyText p {
-	line-height: 1.5em;
-	padding-bottom: 1em;
-	text-indent: 0;
+	line-height: 1.4em;
+	/*padding-bottom: 1em;*/
+	/*text-indent: 0;*/
+}
+.notesMainWrapper .bodyText p:last-child {
+	padding-bottom: 0;
 }
 .bodyText .notesGroup {
-	margin: 0 0 .8em 0em;
+	border-bottom: 1px solid #EEE;
+	margin: 0;
+	padding: 1.5em;
+	padding-bottom: 0;
 	position: relative;
 }
 .bodyText .notesGroup .notesHighlight {
-	background-color: rgba(255,239,80,.075);
+	/*background-color: rgba(255,239,80,.075);
 	border-bottom: 1px solid rgba(255,239,80,0);
 	border-right: 1px solid rgba(255,239,80,1);
-	border-top: 1px solid rgba(255,239,80,1);
-	border-left: 4px solid rgba(255,239,80,.7);
-	color: rgba(80, 73, 0, 0.9);
+	border-top: 1px solid rgba(255,239,80,1);*/
+	border-left: 5px solid rgba(255,239,80,1);
+	/*color: rgba(80, 73, 0, 0.9);*/
     -webkit-transition: border .4s, background .4s, color .4s;
             transition: border .4s, background .4s, color .4s;
 }
 .bodyText .notesGroup .notesNote {
 	-webkit-font-smoothing: auto; /*text smoothing*/
-	border-right: 1px solid rgba(0,0,0,.075);
+	/*border-right: 1px solid rgba(0,0,0,.075);
 	border-bottom: 1px solid rgba(0,0,0,.075);
 	border-left: 4px solid rgba(0,0,0,.075);
-	border-top: 1px solid rgba(255,239,80,1);
-	color: #555;
+	border-top: 1px solid rgba(255,239,80,1);*/
+	border: 1px solid transparent;
+	color: #87869B;
 	font-size: 0.95em;
+	min-height: 40px;
+	padding: .8em 19px 0;
 	-webkit-transition: border .4s, background .4s, color .4s;
 	        transition: border .4s, background .4s, color .4s;
 }
 .bodyText .notesGroup .notesNote > textarea {
-	box-sizing: border-box;
-	border: 1px solid rgba(0,0,0,.2);
-    border-radius: 4px;
-    margin-bottom: .3em;
+	/*box-sizing: border-box;*/
+	/*border: 1px solid rgba(0,0,0,.2);*/
+	border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0px;
+    /*margin-bottom: .3em;*/
     padding: .2em .5em;
+    outline: none;
     resize: vertical;
 	width: 100%;
+	height: 24px;
+	position: relative;
+	top: -.2em; /* Same as this element's padding-top */
+	left: -.5em; /* Same as this element's padding-left */
 }
 .bodyText .notesGroup .btn-discard-note,
 .bodyText .notesGroup .btn-save-note {
@@ -1826,19 +2279,20 @@ body.sepia {
 .bodyText .notesNote:first-letter {
 	text-transform: capitalize;
 }*/
-.bodyText .notesNote:hover {
+.bodyText .notesNote div:first-child:hover {
 	background: rgba(0, 154, 234, .05);
-	border-bottom: 1px dashed rgb(0, 154, 234);
+	/*border-bottom: 1px dashed rgb(0, 154, 234);
 	border-left: 4px solid rgb(0, 154, 234);
 	border-right: 1px dashed rgb(0, 154, 234);
-	border-top: 1px dashed rgb(0, 154, 234);
+	border-top: 1px dashed rgb(0, 154, 234);*/
+	border: 1px dashed rgb(0, 154, 234);
 	color: rgb(0, 154, 234);
 	cursor: pointer;
 	-webkit-transition: all .4s;
 	        transition: all .4s;
 }
 .bodyText .notesGroup .notesHighlight:only-child {
-	border-bottom: 1px solid rgba(255,239,80,1); /* Si hay un resaltado sin nota tiene border-bottom */
+	/*border-bottom: 1px solid rgba(255,239,80,1);*/ /* Si hay un resaltado sin nota tiene border-bottom */
 }
 .bodyText .notesGroup .delete-note-icon {
 	cursor: pointer;
@@ -1888,7 +2342,23 @@ body.sepia {
 	border: 1px solid rgba(255,0,0,.2);
 	border-left: 4px solid rgba(255,0,0,.2);
 }
-
+.my-notes-header {
+	padding: 17px 1.5em;
+}
+.my-notes-footer {
+	padding: 13px 25px;
+}
+.my-notes-footer textarea {
+	/*box-sizing: border-box;*/
+	/*border: 1px solid rgba(0,0,0,.2);*/
+	border: 1px solid rgba(0,0,0,.25);
+    border-radius: 0;
+    font-size: 16px;
+    /*margin-bottom: .3em;*/
+    padding: .25em .5em 0;
+	width: 100%;
+	height: 28px;
+}
 
 
 
@@ -1992,6 +2462,7 @@ body.sepia {
 .add-note-buttons {
 	text-align: right;
 }
+
 .btn-discard-note,
 .btn-save-note {
 	cursor: pointer;
@@ -2004,18 +2475,24 @@ body.sepia {
     box-shadow: inset 0px -1px 0px rgba(0,0,0,.25), inset 0px 1px 0px rgba(255,255,255,.4);
     color: #FFF;
     cursor: pointer;
-    height: 36px;
+    height: 35px;
     text-align: center;
     text-shadow: 0px -1px 0 rgba(0,0,0,.3);
 }
-.btn-save-note {
-    
-    /*width: 100%;*/
+.note_option {
+	margin-bottom: .5em;
+	position: relative;
+	left: 10px;
 }
 .btn-save-note {
 	background: #0095FF;
     font-size: .7em;
+    height: 30px;
     letter-spacing: .04em;
+    padding: 0 1em;
+}
+.btn-save-note.main {
+	height: 35px;
     padding: 0 2em;
 }
 .btn-save-note:hover {
@@ -2027,7 +2504,7 @@ body.sepia {
 .btn-discard-note {
 	color: #DDD;
 	margin: 0 1em;
-	padding: 1em; 
+	padding: .5em; 
 	text-decoration: none;
 }
 .btn-discard-note:hover {
@@ -2178,7 +2655,7 @@ body.sepia {
 }
 
 .notes_container {
-    font-family: 'Merriweather';
+    font-family: 'Droid Serif';
     font-size: 1.125em;
     text-align: justify;
     /*height: 100px;*/
@@ -2712,9 +3189,6 @@ a.highlight-btn {
 		padding: 10px 0;
 		width: 200px;
 	}
-	.nav-menu.show {
-		display: fixed;
-	}
 	.nav-menu .reading-info {
 		display: none;
 	}
@@ -2780,7 +3254,9 @@ a.highlight-btn {
 	.size-large-div svg {
 	    height: 25px;
 	}
-	.size-small-div.active svg, .size-medium-div.active svg, .size-large-div.active svg {
+	.size-small-div.active svg,
+	.size-medium-div.active svg,
+	.size-large-div.active svg {
 	    opacity: .8;
 	}
 	.color-btn-container {
@@ -2793,10 +3269,15 @@ a.highlight-btn {
 	.color-btn-container div img {
 		height: 18px;
 	}
+	.my-readings-footer {
+		bottom: 0;
+	}
+
+
 	/* Header and footer hide on scroll down and show on scroll up, using headroom.js*/
 	.top-nav,
 	.nav-menu  {
-    	transition: transform 200ms linear, opacity 200ms linear;
+    	transition: transform 200ms linear;
 	}
 	.top-nav.slideDown {
 	    transform: translateY(0%);
@@ -2805,7 +3286,7 @@ a.highlight-btn {
 	    transform: translateY(-110%);
 	}
 	.nav-menu.slideDown {
-	    display: none;
+		display: none;
 	}
 	.nav-menu.slideUp {
 	    display: none;
@@ -2816,7 +3297,8 @@ a.highlight-btn {
 		background-color: rgba(255,255,255,1);
 		border-bottom: 1px solid rgba(0,0,0,.1);
 		height: 44px;
-		top: 4px; /* same as .reading-progress-bar height */
+		/*top: 4px;*/ /* same as .reading-progress-bar height */
+		top: 0;
 	}
 	/* Sepia styles */
 	.sepia .heading-wrapper,
@@ -2966,3 +3448,17 @@ a.highlight-btn {
 @media only screen {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
