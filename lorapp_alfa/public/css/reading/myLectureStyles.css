@@ -1,51 +1,51 @@
 /* Import fonts Noto Serif & Lato */
 @font-face {
-    font-family: 'Noto Serif';
+    font-family: 'Lorapp Serif';
     font-style: normal;
     font-weight: 400;
-    src: url('http://andes.lorapp.com/fonts/reading/NotoSerif-Regular-L.ttf') format('truetype');
+    src: url('../fonts/reading/NotoSerif-Regular-L.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Noto Serif';
+    font-family: 'Lorapp Serif';
     font-style: bold;
     font-weight: 700;
-    src: url('http://andes.lorapp.com/fonts/reading/NotoSerif-Bold-L.ttf') format('truetype');
+    src: url('../fonts/reading/NotoSerif-Bold-L.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Noto Serif';
+    font-family: 'Lorapp Serif';
     font-style: italic;
     font-weight: 400;
-    src: url('http://andes.lorapp.com/fonts/reading/NotoSerif-Italic-L.ttf') format('truetype');
+    src: url('../fonts/reading/NotoSerif-Italic-L.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Noto Serif';
+    font-family: 'Lorapp Serif';
     font-style: italic;
     font-weight: 700;
-    src: url('http://andes.lorapp.com/fonts/reading/NotoSerif-BoldItalic-L.ttf') format('truetype');
+    src: url('../fonts/reading/NotoSerif-BoldItalic-L.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Lato';
+    font-family: 'Lorapp Sans';
     font-style: normal;
     font-weight: 400;
-    src: url('http://andes.lorapp.com/fonts/reading/Lato-Regular-L.ttf') format('truetype');
+    src: url('../fonts/reading/Lato-Regular-L.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Lato';
+    font-family: 'Lorapp Sans';
     font-style: italic;
     font-weight: 400;
-    src: url('http://andes.lorapp.com/fonts/reading/Lato-Italic-L.ttf') format('truetype');
+    src: url('../fonts/reading/Lato-Italic-L.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Lato';
+    font-family: 'Lorapp Sans';
     font-style: bold;
     font-weight: 700;
-    src: url('http://andes.lorapp.com/fonts/reading/Lato-Bold-L.ttf') format('truetype');
+    src: url('../fonts/reading/Lato-Bold-L.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Lato';
+    font-family: 'Lorapp Sans';
     font-style: italic;
     font-weight: 700;
-    src: url('http://andes.lorapp.com/fonts/reading/Lato-BoldItalic-L.ttf') format('truetype');
+    src: url('../fonts/reading/Lato-BoldItalic-L.ttf') format('truetype');
 }
 
 
@@ -1410,7 +1410,7 @@ body {
 p.Lorapp-styles_Body-1 {
 	-epub-text-align-last:left;
 	color:#000000;
-	font-family:"Noto Serif", serif;
+	font-family:"Lorapp Serif", serif;
 	font-size:1em;
 	font-style:normal;
 	font-variant:normal;
@@ -1432,7 +1432,7 @@ p.Lorapp-styles_Body-1 {
 p.Lorapp-styles_Body-example {
 	-epub-text-align-last:left;
 	color:#000000;
-	font-family:"Noto Serif", serif;
+	font-family:"Lorapp Serif", serif;
 	font-size:1em;
 	font-style:italic;
 	font-variant:normal;
@@ -1454,7 +1454,7 @@ p.Lorapp-styles_Body-example {
 p.Lorapp-styles_Footnotes {
 	-epub-text-align-last:left;
 	color:#000000;
-	font-family:"Noto Serif", serif;
+	font-family:"Lorapp Serif", serif;
 	font-size:0.833em;
 	font-style:normal;
 	font-variant:normal;
@@ -1476,7 +1476,7 @@ p.Lorapp-styles_Footnotes {
 h2.Lorapp-styles_Gray_H2-gray {
 	background-color:#DDD;
 	color:#000000;
-	font-family:Lato, sans-serif;
+	font-family:"Lorapp Sans", sans-serif;
 	font-size:1em;
 	font-style:normal;
 	font-variant:normal;
@@ -1501,7 +1501,7 @@ p.Lorapp-styles_Gray_P-gray {
 	-epub-text-align-last:left;
 	background-color:#DDD;
 	color:#000000;
-	font-family:Lato, sans-serif;
+	font-family:"Lorapp Sans", sans-serif;
 	font-size:1em;
 	font-style:normal;
 	font-variant:normal;
@@ -1526,7 +1526,7 @@ li.Lorapp-styles_Gray_ul-gray {
 	-epub-text-align-last:left;
 	background-color:#DDD;
 	color:#000000;
-	font-family:Lato, sans-serif;
+	font-family:"Lorapp Sans", sans-serif;
 	font-size:1em;
 	font-style:normal;
 	font-variant:normal;
@@ -1553,7 +1553,7 @@ li.Lorapp-styles_Gray_ul-gray {
 }
 h2.Lorapp-styles_H2 {
 	color:#005d53;
-	font-family:Lato, sans-serif;
+	font-family:"Lorapp Sans", sans-serif;
 	font-size:1.083em;
 	font-style:normal;
 	font-variant:normal;
@@ -1569,12 +1569,12 @@ h2.Lorapp-styles_H2 {
 	text-align:center;
 	text-decoration:none;
 	text-indent:0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	widows:1;
 }
 h3.Lorapp-styles_H3 {
 	color:#000000;
-	font-family:"Noto Serif", serif;
+	font-family:"Lorapp Serif", serif;
 	font-size:1.083em;
 	font-style:italic;
 	font-variant:normal;
@@ -1596,7 +1596,7 @@ h3.Lorapp-styles_H3 {
 h6.Lorapp-styles_Heading-footnotes {
 	-epub-text-align-last:left;
 	color:#000000;
-	font-family:"Noto Serif", serif;
+	font-family:"Lorapp Serif", serif;
 	font-size:0.833em;
 	font-style:normal;
 	font-variant:normal;
@@ -1617,7 +1617,7 @@ h6.Lorapp-styles_Heading-footnotes {
 }
 span.Body-text--2----Bold {
 	color:#000000;
-	font-family:"Times New Roman", serif;
+	font-family:"Lorapp Serif", serif;
 	font-size:1em;
 	font-style:normal;
 	font-weight:bold;
@@ -1629,7 +1629,7 @@ span.Lorapp-styles_Bold {
 }
 span.Lorapp-styles_Footnote-Sup {
 	color:#0c7a6f;
-	font-family:"Lato", sans-serif;
+	font-family:"Lorapp Sans", sans-serif;
 	font-size:.75em;
 	font-style:normal;
 	font-weight:700;
@@ -1652,13 +1652,13 @@ p._idGenParaOverride-1 {
 	margin-left:0px;
 }
 span._idGenCharOverride-1 {
-	font-family:"Noto Serif";
+	font-family:"Lorapp Serif";
 }
 span._idGenCharOverride-2 {
 	font-size:0.68em;
 }
 span._idGenCharOverride-3 {
-	font-family:Lato;
+	font-family:"Lorapp Sans";
 }
 /*#_idContainer000 {
 	display:inline-block;
