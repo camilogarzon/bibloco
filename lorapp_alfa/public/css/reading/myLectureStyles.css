@@ -1,3 +1,58 @@
+/* Import fonts Noto Serif & Lato */
+@font-face {
+    font-family: 'Noto Serif';
+    font-style: normal;
+    font-weight: 400;
+    src: url('http://andes.lorapp.com/fonts/reading/NotoSerif-Regular-L.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Noto Serif';
+    font-style: bold;
+    font-weight: 700;
+    src: url('http://andes.lorapp.com/fonts/reading/NotoSerif-Bold-L.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Noto Serif';
+    font-style: italic;
+    font-weight: 400;
+    src: url('http://andes.lorapp.com/fonts/reading/NotoSerif-Italic-L.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Noto Serif';
+    font-style: italic;
+    font-weight: 700;
+    src: url('http://andes.lorapp.com/fonts/reading/NotoSerif-BoldItalic-L.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('http://andes.lorapp.com/fonts/reading/Lato-Regular-L.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+    src: url('http://andes.lorapp.com/fonts/reading/Lato-Italic-L.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: bold;
+    font-weight: 700;
+    src: url('http://andes.lorapp.com/fonts/reading/Lato-Bold-L.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 700;
+    src: url('http://andes.lorapp.com/fonts/reading/Lato-BoldItalic-L.ttf') format('truetype');
+}
+
+
+
+
+
+
 .top-nav {
 	height: 44px; /* same as .heading-wrapper */
 	position: fixed;
@@ -1341,320 +1396,6 @@ body .reading-wrapper .bodyText .highlighted {
 
 
 
-/*@font-face {
-	font-family:Lato;
-	font-style:normal;
-	font-weight:bold;
-	src : url("../Fonts/Lato-Bold.ttf");
-}
-@font-face {
-	font-family:"Noto Serif";
-	font-style:normal;
-	font-weight:normal;
-	src : url("../Fonts/NotoSerif.ttf");
-}
-@font-face {
-	font-family:"Noto Serif";
-	font-style:normal;
-	font-weight:bold;
-	src : url("../Fonts/NotoSerif-Bold.ttf");
-}
-@font-face {
-	font-family:"Noto Serif";
-	font-style:italic;
-	font-weight:bold;
-	src : url("../Fonts/NotoSerif-BoldItalic.ttf");
-}
-@font-face {
-	font-family:"Noto Serif";
-	font-style:oblique;
-	font-weight:bold;
-	src : url("../Fonts/NotoSerif-BoldItalic.ttf");
-}
-@font-face {
-	font-family:"Noto Serif";
-	font-style:italic;
-	font-weight:normal;
-	src : url("../Fonts/NotoSerif-Italic.ttf");
-}
-@font-face {
-	font-family:"Noto Serif";
-	font-style:oblique;
-	font-weight:normal;
-	src : url("../Fonts/NotoSerif-Italic.ttf");
-}*/
-/*body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote {
-	margin:0;
-	padding:0;
-	border-width:0;
-}
-body {
-	-epub-hyphens:auto;
-}
-@page {
-	margin : 0px 0px 0px 0px;
-}
-a._idGenColorInherit {
-	color:inherit;
-}
-p.Lorapp-styles_Body-1 {
-	-epub-text-align-last:left;
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:1em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.5;
-	margin-bottom:0;
-	margin-left:0;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:justify;
-	text-decoration:none;
-	text-indent:24px;
-	text-transform:none;
-	widows:1;
-}
-li.Lorapp-styles_Body-1-ul {
-	-epub-text-align-last:left;
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:1em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.5;
-	list-style-position:outside;
-	list-style-type:disc;
-	margin-bottom:3px;
-	margin-left:18px;
-	margin-right:0;
-	margin-top:3px;
-	orphans:1;
-	page-break-after:avoid;
-	page-break-before:auto;
-	text-align:justify;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
-}
-p.Lorapp-styles_Body-2 {
-	-epub-text-align-last:left;
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:1em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:bold;
-	line-height:1.583;
-	margin-bottom:9px;
-	margin-left:24px;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:justify;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
-}
-p.Lorapp-styles_Body-example {
-	-epub-text-align-last:left;
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:1em;
-	font-style:italic;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.5;
-	margin-bottom:11px;
-	margin-left:18px;
-	margin-right:0;
-	margin-top:11px;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:justify;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
-}
-li.Lorapp-styles_Body-ol {
-	-epub-text-align-last:left;
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:1em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.583;
-	list-style-position:inside;
-	list-style-type:decimal;
-	margin-bottom:3px;
-	margin-left:18px;
-	margin-right:0;
-	margin-top:3px;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:justify;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
-}
-p.Lorapp-styles_Footnotes {
-	-epub-text-align-last:left;
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:0.833em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.9;
-	margin-bottom:0;
-	margin-left:0;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:justify;
-	text-decoration:none;
-	text-indent:24px;
-	text-transform:none;
-	widows:1;
-}
-h1.Lorapp-styles_H1 {
-	color:#005d53;
-	font-family:Lato, sans-serif;
-	font-size:1.5em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:bold;
-	line-height:1.056;
-	margin-bottom:28px;
-	margin-left:0;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:center;
-	text-decoration:none;
-	text-indent:24px;
-	text-transform:uppercase;
-	widows:1;
-}
-h2.Lorapp-styles_H2 {
-	color:#005d53;
-	font-family:Lato, sans-serif;
-	font-size:1.083em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:bold;
-	line-height:1.846;
-	margin-bottom:6px;
-	margin-left:0;
-	margin-right:0;
-	margin-top:28px;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:center;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:uppercase;
-	widows:1;
-}
-h3.Lorapp-styles_H3 {
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:1.083em;
-	font-style:italic;
-	font-variant:normal;
-	font-weight:bold;
-	line-height:1.538;
-	margin-bottom:6px;
-	margin-left:0;
-	margin-right:0;
-	margin-top:28px;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:center;
-	text-decoration:none;
-	text-indent:18px;
-	text-transform:none;
-	widows:1;
-}
-h4.Lorapp-styles_H4 {
-	-epub-text-align-last:left;
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:1em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:bold;
-	line-height:1.583;
-	margin-bottom:0;
-	margin-left:0;
-	margin-right:0;
-	margin-top:9px;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:justify;
-	text-decoration:none;
-	text-indent:24px;
-	text-transform:none;
-	widows:1;
-}
-span.Lorapp-styles_Footnote-Sup {
-	color:#0c7a6f;
-	font-family:"Lato Black", sans-serif;
-	font-size:1.167em;
-	font-style:normal;
-	font-weight:900;
-	vertical-align:super;
-}
-span.Lorapp-styles_Regular {
-	font-family:"Noto Serif", serif;
-	font-size:1em;
-	font-style:normal;
-	font-weight:normal;
-}
-span.Lorapp-styles_italic {
-	color:#000000;
-	font-family:"Noto Serif", serif;
-	font-size:1em;
-	font-style:italic;
-	font-weight:normal;
-	text-decoration:none;
-}
-.night span.Lorapp-styles_italic {
-	color:#E4E4E4;
-}
-span._idGenCharOverride-1 {
-	font-size:0.667em;
-}
-span._idGenCharOverride-2 {
-	font-size:0.68em;
-}
-span._idGenCharOverride-3 {
-	font-size:0.923em;
-}
-div._idGenObjectStyleOverride-1 {
-	border-width:0px;
-}*/
 body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote {
 	margin:0;
 	padding:0;
@@ -1888,10 +1629,10 @@ span.Lorapp-styles_Bold {
 }
 span.Lorapp-styles_Footnote-Sup {
 	color:#0c7a6f;
-	font-family:"Lato Black", sans-serif;
-	font-size:1.167em;
+	font-family:"Lato", sans-serif;
+	font-size:.75em;
 	font-style:normal;
-	font-weight:900;
+	font-weight:700;
 	vertical-align:super;
 }
 span.Lorapp-styles_Italic {
