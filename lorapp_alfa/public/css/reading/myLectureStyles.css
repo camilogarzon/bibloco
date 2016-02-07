@@ -640,7 +640,7 @@ p {
 	letter-spacing: 0.03em;
 	line-height: 1.47;
 	margin: .79em 0 .22em;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 .bodyText h4 {
 	font-size: 1em;
@@ -648,7 +648,7 @@ p {
 	letter-spacing: 0.03em;
 	line-height: 1.47;
 	margin: .79em 0 .22em;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 .bodyText ul,
 .bodyText ol {
