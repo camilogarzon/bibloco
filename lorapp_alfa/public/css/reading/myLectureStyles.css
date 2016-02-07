@@ -1593,6 +1593,9 @@ h3.Lorapp-styles_H3 {
 	text-transform:none;
 	widows:1;
 }
+h4.Lorapp-styles_H4 {
+	font-family:"Lorapp Sans", sans-serif;
+}
 h6.Lorapp-styles_Heading-footnotes {
 	-epub-text-align-last:left;
 	color:#000000;
