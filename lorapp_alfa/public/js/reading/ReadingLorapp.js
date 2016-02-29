@@ -15,62 +15,236 @@ var ReadingLorapp = {};
     //////////////////////////////////////////////////////////////////////
     // ATRIBUTOS /////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////
+    ReadingLorapp.averageWordsPerMin = 125;
+    ReadingLorapp.userEnable = false;
 
     //////////////////////////////////////////////////////////////////////
     // METODOS ///////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////
+    ReadingLorapp.setUserFontSize = function(fontSize){ global.fontSize = fontSize; };
+    ReadingLorapp.getUserFontSize = function(){ return global.fontSize; };
+    ReadingLorapp.setUserBackgroundStyle = function(backgroundStyle){ global.backgroundStyle = backgroundStyle; };
+    ReadingLorapp.getUserBackgroundStyle = function(){ return global.backgroundStyle; };
+
+    /**
+     * CLICK EN #BUTTON-FULLSCREEN LLEVA A PANTALLA COMPLETA Y CLICK DE NUEVO SALE DE ELLA
+     */
+    ReadingLorapp.toggleFullScreen = function(event){
+        var currentScrollPosition = $(document).scrollTop();
+        if (!document.fullscreenElement && // alternative standard method
+            !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+        }
+        window.scrollTo(0, currentScrollPosition);
+    };
+    /**
+     * Funcion que calcula el porcentaje leido
+     */
+    ReadingLorapp.calculatePercentageRead = function(){
+        var height = $('#reading-container').height();
+        var viewportHeight = $(window).height();
+        var scrollTop = $(document).scrollTop();
+        var readingBeginning = $('#reading-container').offset().top;
+        percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
+        roundedPercentageRead = Math.round(percentageRead);
+    };
+
+    /**
+     * reimprime el porcentaje tanto en número como en la barra de progreso
+     */
+    ReadingLorapp.printPercentageRead = function() {
+        if (percentageRead > 100) {
+            $('.reading-percentage-data').html(100);
+            $('.reading-progress-bar-full').css({"width":100+"%"});
+        } else if (percentageRead < 0) {
+            $('.reading-percentage-data').html(0);
+            $('.reading-progress-bar-full').css({"width":0+"%"});
+        } else {
+            $('.reading-percentage-data').html(roundedPercentageRead);
+            $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
+        }
+    };
+
+    /**
+     *
+     * @param pr Porcentaje relacionado para el calculo de los minutos estimados de lectura
+     */
+    ReadingLorapp.updateMinutes = function(pr) {
+        pr = parseInt(pr);
+        pr = (isNaN(pr)) ? parseInt($('.reading-percentage-data').html()) : pr;
+        var words = $('.bodyText').text();
+        var wordCount = words.replace(/[^\w ]/g, "").split(/\s+/).length;
+        var minutesLeft = Math.round((wordCount / ReadingLorapp.averageWordsPerMin) - ((wordCount / ReadingLorapp.averageWordsPerMin) * (pr / 100)));
+        minutesLeft = (minutesLeft < 0) ? 0 : minutesLeft;
+        $('.minutes-left-data').html(minutesLeft);
+    };
+
+    /**
+     * Rerun info calculations for correct % read and minutes left.
+     * @param height actual container to measure
+     */
+    ReadingLorapp.updateMinutesPercent = function(height) {
+        height = (isNaN(height)) ? $(document).height() : height;
+        var viewportHeight = $(window).height();
+        var scrollTop = $(document).scrollTop();
+        var readingBeginning = $('#reading-container').offset().top;
+        var percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
+        var roundedPercentageRead = Math.round(percentageRead);
+        if (percentageRead > 100) {
+            $('.reading-percentage-data').html(100);
+            $('.reading-progress-bar-full').css({"width":100+"%"});
+        } else if (percentageRead < 0) {
+            $('.reading-percentage-data').html(0);
+            $('.reading-progress-bar-full').css({"width":0+"%"});
+        } else {
+            $('.reading-percentage-data').html(roundedPercentageRead);
+            $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
+        };
+        ReadingLorapp.updateMinutes(percentageRead);
+    };
+
+    /**
+     * Proteccion para evitar usar el clic derecho y copiar con teclado
+     */
+    ReadingLorapp.lock = function(){
+        if (document.layers) {
+            document.captureEvents(Event.MOUSEDOWN);
+            document.onmousedown = function(e) {
+                if (document.layers || document.getElementById && !document.all) {
+                    if (e.which == 2 || e.which == 3) {
+                        return false;
+                    }
+                }
+            };
+        } else if (document.all && !document.getElementById) {
+            document.onmousedown = function() {
+                if (event.button == 2) {
+                    return false;
+                }
+            };
+        }
+        document.oncontextmenu = new Function("return false");
+        document.ondragstart = new Function("return false");
+        document.oncopy = new Function("return false");
+    };
+
+    /**
+     * actualiza el tamano de letra seleccionado por el usuario
+     * @param size
+     */
+    ReadingLorapp.updateFontSize = function (size){
+        $('.size-small-div, .size-medium-div, .size-large-div').removeClass('active');
+        var s = '1.35em';
+        if (size == 'small'){
+            s = '1.125em';
+        } else if (size == 'medium'){
+            s = '1.35em';
+        } else if (size == 'large'){
+            s = '1.575em';
+        } else {
+            size = 'medium';
+        }
+        $('.size-'+size+'-div').addClass('active');
+        $('body').css({'font-size': s});
+        ReadingLorapp.setUserFontSize(size);
+        ReadingLorapp.updateMinutesPercent();
+        ReadingLorapp.saveSetup();
+    };
+
+    /**
+     * actualiza el estilo del color de fondo y la letra de una lectura
+     * @param style, nombre del estilo aplicado
+     */
+    ReadingLorapp.updateBackgroundStyle = function (style){
+        $('.color-light-btn, .color-sepia-btn, .color-night-btn').removeClass('active');
+        if (style == 'sepia'){
+            $('body').removeClass('night').addClass('sepia');
+        } else if (style == 'night'){
+            $('body').removeClass('sepia').addClass('night');
+        } else {
+            $('body').removeClass('sepia').removeClass('night');
+            style = 'light';
+        }
+        $('.color-'+style+'-btn').addClass('active');
+        ReadingLorapp.setUserBackgroundStyle(style);
+        ReadingLorapp.saveSetup();
+    }
+
+    /**
+     * Actualiza la informacion de configuracion de lectura del usuario
+     * @returns {boolean}
+     */
+    ReadingLorapp.saveSetup = function() {
+        if (!ReadingLorapp.userEnable) return false;
+        var d = {};
+        d.font_size = ReadingLorapp.getUserFontSize();
+        d.background_style = ReadingLorapp.getUserBackgroundStyle();
+        //Util.callAjax(d, global.url + "/savesetup", "POST");
+    };
 
     /** 
      * Metodo que inicializa el modulo
      */
     ReadingLorapp.initialize = function() {
-        ReadingLorapp.snippets();
-        // se inicializa el modulo NoteAction
-
+        ReadingLorapp.userEnable = global.userEnable();
+        ReadingLorapp.updateFontSize(ReadingLorapp.getUserFontSize());
+        ReadingLorapp.updateBackgroundStyle(ReadingLorapp.getUserBackgroundStyle());
         NoteAction.noteLoader = '#note_loader';
         NoteAction.noteText = '#note_text';
         NoteAction.noteTextEdit = '#note_text_edit';
         NoteAction.btnNoteEdit = '#btn_note_edit';
         NoteAction.btnNoteCancel = '#btn_note_cancel';
         NoteAction.btnNoteSave = '#btn_note_save';
-        $("#icon_note").click(function(event) {
-//            NoteAction.getNote(global.lecturesection_id);
-        });
+        $('#icon_fullscreen, .full-screen-btn').click(ReadingLorapp.toggleFullScreen);
 
+        $("#icon_note").click(function(event) {
+            NoteAction.getNote(global.lecturesection_id);
+        });
+        $( document ).on( "vclick", "#icon_note", function() {
+            NoteAction.getNote(global.lecturesection_id);
+        });
+        ReadingLorapp.lock();
+        ReadingLorapp.snippets();
+        $(document).ready(function() {
+            ReadingLorapp.calculatePercentageRead();
+        });
+        // START: Calculate reading minutes remaining
+        ReadingLorapp.updateMinutes();
+        // recalculate on scroll
+        $(document).scroll(function() {
+            height = $('#reading-container').height();
+            ReadingLorapp.updateMinutesPercent(height);
+        });
     };
 
-    /** 
+    /**********************************************************************************************
+     * ********************************************************************************************
      * Metodo que ejecuta snippets de codigo, pendiente por organizar en los respectivos modulos
-     */
+     * ********************************************************************************************
+     *********************************************************************************************/
 
     ReadingLorapp.snippets = function() {
 
 
         $(document).ready(function() {
-
-            // Función que recalcula el porcentaje leído
-            function calculatePercentageRead() {
-                height = $('#reading-container').height();
-                viewportHeight = $(window).height();
-                scrollTop = $(document).scrollTop();
-                readingBeginning = $('#reading-container').offset().top;
-                percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
-                roundedPercentageRead = Math.round(percentageRead);
-            }
-
-            // Función que reimprime el porcentaje tanto en número como en la barra de progreso
-            function printPercentageRead() {
-                if (percentageRead > 100) {
-                    $('.reading-percentage-data').html(100);
-                    $('.reading-progress-bar-full').css({"width":100+"%"});
-                } else if (percentageRead < 0) {
-                    $('.reading-percentage-data').html(0);
-                    $('.reading-progress-bar-full').css({"width":0+"%"});
-                } else {
-                    $('.reading-percentage-data').html(roundedPercentageRead);
-                    $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
-                }
-            }
 
             // START: Page smoothly scrolls until the #reading-container, to hide the previous chapter button.
             // Condition so it doesn't happen when page is refreshed in the middle of the reading.
@@ -93,8 +267,14 @@ var ReadingLorapp = {};
             /**
              * click en botón agregar apunte hace slide de casilla de apuntes
              */
-            $("#takeHighlight").click(function(event) {
+            $("#takeHighlight, #takeFreeNote").click(function(event) {
                 event.preventDefault();
+                $("#selectedtext_display").removeClass("hidden");
+                if(event.currentTarget.id == "takeFreeNote"){
+                    $("#selectedtext_display").addClass("hidden");
+                    $("#selectedtext_display, #selectedtext_hidden").html("");
+                    $("#selectedtext_html, #selectedtext").val("");
+                }
                 $(".add-note-wrapper").addClass("show");
             });
 
@@ -103,13 +283,13 @@ var ReadingLorapp = {};
              */
             $("#btn_cancelar_note").click(function(event) {
                 event.preventDefault();
-                $(".add-note-wrapper").removeClass("show");
+                Highlight.NoteContainer.openClose("close");
             });
 
             /**
             * click en botón estilos hace slide de menú estilos o lo oculta si ya está abierto
-            // */
-            $('#mobile-styles-btn').on('click touchend', function() {
+            */
+            $('#mobile-styles-btn').on('click', function() {
                 if ($('.nav-menu').hasClass('slideDown')) {
                     $('.nav-menu').removeClass('slideDown');
                 }
@@ -121,7 +301,7 @@ var ReadingLorapp = {};
             /**
             * click en botón apuntes hace slide de apuntes
             */
-            $("#my-notes-btn").on('click touchend', function(event) {
+            $("#my-notes-btn").on('click', function(event) {
                 event.preventDefault();
                 $(".notesMainWrapper").addClass("show");
                 // Se bloquea el scroll del body mientras los apuntes se muestren
@@ -136,7 +316,7 @@ var ReadingLorapp = {};
             /**
              * click en botón .show-my-readings-btn hace slide de menú lateral
              */
-            $("#table-of-contents-btn").on('click touchend', function(event) {
+            $("#table-of-contents-btn").on('click', function(event) {
                 event.preventDefault();
                 $(".my-readings-wrapper").addClass("show");
                 // Se bloquea el scroll del body mientras el menú lateral se muestre
@@ -144,6 +324,13 @@ var ReadingLorapp = {};
                 $('.closer-box').fadeIn(500);
                 $('.right-close-icon').fadeIn(500);
                 // Esconde el menú de estilos si está abierto
+                $('.nav-menu').addClass('slideDown');
+            });
+
+            /**
+             * Se esconde opciones de tamano de letra y color de fondo cuando hay clic en el body
+             */
+            $("#bodyText").on('click', function(event) {
                 $('.nav-menu').addClass('slideDown');
             });
 
@@ -163,63 +350,6 @@ var ReadingLorapp = {};
             });
 
 
-//
-//            $('#close_note_loader').click(function() {
-////                myLecture.closeNoteLoader();
-//            });
-//            $('#icon_print').mouseover(function() {
-//                util.byIdShowHide('label_print', true);
-//            });
-//            $('#icon_print').mouseout(function() {
-//                util.byIdShowHide('label_print', false);
-//            });
-//            $('#icon_print').click(function() {
-////                myLecture.printContentById('lecture');
-//            });
-//            $('#icon_fullscreen').mouseover(function() {
-//                util.byIdShowHide('label_fullscreen', true);
-//            });
-//            $('#icon_fullscreen').mouseout(function() {
-//                util.byIdShowHide('label_fullscreen', false);
-//            });
-//            $('#icon_nightmode').mouseover(function() {
-//                util.byIdShowHide('label_nightmode', true);
-//            });
-//            $('#icon_nightmode').mouseout(function() {
-//                util.byIdShowHide('label_nightmode', false);
-//            });
-//
-//
-
-
-            // START: CLICK EN #BUTTON-FULLSCREEN LLEVA A PANTALLA COMPLETA Y CLICK DE NUEVO SALE DE ELLA
-            $('#icon_fullscreen, .full-screen-btn').click(function toggleFullScreen() {
-                var currentScrollPosition = $(document).scrollTop();
-                if (!document.fullscreenElement && // alternative standard method
-                        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
-                    if (document.documentElement.requestFullscreen) {
-                        document.documentElement.requestFullscreen();
-                    } else if (document.documentElement.msRequestFullscreen) {
-                        document.documentElement.msRequestFullscreen();
-                    } else if (document.documentElement.mozRequestFullScreen) {
-                        document.documentElement.mozRequestFullScreen();
-                    } else if (document.documentElement.webkitRequestFullscreen) {
-                        document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-                    }
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    } else if (document.msExitFullscreen) {
-                        document.msExitFullscreen();
-                    } else if (document.mozCancelFullScreen) {
-                        document.mozCancelFullScreen();
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    }
-                }
-                window.scrollTo(0, currentScrollPosition);
-            });
-
 
             // START: Click en boton full-width lleva a full-width
             $('.wide-btn-div').on('click',
@@ -228,16 +358,11 @@ var ReadingLorapp = {};
                         $('.body-wrapper').addClass('reading-full-width');
                         $('.narrow-btn-div').removeClass('active');
                         $(this).addClass('active');
-
                         // Rerun info calculations for correct % read and minutes left.
-                        calculatePercentageRead();
-                        
+                        ReadingLorapp.calculatePercentageRead();
                         // reprint percentage read, keep 0 if < 0 and 100 if > 100
-                        printPercentageRead();
-
-                        var percentageShown = $('.reading-percentage-data').html();
-                        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
-                        $('.minutes-left-data').html(minutesLeft);
+                        ReadingLorapp.printPercentageRead();
+                        ReadingLorapp.updateMinutes();
                     });
 
             $('.narrow-btn-div').on('click',
@@ -246,54 +371,26 @@ var ReadingLorapp = {};
                         $('.body-wrapper').removeClass('reading-full-width');
                         $('.wide-btn-div').removeClass('active');
                         $(this).addClass('active');
-
                         // Rerun info calculations for correct % read and minutes left.
-                        calculatePercentageRead();
-                        
+                        ReadingLorapp.calculatePercentageRead();
                         // reprint percentage read, keep 0 if < 0 and 100 if > 100
-                        printPercentageRead();
-
-                        var percentageShown = $('.reading-percentage-data').html();
-                        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
-                        $('.minutes-left-data').html(minutesLeft);
+                        ReadingLorapp.printPercentageRead();
+                        ReadingLorapp.updateMinutes();
                     });
             // END: Click en título de capítulo lleva a full-width
 
 
             // START: Click en botones de color ajusta estilos
             $('.color-light-btn').on('click', function() {
-                if ($('body').hasClass('sepia')) {
-                    $('body').removeClass('sepia');
-                }
-                if ($('body').hasClass('night')) {
-                    $('body').removeClass('night');
-                }
-                $('.color-light-btn, .color-sepia-btn, .color-night-btn').removeClass('active');
-                $(this).addClass('active');
+                ReadingLorapp.updateBackgroundStyle('light');
             });
 
             $('.color-sepia-btn').on('click', function() {
-                if ($('body').hasClass('night')) {
-                    $('body').removeClass('night');
-                    $('body').addClass('sepia');
-                }
-                else {
-                    $('body').addClass('sepia');
-                }
-                $('.color-light-btn, .color-sepia-btn, .color-night-btn').removeClass('active');
-                $(this).addClass('active');
+                ReadingLorapp.updateBackgroundStyle('sepia');
             });
 
             $('.color-night-btn').on('click', function() {
-                if ($('body').hasClass('sepia')) {
-                    $('body').removeClass('sepia');
-                    $('body').addClass('night');
-                }
-                else {
-                    $('body').addClass('night');
-                }
-                $('.color-light-btn, .color-sepia-btn, .color-night-btn').removeClass('active');
-                $(this).addClass('active');
+                ReadingLorapp.updateBackgroundStyle('night');
             });
             // END: Click en botones de color ajusta estilos
 
@@ -382,225 +479,16 @@ var ReadingLorapp = {};
 
 
 
-
-
-// START: Calculate percentage read
-        var height = $('#reading-container').height();
-        var viewportHeight = $(window).height();
-        var scrollTop = $(document).scrollTop();
-        var readingBeginning = $('#reading-container').offset().top;
-        var percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
-        var roundedPercentageRead = Math.round(percentageRead);
-
-        // print percentageRead in html. Keep 0 if < 0 and 100 if > 100
-        if (percentageRead > 100) {
-            $('.reading-percentage-data').html(100);
-            $('.reading-progress-bar-full').css({"width":100+"%"});
-        }
-        else if (percentageRead < 0) {
-            $('.reading-percentage-data').html(0);
-            $('.reading-progress-bar-full').css({"width":0+"%"});
-        }
-        else {
-            $('.reading-percentage-data').html(roundedPercentageRead);
-            $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
-        };
-
-        // recalculate when scrolling
-        $(document).scroll(function() {
-            height = $('#reading-container').height();
-            viewportHeight = $(window).height();
-            scrollTop = $(document).scrollTop();
-            readingBeginning = $('#reading-container').offset().top;
-            percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
-            roundedPercentageRead = Math.round(percentageRead);
-            
-
-            // print updated percentageRead in html on scroll. Keep 0 if < 0 and 100 if > 100
-            if (percentageRead > 100) {
-                $('.reading-percentage-data').html(100);
-                $('.reading-progress-bar-full').css({"width":100+"%"});
-            } else if (percentageRead < 0) {
-                $('.reading-percentage-data').html(0);
-                $('.reading-progress-bar-full').css({"width":0+"%"});
-            } else {
-                $('.reading-percentage-data').html(roundedPercentageRead);
-                $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
-            }
-        });
-// END: Calculate percentage read
-
-// START: Calculate reading minutes remaining
-        var words = $('.bodyText').text()
-                , wordCount = words.replace(/[^\w ]/g, "").split(/\s+/).length;
-        var averageWordsPerMin = 250;
-        var percentageShown = $('.reading-percentage-data').html();
-        var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
-        // print minutesLeft in html
-        $('.minutes-left-data').html(minutesLeft);
-
-        // recalculate on scroll
-        $(document).scroll(function() {
-            var percentageShown = $('.reading-percentage-data').html();
-            var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageShown / 100)));
-            // print updated minutesLeft in html on scroll
-            $('.minutes-left-data').html(minutesLeft);
-        });
-// END: Calculate reading minutes remaining
-
-
 // START: Click on size buttons changes body font-size
         $('.size-small-div').click(function() {
-            $('body').css({'font-size': '1.125em'});
-            $('.size-small-div, .size-medium-div, .size-large-div').removeClass('active');
-            $(this).addClass('active');
-
-            // Rerun info calculations for correct % read and minutes left.
-            height = $(document).height();
-            scrollTop = $(document).scrollTop();
-            percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
-            roundedPercentageRead = Math.round(percentageRead);
-            if (percentageRead > 100) {
-                $('.reading-percentage-data').html(100);
-                $('.reading-progress-bar-full').css({"width":100+"%"});
-            } else if (percentageRead < 0) {
-                $('.reading-percentage-data').html(0);
-                $('.reading-progress-bar-full').css({"width":0+"%"});
-            } else {
-                $('.reading-percentage-data').html(roundedPercentageRead);
-                $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
-            };
-            var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
-            $('.minutes-left-data').html(minutesLeft);
+            ReadingLorapp.updateFontSize('small');
         });
         $('.size-medium-div').click(function() {
-            $('body').css({'font-size': '1.35em'});
-            $('.size-small-div, .size-medium-div, .size-large-div').removeClass('active');
-            $(this).addClass('active');
-
-            // Rerun info calculations for correct % read and minutes left.
-            height = $(document).height();
-            scrollTop = $(document).scrollTop();
-            percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
-            roundedPercentageRead = Math.round(percentageRead);
-            if (percentageRead > 100) {
-                $('.reading-percentage-data').html(100);
-                $('.reading-progress-bar-full').css({"width":100+"%"});
-            } else if (percentageRead < 0) {
-                $('.reading-percentage-data').html(0);
-                $('.reading-progress-bar-full').css({"width":0+"%"});
-            } else {
-                $('.reading-percentage-data').html(roundedPercentageRead);
-                $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
-            };
-            var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
-            $('.minutes-left-data').html(minutesLeft);
+            ReadingLorapp.updateFontSize('medium');
         });
         $('.size-large-div').click(function() {
-            $('body').css({'font-size': '1.575em'});
-            $('.size-small-div, .size-medium-div, .size-large-div').removeClass('active');
-            $(this).addClass('active');
-
-            // Rerun info calculations for correct % read and minutes left.
-            height = $(document).height();
-            scrollTop = $(document).scrollTop();
-            percentageRead = ((scrollTop - readingBeginning) * 100) / (height - viewportHeight);
-            roundedPercentageRead = Math.round(percentageRead);
-            if (percentageRead > 100) {
-                $('.reading-percentage-data').html(100);
-                $('.reading-progress-bar-full').css({"width":100+"%"});
-            } else if (percentageRead < 0) {
-                $('.reading-percentage-data').html(0);
-                $('.reading-progress-bar-full').css({"width":0+"%"});
-            } else {
-                $('.reading-percentage-data').html(roundedPercentageRead);
-                $('.reading-progress-bar-full').css({"width":percentageRead+"%"});
-            };
-            var minutesLeft = Math.round((wordCount / averageWordsPerMin) - ((wordCount / averageWordsPerMin) * (percentageRead / 100)));
-            $('.minutes-left-data').html(minutesLeft);
+            ReadingLorapp.updateFontSize('large');
         });
-// END: Click on size buttons changes body font-size
-
-// START: .reading-info-box, .menu-tip and .nav-menu opacity is 1 if mouse moves, then fade away
-// $(window).on("mousemove",function(e){
-//     $(".reading-info-box").css({opacity:1});
-//     clearTimeout(window.myTimeout);
-//     window.myTimeout=setTimeout(function(){
-//         $(".reading-info-box").css({opacity:0});
-//     },1500);
-// });
-// $(window).on("mousemove",function(e){
-//     $(".menu-tip").css({opacity:1});
-//     clearTimeout(window.timeout);
-//     window.timeout=setTimeout(function(){
-//         $(".menu-tip").css({opacity:0});
-//     },1500);
-// });
-// END: .nav-menu opacity is 1 if mouse moves. Then fades away.
-
-
-
-
-
-
-// START: Autogrow.js textareas enlarge as user keeps typing
-        /* autogrow.js - Copyright (C) 2014, Jason Edelman <edelman.jason@gmail.com>
-         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-         The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
-        ;
-        (function(e) {
-            e.fn.autogrow = function(t) {
-                function s(n) {
-                    var r = e(this), i = r.innerHeight(), s = this.scrollHeight, o = r.data("autogrow-start-height") || 0, u;
-                    if (i < s) {
-                        this.scrollTop = 0;
-                        t.animate ? r.stop().animate({height: s}, t.speed) : r.innerHeight(s)
-                    } else if (!n || n.which == 8 || n.which == 46 || n.ctrlKey && n.which == 88) {
-                        if (i > o) {
-                            u = r.clone().addClass(t.cloneClass).css({position: "absolute", zIndex: -10, height: ""}).val(r.val());
-                            r.after(u);
-                            do {
-                                s = u[0].scrollHeight - 1;
-                                u.innerHeight(s)
-                            } while (s === u[0].scrollHeight);
-                            s++;
-                            u.remove();
-                            r.focus();
-                            s < o && (s = o);
-                            i > s && t.animate ? r.stop().animate({height: s}, t.speed) : r.innerHeight(s)
-                        } else {
-                            r.innerHeight(o)
-                        }
-                    }
-                }
-                var n = e(this).css({overflow: "hidden", resize: "none"}), r = n.selector, i = {context: e(document), animate: true, speed: 200, fixMinHeight: true, cloneClass: "autogrowclone", onInitialize: false};
-                t = e.isPlainObject(t) ? t : {context: t ? t : e(document)};
-                t = e.extend({}, i, t);
-                n.each(function(n, r) {
-                    var i, o;
-                    r = e(r);
-                    if (r.is(":visible") || parseInt(r.css("height"), 10) > 0) {
-                        i = parseInt(r.css("height"), 10) || r.innerHeight()
-                    } else {
-                        o = r.clone().addClass(t.cloneClass).val(r.val()).css({position: "absolute", visibility: "hidden", display: "block"});
-                        e("body").append(o);
-                        i = o.innerHeight();
-                        o.remove()
-                    }
-                    if (t.fixMinHeight) {
-                        r.data("autogrow-start-height", i)
-                    }
-                    r.css("height", i);
-                    if (t.onInitialize) {
-                        s.call(r)
-                    }
-                });
-                t.context.on("keyup paste", r, s);
-                return n
-            }
-        })(jQuery);
-// END: Autogrow.js textareas enlarge as user keeps typing
 
 
 // START: Autogrow.js aplicado en .note-input y en .edit-note-textarea
@@ -1000,20 +888,6 @@ var ReadingLorapp = {};
 // END: TESTING SelectionSharer.js
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // START: Click en una frase le agrega o elimina clase .highlight
         $('.bodyText .sentence').on('click',
                 function() {
@@ -1059,90 +933,6 @@ var ReadingLorapp = {};
         });
 // END: Initialize Fancybox
 
-////        //$(document).bind("mouseup", ReadingLorapp.Selector.mouseup);
-//////        $('#bodyText').bind("mouseup", ReadingLorapp.Selector.mouseup);
-/////// http://madapaja.github.io/jquery.selection/
-////        // Get selected text / 選択部分のテキストを取得
-////        $('#sel-text').click(function() {
-////            $('#result').text($.selection());
-////        });
-////
-////// Get selected html / 選択部分のHTMLを取得
-////        $('#sel-html').click(function() {
-////            $('#result').text($.selection('html'));
-////        });
-//        $('#bodyText').mouseup(TextHighlight.Selector.mouseup);
-
-
-        //bloquea el clic derecho y copiar con teclado
-        if (document.layers) {
-            document.captureEvents(Event.MOUSEDOWN);
-            document.onmousedown = function(e) {
-                if (document.layers || document.getElementById && !document.all) {
-                    if (e.which == 2 || e.which == 3) {
-                        return false;
-                    }
-                }
-            };
-        } else if (document.all && !document.getElementById) {
-            document.onmousedown = function() {
-                if (event.button == 2) {
-                    return false;
-                }
-            };
-        }
-        document.oncontextmenu = new Function("return false");
-        document.ondragstart = new Function("return false");
-        document.oncopy = new Function("return false");
-
-        // para remover elementos HTML de un string
-        //jQuery('<p>' + $('.lecture_container').html() + '</p>').text();
-
-//        var myLecture = {};
-//        /**
-//         * Muestra opciones del toolbox de lectura: seleccionar, resaltar, limpiar, crear nota
-//         * @param Event e
-//         */
-//        myLecture.floatMenu = function(e) {
-//            myLecture.savedText = myLecture.saveSelection();
-//            setTimeout(function() {
-//                var isEmpty = myLecture.savedText.toString().length === 0;
-//                if (!isEmpty) {
-//                    $("#highlight-button").css({position: 'absolute'});//, top: e.pageY, left: e.pageX});
-//                    //$("#float_note").css({top: e.pageY + 40});
-//                    $("#highlight-button").show();
-//                } else {
-//                    //$(".add-note-wrapper").animate({bottom: "-18em"}, 10);
-//                    $("#highlight-button").hide();
-//                    $("#float_note").hide();
-//                }
-//            }, 10);
-//        };
-//        myLecture.saveSelection = function() {
-//            if (window.getSelection) {
-//                var sel = window.getSelection();
-//                if (sel.getRangeAt && sel.rangeCount) {
-//                    return sel.getRangeAt(0);
-//                }
-//            } else if (document.selection && document.selection.createRange) {
-//                return document.selection.createRange();
-//            }
-//            return null;
-//        };
-//
-//        var hltr = new TextHighlighter(document.getElementById('bodyText'), {
-//            onBeforeHighlight: function(range) {
-//                console.log(range);
-//                myLecture.floatMenu(null);
-//                return true;
-//            },
-//            onAfterHighlight: function(range, hlts) {
-//                return true;
-//            },
-//            onRemoveHighlight: function(hlt) {
-//                return true;
-//            }
-//        });
 
     };
 

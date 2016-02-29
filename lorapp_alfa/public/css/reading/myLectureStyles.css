@@ -3,49 +3,49 @@
     font-family: 'Lorapp Serif';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/reading/NotoSerif-Regular-L.ttf') format('truetype');
+    src: url('../../fonts/reading/NotoSerif-Regular-L.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Lorapp Serif';
     font-style: bold;
     font-weight: 700;
-    src: url('../fonts/reading/NotoSerif-Bold-L.ttf') format('truetype');
+    src: url('../../fonts/reading/NotoSerif-Bold-L.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Lorapp Serif';
     font-style: italic;
     font-weight: 400;
-    src: url('../fonts/reading/NotoSerif-Italic-L.ttf') format('truetype');
+    src: url('../../fonts/reading/NotoSerif-Italic-L.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Lorapp Serif';
     font-style: italic;
     font-weight: 700;
-    src: url('../fonts/reading/NotoSerif-BoldItalic-L.ttf') format('truetype');
+    src: url('../../fonts/reading/NotoSerif-BoldItalic-L.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Lorapp Sans';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/reading/Lato-Regular-L.ttf') format('truetype');
+    src: url('../../fonts/reading/Lato-Regular-L.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Lorapp Sans';
     font-style: italic;
     font-weight: 400;
-    src: url('../fonts/reading/Lato-Italic-L.ttf') format('truetype');
+    src: url('../../fonts/reading/Lato-Italic-L.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Lorapp Sans';
     font-style: bold;
     font-weight: 700;
-    src: url('../fonts/reading/Lato-Bold-L.ttf') format('truetype');
+    src: url('../../fonts/reading/Lato-Bold-L.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Lorapp Sans';
     font-style: italic;
     font-weight: 700;
-    src: url('../fonts/reading/Lato-BoldItalic-L.ttf') format('truetype');
+    src: url('../../fonts/reading/Lato-BoldItalic-L.ttf') format('truetype');
 }
 
 
@@ -2896,7 +2896,9 @@ a.highlight-btn {
 				inset 0px -10px 5px -10px rgba(0,0,0,.5),
 				      0    -1px 1px       #000;
 }
-.highlight-btn.active .highlight-ok-icon {
+.highlight-btn.active .highlight-ok-icon,
+.highlight-btn.active .highlight-cancel-icon
+{
 	display: inline-block;
 }
 .highlight-btn.active:hover {
@@ -2910,7 +2912,7 @@ a.highlight-btn {
 }
 .highlight-ok-icon,
 .highlight-cancel-icon,
-.highlight-btn.active:hover .highlight-ok-icon,
+/*.highlight-btn.active:hover .highlight-ok-icon,*/
 .highlight-btn.active .highlight-icon {
 	display: none;
 }

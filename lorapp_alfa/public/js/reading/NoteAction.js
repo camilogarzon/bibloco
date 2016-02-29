@@ -29,6 +29,7 @@ var NoteAction = {};
     NoteAction.btnNoteCancel = '';
     NoteAction.btnNoteSave = '';
     /* Elementos utilizados al tomar una nota */
+    NoteAction.userEnable = false;
 
     //////////////////////////////////////////////////////////////////////
     // METODOS ///////////////////////////////////////////////////////////
@@ -38,7 +39,11 @@ var NoteAction = {};
      * Carga las notas de un usuario
      */
     NoteAction.saveNote = function(e) {
-        e.preventDefault();
+        if (!NoteAction.userEnable) return false;
+        if(e) e.preventDefault();
+        Highlight.latest = 0;
+        Highlight.pendingRemove = false;
+        Highlight.removeLatestSelection();
         var d = $('#form_note_create').serialize();
         Util.callAjax(d, global.url + "mynotes/savenote", "POST", NoteAction.saveNoteSuccess, NoteAction.saveNoteError);
     };
@@ -55,7 +60,7 @@ var NoteAction = {};
         Highlight.NoteContainer.openClose('close');
     };
 
-    /** 
+    /**
      * Metodo muestra el mensaje cuando no hay notas para mostrar
      */
     NoteAction.saveNoteError = function(jqXHR, textStatus) {
@@ -118,9 +123,10 @@ var NoteAction = {};
      * Carga las notas de un usuario
      */
     NoteAction.getNote = function(id) {
+        if (!NoteAction.userEnable) return false;
         var d = {};
         d.id = id;
-        Util.callAjax(d, global.url + "/mynotes/lecturesection", "POST", NoteAction.getNoteRender, NoteAction.getNoteRenderEmpty);
+        //Util.callAjax(d, global.url + "/mynotes/lecturesection", "POST", NoteAction.getNoteRender, NoteAction.getNoteRenderEmpty);
     };
 
     /**
@@ -184,7 +190,7 @@ var NoteAction = {};
         }
     };
 
-    /** 
+    /**
      * Metodo muestra el mensaje cuando no hay notas para mostrar
      */
     NoteAction.getNoteRenderEmpty = function(jqXHR, textStatus) {
@@ -257,10 +263,11 @@ var NoteAction = {};
 
 
 
-    /** 
+    /**
      * Metodo que inicializa el modulo
      */
     NoteAction.initialize = function() {
+        NoteAction.userEnable = global.userEnable();
         $('#btn_guardar').click(NoteAction.saveNote);
 //        NoteAction.getNote(global.lecturesection_id);
     };

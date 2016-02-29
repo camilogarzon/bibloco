@@ -6,5 +6,8 @@ var global = {
     url : '',
     lecture_id : '',
     lecturesection_id : '',
-    session : ''
+    session : '',
+    userEnable : function(){
+        return (global.ul == '') ? false : true;
+    }
 };

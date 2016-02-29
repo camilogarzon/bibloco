@@ -160,7 +160,6 @@ var landing = {
                 url: global.url + "registration",
                 success: function(data) {
                     Util.cursorNormal();
-                    console.log(data);
                     if (data.valid) {
                         window.location = data.redirect;
                     } else {
@@ -185,7 +184,6 @@ var landing = {
             url: global.url + "registration",
             success: function(data) {
                 Util.cursorNormal();
-                console.log(data);
                 if (data.valid) {
                     window.location = data.redirect;
                 } else {
@@ -205,7 +203,6 @@ var landing = {
             url: global.url + "registrationupdate",
             success: function(data) {
                 Util.cursorNormal();
-                console.log(data);
                 if (data.valid) {
                     window.location = data.redirect;
                 } else {
@@ -216,6 +213,7 @@ var landing = {
         });
     },
     login: function(id) {
+        //mixpanel.track("Login");
         $('#error_login').hide();
         if ($('#email').val() === '' || $('#password').val() === '') {
             $('#message_login').empty();
@@ -232,7 +230,6 @@ var landing = {
             url: global.url + "login",
             success: function(data) {
                 Util.cursorNormal();
-                console.log(data);
                 if (data.valid) {
                     window.location = data.redirect;
                 } else {

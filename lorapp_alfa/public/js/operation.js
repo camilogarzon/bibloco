@@ -21,14 +21,14 @@ var operation = {
         Util.callAjax(d, global.url + "/useraddlecturesection", "POST", operation.addLectureSectionSuccess, operation.addLectureSectionError);
     },
     addLectureSectionRedirect: function(url) {
-        window.location.href =  url;
+        window.location.href = url;
     },
     addLectureSectionSuccess: function(data) {
         Util.cursorNormal();
         if (data.valid) {
             $(".user_credit_actual").html(data.credit);
             //$("#lecture_adquisition" + operation.lecturesection_id).html('<a href="' + global.url + 'mylecture/' + operation.lecturesection_id + '" class="btn btn-info btn-purchase btn-horizontal">LEER</a>');
-            window.location.href =  global.url + 'mylecture/' + operation.lecturesection_id;
+            window.location.href = global.url + 'mylecture/' + operation.lecturesection_id;
         } else {
             console.log('Error: ' + data.error);
         }
@@ -67,7 +67,7 @@ var operation = {
     /**
      * Metodo para recuperar un Objeto de localStorage
      * @param String key
-     * @returns Object 
+     * @returns Object
      */
     getLSO: function(key) {
         var r = null;
@@ -89,7 +89,7 @@ var operation = {
     /**
      * Metodo para recuperar un string de localStorage
      * @param String key
-     * @returns Object 
+     * @returns Object
      */
     getLS: function(key) {
         return window.localStorage.getItem(key);
@@ -102,14 +102,14 @@ var operation = {
     },
     /**
      * Metodo para consrvar los valores de local storage
-     * @param StorageEvent e 
+     * @param StorageEvent e
      */
     storageValue: function(e) {
         window.localStorage.setItem(e.key, e.oldValue);
     },
     /**
      * Verifica se localStorage est habilitado
-     * @returns Boolean 
+     * @returns Boolean
      */
     checkLS: function() {
 //        window.removeEventListener('storage', operation.storageValue);
@@ -128,7 +128,7 @@ var operation = {
             }
             return true;
         } catch (e) {
-            alert('El navegador no es compatible con esta aplicación. \nPor favor habilite LocalStorage.\n\n' + e);
+            //alert('El navegador no es compatible con esta aplicación. \nPor favor habilite LocalStorage.\n\n' + e);
             return false;
         }
     },
@@ -136,53 +136,44 @@ var operation = {
     k: "",
     s: "",
     lsid: "",
-    start: function() {
-        var s = operation.s;
-        var leaf = {};
-        //leaf[s.m] = {k: s.n, i: s.m, t: 120};
-        leaf[s.m] = {k: s.n, i: s.m, t: (120*6)};
-        operation.setLSO('leaf', leaf);
+    lsoLeaf: "lf",
+    /**
+     * @returns Number UTC timestamp in seconds
+     */
+    getnow: function() {
+        return Math.floor(Date.now() / 1000);
     },
-    beat: function() {
-        //console.time('beat');
-        try {
-            var leaf = operation.getLSO('leaf');
-            //leaf[operation.j].t = leaf[operation.j].t + 10;
-            leaf[operation.j].t = leaf[operation.j].t + (10*6);
-            window.localStorage.setItem('leaf', JSON.stringify(leaf));
-        } catch (e) {
-            operation.trackLecture(operation.j, operation.k, operation.lsid, operation.s);
-        }
-        //console.timeEnd('beat');
-    },
+    /*
+     * Metodo para enviar al servidor la cantidad de tiempo que el usuario a estado en la lectura
+     */
     track: function() {
-        var leaf = operation.getLSO('leaf');
-        var j = operation.j;
+        var leaf = operation.getLSO(operation.lsoLeaf);
         $.ajax({
-            data: leaf[j],
+            data: leaf[operation.k],
             type: "POST",
             dataType: "json",
-            url: global.url + "/leaf",
+            url: global.url + "leaf",
             success: function(data) {
-                if (data.valid) {
-                    try {
-                        leaf = operation.getLSO('leaf');
-                        leaf[j].t = 0;
-                        window.localStorage.setItem('leaf', JSON.stringify(leaf));
-                    } catch (e) {
-                    }
-                }
+                var leaf = operation.getLSO(operation.lsoLeaf);
+                leaf[operation.k].t = leaf[operation.k].u;
+                leaf[operation.k].u = operation.getnow();
+                operation.setLSO(operation.lsoLeaf, leaf);
             },
             error: function(e, a, b) {
-                //error si se pierde conexion con el servidor
+                var leaf = operation.getLSO(operation.lsoLeaf);
+                leaf[operation.k].u = operation.getnow();
+                operation.setLSO(operation.lsoLeaf, leaf);
+                console.log(e);
+                console.log(a);
+                console.log(b);
             }
         });
     },
     /**
      * Metodo para iniciar el proceso de seguimiento de tiempo de la lectura
      * @param String lsid id de la lectura
-     * @param String j key dentro del objeto de localstorage
-     * @param String k llave de lectura
+     * @param String k key dentro del objeto de localstorage
+     * @param String j llave de lectura
      */
     trackLecture: function(j, k, lsid, s) {
         this.j = j;
@@ -190,28 +181,17 @@ var operation = {
         this.lsid = lsid;
         this.s = s;
         //se verifica si ya se inicio proceso
-        var leaf = operation.getLS('leaf');
-        if (leaf === null || leaf === "null" || leaf === "") {
+        var leaf = operation.getLS(operation.lsoLeaf);
+        if (leaf === undefined || leaf === null || leaf === "null" || leaf === "") {
             //como no existe se crea el primer objeto
-//            operation.start();
+            leaf = {};
         } else {
-            leaf = operation.getLSO('leaf');
-            try {
-                if (leaf[s.m].i !== s.m) {
-                    operation.start();
-                }
-            } catch (e) {
-                operation.start();
-            }
+            leaf = operation.getLSO(operation.lsoLeaf);
+            operation.track();
         }
-        leaf = operation.getLSO('leaf');
-        leaf[j] = {i: lsid, k: k, t: 0};
-//        operation.setLSO('leaf', leaf);
-        //modalidad prestamo Sand
-//        //setInterval(operation.beat, 9800);
-//        //setInterval(operation.track, 61000);
-//        setInterval(operation.beat, (9800*6));
-//        setInterval(operation.track, (61000*6));
+        leaf[this.k] = {k: this.k, j: this.j, i: this.lsid, t: operation.getnow(), u: operation.getnow()};
+        operation.setLSO(operation.lsoLeaf, leaf);
+        setInterval(operation.track, (60000));
     }
 
 }

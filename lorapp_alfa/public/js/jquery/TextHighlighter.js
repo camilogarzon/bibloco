@@ -952,6 +952,9 @@
         span.className = options.highlightedClass;
         return span;
     };
+    TextHighlighter.prototype.dom = function (el){
+        return dom(el);
+    };
 
     global.TextHighlighter = TextHighlighter;
 })(window);
